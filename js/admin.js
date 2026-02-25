@@ -71,8 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(url, {
                 headers: {
                     'Authorization': `token ${ghConfig.token}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Cache-Control': 'no-cache'
+                    'Accept': 'application/vnd.github.v3+json'
                 },
                 cache: 'no-store'
             });
