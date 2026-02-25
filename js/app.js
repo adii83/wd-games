@@ -477,6 +477,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const selectedArr = Array.from(selectedGames).map(index => gamesData[index]).filter(Boolean);
         const totalSize = totalUsedGB;
 
+        function stripVersionSuffix(title) {
+            if (!title) return '';
+            let t = String(title).trim();
+            // Remove trailing version-like parentheses only (e.g. (v2.31), (Build 1491.50), (B_20231875 + Co-op))
+            const versionSuffixRe = /\s*\((?:\s*(?:v\s*\d|build\b|Build\b|B_\d|b_\d)[^)]*)\)\s*$/;
+            while (versionSuffixRe.test(t)) {
+                t = t.replace(versionSuffixRe, '').trim();
+            }
+            return t;
+        }
+
         if (selectedArr.length === 0) {
             return `Daftar Game Pesanan\n\n(Belum ada game yang dipilih)`;
         }
@@ -487,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         selectedArr.forEach((game, i) => {
             const title = (game && game.title) ? game.title : 'Untitled';
-            lines.push(`${i + 1}. ${title}`);
+            lines.push(`${i + 1}. ${stripVersionSuffix(title)}`);
         });
 
         lines.push('');
