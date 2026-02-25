@@ -6,6 +6,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  padding-top: 0;
 }
 
 .admin-login-container {

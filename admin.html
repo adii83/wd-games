@@ -189,6 +189,7 @@
         </div>
         <div class="table-container">
           <table class="export-table admin-table" style="min-width: 800px">
+            <!-- (Table Header remains the same) -->
             <thead>
               <tr>
                 <th width="5%">No</th>
@@ -202,6 +203,21 @@
               <!-- Data injected here -->
             </tbody>
           </table>
+        </div>
+        <div style="text-align: center; margin-top: 20px">
+          <button
+            id="admin-load-more"
+            class="custom-select"
+            style="
+              display: none;
+              padding: 10px 30px;
+              border: 1px solid var(--accent);
+              color: var(--accent);
+              background: rgba(0, 210, 255, 0.05);
+            "
+          >
+            Load More (50)
+          </button>
         </div>
       </main>
     </div>

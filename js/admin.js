@@ -43,6 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let gamesData = [];
     let displayedGamesData = [];
     
+    // Pagination Variables
+    let currentPage = 1;
+    const itemsPerPage = 50;
+    
     // --- Initialization ---
     ownerInput.value = ghConfig.owner;
     repoInput.value = ghConfig.repo;
@@ -213,16 +217,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Data Rendering ---
-    function renderAdminTable() {
-        adminTableBody.innerHTML = '';
+    function renderAdminTable(append = false) {
         totalDbCount.innerText = displayedGamesData.length;
+
+        if (!append) {
+            adminTableBody.innerHTML = '';
+            currentPage = 1;
+        }
 
         if (displayedGamesData.length === 0) {
             adminTableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px;">Data tidak ditemukan.</td></tr>`;
+            document.getElementById('admin-load-more').style.display = 'none';
             return;
         }
 
-        displayedGamesData.forEach((game, displayIndex) => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const pageData = displayedGamesData.slice(startIndex, endIndex);
+
+        pageData.forEach((game) => {
             const originalIndex = gamesData.indexOf(game);
             const sizeStr = game.game_info && game.game_info['Game Size'] ? game.game_info['Game Size'] : 'N/A';
             const tr = document.createElement('tr');
@@ -242,13 +255,35 @@ document.addEventListener('DOMContentLoaded', () => {
             adminTableBody.appendChild(tr);
         });
 
+        // Re-attach event listeners for dynamic buttons
+        document.querySelectorAll('.btn-edit').forEach(btn => {
+            // Remove previous listener to prevent duplicates if appending
+            btn.replaceWith(btn.cloneNode(true));
+        });
+        document.querySelectorAll('.btn-del').forEach(btn => {
+            btn.replaceWith(btn.cloneNode(true));
+        });
+
         document.querySelectorAll('.btn-edit').forEach(btn => {
             btn.addEventListener('click', (e) => openGameModal(parseInt(e.target.getAttribute('data-index'))));
         });
         document.querySelectorAll('.btn-del').forEach(btn => {
             btn.addEventListener('click', (e) => deleteGame(parseInt(e.target.getAttribute('data-index'))));
         });
+
+        // Handle Load More visibility
+        const loadMoreBtn = document.getElementById('admin-load-more');
+        if (endIndex < displayedGamesData.length) {
+            loadMoreBtn.style.display = 'inline-block';
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
     }
+
+    document.getElementById('admin-load-more').addEventListener('click', () => {
+        currentPage++;
+        renderAdminTable(true);
+    });
 
     // --- Search ---
     searchInput.addEventListener('input', (e) => {
