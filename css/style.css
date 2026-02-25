@@ -35,10 +35,23 @@
 
 body {
   background-color: var(--bg-dark);
+  /* Background image + dark overlay (place the image at: assets/background.png) */
+  background-image: linear-gradient(var(--overlay), var(--overlay)), url("../assets/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.5;
   overflow-x: hidden;
   padding-top: 150px; /* Space for fixed sticky header */
+}
+
+@media (max-width: 768px) {
+  body {
+    /* Better mobile performance */
+    background-attachment: scroll;
+  }
 }
 
 /* --- Planner Sticky Header --- */
