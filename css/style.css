@@ -694,3 +694,153 @@ body {
 .toast-success svg {
   color: var(--accent);
 }
+
+/* --- Floating Selected Games Widget (AssistiveTouch-like) --- */
+.assistive-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 300;
+}
+
+.assistive-btn {
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.assistive-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.assistive-btn-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.assistive-btn-count {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.assistive-panel {
+  position: absolute;
+  right: 0;
+  bottom: 74px;
+  width: min(360px, calc(100vw - 36px));
+  background: var(--bg-sheet);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.65);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.assistive-panel.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.assistive-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(255,255,255,0.02);
+}
+
+.assistive-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 0;
+}
+
+.assistive-list {
+  max-height: 48vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.assistive-empty {
+  padding: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.assistive-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+}
+
+.assistive-item-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+.assistive-item-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.assistive-remove {
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  background: rgba(255, 71, 87, 0.08);
+  padding: 6px 10px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .assistive-btn {
+    width: 56px;
+    height: 56px;
+  }
+  .assistive-panel {
+    bottom: 68px;
+  }
+  .assistive-item-title {
+    max-width: 170px;
+  }
+}

@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportTotalSize = document.getElementById('export-total-size');
     const downloadImgBtn = document.getElementById('download-img-btn');
     const exportCaptureArea = document.getElementById('export-capture-area');
+
+    // Floating Selected Games Widget
+    const selectedWidget = document.getElementById('selected-widget');
+    const selectedWidgetBtn = document.getElementById('selected-widget-btn');
+    const selectedWidgetPanel = document.getElementById('selected-widget-panel');
+    const selectedWidgetClose = document.getElementById('selected-widget-close');
+    const selectedWidgetList = document.getElementById('selected-widget-list');
+    const selectedWidgetCount = document.getElementById('selected-widget-count');
     
     // State Tracker
     let gamesData = [];
@@ -36,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Pagination parameters
     let itemsPerPage = 50;
     let currentPage = 1;
+
+    // Widget state
+    let widgetOpen = false;
 
     // Load More Button
     const loadMoreBtn = document.getElementById('load-more-btn');
@@ -64,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayedGamesData = gamesData;
 
             renderGrid(true);
+            updateStorageUI();
         } catch (error) {
             console.error(error);
             grid.innerHTML = `<div class="loading-state text-accent">Error: Data game tidak ditemukan. Pastikan steamrip_games.json berada di folder yang sama.</div>`;
@@ -98,6 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
         storageRemainingEl.innerText = `${remaining.toFixed(1)} GB`;
         selectedCountEl.innerText = selectedGames.size;
 
+        // Update floating widget counter + list
+        if (selectedWidgetCount) {
+            selectedWidgetCount.innerText = selectedGames.size;
+        }
+        renderSelectedWidget();
+
         // Progress bar width
         let percentage = (totalUsedGB / currentHddCapacity) * 100;
         if (percentage > 100) percentage = 100;
@@ -116,6 +134,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function setWidgetOpen(open) {
+        widgetOpen = open;
+        if (!selectedWidgetPanel) return;
+        selectedWidgetPanel.classList.toggle('open', open);
+    }
+
+    function toggleWidget() {
+        setWidgetOpen(!widgetOpen);
+    }
+
+    function renderSelectedWidget() {
+        if (!selectedWidgetList) return;
+
+        selectedWidgetList.innerHTML = '';
+        const selectedIndices = Array.from(selectedGames);
+
+        if (selectedIndices.length === 0) {
+            const emptyEl = document.createElement('div');
+            emptyEl.className = 'assistive-empty';
+            emptyEl.textContent = 'Belum ada game yang dipilih.';
+            selectedWidgetList.appendChild(emptyEl);
+            return;
+        }
+
+        selectedIndices.forEach((index) => {
+            const game = gamesData[index];
+            if (!game) return;
+
+            const item = document.createElement('div');
+            item.className = 'assistive-item';
+
+            const left = document.createElement('div');
+            left.style.display = 'flex';
+            left.style.flexDirection = 'column';
+            left.style.gap = '2px';
+
+            const titleEl = document.createElement('div');
+            titleEl.className = 'assistive-item-title';
+            titleEl.textContent = game.title || 'Untitled';
+
+            const metaEl = document.createElement('div');
+            metaEl.className = 'assistive-item-meta';
+            const sizeStr = game.game_info ? (game.game_info['Game Size'] || 'N/A') : 'N/A';
+            metaEl.textContent = sizeStr;
+
+            left.appendChild(titleEl);
+            left.appendChild(metaEl);
+
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'assistive-remove';
+            removeBtn.dataset.index = String(index);
+            removeBtn.textContent = 'Remove';
+
+            item.appendChild(left);
+            item.appendChild(removeBtn);
+            selectedWidgetList.appendChild(item);
+        });
+    }
+
     // --- Custom Dropdown Logic ---
     hddDropdown.addEventListener('click', (e) => {
         // Toggle dropdown open/close
@@ -128,6 +206,56 @@ document.addEventListener('DOMContentLoaded', () => {
             hddDropdown.classList.remove('open');
         }
     });
+
+    // --- Selected Widget Logic ---
+    if (selectedWidgetBtn && selectedWidgetPanel) {
+        selectedWidgetBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleWidget();
+        });
+    }
+
+    if (selectedWidgetClose) {
+        selectedWidgetClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setWidgetOpen(false);
+        });
+    }
+
+    // Click outside closes widget
+    document.addEventListener('click', (e) => {
+        if (!widgetOpen) return;
+        if (selectedWidget && !selectedWidget.contains(e.target)) {
+            setWidgetOpen(false);
+        }
+    });
+
+    // ESC closes widget
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && widgetOpen) {
+            setWidgetOpen(false);
+        }
+    });
+
+    // Remove selected game via widget list (event delegation)
+    if (selectedWidgetList) {
+        selectedWidgetList.addEventListener('click', (e) => {
+            const btn = e.target.closest('.assistive-remove');
+            if (!btn) return;
+            const idx = parseInt(btn.dataset.index);
+            if (Number.isNaN(idx)) return;
+
+            selectedGames.delete(idx);
+
+            // If the card is currently rendered, update its UI too
+            const card = grid.querySelector(`.game-card[data-index="${idx}"]`);
+            if (card) {
+                card.classList.remove('selected');
+            }
+
+            updateStorageUI();
+        });
+    }
 
     hddItems.forEach(item => {
         item.addEventListener('click', (e) => {

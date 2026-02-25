@@ -375,7 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return; 
         }
 
+        const existingGame = idx >= 0 ? gamesData[idx] : null;
         const newGameObject = {
+            ...(existingGame && typeof existingGame === 'object' ? existingGame : {}),
             title: title,
             banner_url: banner,
             system_requirements: Object.keys(reqsObj).length > 0 ? reqsObj : null,

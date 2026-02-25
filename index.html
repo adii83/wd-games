@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WD Games - Perencana Penyimpanan</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -144,7 +143,6 @@
           </div>
         </div>
       </div>
-      </div>
     </div>
 
     <!-- Center Modal for Export -->
@@ -189,6 +187,39 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Floating Selected Games Widget (AssistiveTouch-like) -->
+    <div id="selected-widget" class="assistive-widget" aria-live="polite">
+      <button
+        id="selected-widget-btn"
+        class="assistive-btn"
+        type="button"
+        aria-label="Lihat daftar game terpilih"
+      >
+        <span class="assistive-btn-label">List</span>
+        <span id="selected-widget-count" class="assistive-btn-count">0</span>
+      </button>
+
+      <div
+        id="selected-widget-panel"
+        class="assistive-panel"
+        role="dialog"
+        aria-label="Daftar game terpilih"
+      >
+        <div class="assistive-panel-header">
+          <div style="font-weight: 800;">Game Terpilih</div>
+          <button
+            id="selected-widget-close"
+            class="assistive-close"
+            type="button"
+            aria-label="Tutup daftar"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="selected-widget-list" class="assistive-list"></div>
       </div>
     </div>
 
