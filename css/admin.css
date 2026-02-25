@@ -1,0 +1,143 @@
+/* admin.css - Styles Specific to the Admin Panel */
+
+.admin-body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-box {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-main {
+  padding: 20px 40px;
+  flex: 1;
+}
+
+.admin-table th, .admin-table td {
+  vertical-align: middle;
+}
+
+.game-thumb {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.btn-blue {
+  background: rgba(0, 210, 255, 0.1);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn-green {
+  background: rgba(46, 213, 115, 0.1);
+  color: #2ed573;
+  border: 1px solid #2ed573;
+}
+
+.btn-danger {
+  background: rgba(255, 71, 87, 0.1);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.action-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  background: transparent;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-edit { background: rgba(0, 210, 255, 0.2); color: var(--accent); border: 1px solid var(--accent); }
+.btn-del { background: rgba(255, 71, 87, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+  }
+  .admin-main {
+    padding: 10px 20px;
+  }
+}

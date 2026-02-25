@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WD Games - Perencana Penyimpanan</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- html2canvas for capturing table as image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header & Storage Planner -->
+    <header class="planner-header">
+      <div class="planner-container">
+        <div class="planner-top">
+          <h1 class="logo">WD <span>Games</span></h1>
+
+          <!-- Custom Elegant Dropdown -->
+          <div class="elegant-dropdown" id="hdd-dropdown">
+            <div class="dropdown-selected" id="dropdown-selected-text">
+              <span class="hdd-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 12H2" />
+                  <path
+                    d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                  />
+                  <line x1="6" y1="16" x2="6.01" y2="16" />
+                  <line x1="10" y1="16" x2="10.01" y2="16" />
+                </svg>
+              </span>
+              <span>500 GB</span>
+              <svg
+                class="chevron"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <ul class="dropdown-list">
+              <li class="dropdown-item" data-value="320">320 GB</li>
+              <li class="dropdown-item active" data-value="500">500 GB</li>
+              <li class="dropdown-item" data-value="1000">1 TB</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="storage-info">
+          <div class="storage-text">
+            <span id="storage-used">0 GB</span> /
+            <span id="storage-total">500 GB</span> Terpakai
+          </div>
+          <div class="storage-text-right">
+            Sisa: <span id="storage-remaining" class="text-accent">500 GB</span>
+          </div>
+        </div>
+
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content: Game Grid -->
+    <main class="main-content">
+      <!-- Search and Filter (Optional future feature, keeping structural space) -->
+      <div class="controls">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Cari game..."
+          class="search-input"
+        />
+        <div class="stats" style="display: flex; align-items: center; gap: 15px;">
+          <span>Game Terpilih: <strong id="selected-count" class="text-accent">0</strong></span>
+          <button id="export-btn" class="custom-select" style="padding: 6px 16px; background: var(--accent-gradient); color: #000; border: none;">Ekspor List</button>
+        </div>
+      </div>
+
+      <!-- The Grid -->
+      <div id="game-grid" class="game-grid">
+        <!-- Game Cards will be injected here by JS -->
+        <!-- Placeholder for loading state -->
+        <div class="loading-state">Memuat data game...</div>
+      </div>
+
+      <!-- Load More Button -->
+      <div
+        class="load-more-container"
+        style="text-align: center; margin-top: 30px"
+      >
+        <button
+          id="load-more-btn"
+          class="custom-select"
+          style="padding: 12px 30px; display: none"
+        >
+          Load More
+        </button>
+      </div>
+    </main>
+
+    <!-- Bottom Sheet Modal for Info -->
+    <div id="info-modal" class="modal-overlay">
+      <div class="bottom-sheet">
+        <div class="sheet-header">
+          <h2 id="modal-title">Judul Game</h2>
+          <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <div class="sheet-content">
+          <div class="info-section">
+            <h3>Spesifikasi Minimum</h3>
+            <ul id="modal-reqs" class="req-list">
+              <!-- Reqs injected here -->
+            </ul>
+          </div>
+          <div class="info-section">
+            <h3>Informasi Game</h3>
+            <ul id="modal-info" class="info-list">
+              <!-- Info injected here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Center Modal for Export -->
+    <div id="export-modal" class="modal-overlay">
+      <div class="center-modal">
+        <div class="sheet-header">
+          <h2>Daftar Game Pesanan</h2>
+          <button id="close-export-modal" class="close-btn">&times;</button>
+        </div>
+        <div class="sheet-content">
+          <div class="export-instructions text-accent" style="margin-bottom: 20px; text-align: center; font-weight: 600; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <span>Silahkan download tabel ini dan kirimkan ke admin shopee</span>
+            <button id="download-img-btn" class="custom-select" style="padding: 8px 20px; background: rgba(0, 210, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); display: flex; align-items: center; gap: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download Gambar
+            </button>
+          </div>
+          
+          <div id="export-capture-area" class="table-container" style="padding: 15px; background-color: var(--bg-card);">
+            <table class="export-table">
+              <thead>
+                <tr>
+                  <th width="10%">No</th>
+                  <th width="70%">Judul Game</th>
+                  <th width="20%">Size</th>
+                </tr>
+              </thead>
+              <tbody id="export-table-body">
+                <!-- Rows injected here -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="2" style="text-align: right;">Total Size:</th>
+                  <th id="export-total-size">0 GB</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - WD Games</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/admin.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="admin-body">
+    <!-- Login Overlay -->
+    <div id="login-container" class="admin-login-container">
+      <div class="login-box">
+        <h2>GitHub Admin Login</h2>
+        <p class="text-secondary" style="margin-bottom: 20px">
+          Masukkan detail kredensial repositori GitHub Anda untuk mengelola
+          database JSON.
+        </p>
+
+        <div class="input-group">
+          <label>GitHub Username (Owner)</label>
+          <input
+            type="text"
+            id="gh-owner"
+            class="admin-input"
+            placeholder="Misal: usernameku"
+          />
+        </div>
+        <div class="input-group">
+          <label>Repository Name</label>
+          <input
+            type="text"
+            id="gh-repo"
+            class="admin-input"
+            placeholder="Misal: wd_games"
+          />
+        </div>
+        <div class="input-group">
+          <label>Personal Access Token (PAT)</label>
+          <input
+            type="password"
+            id="gh-token"
+            class="admin-input"
+            placeholder="ghp_xxxxxxxxxxxx"
+          />
+        </div>
+        <button
+          id="login-btn"
+          class="custom-select"
+          style="
+            width: 100%;
+            border: none;
+            background: var(--accent-gradient);
+            color: #000;
+            margin-top: 10px;
+            padding: 12px;
+          "
+        >
+          Connect & Load Database
+        </button>
+        <div
+          id="login-error"
+          style="
+            color: var(--danger);
+            margin-top: 15px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+          "
+        ></div>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard-container" class="admin-dashboard" style="display: none">
+      <header class="admin-header">
+        <div class="header-left">
+          <h2>WD Games <span class="text-accent">Admin Mode</span></h2>
+          <div
+            id="repo-info"
+            class="text-secondary"
+            style="font-size: 0.9rem; margin-top: 5px"
+          ></div>
+        </div>
+        <div
+          class="header-right"
+          style="display: flex; gap: 10px; flex-wrap: wrap"
+        >
+          <button
+            id="add-game-btn"
+            class="custom-select btn-blue"
+            style="border: none; padding: 8px 16px"
+          >
+            + Tambah Game
+          </button>
+          <button
+            id="save-github-btn"
+            class="custom-select btn-green"
+            style="
+              border: none;
+              padding: 8px 16px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            "
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+              ></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            Simpan ke GitHub
+          </button>
+          <button
+            id="logout-btn"
+            class="custom-select"
+            style="
+              border: 1px solid var(--danger);
+              color: var(--danger);
+              background: transparent;
+              padding: 8px 16px;
+            "
+          >
+            Keluar
+          </button>
+        </div>
+      </header>
+
+      <main class="admin-main">
+        <div class="controls" style="margin-bottom: 20px">
+          <input
+            type="text"
+            id="admin-search"
+            placeholder="Cari judul game di database..."
+            class="search-input"
+            style="max-width: 400px"
+          />
+          <div class="stats text-secondary">
+            Total Database:
+            <strong id="total-db-count" class="text-accent">0</strong> Game
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="export-table admin-table" style="min-width: 800px">
+            <thead>
+              <tr>
+                <th width="5%">No</th>
+                <th width="40%">Judul Game</th>
+                <th width="15%">Gambar</th>
+                <th width="15%">Size (Deteksi)</th>
+                <th width="25%">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body">
+              <!-- Data injected here -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <!-- Game Form Modal -->
+    <div id="game-modal" class="modal-overlay">
+      <div class="center-modal" style="max-width: 700px; width: 90%">
+        <div class="sheet-header">
+          <h2 id="form-modal-title">Form Data Game</h2>
+          <button id="close-form-btn" class="close-btn">&times;</button>
+        </div>
+        <div
+          class="sheet-content"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 70vh;
+            overflow-y: auto;
+          "
+        >
+          <input type="hidden" id="form-index" value="-1" />
+
+          <div class="input-group">
+            <label
+              class="text-secondary"
+              style="font-weight: 600; margin-bottom: 5px; display: block"
+              >Judul Game</label
+            >
+            <input type="text" id="form-title" class="admin-input" required />
+          </div>
+
+          <div class="input-group">
+            <label
+              class="text-secondary"
+              style="font-weight: 600; margin-bottom: 5px; display: block"
+              >Banner URL (Link Gambar)</label
+            >
+            <input type="text" id="form-banner" class="admin-input" required />
+            <img
+              id="form-banner-preview"
+              src=""
+              style="
+                max-width: 150px;
+                margin-top: 10px;
+                border-radius: 8px;
+                display: none;
+              "
+            />
+          </div>
+
+          <div class="input-group">
+            <label
+              class="text-secondary"
+              style="font-weight: 600; margin-bottom: 5px; display: block"
+              >System Requirements (Format JSON)</label
+            >
+            <textarea
+              id="form-reqs"
+              class="admin-input"
+              rows="5"
+              placeholder='Contoh:&#10;{&#10;  "OS": "Windows 10",&#10;  "Processor": "Intel i5",&#10;  "Memory": "8 GB RAM"&#10;}'
+              style="font-family: monospace"
+            ></textarea>
+            <small class="text-danger" id="reqs-error" style="display: none"
+              >Format JSON tidak valid!</small
+            >
+          </div>
+
+          <div class="input-group">
+            <label
+              class="text-secondary"
+              style="font-weight: 600; margin-bottom: 5px; display: block"
+              >Game Info (Format JSON)
+              <span class="text-accent"
+                >*Harus memuat 'Game Size' untuk dideteksi</span
+              ></label
+            >
+            <textarea
+              id="form-info"
+              class="admin-input"
+              rows="5"
+              placeholder='Contoh:&#10;{&#10;  "Genre": "Action",&#10;  "Game Size": "50 GB"&#10;}'
+              style="font-family: monospace"
+            ></textarea>
+            <small class="text-danger" id="info-error" style="display: none"
+              >Format JSON tidak valid!</small
+            >
+          </div>
+
+          <button
+            id="save-game-btn"
+            class="custom-select"
+            style="
+              background: var(--accent-gradient);
+              color: #000;
+              border: none;
+              margin-top: 15px;
+              padding: 12px;
+              font-weight: 800;
+            "
+          >
+            Simpan Perubahan (Tersimpan Secara Lokal)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>
