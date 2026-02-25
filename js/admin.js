@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ownerInput = document.getElementById('gh-owner');
     const repoInput = document.getElementById('gh-repo');
     const tokenInput = document.getElementById('gh-token');
+    const rememberCheckbox = document.getElementById('remember-gh');
     const loginBtn = document.getElementById('login-btn');
     const loginError = document.getElementById('login-error');
 
@@ -162,9 +163,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const success = await fetchGitHubData();
 
         if (success) {
-            localStorage.setItem('gh_owner', ghConfig.owner);
-            localStorage.setItem('gh_repo', ghConfig.repo);
-            localStorage.setItem('gh_token', ghConfig.token);
+            // Save or clear credentials based on checkbox
+            if (rememberCheckbox.checked) {
+                localStorage.setItem('gh_owner', ghConfig.owner);
+                localStorage.setItem('gh_repo', ghConfig.repo);
+                localStorage.setItem('gh_token', ghConfig.token);
+            } else {
+                localStorage.removeItem('gh_owner');
+                localStorage.removeItem('gh_repo');
+                localStorage.removeItem('gh_token');
+            }
             
             repoInfo.innerText = `Connected: ${ghConfig.owner}/${ghConfig.repo} | Branch: ${ghConfig.branch}`;
             loginContainer.style.display = 'none';
@@ -178,11 +186,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     logoutBtn.addEventListener('click', () => {
-        localStorage.removeItem('gh_token');
+        // Clear runtime config
         ghConfig.token = '';
+        ghConfig.owner = '';
+        ghConfig.repo = '';
+        
+        // Return to login
         dashboardContainer.style.display = 'none';
         loginContainer.style.display = 'flex';
-        tokenInput.value = '';
+        
+        // Visually clear token for security if not remembered, else retain UI
+        if (!rememberCheckbox.checked) {
+            tokenInput.value = '';
+            ownerInput.value = '';
+            repoInput.value = '';
+        } else {
+            tokenInput.value = ''; // Always clear token input functionally on logout for security
+        }
     });
 
     // --- Data Rendering ---
