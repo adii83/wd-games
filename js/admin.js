@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (parseErr) {
                 console.warn("Base64 decode failed, falling back to raw download URL...", parseErr);
                 // Fallback: If file is too large or base64 is malformed, fetch the raw file directly
-                const rawResponse = await fetch(data.download_url + `&t=${cacheBuster}`, { cache: 'no-store' });
+                const rawResponse = await fetch(data.download_url + `?t=${cacheBuster}`, { cache: 'no-store' });
                 if (!rawResponse.ok) throw new Error("Gagal mengambil data raw dari GitHub.");
                 gamesData = await rawResponse.json();
             }
