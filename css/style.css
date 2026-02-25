@@ -88,8 +88,16 @@ body {
   letter-spacing: -0.5px;
 }
 
-.logo span {
+.logo-wd {
   color: var(--accent);
+  text-shadow:
+    0 0 8px var(--accent),
+    0 0 18px var(--accent);
+}
+
+.logo-games {
+  color: var(--text-primary);
+  text-shadow: 0 0 6px var(--text-primary);
 }
 
 /* Custom Elegant Dropdown */
