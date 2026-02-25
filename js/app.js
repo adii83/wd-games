@@ -45,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch JSON Data
     async function loadGames() {
         try {
-            const response = await fetch('steamrip_games.json');
+            const cacheBuster = new Date().getTime();
+            const response = await fetch(`steamrip_games.json?t=${cacheBuster}`, { cache: "no-store" });
             if (!response.ok) throw new Error("Gagal mengambil data");
             
             gamesData = await response.json();

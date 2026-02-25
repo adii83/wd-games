@@ -65,13 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- GitHub API Functions ---
     async function fetchGitHubData() {
-        const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.path}?ref=${ghConfig.branch}`;
+        const cacheBuster = new Date().getTime();
+        const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.path}?ref=${ghConfig.branch}&t=${cacheBuster}`;
         try {
             const response = await fetch(url, {
                 headers: {
                     'Authorization': `token ${ghConfig.token}`,
-                    'Accept': 'application/vnd.github.v3+json'
-                }
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Cache-Control': 'no-cache'
+                },
+                cache: 'no-store'
             });
 
             if(!response.ok) {
