@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportTableBody = document.getElementById('export-table-body');
     const exportTotalSize = document.getElementById('export-total-size');
     const downloadImgBtn = document.getElementById('download-img-btn');
+    const copyTextBtn = document.getElementById('copy-text-btn');
     const exportCaptureArea = document.getElementById('export-capture-area');
 
     // Floating Selected Games Widget
@@ -472,6 +473,50 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = ''; 
     }
 
+    function buildExportText() {
+        const selectedArr = Array.from(selectedGames).map(index => gamesData[index]).filter(Boolean);
+        const totalSize = totalUsedGB;
+
+        if (selectedArr.length === 0) {
+            return `Daftar Game Pesanan\n\n(Belum ada game yang dipilih)`;
+        }
+
+        const lines = [];
+        lines.push('Daftar Game Pesanan');
+        lines.push('');
+
+        selectedArr.forEach((game, i) => {
+            const title = (game && game.title) ? game.title : 'Untitled';
+            lines.push(`${i + 1}. ${title}`);
+        });
+
+        lines.push('');
+        lines.push(`Total Size: ${totalSize.toFixed(1)} GB`);
+        return lines.join('\n');
+    }
+
+    async function copyTextToClipboard(text) {
+        // Modern Clipboard API
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            await navigator.clipboard.writeText(text);
+            return true;
+        }
+
+        // Fallback for older browsers / non-secure context
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'fixed';
+        temp.style.left = '-9999px';
+        temp.style.top = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        temp.setSelectionRange(0, temp.value.length);
+        const ok = document.execCommand('copy');
+        document.body.removeChild(temp);
+        return ok;
+    }
+
     exportBtn.addEventListener('click', openExportModal);
     closeExportModalBtn.addEventListener('click', closeExportModal);
     exportModal.addEventListener('click', (e) => {
@@ -479,6 +524,20 @@ document.addEventListener('DOMContentLoaded', () => {
             closeExportModal();
         }
     });
+
+    if (copyTextBtn) {
+        copyTextBtn.addEventListener('click', async () => {
+            try {
+                const text = buildExportText();
+                const ok = await copyTextToClipboard(text);
+                if (!ok) throw new Error('Copy gagal');
+                showToast('Teks daftar game berhasil di-copy!', 'success');
+            } catch (err) {
+                console.error('Copy text error:', err);
+                showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
+            }
+        });
+    }
 
     // --- HTML to Image Download Logic ---
     if(downloadImgBtn && exportCaptureArea) {
