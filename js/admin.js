@@ -72,8 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Authorization': `token ${ghConfig.token}`,
                     'Accept': 'application/vnd.github.v3+json'
-                },
-                cache: 'no-store'
+                }
             });
 
             if(!response.ok) {
