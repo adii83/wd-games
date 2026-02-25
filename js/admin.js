@@ -31,10 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const reqsError = document.getElementById('reqs-error');
     const infoError = document.getElementById('info-error');
 
-    // State Variables
     let ghConfig = {
         owner: localStorage.getItem('gh_owner') || '',
-        repo: localStorage.getItem('gh_repo') || '',
+        repo: localStorage.getItem('gh_repo') || 'wd-games',
         token: localStorage.getItem('gh_token') || '',
         path: 'steamrip_games.json',
         branch: 'main' // default branch
