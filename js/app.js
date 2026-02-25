@@ -358,11 +358,27 @@ document.addEventListener('DOMContentLoaded', () => {
             downloadImgBtn.innerHTML = 'Memproses...';
             downloadImgBtn.disabled = true;
 
+            // Force desktop layout for high quality export
+            const originalWidth = exportCaptureArea.style.width;
+            const originalMaxWidth = exportCaptureArea.style.maxWidth;
+            const originalOverflow = exportCaptureArea.style.overflowX;
+            
+            // Apply fixed width to prevent text squishing on mobile
+            exportCaptureArea.style.width = '800px';
+            exportCaptureArea.style.maxWidth = '800px';
+            exportCaptureArea.style.overflowX = 'hidden';
+
             // Use html2canvas to capture the table container area
             html2canvas(exportCaptureArea, {
                 backgroundColor: '#14161c', // Match theme bg-card
-                scale: 2 // Higher resolution
+                scale: 2, // Higher resolution
+                windowWidth: 800 // Trick html2canvas into thinking the window is wider
             }).then(canvas => {
+                // Restore original styles
+                exportCaptureArea.style.width = originalWidth;
+                exportCaptureArea.style.maxWidth = originalMaxWidth;
+                exportCaptureArea.style.overflowX = originalOverflow;
+
                 // Convert canvas to image URL
                 const imgData = canvas.toDataURL('image/png');
                 
@@ -383,6 +399,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast("Gambar tabel berhasil di-download!", "success");
             }).catch(err => {
                 console.error("Error capturing image:", err);
+
+                // Restore original styles cleanly if error occurs
+                exportCaptureArea.style.width = originalWidth;
+                exportCaptureArea.style.maxWidth = originalMaxWidth;
+                exportCaptureArea.style.overflowX = originalOverflow;
+
                 downloadImgBtn.innerHTML = originalText;
                 downloadImgBtn.disabled = false;
                 showToast("Gagal men-download gambar.", "error");
