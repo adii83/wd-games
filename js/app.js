@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentHddCapacity = parseInt(document.querySelector('.dropdown-item.active').getAttribute('data-value')); 
     let totalUsedGB = 0;
     
-    // Pagination parameters
-    let itemsPerPage = 50;
+    // Pagination parameters (render all by default per catalog requirement)
+    let itemsPerPage = Number.MAX_SAFE_INTEGER;
     let currentPage = 1;
 
     // Widget state
@@ -70,6 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     game._sizeGB = 0; // fallback
                 }
+
+                // Storage planner uses estimated install size (+25%)
+                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB : 0) * 1.25;
             }); // <-- FIXED: Added missing closing bracket and parenthesis
             
             // Initially, displayed dataset is the full dataset
@@ -86,8 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Parse '118.5 GB' or '891 MB' into numeric Float (GB)
     function parseSizeToGB(sizeStr) {
         if (!sizeStr) return 0;
-        const s = sizeStr.toUpperCase();
-        const num = parseFloat(s.replace(/[^0-9.]/g, ''));
+        const s = String(sizeStr).replace(',', '.').toUpperCase();
+        const match = s.match(/\d+(?:\.\d+)?/);
+        const num = match ? parseFloat(match[0]) : NaN;
         if (isNaN(num)) return 0;
         
         if (s.includes('MB')) return num / 1024;
@@ -95,13 +99,30 @@ document.addEventListener('DOMContentLoaded', () => {
         return num; // Default GB
     }
 
+    function formatSizeGB(sizeGB) {
+        const safe = Number.isFinite(sizeGB) ? sizeGB : 0;
+        const rounded = Math.round((safe + Number.EPSILON) * 10) / 10;
+        return `${rounded.toFixed(1)} GB`;
+    }
+
+    // Requirement: detect MB/GB, convert to GB, add 25%, return "XX.X GB"
+    function calculateEstimatedSize(sizeStr) {
+        const sizeGB = parseSizeToGB(sizeStr);
+        const estimatedGB = sizeGB * 1.25;
+        return formatSizeGB(estimatedGB);
+    }
+
+    // Allow manual testing from DevTools console: calculateEstimatedSize('530 MB')
+    window.calculateEstimatedSize = calculateEstimatedSize;
+
     // Update Progress Bar & Texts
     function updateStorageUI() {
         storageTotalEl.innerText = `${currentHddCapacity} GB`;
         
         totalUsedGB = 0;
         selectedGames.forEach(index => {
-            totalUsedGB += gamesData[index]._sizeGB;
+            const g = gamesData[index];
+            totalUsedGB += g ? (Number.isFinite(g._estimatedSizeGB) ? g._estimatedSizeGB : 0) : 0;
         });
 
         const remaining = currentHddCapacity - totalUsedGB;
@@ -177,8 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const metaEl = document.createElement('div');
             metaEl.className = 'assistive-item-meta';
-            const sizeStr = game.game_info ? (game.game_info['Game Size'] || 'N/A') : 'N/A';
-            metaEl.textContent = sizeStr;
+            metaEl.textContent = formatSizeGB(Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : 0);
 
             left.appendChild(titleEl);
             left.appendChild(metaEl);
@@ -303,6 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Extract Size String for Badge
             const sizeStr = game.game_info ? game.game_info['Game Size'] : 'N/A';
+            const estimatedSizeLabel = formatSizeGB(Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : (parseSizeToGB(sizeStr) * 1.25));
             
             card.innerHTML = `
                 <img src="${game.banner_url}" alt="${game.title}" class="card-img" loading="lazy">
@@ -313,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </svg>
                 </div>
                 
-                <div class="size-badge">${sizeStr}</div>
+                <div class="size-badge">${estimatedSizeLabel}</div>
                 
                 <div class="title-overlay">
                     <div class="game-title">${game.title}</div>
@@ -442,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             selectedArr.forEach(game => {
                 const tr = document.createElement('tr');
-                const sizeStr = game.game_info ? game.game_info['Game Size'] : 'N/A';
+                const sizeStr = formatSizeGB(Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : 0);
                 
                 tr.innerHTML = `
                     <td>${counter}</td>
@@ -451,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 exportTableBody.appendChild(tr);
                 
-                totalExportSize += game._sizeGB;
+                totalExportSize += Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : 0;
                 counter++;
             });
         }

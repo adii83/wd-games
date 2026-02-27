@@ -406,6 +406,33 @@ body {
   z-index: 10;
 }
 
+.size-badge .size-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.size-badge .size-key {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.size-badge .size-val {
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.size-badge .size-val-orig {
+  color: var(--text-primary);
+}
+
+.size-badge .size-val-est {
+  color: var(--accent);
+}
+
 /* Info Icon Top Left */
 .info-btn {
   position: absolute;
