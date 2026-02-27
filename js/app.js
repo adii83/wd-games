@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentHddCapacity = parseInt(document.querySelector('.dropdown-item.active').getAttribute('data-value')); 
     let totalUsedGB = 0;
     
-    // Pagination parameters (render all by default per catalog requirement)
-    let itemsPerPage = Number.MAX_SAFE_INTEGER;
+    // Pagination parameters (keep UI responsive on large datasets)
+    let itemsPerPage = 50;
     let currentPage = 1;
 
     // Widget state
@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             gamesData = await response.json();
             
             // Clean/Parse sizes for logic
-            gamesData.forEach(game => {
+            gamesData.forEach((game, idx) => {
+                game._index = idx;
                 if (game.game_info && game.game_info['Game Size']) {
                     game._sizeGB = parseSizeToGB(game.game_info['Game Size']);
                 } else {
@@ -312,9 +313,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const fragment = document.createDocumentFragment();
+
         currentDataChunk.forEach((game) => {
             // Kita butuh index ORISINAL dari gamesData untuk tracking selection
-            const originalIndex = gamesData.indexOf(game);
+            const originalIndex = Number.isInteger(game._index) ? game._index : gamesData.indexOf(game);
             
             // Create Card Element
             const card = document.createElement('div');
@@ -343,6 +346,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="info-btn" data-index="${originalIndex}" title="Informasi Game">i</div>
             `;
 
+            // Info button listener (attach per-card to avoid global querySelectorAll work)
+            const infoBtn = card.querySelector('.info-btn');
+            if (infoBtn) {
+                infoBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openInfoModal(gamesData[originalIndex]);
+                });
+            }
+
             // Toggle Selection logic
             card.addEventListener('click', (e) => {
                 // Ignore click if they pressed the info button
@@ -363,18 +375,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.add('selected');
             }
 
-            grid.appendChild(card);
+            fragment.appendChild(card);
         });
 
-        // Add event listeners to NEW info buttons exclusively
-        // This targets recently added cards to avoid double listeners
-        const newInfoBtns = Array.from(grid.querySelectorAll('.info-btn')).slice(startIndex);
-        newInfoBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const idx = parseInt(btn.getAttribute('data-index'));
-                openInfoModal(gamesData[idx]);
-            });
-        });
+        grid.appendChild(fragment);
 
         // Show or hide the Load More button based on remaining data
         if (endIndex >= displayedGamesData.length) {
