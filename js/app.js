@@ -43,7 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalUsedGB = 0;
     
     // Pagination parameters (keep UI responsive on large datasets)
-    let itemsPerPage = 50;
+    function getItemsPerPage() {
+        // Smaller batches on phones to keep DOM light
+        if (window.matchMedia && window.matchMedia('(max-width: 480px)').matches) return 18;
+        if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) return 24;
+        return 50;
+    }
+
+    let itemsPerPage = getItemsPerPage();
     let currentPage = 1;
 
     // Widget state
@@ -301,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (reset) {
             grid.innerHTML = '';
             currentPage = 1;
+            itemsPerPage = getItemsPerPage();
         }
 
         const startIndex = (currentPage - 1) * itemsPerPage;
@@ -329,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const estimatedSizeLabel = formatSizeGB(Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : (parseSizeToGB(sizeStr) * 1.25));
             
             card.innerHTML = `
-                <img src="${game.banner_url}" alt="${game.title}" class="card-img" loading="lazy">
+                <img src="${game.banner_url}" alt="${game.title}" class="card-img" loading="lazy" decoding="async">
                 
                 <div class="selected-overlay">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -576,11 +584,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- HTML to Image Download Logic ---
+    function ensureHtml2CanvasLoaded() {
+        if (typeof window.html2canvas === 'function') return Promise.resolve();
+        return new Promise((resolve, reject) => {
+            const existing = document.querySelector('script[data-html2canvas="true"]');
+            if (existing) {
+                existing.addEventListener('load', () => resolve(), { once: true });
+                existing.addEventListener('error', () => reject(new Error('Gagal load html2canvas')), { once: true });
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+            script.async = true;
+            script.defer = true;
+            script.dataset.html2canvas = 'true';
+            script.onload = () => resolve();
+            script.onerror = () => reject(new Error('Gagal load html2canvas'));
+            document.head.appendChild(script);
+        });
+    }
+
     if(downloadImgBtn && exportCaptureArea) {
-        downloadImgBtn.addEventListener('click', () => {
+        downloadImgBtn.addEventListener('click', async () => {
             const originalText = downloadImgBtn.innerHTML;
             downloadImgBtn.innerHTML = 'Memproses...';
             downloadImgBtn.disabled = true;
+
+            try {
+                await ensureHtml2CanvasLoaded();
+            } catch (err) {
+                console.error('html2canvas load error:', err);
+                downloadImgBtn.innerHTML = originalText;
+                downloadImgBtn.disabled = false;
+                showToast('Gagal memuat fitur download gambar. Coba refresh / pakai koneksi stabil.', 'error');
+                return;
+            }
 
             // Force desktop layout for high quality export
             const originalWidth = exportCaptureArea.style.width;
@@ -593,7 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
             exportCaptureArea.style.overflowX = 'hidden';
 
             // Use html2canvas to capture the table container area
-            html2canvas(exportCaptureArea, {
+            window.html2canvas(exportCaptureArea, {
                 backgroundColor: '#14161c', // Match theme bg-card
                 scale: 2, // Higher resolution
                 windowWidth: 800 // Trick html2canvas into thinking the window is wider

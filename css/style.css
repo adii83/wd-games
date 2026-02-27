@@ -48,6 +48,19 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* Reduce expensive blur effects on mobile */
+  .planner-header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .dropdown-list {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (max-width: 768px) {
   body {
     /* Better mobile performance */
     background-attachment: scroll;
@@ -349,6 +362,13 @@ body {
     transform 0.2s ease,
     box-shadow 0.2s ease;
   border: 2px solid transparent;
+}
+
+@supports (content-visibility: auto) {
+  .game-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 400px;
+  }
 }
 
 .game-card:active {
