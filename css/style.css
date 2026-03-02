@@ -96,9 +96,25 @@ body {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.5px;
+}
+
+.logo-shopee {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 480px) {
+  .logo-shopee {
+    height: 22px;
+  }
 }
 
 .logo-wd {
@@ -294,6 +310,31 @@ body {
   margin-bottom: var(--spacing-lg);
   gap: var(--spacing-md);
   flex-wrap: wrap; /* Allows wrapping on very small screens */
+}
+
+.export-btn-wrap {
+  display: inline-flex;
+}
+
+/* When floating, keep the original slot size to avoid layout jumping */
+body.export-float .export-btn-wrap {
+  width: var(--export-btn-w, auto);
+  height: var(--export-btn-h, auto);
+}
+
+/* Floating export button pinned bottom-left */
+body.export-float #export-btn {
+  position: fixed;
+  left: var(--spacing-md);
+  bottom: var(--spacing-md);
+  z-index: 250;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  will-change: transform;
+}
+
+/* Smooth movement (FLIP uses transform) */
+#export-btn {
+  transition: transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1);
 }
 
 .search-input {

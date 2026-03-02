@@ -21,9 +21,75 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeExportModalBtn = document.getElementById('close-export-modal');
     const exportTableBody = document.getElementById('export-table-body');
     const exportTotalSize = document.getElementById('export-total-size');
-    const downloadImgBtn = document.getElementById('download-img-btn');
     const copyTextBtn = document.getElementById('copy-text-btn');
-    const exportCaptureArea = document.getElementById('export-capture-area');
+
+    // Floating Export Button behavior (move to bottom-left on scroll)
+    const controlsEl = document.querySelector('.controls');
+    let exportFloating = false;
+    let exportBtnWrap = null;
+
+    function computeExportWrapSize() {
+        if (!exportBtn || !exportBtnWrap) return;
+        const rect = exportBtn.getBoundingClientRect();
+        document.documentElement.style.setProperty('--export-btn-w', `${Math.ceil(rect.width)}px`);
+        document.documentElement.style.setProperty('--export-btn-h', `${Math.ceil(rect.height)}px`);
+    }
+
+    function flipAnimateExportButton(toggleBodyClass) {
+        if (!exportBtn) return;
+        const first = exportBtn.getBoundingClientRect();
+        toggleBodyClass();
+        // Force layout so the new position is applied
+        // eslint-disable-next-line no-unused-expressions
+        exportBtn.offsetWidth;
+        const last = exportBtn.getBoundingClientRect();
+
+        const dx = first.left - last.left;
+        const dy = first.top - last.top;
+
+        exportBtn.style.transform = `translate(${dx}px, ${dy}px)`;
+        exportBtn.getBoundingClientRect();
+        requestAnimationFrame(() => {
+            exportBtn.style.transform = 'translate(0, 0)';
+        });
+    }
+
+    function setExportFloating(shouldFloat) {
+        if (!exportBtn) return;
+        if (shouldFloat === exportFloating) return;
+
+        exportFloating = shouldFloat;
+        exportBtnWrap = exportBtnWrap || exportBtn.closest('.export-btn-wrap');
+        computeExportWrapSize();
+
+        flipAnimateExportButton(() => {
+            document.body.classList.toggle('export-float', shouldFloat);
+        });
+    }
+
+    function shouldFloatExportButton() {
+        if (!controlsEl) return false;
+        const rect = controlsEl.getBoundingClientRect();
+        // Once the controls bar is fully above the viewport, float the export button
+        return rect.bottom < 0;
+    }
+
+    function onScrollOrResize() {
+        setExportFloating(shouldFloatExportButton());
+    }
+
+    if (exportBtn) {
+        exportBtnWrap = exportBtn.closest('.export-btn-wrap');
+        // Initial sizing + state
+        computeExportWrapSize();
+        onScrollOrResize();
+
+        window.addEventListener('scroll', onScrollOrResize, { passive: true });
+        window.addEventListener('resize', () => {
+            computeExportWrapSize();
+            onScrollOrResize();
+        });
+    }
 
     // Floating Selected Games Widget
     const selectedWidget = document.getElementById('selected-widget');
@@ -580,98 +646,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Copy text error:', err);
                 showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
             }
-        });
-    }
-
-    // --- HTML to Image Download Logic ---
-    function ensureHtml2CanvasLoaded() {
-        if (typeof window.html2canvas === 'function') return Promise.resolve();
-        return new Promise((resolve, reject) => {
-            const existing = document.querySelector('script[data-html2canvas="true"]');
-            if (existing) {
-                existing.addEventListener('load', () => resolve(), { once: true });
-                existing.addEventListener('error', () => reject(new Error('Gagal load html2canvas')), { once: true });
-                return;
-            }
-
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-            script.async = true;
-            script.defer = true;
-            script.dataset.html2canvas = 'true';
-            script.onload = () => resolve();
-            script.onerror = () => reject(new Error('Gagal load html2canvas'));
-            document.head.appendChild(script);
-        });
-    }
-
-    if(downloadImgBtn && exportCaptureArea) {
-        downloadImgBtn.addEventListener('click', async () => {
-            const originalText = downloadImgBtn.innerHTML;
-            downloadImgBtn.innerHTML = 'Memproses...';
-            downloadImgBtn.disabled = true;
-
-            try {
-                await ensureHtml2CanvasLoaded();
-            } catch (err) {
-                console.error('html2canvas load error:', err);
-                downloadImgBtn.innerHTML = originalText;
-                downloadImgBtn.disabled = false;
-                showToast('Gagal memuat fitur download gambar. Coba refresh / pakai koneksi stabil.', 'error');
-                return;
-            }
-
-            // Force desktop layout for high quality export
-            const originalWidth = exportCaptureArea.style.width;
-            const originalMaxWidth = exportCaptureArea.style.maxWidth;
-            const originalOverflow = exportCaptureArea.style.overflowX;
-            
-            // Apply fixed width to prevent text squishing on mobile
-            exportCaptureArea.style.width = '800px';
-            exportCaptureArea.style.maxWidth = '800px';
-            exportCaptureArea.style.overflowX = 'hidden';
-
-            // Use html2canvas to capture the table container area
-            window.html2canvas(exportCaptureArea, {
-                backgroundColor: '#14161c', // Match theme bg-card
-                scale: 2, // Higher resolution
-                windowWidth: 800 // Trick html2canvas into thinking the window is wider
-            }).then(canvas => {
-                // Restore original styles
-                exportCaptureArea.style.width = originalWidth;
-                exportCaptureArea.style.maxWidth = originalMaxWidth;
-                exportCaptureArea.style.overflowX = originalOverflow;
-
-                // Convert canvas to image URL
-                const imgData = canvas.toDataURL('image/png');
-                
-                // Create a temporary link element
-                const link = document.createElement('a');
-                link.download = `WD-Games-Pesanan-${new Date().getTime()}.png`;
-                link.href = imgData;
-                
-                // Trigger download
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-
-                // Reset button state
-                downloadImgBtn.innerHTML = originalText;
-                downloadImgBtn.disabled = false;
-                
-                showToast("Gambar tabel berhasil di-download!", "success");
-            }).catch(err => {
-                console.error("Error capturing image:", err);
-
-                // Restore original styles cleanly if error occurs
-                exportCaptureArea.style.width = originalWidth;
-                exportCaptureArea.style.maxWidth = originalMaxWidth;
-                exportCaptureArea.style.overflowX = originalOverflow;
-
-                downloadImgBtn.innerHTML = originalText;
-                downloadImgBtn.disabled = false;
-                showToast("Gagal men-download gambar.", "error");
-            });
         });
     }
 
