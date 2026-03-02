@@ -1,5 +1,5 @@
 {
-  "last_index": 3935,
+  "last_index": 0,
   "banners_by_url": {
     "https://romsfun.com/roms/playstation-2/f1-racing-championship-2.html": "http://romsfun.com/wp-content/uploads/2023/05/F1-Racing-Championship.jpg",
     "https://romsfun.com/roms/playstation-2/air-4.html": "https://romsfun.com/wp-content/uploads/2023/08/Air.jpg",
@@ -3932,5 +3932,10 @@
     "https://romsfun.com/roms/playstation-2/mahjong-gokuu-taisei.html": "https://romsfun.com/wp-content/uploads/2023/08/Mahjong-Gokuu-Taisei.jpg",
     "https://romsfun.com/roms/playstation-2/lets-bravo-music.html": "https://romsfun.com/wp-content/uploads/2024/06/Lets-Bravo-Music.jpg",
     "https://romsfun.com/roms/playstation-2/getbackers-dakkanya-ubawareta-mugenjou.html": "https://romsfun.com/wp-content/uploads/2024/06/GetBackers-Dakkanya-Ubawareta-Mugenjou.jpg"
-  }
+  },
+  "downloads_by_url": {
+    "https://romsfun.com/roms/playstation-2/sonic-unleashed-3.html": 31344
+  },
+  "ratings_by_url": {},
+  "reviews_by_url": {}
 }

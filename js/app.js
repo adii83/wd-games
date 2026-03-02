@@ -150,6 +150,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const pcGames = pcRes.ok ? await pcRes.json() : [];
             const ps2Games = ps2Res.ok ? await ps2Res.json() : [];
 
+            // If ps2.json includes a "Popularity Rank" (from ROMSFUN popular list), sort by it.
+            // Otherwise, keep the JSON file order as-is.
+            function getPopularityRank(game) {
+                const val = game && game.game_info ? game.game_info['Popularity Rank'] : null;
+                const n = Number(val);
+                return Number.isFinite(n) ? n : 0;
+            }
+            const hasPopularityRank = ps2Games.some(g => getPopularityRank(g) > 0);
+            if (hasPopularityRank) {
+                ps2Games.sort((a, b) => {
+                    const ra = getPopularityRank(a);
+                    const rb = getPopularityRank(b);
+                    if (ra !== rb) {
+                        if (ra === 0) return 1;
+                        if (rb === 0) return -1;
+                        return ra - rb;
+                    }
+                    return String(a && a.title ? a.title : '').localeCompare(String(b && b.title ? b.title : ''), 'id');
+                });
+            }
+
             // Merge datasets and add category labels
             gamesData = [];
             pcGames.forEach(g => gamesData.push({ ...g, _category: 'pc' }));

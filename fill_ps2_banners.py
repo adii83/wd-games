@@ -15,6 +15,9 @@ from urllib.request import Request, urlopen
 class Progress:
     last_index: int
     banners_by_url: Dict[str, str]
+    downloads_by_url: Dict[str, int]
+    ratings_by_url: Dict[str, float]
+    reviews_by_url: Dict[str, int]
 
 
 def load_json(path: Path):
@@ -30,7 +33,7 @@ def save_json(path: Path, data):
 
 def load_progress(path: Path) -> Progress:
     if not path.exists():
-        return Progress(last_index=-1, banners_by_url={})
+        return Progress(last_index=-1, banners_by_url={}, downloads_by_url={}, ratings_by_url={}, reviews_by_url={})
 
     try:
         raw = load_json(path)
@@ -38,16 +41,51 @@ def load_progress(path: Path) -> Progress:
         banners_by_url = raw.get('banners_by_url', {}) or {}
         # Ensure string keys/values
         banners_by_url = {str(k): str(v) for k, v in banners_by_url.items() if k and v}
-        return Progress(last_index=last_index, banners_by_url=banners_by_url)
+
+        downloads_by_url = raw.get('downloads_by_url', {}) or {}
+        # Ensure ints
+        safe_downloads: Dict[str, int] = {}
+        for k, v in downloads_by_url.items():
+            try:
+                safe_downloads[str(k)] = int(v)
+            except Exception:
+                continue
+
+        ratings_by_url = raw.get('ratings_by_url', {}) or {}
+        safe_ratings: Dict[str, float] = {}
+        for k, v in ratings_by_url.items():
+            try:
+                safe_ratings[str(k)] = float(v)
+            except Exception:
+                continue
+
+        reviews_by_url = raw.get('reviews_by_url', {}) or {}
+        safe_reviews: Dict[str, int] = {}
+        for k, v in reviews_by_url.items():
+            try:
+                safe_reviews[str(k)] = int(v)
+            except Exception:
+                continue
+
+        return Progress(
+            last_index=last_index,
+            banners_by_url=banners_by_url,
+            downloads_by_url=safe_downloads,
+            ratings_by_url=safe_ratings,
+            reviews_by_url=safe_reviews,
+        )
     except Exception:
         # If progress file is corrupted, don't block the run
-        return Progress(last_index=-1, banners_by_url={})
+        return Progress(last_index=-1, banners_by_url={}, downloads_by_url={}, ratings_by_url={}, reviews_by_url={})
 
 
 def save_progress(path: Path, progress: Progress):
     save_json(path, {
         'last_index': progress.last_index,
         'banners_by_url': progress.banners_by_url,
+        'downloads_by_url': progress.downloads_by_url,
+        'ratings_by_url': progress.ratings_by_url,
+        'reviews_by_url': progress.reviews_by_url,
     })
 
 
@@ -94,6 +132,9 @@ WP_UPLOAD_IMAGE_RE = re.compile(
     re.IGNORECASE,
 )
 
+DOWNLOADS_RE = re.compile(r'\b([\d,]+)\s*downloads\b', re.IGNORECASE)
+RATING_REVIEWS_RE = re.compile(r'\b([0-5](?:\.\d+)?)\s*\(\s*(\d+)\s*reviews?\s*\)', re.IGNORECASE)
+
 
 def extract_banner_url(html: str, page_url: str) -> Optional[str]:
     for rx in (OG_IMAGE_RE_1, OG_IMAGE_RE_2, TWITTER_IMAGE_RE_1, TWITTER_IMAGE_RE_2):
@@ -109,6 +150,39 @@ def extract_banner_url(html: str, page_url: str) -> Optional[str]:
         return m2.group(0).strip()
 
     return None
+
+
+def parse_int_with_commas(s: str) -> Optional[int]:
+    if s is None:
+        return None
+    t = str(s).strip().replace(',', '')
+    if not t:
+        return None
+    if not re.fullmatch(r'\d+', t):
+        return None
+    return int(t)
+
+
+def extract_downloads(html: str) -> Optional[int]:
+    m = DOWNLOADS_RE.search(html)
+    if not m:
+        return None
+    return parse_int_with_commas(m.group(1))
+
+
+def extract_rating_reviews(html: str):
+    m = RATING_REVIEWS_RE.search(html)
+    if not m:
+        return None, None
+    try:
+        rating = float(m.group(1))
+    except Exception:
+        rating = None
+    try:
+        reviews = int(m.group(2))
+    except Exception:
+        reviews = None
+    return rating, reviews
 
 
 def is_empty_banner(val) -> bool:
@@ -130,6 +204,7 @@ def main():
     ap.add_argument('--delay', type=float, default=0.35, help='Delay between requests in seconds')
     ap.add_argument('--timeout', type=int, default=25, help='Request timeout in seconds')
     ap.add_argument('--save-every', type=int, default=25, help='Save progress every N successful updates')
+    ap.add_argument('--sort-by-downloads', action='store_true', help='Sort output ps2.json by downloads (descending) at the end')
     ap.add_argument('--dry-run', action='store_true', help='Do not write output JSON; only writes progress file')
 
     args = ap.parse_args()
@@ -155,6 +230,15 @@ def main():
         if is_empty_banner(item.get('banner_url')) and url in progress.banners_by_url:
             item['banner_url'] = progress.banners_by_url[url]
             cached_apply += 1
+
+        # Apply cached popularity fields if present
+        if isinstance(item.get('game_info'), dict):
+            if url in progress.downloads_by_url and item['game_info'].get('Downloads') is None:
+                item['game_info']['Downloads'] = progress.downloads_by_url[url]
+            if url in progress.ratings_by_url and item['game_info'].get('Rating') is None:
+                item['game_info']['Rating'] = progress.ratings_by_url[url]
+            if url in progress.reviews_by_url and item['game_info'].get('Reviews') is None:
+                item['game_info']['Reviews'] = progress.reviews_by_url[url]
 
     if cached_apply:
         print(f'Applied {cached_apply} cached banners from {progress_path}')
@@ -187,14 +271,25 @@ def main():
             progress.last_index = i
             continue
 
-        if not is_empty_banner(item.get('banner_url')):
+        has_banner = not is_empty_banner(item.get('banner_url'))
+        has_downloads = isinstance(item.get('game_info'), dict) and item.get('game_info', {}).get('Downloads') is not None
+
+        # Skip only if we already have both banner and downloads populated
+        if has_banner and has_downloads:
             skipped += 1
             progress.last_index = i
             continue
 
         # Cached?
-        if url in progress.banners_by_url:
+        if (not has_banner) and url in progress.banners_by_url:
             item['banner_url'] = progress.banners_by_url[url]
+            has_banner = True
+
+        if isinstance(item.get('game_info'), dict) and (not has_downloads) and url in progress.downloads_by_url:
+            item['game_info']['Downloads'] = progress.downloads_by_url[url]
+            has_downloads = True
+
+        if has_banner and has_downloads:
             updated += 1
             progress.last_index = i
             continue
@@ -202,14 +297,44 @@ def main():
         try:
             html = fetch_html(url, timeout=args.timeout)
             banner = extract_banner_url(html, url)
-            if banner:
+            downloads = extract_downloads(html)
+            rating, reviews = extract_rating_reviews(html)
+
+            did_update = False
+
+            if banner and (not has_banner):
                 item['banner_url'] = banner
                 progress.banners_by_url[url] = banner
+                did_update = True
+
+            if isinstance(item.get('game_info'), dict):
+                if downloads is not None and (item['game_info'].get('Downloads') is None):
+                    item['game_info']['Downloads'] = downloads
+                    progress.downloads_by_url[url] = downloads
+                    did_update = True
+                if rating is not None and (item['game_info'].get('Rating') is None):
+                    item['game_info']['Rating'] = rating
+                    progress.ratings_by_url[url] = rating
+                    did_update = True
+                if reviews is not None and (item['game_info'].get('Reviews') is None):
+                    item['game_info']['Reviews'] = reviews
+                    progress.reviews_by_url[url] = reviews
+                    did_update = True
+
+            if did_update:
                 updated += 1
-                print(f'[{i}] OK  {item.get("title", "(no title)")} -> {banner}')
+                msg_parts = []
+                if banner:
+                    msg_parts.append('banner')
+                if downloads is not None:
+                    msg_parts.append(f'downloads={downloads}')
+                if rating is not None and reviews is not None:
+                    msg_parts.append(f'rating={rating} reviews={reviews}')
+                suffix = ' | '.join(msg_parts) if msg_parts else 'updated'
+                print(f'[{i}] OK  {item.get("title", "(no title)")} -> {suffix}')
             else:
                 failed += 1
-                print(f'[{i}] NOIMG {item.get("title", "(no title)")} ({url})')
+                print(f'[{i}] NOUPD {item.get("title", "(no title)")} ({url})')
         except Exception as e:
             failed += 1
             print(f'[{i}] ERR {item.get("title", "(no title)")} ({url}) :: {e}')
@@ -227,6 +352,21 @@ def main():
 
     # Final save
     save_progress(progress_path, progress)
+
+    if args.sort_by_downloads:
+        def get_downloads(item_obj) -> int:
+            if not isinstance(item_obj, dict):
+                return 0
+            gi = item_obj.get('game_info')
+            if not isinstance(gi, dict):
+                return 0
+            try:
+                return int(gi.get('Downloads') or 0)
+            except Exception:
+                return 0
+
+        data.sort(key=lambda x: (get_downloads(x), str(x.get('title', '')).lower()), reverse=True)
+
     if not args.dry_run:
         save_json(output_path, data)
 
