@@ -647,6 +647,21 @@ document.addEventListener('DOMContentLoaded', () => {
             return t;
         }
 
+        function needsPs2Suffix(game) {
+            if (!game) return false;
+            if (game._category === 'ps2') return true;
+            const platform = game.game_info ? String(game.game_info.Platform || '') : '';
+            return platform.toUpperCase().includes('PS2');
+        }
+
+        function addPs2SuffixIfNeeded(title, game) {
+            const t = String(title || '').trim();
+            if (!needsPs2Suffix(game)) return t;
+            // Avoid duplicates like "Title (PS2) (PS2)"
+            if (/\(PS2\)\s*$/i.test(t)) return t;
+            return `${t} (PS2)`;
+        }
+
         if (selectedArr.length === 0) {
             return `Daftar Game Pesanan\n\n(Belum ada game yang dipilih)`;
         }
@@ -657,7 +672,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         selectedArr.forEach((game, i) => {
             const title = (game && game.title) ? game.title : 'Untitled';
-            lines.push(`${i + 1}. ${stripVersionSuffix(title)}`);
+            const cleaned = stripVersionSuffix(title);
+            const labeled = addPs2SuffixIfNeeded(cleaned, game);
+            lines.push(`${i + 1}. ${labeled}`);
         });
 
         lines.push('');
