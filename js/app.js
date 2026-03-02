@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalReqs = document.getElementById('modal-reqs');
     const modalInfo = document.getElementById('modal-info');
     const searchInput = document.getElementById('search-input');
+    const categoryFilter = document.getElementById('category-filter');
     const exportBtn = document.getElementById('export-btn');
     const exportModal = document.getElementById('export-modal');
     const closeExportModalBtn = document.getElementById('close-export-modal');
@@ -103,6 +104,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let gamesData = [];
     let displayedGamesData = []; // Filtered games based on search
     let selectedGames = new Set(); // Stores original indices of selected games
+
+    // Filtering state
+    let currentCategory = (categoryFilter && categoryFilter.value) ? categoryFilter.value : 'all';
     
     // Get initial value from active dropdown item
     let currentHddCapacity = parseInt(document.querySelector('.dropdown-item.active').getAttribute('data-value')); 
@@ -131,33 +135,65 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadGames() {
         try {
             const cacheBuster = new Date().getTime();
-            const response = await fetch(`steamrip_games.json?t=${cacheBuster}`, { cache: "no-store" });
-            if (!response.ok) throw new Error("Gagal mengambil data");
-            
-            gamesData = await response.json();
-            
-            // Clean/Parse sizes for logic
+            const pcUrl = `steamrip_games.json?t=${cacheBuster}`;
+            const ps2Url = `ps2.json?t=${cacheBuster}`;
+
+            const [pcRes, ps2Res] = await Promise.all([
+                fetch(pcUrl, { cache: 'no-store' }),
+                fetch(ps2Url, { cache: 'no-store' })
+            ]);
+
+            if (!pcRes.ok && !ps2Res.ok) {
+                throw new Error('Gagal mengambil data');
+            }
+
+            const pcGames = pcRes.ok ? await pcRes.json() : [];
+            const ps2Games = ps2Res.ok ? await ps2Res.json() : [];
+
+            // Merge datasets and add category labels
+            gamesData = [];
+            pcGames.forEach(g => gamesData.push({ ...g, _category: 'pc' }));
+            ps2Games.forEach(g => gamesData.push({ ...g, _category: 'ps2' }));
+
+            // Clean/Parse sizes for logic + add stable indices
             gamesData.forEach((game, idx) => {
                 game._index = idx;
-                if (game.game_info && game.game_info['Game Size']) {
-                    game._sizeGB = parseSizeToGB(game.game_info['Game Size']);
-                } else {
-                    game._sizeGB = 0; // fallback
+
+                // Default banner fallback to avoid broken images (ps2.json often has empty banner_url)
+                if (!game.banner_url) {
+                    game.banner_url = 'assets/logo.png';
                 }
+
+                const rawSize = (game.game_info && game.game_info['Game Size'] != null)
+                    ? game.game_info['Game Size']
+                    : 0;
+                game._sizeGB = parseSizeToGB(rawSize);
 
                 // Storage planner uses estimated install size (+25%)
                 game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB : 0) * 1.25;
-            }); // <-- FIXED: Added missing closing bracket and parenthesis
-            
-            // Initially, displayed dataset is the full dataset
-            displayedGamesData = gamesData;
+            });
 
-            renderGrid(true);
+            // Initially, displayed dataset follows current filters
+            applyFilters();
             updateStorageUI();
         } catch (error) {
             console.error(error);
             grid.innerHTML = `<div class="loading-state text-accent">Error: Data game tidak ditemukan. Pastikan steamrip_games.json berada di folder yang sama.</div>`;
         }
+    }
+
+    function applyFilters() {
+        const query = (searchInput && searchInput.value ? searchInput.value : '').toLowerCase();
+        const category = currentCategory || 'all';
+
+        displayedGamesData = gamesData.filter((game) => {
+            if (!game) return false;
+            const matchesQuery = !query || (game.title || '').toLowerCase().includes(query);
+            const matchesCategory = (category === 'all') || (game._category === category);
+            return matchesQuery && matchesCategory;
+        });
+
+        renderGrid(true);
     }
 
     // Parse '118.5 GB' or '891 MB' into numeric Float (GB)
@@ -475,10 +511,13 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // System Requirements
         modalReqs.innerHTML = '';
-        if (game.system_requirements) {
-            for (const [key, val] of Object.entries(game.system_requirements)) {
+        const reqEntries = (game && game.system_requirements)
+            ? Object.entries(game.system_requirements).filter(([, val]) => String(val ?? '').trim() !== '')
+            : [];
+        if (reqEntries.length > 0) {
+            reqEntries.forEach(([key, val]) => {
                 modalReqs.innerHTML += `<li><span class="list-label">${key}</span>: ${val}</li>`;
-            }
+            });
         } else {
             modalReqs.innerHTML = `<li class="text-secondary">Tidak ada data spesifikasi.</li>`;
         }
@@ -682,19 +721,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Search Logic ---
     searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase();
-        
-        if (query.trim() === '') {
-            displayedGamesData = gamesData;
-        } else {
-            displayedGamesData = gamesData.filter(game => 
-                game.title.toLowerCase().includes(query)
-            );
-        }
-        
-        // Reset view back to page 1 with new data
-        renderGrid(true);
+        // Keep filters consistent (search + category)
+        applyFilters();
     });
+
+    if (categoryFilter) {
+        categoryFilter.addEventListener('change', (e) => {
+            currentCategory = e.target.value;
+            applyFilters();
+        });
+    }
 
     // START
     loadGames();
