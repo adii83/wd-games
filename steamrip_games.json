@@ -1,5 +1,25 @@
 [
   {
+    "title": "Upin & Ipin Universe",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3401920/e0bf5bb97d3cddabe2673792e8ac5b00310e51a2/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit)",
+      "Processor": "3GHz 4-Core or similar",
+      "Memory": "8 GB RAM",
+      "Graphics": "GeForce GTX 1060 or Radeon RX 580",
+      "Storage": "8 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Indie, Simulation, Strategy, Early Access",
+      "Developer": "TVGS",
+      "Platform": "PC",
+      "Game Size": "5.3 GB",
+      "Released By": "lanternjoe CSF + OFME",
+      "Version": "v0.4.3f3 | Early Access",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "Schedule I (v0.4.3f3 + Online)",
     "banner_url": "https://steamrip.com/wp-content/uploads/2025/03/schedule-1-portrait-steamrip.jpg.webp",
     "url": "https://steamrip.com/schedule-i-free-download/",
