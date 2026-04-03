@@ -1,5 +1,25 @@
 [
   {
+    "title": "DEATH STRANDING 2: ON THE BEACH Free Download (v1.0.48.0)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3280350/9b523fd411eeaefe80f238489745325a1cd2317f/library_capsule.jpg",
+    "system_requirements": {
+      "OS": "Windows 10/11 Version 1909 or newer",
+      "Processor": "Intel Core i3-10100, AMD Ryzen 3 3100",
+      "Memory": "16 GB RAM",
+      "Graphics": " NVIDIA GeForce GTX 1660, AMD Radeon RX 5500 XT 8GB",
+      "Storage": "150 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "KOJIMA PRODUCTIONS, Nixxes Software",
+      "Platform": "PC",
+      "Game Size": "92.4 GB",
+      "Released By": "RUNE emu",
+      "Version": " v1.0.48.0 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "Upin & Ipin Universe",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3401920/e0bf5bb97d3cddabe2673792e8ac5b00310e51a2/library_600x900.jpg",
     "system_requirements": {
