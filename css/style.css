@@ -47,8 +47,6 @@ body {
   padding-top: 150px; /* Space for fixed sticky header */
 }
 
-<<<<<<< HEAD
-=======
 body.landing-active {
   overflow: hidden;
 }
@@ -180,7 +178,6 @@ body.landing-active .assistive-widget {
   }
 }
 
->>>>>>> master
 @media (max-width: 768px) {
   /* Reduce expensive blur effects on mobile */
   .planner-header {
@@ -227,6 +224,34 @@ body.landing-active .assistive-widget {
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-sm);
+}
+
+.planner-storage-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.storage-type-select {
+  width: 140px;
+  padding-right: 14px;
+}
+
+@media (max-width: 640px) {
+  .planner-top {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .planner-storage-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .storage-type-select,
+  .elegant-dropdown {
+    width: calc(50% - 5px);
+  }
 }
 
 .logo {

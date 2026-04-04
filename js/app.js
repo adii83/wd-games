@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const grid = document.getElementById('game-grid');
     const hddDropdown = document.getElementById('hdd-dropdown');
-    const hddSelectedText = document.getElementById('dropdown-selected-text').querySelector('span:nth-child(2)');
+    const hddSelectedText = document.getElementById('selected-capacity-text');
     const hddItems = document.querySelectorAll('.dropdown-item');
     const storageUsedEl = document.getElementById('storage-used');
     const storageTotalEl = document.getElementById('storage-total');
@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportTableBody = document.getElementById('export-table-body');
     const exportTotalSize = document.getElementById('export-total-size');
     const copyTextBtn = document.getElementById('copy-text-btn');
+    const storageTypeLabelEl = document.getElementById('storage-type-label');
+    const storageTypeSelect = document.getElementById('storage-type-select');
+    const landingScreen = document.getElementById('landing-screen');
+    const landingActions = document.getElementById('landing-storage-actions');
 
     // Floating Export Button behavior (move to bottom-left on scroll)
     const controlsEl = document.querySelector('.controls');
@@ -107,6 +111,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Filtering state
     let currentCategory = (categoryFilter && categoryFilter.value) ? categoryFilter.value : 'all';
+
+    let currentStorageType = 'hdd';
+    const storagePresets = {
+        hdd: {
+            label: 'HDD',
+            category: 'pc',
+            defaultCapacity: 455,
+            capacities: [
+                { text: '320 GB', value: 288 },
+                { text: '500 GB', value: 455 },
+                { text: '1 TB', value: 920 }
+            ]
+        },
+        flashdisk: {
+            label: 'FLASHDISK',
+            category: 'ps2',
+            defaultCapacity: 58,
+            capacities: [
+                { text: '32 GB', value: 29 },
+                { text: '64 GB', value: 58 },
+                { text: '128 GB', value: 116 }
+            ]
+        },
+        ssd: {
+            label: 'SSD',
+            category: 'pc',
+            defaultCapacity: 476,
+            capacities: [
+                { text: '256 GB', value: 238 },
+                { text: '512 GB', value: 476 },
+                { text: '1 TB', value: 953 }
+            ]
+        }
+    };
     
     // Get initial value from active dropdown item
     let currentHddCapacity = parseInt(document.querySelector('.dropdown-item.active').getAttribute('data-value')); 
@@ -347,6 +385,95 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Custom Dropdown Logic ---
+    function setDropdownOptionsByStorageType(type) {
+        const preset = storagePresets[type];
+        if (!preset) return;
+
+        hddItems.forEach((item, index) => {
+            const option = preset.capacities[index] || preset.capacities[preset.capacities.length - 1];
+            item.textContent = option.text;
+            item.setAttribute('data-label', option.text);
+            item.setAttribute('data-value', String(option.value));
+            item.classList.remove('active');
+        });
+
+        // Keep visible selected text non-empty before active item is set
+        if (hddSelectedText && preset.capacities[0]) {
+            hddSelectedText.innerText = preset.capacities[0].text;
+        }
+    }
+
+    function setCapacityByValue(capacityValue) {
+        const numericValue = Number(capacityValue);
+        if (!Number.isFinite(numericValue)) return;
+
+        const matchedItem = Array.from(hddItems).find((item) => Number(item.getAttribute('data-value')) === numericValue);
+        if (!matchedItem) {
+            if (hddSelectedText) {
+                hddSelectedText.innerText = `${Math.round(numericValue)} GB`;
+            }
+            currentHddCapacity = numericValue;
+            return;
+        }
+
+        hddItems.forEach((i) => i.classList.remove('active'));
+        matchedItem.classList.add('active');
+        hddSelectedText.innerText = matchedItem.getAttribute('data-label') || matchedItem.textContent || `${Math.round(numericValue)} GB`;
+        currentHddCapacity = numericValue;
+    }
+
+    function applyStoragePreset(type) {
+        const preset = storagePresets[type];
+        if (!preset) return;
+
+        currentStorageType = type;
+        setDropdownOptionsByStorageType(type);
+        setCapacityByValue(preset.defaultCapacity);
+
+        currentCategory = preset.category;
+        if (categoryFilter) {
+            categoryFilter.value = preset.category;
+        }
+
+        if (storageTypeLabelEl) {
+            storageTypeLabelEl.innerText = preset.label;
+        }
+
+        if (storageTypeSelect) {
+            storageTypeSelect.value = type;
+        }
+
+        applyFilters();
+        updateStorageUI();
+    }
+
+    function closeLandingScreen() {
+        if (!landingScreen) return;
+        document.body.classList.remove('landing-active');
+        landingScreen.style.display = 'none';
+    }
+
+    if (landingActions) {
+        landingActions.addEventListener('click', (e) => {
+            const btn = e.target.closest('.landing-choice-card');
+            if (!btn) return;
+            const storageType = btn.getAttribute('data-storage');
+            applyStoragePreset(storageType);
+            closeLandingScreen();
+        });
+    } else if (storageTypeLabelEl) {
+        applyStoragePreset(currentStorageType);
+    }
+
+    if (storageTypeSelect) {
+        storageTypeSelect.addEventListener('change', (e) => {
+            applyStoragePreset(e.target.value);
+            if (landingScreen && document.body.classList.contains('landing-active')) {
+                closeLandingScreen();
+            }
+        });
+    }
+
     hddDropdown.addEventListener('click', (e) => {
         // Toggle dropdown open/close
         hddDropdown.classList.toggle('open');
@@ -417,7 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.classList.add('active');
             
             // Update Text
-            hddSelectedText.innerText = item.innerText;
+            hddSelectedText.innerText = item.getAttribute('data-label') || item.textContent || hddSelectedText.innerText;
             
             // Update Capacity Value
             currentHddCapacity = parseInt(item.getAttribute('data-value'));
