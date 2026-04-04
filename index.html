@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WD Games - Perencana Penyimpanan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body class="landing-active">
+    <div id="landing-screen" class="landing-screen" role="dialog" aria-modal="true" aria-label="Halaman awal WD Games">
+      <div class="landing-backdrop"></div>
+      <section class="landing-card">
+        <p class="landing-eyebrow">WD GAMES</p>
+        <h2 class="landing-title">Pilih Media Penyimpanan</h2>
+        <p class="landing-subtitle">Silakan pilih salah satu: HDD, Flashdisk, atau SSD.</p>
+
+        <div id="landing-storage-actions" class="landing-storage-grid">
+          <button class="landing-choice-card" type="button" data-storage="hdd" aria-label="Pilih HDD">
+            <img src="assets/HDD.png" alt="HDD Full Game PC" loading="eager" decoding="async" />
+            <span class="landing-choice-label">HDD</span>
+          </button>
+
+          <button class="landing-choice-card" type="button" data-storage="flashdisk" aria-label="Pilih Flashdisk">
+            <img src="assets/FLASHDISK.png" alt="Flashdisk Full Game PS2" loading="eager" decoding="async" />
+            <span class="landing-choice-label">FLASHDISK</span>
+          </button>
+
+          <button class="landing-choice-card" type="button" data-storage="ssd" aria-label="Pilih SSD">
+            <img src="assets/SSD-min.png" alt="SSD Full Game PC" loading="eager" decoding="async" />
+            <span class="landing-choice-label">SSD</span>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Header & Storage Planner -->
+    <header class="planner-header">
+      <div class="planner-container">
+        <div class="planner-top">
+          <h1 class="logo">
+            <img
+              class="logo-shopee"
+              src="assets/logo shopee.png"
+              alt="Shopee"
+              decoding="async"
+            />
+            <span class="logo-text"><span class="logo-wd">WD</span> <span class="logo-games">Games</span></span>
+          </h1>
+
+          <!-- Custom Elegant Dropdown -->
+          <div class="elegant-dropdown" id="hdd-dropdown">
+            <div class="dropdown-selected" id="dropdown-selected-text">
+              <span class="hdd-icon">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 12H2" />
+                  <path
+                    d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                  />
+                  <line x1="6" y1="16" x2="6.01" y2="16" />
+                  <line x1="10" y1="16" x2="10.01" y2="16" />
+                </svg>
+              </span>
+              <span>500 GB</span>
+              <svg
+                class="chevron"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <ul class="dropdown-list">
+              <li class="dropdown-item" data-value="288">320 GB</li>
+              <li class="dropdown-item active" data-value="455">500 GB</li>
+              <li class="dropdown-item" data-value="920">1 TB</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="storage-info">
+          <div class="storage-text">
+            <span id="storage-used">0 GB</span> /
+            <span id="storage-total">455 GB</span>
+          </div>
+          <div class="storage-text-right">
+            <span id="storage-type-label" class="text-accent">HDD</span> •
+            Sisa: <span id="storage-remaining" class="text-accent">455 GB</span>
+          </div>
+        </div>
+
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content: Game Grid -->
+    <main class="main-content">
+      <!-- Search and Filter (Optional future feature, keeping structural space) -->
+      <div class="controls">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Cari game..."
+          class="search-input"
+        />
+        <select id="category-filter" class="custom-select" aria-label="Filter kategori">
+          <option value="all" selected>Semua Kategori</option>
+          <option value="pc">Game PC</option>
+          <option value="ps2">PS2 Emu</option>
+        </select>
+        <div class="stats" style="display: flex; align-items: center; gap: 15px;">
+          <span>Game Terpilih: <strong id="selected-count" class="text-accent">0</strong></span>
+          <span class="export-btn-wrap">
+            <button id="export-btn" class="custom-select" style="padding: 6px 16px; background: var(--accent-gradient); color: #000; border: none;">Ekspor List</button>
+          </span>
+        </div>
+      </div>
+
+      <!-- The Grid -->
+      <div id="game-grid" class="game-grid">
+        <!-- Game Cards will be injected here by JS -->
+        <!-- Placeholder for loading state -->
+        <div class="loading-state">Memuat data game...</div>
+      </div>
+
+      <!-- Load More Button -->
+      <div
+        class="load-more-container"
+        style="text-align: center; margin-top: 30px"
+      >
+        <button
+          id="load-more-btn"
+          class="custom-select"
+          style="padding: 12px 30px; display: none"
+        >
+          Load More
+        </button>
+      </div>
+    </main>
+
+    <!-- Bottom Sheet Modal for Info -->
+    <div id="info-modal" class="modal-overlay">
+      <div class="bottom-sheet">
+        <div class="sheet-header">
+          <h2 id="modal-title">Judul Game</h2>
+          <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <div class="sheet-content">
+          <div class="info-section">
+            <h3>Spesifikasi Minimum</h3>
+            <ul id="modal-reqs" class="req-list">
+              <!-- Reqs injected here -->
+            </ul>
+          </div>
+          <div class="info-section">
+            <h3>Informasi Game</h3>
+            <ul id="modal-info" class="info-list">
+              <!-- Info injected here -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Modal for Export -->
+    <div id="export-modal" class="modal-overlay">
+      <div class="center-modal">
+        <div class="sheet-header">
+          <h2>Daftar Game Pesanan</h2>
+          <button id="close-export-modal" class="close-btn">&times;</button>
+        </div>
+        <div class="sheet-content">
+          <div class="export-instructions text-accent" style="margin-bottom: 20px; text-align: center; font-weight: 600; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <span>Tekan "Copy Teks" game ini dan paste kan ke chat admin WD Games</span>
+            <button id="copy-text-btn" class="custom-select" style="padding: 8px 20px; background: rgba(46, 213, 115, 0.08); color: var(--success); border: 1px solid var(--success); display: flex; align-items: center; gap: 8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy Teks
+            </button>
+          </div>
+          
+          <div id="export-capture-area" class="table-container" style="padding: 15px; background-color: var(--bg-card);">
+            <table class="export-table">
+              <thead>
+                <tr>
+                  <th width="10%">No</th>
+                  <th width="70%">Judul Game</th>
+                  <th width="20%">Size</th>
+                </tr>
+              </thead>
+              <tbody id="export-table-body">
+                <!-- Rows injected here -->
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="3" style="padding: 15px;">
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 30px; font-size: 1.1rem;">
+                      <span style="font-weight: 600; color: var(--text-secondary);">Total Size</span>
+                      <span style="font-weight: 600; color: var(--text-secondary);">:</span>
+                      <span id="export-total-size" class="text-accent" style="font-weight: 800; min-width: 80px; text-align: left;">0 GB</span>
+                    </div>
+                  </th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Selected Games Widget (AssistiveTouch-like) -->
+    <div id="selected-widget" class="assistive-widget" aria-live="polite">
+      <button
+        id="selected-widget-btn"
+        class="assistive-btn"
+        type="button"
+        aria-label="Lihat daftar game terpilih"
+      >
+        <span class="assistive-btn-label">List</span>
+        <span id="selected-widget-count" class="assistive-btn-count">0</span>
+      </button>
+
+      <div
+        id="selected-widget-panel"
+        class="assistive-panel"
+        role="dialog"
+        aria-label="Daftar game terpilih"
+      >
+        <div class="assistive-panel-header">
+          <div style="font-weight: 800;">Game Terpilih</div>
+          <button
+            id="selected-widget-close"
+            class="assistive-close"
+            type="button"
+            aria-label="Tutup daftar"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="selected-widget-list" class="assistive-list"></div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
