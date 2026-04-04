@@ -47,6 +47,140 @@ body {
   padding-top: 150px; /* Space for fixed sticky header */
 }
 
+<<<<<<< HEAD
+=======
+body.landing-active {
+  overflow: hidden;
+}
+
+body.landing-active .planner-header,
+body.landing-active .main-content,
+body.landing-active .assistive-widget {
+  pointer-events: none;
+}
+
+.landing-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.landing-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0, 210, 255, 0.2), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(58, 123, 213, 0.2), transparent 45%),
+    rgba(7, 10, 14, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.landing-card {
+  position: relative;
+  width: min(560px, 100%);
+  background: linear-gradient(160deg, rgba(20, 24, 31, 0.98), rgba(12, 15, 20, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+}
+
+.landing-eyebrow {
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.landing-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.landing-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.landing-storage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.landing-choice-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-choice-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.landing-choice-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.landing-choice-label {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 560px) {
+  .landing-card {
+    padding: 22px;
+    border-radius: 18px;
+    width: 100%;
+  }
+
+  .landing-storage-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .landing-choice-label {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    padding: 4px 6px;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+>>>>>>> master
 @media (max-width: 768px) {
   /* Reduce expensive blur effects on mobile */
   .planner-header {
