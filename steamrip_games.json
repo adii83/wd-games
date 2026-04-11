@@ -1,5 +1,19 @@
 [
   {
+    "title": "Resident Evil Requiem",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3764200/ed3b2cae7d15f598f41006f5f1e605ec5517b5e4/library_capsule.jpg",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "KOJIMA PRODUCTIONS, Nixxes Software",
+      "Platform": "PC",
+      "Game Size": "76.7 GB",
+      "Released By": "RUNE emu",
+      "Version": " v1.0.48.0 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "DEATH STRANDING 2: ON THE BEACH Free Download (v1.0.48.0)",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3280350/9b523fd411eeaefe80f238489745325a1cd2317f/library_capsule.jpg",
     "system_requirements": {
