@@ -1,5 +1,19 @@
 [
   {
+    "title": "Black Myth: Wukong",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/library_600x900.jpg",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "130 GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "Resident Evil Requiem",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3764200/ed3b2cae7d15f598f41006f5f1e605ec5517b5e4/library_capsule.jpg",
     "system_requirements": null,
