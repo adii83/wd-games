@@ -276,6 +276,24 @@ body.landing-active .assistive-widget {
   }
 }
 
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.logo-wd {
+  color: var(--accent);
+  text-shadow:
+    0 0 8px var(--accent),
+    0 0 18px var(--accent);
+}
+
+.logo-games {
+  color: var(--text-primary);
+  text-shadow: 0 0 6px var(--text-primary);
+}
+
 .logo-wd {
   color: var(--accent);
   text-shadow:
@@ -963,54 +981,31 @@ body.export-float #export-btn {
   color: var(--accent);
 }
 
-/* --- Floating Selected Games Widget (AssistiveTouch-like) --- */
-.assistive-widget {
+/* --- Floating Selected Games Widget --- */
+.selected-games-container {
   position: fixed;
   right: 18px;
   bottom: 18px;
   z-index: 300;
-}
-
-.assistive-btn {
-  width: 62px;
-  height: 62px;
-  border-radius: 999px;
-  border: 1px solid var(--border-color);
-  background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--text-primary);
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  gap: 10px;
 }
 
-.assistive-btn:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
+.selected-widget-label {
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
-.assistive-btn-label {
+.selected-widget-count {
   font-size: 0.85rem;
   font-weight: 800;
-  letter-spacing: -0.2px;
-}
-
-.assistive-btn-count {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--accent);
 }
 
 .assistive-panel {
   position: absolute;
   right: 0;
-  bottom: 74px;
+  bottom: 50px;
   width: min(360px, calc(100vw - 36px));
   background: var(--bg-sheet);
   border: 1px solid var(--border-color);

@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const storagePresets = {
         hdd: {
             label: 'HDD',
-            category: 'pc',
+            category: 'all',
             defaultCapacity: 455,
             capacities: [
                 { text: '320 GB', value: 288 },
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         ssd: {
             label: 'SSD',
-            category: 'pc',
+            category: 'all',
             defaultCapacity: 476,
             capacities: [
                 { text: '256 GB', value: 238 },
@@ -228,8 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     : 0;
                 game._sizeGB = parseSizeToGB(rawSize);
 
-                // Storage planner uses estimated install size (+25%)
-                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB : 0) * 1.25;
+                // Use actual game size (no buffer)
+                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB : 0);
             });
 
             // Initially, displayed dataset follows current filters
@@ -274,11 +274,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${rounded.toFixed(1)} GB`;
     }
 
-    // Requirement: detect MB/GB, convert to GB, add 25%, return "XX.X GB"
+    // Calculate actual size from string
     function calculateEstimatedSize(sizeStr) {
         const sizeGB = parseSizeToGB(sizeStr);
-        const estimatedGB = sizeGB * 1.25;
-        return formatSizeGB(estimatedGB);
+        return formatSizeGB(sizeGB);
     }
 
     // Allow manual testing from DevTools console: calculateEstimatedSize('530 MB')
@@ -584,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Extract Size String for Badge
             const sizeStr = game.game_info ? game.game_info['Game Size'] : 'N/A';
-            const estimatedSizeLabel = formatSizeGB(Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : (parseSizeToGB(sizeStr) * 1.25));
+            const estimatedSizeLabel = formatSizeGB(Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : parseSizeToGB(sizeStr));
             
             card.innerHTML = `
                 <img src="${game.banner_url}" alt="${game.title}" class="card-img" loading="lazy" decoding="async">

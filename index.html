@@ -45,12 +45,6 @@
       <div class="planner-container">
         <div class="planner-top">
           <h1 class="logo">
-            <img
-              class="logo-shopee"
-              src="assets/logo shopee.png"
-              alt="Shopee"
-              decoding="async"
-            />
             <span class="logo-text"><span class="logo-wd">WD</span> <span class="logo-games">Games</span></span>
           </h1>
 
@@ -238,16 +232,17 @@
       </div>
     </div>
 
-    <!-- Floating Selected Games Widget (AssistiveTouch-like) -->
-    <div id="selected-widget" class="assistive-widget" aria-live="polite">
+    <!-- Floating Selected Games Widget -->
+    <div id="selected-widget" class="selected-games-container" aria-live="polite">
       <button
         id="selected-widget-btn"
-        class="assistive-btn"
+        class="custom-select"
         type="button"
         aria-label="Lihat daftar game terpilih"
+        style="padding: 8px 16px; background: var(--accent-gradient); color: #000; border: none; display: flex; align-items: center; gap: 8px; font-weight: 800;"
       >
-        <span class="assistive-btn-label">List</span>
-        <span id="selected-widget-count" class="assistive-btn-count">0</span>
+        <span class="selected-widget-label">List game yang di pilih</span>
+        <span id="selected-widget-count" class="selected-widget-count" style="background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 999px; font-weight: 800;">0</span>
       </button>
 
       <div
