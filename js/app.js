@@ -228,8 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     : 0;
                 game._sizeGB = parseSizeToGB(rawSize);
 
-                // Use actual game size (no buffer)
-                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB : 0);
+                // Use real size plus 5% buffer
+                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB * 1.05 : 0);
             });
 
             // Initially, displayed dataset follows current filters
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Calculate actual size from string
     function calculateEstimatedSize(sizeStr) {
-        const sizeGB = parseSizeToGB(sizeStr);
+        const sizeGB = parseSizeToGB(sizeStr) * 1.05;
         return formatSizeGB(sizeGB);
     }
 
@@ -371,14 +371,15 @@ document.addEventListener('DOMContentLoaded', () => {
             left.appendChild(titleEl);
             left.appendChild(metaEl);
 
-            const removeBtn = document.createElement('button');
-            removeBtn.type = 'button';
-            removeBtn.className = 'assistive-remove';
-            removeBtn.dataset.index = String(index);
-            removeBtn.textContent = 'Remove';
+            const checkBadge = document.createElement('button');
+            checkBadge.type = 'button';
+            checkBadge.className = 'assistive-check';
+            checkBadge.dataset.index = String(index);
+            checkBadge.setAttribute('aria-label', `Hapus ${game.title || 'game ini'} dari pilihan`);
+            checkBadge.textContent = '🗑';
 
             item.appendChild(left);
-            item.appendChild(removeBtn);
+            item.appendChild(checkBadge);
             selectedWidgetList.appendChild(item);
         });
     }
@@ -515,17 +516,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Remove selected game via widget list (event delegation)
     if (selectedWidgetList) {
         selectedWidgetList.addEventListener('click', (e) => {
-            const btn = e.target.closest('.assistive-remove');
-            if (!btn) return;
-            const idx = parseInt(btn.dataset.index);
+            const checkBtn = e.target.closest('.assistive-check');
+            if (!checkBtn) return;
+
+            e.stopPropagation();
+
+            const idx = parseInt(checkBtn.dataset.index, 10);
             if (Number.isNaN(idx)) return;
 
             selectedGames.delete(idx);
 
-            // If the card is currently rendered, update its UI too
             const card = grid.querySelector(`.game-card[data-index="${idx}"]`);
             if (card) {
                 card.classList.remove('selected');
