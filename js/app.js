@@ -109,16 +109,44 @@ document.addEventListener('DOMContentLoaded', () => {
     let displayedGamesData = []; // Filtered games based on search
     let selectedGames = new Set(); // Stores original indices of selected games
 
-    // Get size buffer percentage from localStorage (default 5%)
-    let sizeBufferPercentage = parseFloat(localStorage.getItem('game_size_buffer_percentage')) || 5;
-    let sizeBufferMultiplier = 1 + (sizeBufferPercentage / 100);
+    const sizeConfigPath = 'size_config.json';
+
+    function normalizeBufferPercentage(value) {
+        const parsed = Number(value);
+        if (!Number.isFinite(parsed)) return 5;
+        return Math.min(100, Math.max(0, parsed));
+    }
+
+    function setSizeBufferPercentage(value) {
+        sizeBufferPercentage = normalizeBufferPercentage(value);
+        sizeBufferMultiplier = 1 + (sizeBufferPercentage / 100);
+        localStorage.setItem('game_size_buffer_percentage', String(sizeBufferPercentage));
+    }
+
+    // Load from global config file first; fallback to localStorage
+    let sizeBufferPercentage = 5;
+    let sizeBufferMultiplier = 1.05;
+
+    async function loadSizeBufferConfig() {
+        try {
+            const cacheBuster = new Date().getTime();
+            const response = await fetch(`${sizeConfigPath}?t=${cacheBuster}`, { cache: 'no-store' });
+            if (response.ok) {
+                const cfg = await response.json();
+                setSizeBufferPercentage(cfg && cfg.size_buffer_percentage);
+                return;
+            }
+        } catch (err) {
+            console.warn('Failed to load size config, using fallback.', err);
+        }
+
+        setSizeBufferPercentage(localStorage.getItem('game_size_buffer_percentage'));
+    }
 
     // Listen for changes to buffer percentage from admin panel
     window.addEventListener('storage', (e) => {
         if (e.key === 'game_size_buffer_percentage') {
-            const newBuffer = parseFloat(e.newValue) || 5;
-            sizeBufferPercentage = newBuffer;
-            sizeBufferMultiplier = 1 + (newBuffer / 100);
+            setSizeBufferPercentage(e.newValue);
             
             // Recalculate all game sizes and re-render
             gamesData.forEach((game) => {
@@ -922,5 +950,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // START
-    loadGames();
+    (async () => {
+        await loadSizeBufferConfig();
+        await loadGames();
+    })();
 });

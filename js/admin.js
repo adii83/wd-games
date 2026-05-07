@@ -38,8 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
         path: 'steamrip_games.json',
         branch: 'main' // default branch
     };
+    const sizeConfigPath = 'size_config.json';
     
-    let ghSha = ''; 
+    let ghSha = '';
+    let sizeConfigSha = '';
     let gamesData = [];
     let displayedGamesData = [];
     
@@ -155,6 +157,82 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function normalizeBufferPercentage(value) {
+        const parsed = Number(value);
+        if (!Number.isFinite(parsed)) return 5;
+        return Math.min(100, Math.max(0, parsed));
+    }
+
+    async function fetchSizeConfigFromGitHub() {
+        const cacheBuster = new Date().getTime();
+        const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${sizeConfigPath}?ref=${ghConfig.branch}&t=${cacheBuster}`;
+
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `token ${ghConfig.token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (response.status === 404) {
+                sizeConfigSha = '';
+                return { size_buffer_percentage: 5 };
+            }
+
+            if (!response.ok) {
+                throw new Error('Gagal memuat size_config.json dari GitHub.');
+            }
+
+            const data = await response.json();
+            sizeConfigSha = data.sha;
+            const decoded = b64DecodeUnicode(data.content);
+            const parsed = JSON.parse(decoded);
+            return {
+                size_buffer_percentage: normalizeBufferPercentage(parsed && parsed.size_buffer_percentage)
+            };
+        } catch (error) {
+            console.error(error);
+            showToast(`Gagal baca size config: ${error.message}`, 'error');
+            return { size_buffer_percentage: normalizeBufferPercentage(localStorage.getItem('game_size_buffer_percentage')) };
+        }
+    }
+
+    async function commitSizeConfigToGitHub(bufferValue) {
+        const normalized = normalizeBufferPercentage(bufferValue);
+        const configPayload = {
+            size_buffer_percentage: normalized
+        };
+
+        const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${sizeConfigPath}`;
+        const commitMessage = `Admin Panel: Update size buffer (${new Date().toLocaleString('id-ID')})`;
+
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${ghConfig.token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: commitMessage,
+                content: b64EncodeUnicode(JSON.stringify(configPayload, null, 2)),
+                sha: sizeConfigSha || undefined,
+                branch: ghConfig.branch
+            })
+        });
+
+        if (!response.ok) {
+            const errData = await response.json();
+            throw new Error(errData.message || 'Gagal menyimpan size config ke GitHub.');
+        }
+
+        const data = await response.json();
+        sizeConfigSha = data.content.sha;
+        localStorage.setItem('game_size_buffer_percentage', String(normalized));
+        return normalized;
+    }
+
     // --- Authentication ---
     loginBtn.addEventListener('click', async () => {
         ghConfig.owner = ownerInput.value.trim();
@@ -184,6 +262,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.removeItem('gh_repo');
                 localStorage.removeItem('gh_token');
             }
+
+            const sizeConfig = await fetchSizeConfigFromGitHub();
+            const initialBuffer = normalizeBufferPercentage(sizeConfig && sizeConfig.size_buffer_percentage);
+            if (sizeBufferInput) {
+                sizeBufferInput.value = String(initialBuffer);
+            }
+            localStorage.setItem('game_size_buffer_percentage', String(initialBuffer));
             
             repoInfo.innerText = `Connected: ${ghConfig.owner}/${ghConfig.repo} | Branch: ${ghConfig.branch}`;
             loginContainer.style.display = 'none';
@@ -220,21 +305,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const sizeBufferInput = document.getElementById('size-buffer-input');
     const sizeBufferSaveBtn = document.getElementById('size-buffer-save-btn');
 
-    // Load saved buffer percentage from localStorage on page load
-    const savedBufferPercentage = localStorage.getItem('game_size_buffer_percentage');
-    if (savedBufferPercentage) {
-        sizeBufferInput.value = savedBufferPercentage;
-    }
+    if (sizeBufferSaveBtn && sizeBufferInput) {
+        sizeBufferSaveBtn.addEventListener('click', async () => {
+            const bufferValue = Number(sizeBufferInput.value);
+            if (!Number.isFinite(bufferValue) || bufferValue < 0 || bufferValue > 100) {
+                showToast('Persentase harus antara 0-100!', 'error');
+                return;
+            }
 
-    sizeBufferSaveBtn.addEventListener('click', () => {
-        const bufferValue = parseFloat(sizeBufferInput.value);
-        if (isNaN(bufferValue) || bufferValue < 0 || bufferValue > 100) {
-            showToast("Persentase harus antara 0-100!", "error");
-            return;
-        }
-        localStorage.setItem('game_size_buffer_percentage', bufferValue);
-        showToast(`Buffer size diatur ke ${bufferValue}%`, "success");
-    });
+            const originalLabel = sizeBufferSaveBtn.innerText;
+
+            try {
+                sizeBufferSaveBtn.innerText = 'Menyimpan...';
+                sizeBufferSaveBtn.disabled = true;
+
+                const savedValue = await commitSizeConfigToGitHub(bufferValue);
+                sizeBufferInput.value = String(savedValue);
+                showToast(`Buffer size global diatur ke ${savedValue}%`, 'success');
+            } catch (error) {
+                console.error(error);
+                showToast(`Gagal menyimpan buffer: ${error.message}`, 'error');
+            } finally {
+                sizeBufferSaveBtn.innerText = originalLabel;
+                sizeBufferSaveBtn.disabled = false;
+            }
+        });
+    }
 
     // --- Data Rendering ---
     function renderAdminTable(append = false) {
