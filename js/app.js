@@ -109,6 +109,29 @@ document.addEventListener('DOMContentLoaded', () => {
     let displayedGamesData = []; // Filtered games based on search
     let selectedGames = new Set(); // Stores original indices of selected games
 
+    // Get size buffer percentage from localStorage (default 5%)
+    let sizeBufferPercentage = parseFloat(localStorage.getItem('game_size_buffer_percentage')) || 5;
+    let sizeBufferMultiplier = 1 + (sizeBufferPercentage / 100);
+
+    // Listen for changes to buffer percentage from admin panel
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'game_size_buffer_percentage') {
+            const newBuffer = parseFloat(e.newValue) || 5;
+            sizeBufferPercentage = newBuffer;
+            sizeBufferMultiplier = 1 + (newBuffer / 100);
+            
+            // Recalculate all game sizes and re-render
+            gamesData.forEach((game) => {
+                if (Number.isFinite(game._sizeGB)) {
+                    game._estimatedSizeGB = game._sizeGB * sizeBufferMultiplier;
+                }
+            });
+            
+            updateStorageUI();
+            renderGrid(true);
+        }
+    });
+
     // Filtering state
     let currentCategory = (categoryFilter && categoryFilter.value) ? categoryFilter.value : 'all';
 
@@ -228,8 +251,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     : 0;
                 game._sizeGB = parseSizeToGB(rawSize);
 
-                // Use real size plus 5% buffer
-                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB * 1.05 : 0);
+                // Use real size plus configured buffer percentage
+                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB * sizeBufferMultiplier : 0);
             });
 
             // Initially, displayed dataset follows current filters
@@ -276,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Calculate actual size from string
     function calculateEstimatedSize(sizeStr) {
-        const sizeGB = parseSizeToGB(sizeStr) * 1.05;
+        const sizeGB = parseSizeToGB(sizeStr) * sizeBufferMultiplier;
         return formatSizeGB(sizeGB);
     }
 

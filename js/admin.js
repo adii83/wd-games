@@ -216,6 +216,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Size Buffer Percentage Control ---
+    const sizeBufferInput = document.getElementById('size-buffer-input');
+    const sizeBufferSaveBtn = document.getElementById('size-buffer-save-btn');
+
+    // Load saved buffer percentage from localStorage on page load
+    const savedBufferPercentage = localStorage.getItem('game_size_buffer_percentage');
+    if (savedBufferPercentage) {
+        sizeBufferInput.value = savedBufferPercentage;
+    }
+
+    sizeBufferSaveBtn.addEventListener('click', () => {
+        const bufferValue = parseFloat(sizeBufferInput.value);
+        if (isNaN(bufferValue) || bufferValue < 0 || bufferValue > 100) {
+            showToast("Persentase harus antara 0-100!", "error");
+            return;
+        }
+        localStorage.setItem('game_size_buffer_percentage', bufferValue);
+        showToast(`Buffer size diatur ke ${bufferValue}%`, "success");
+    });
+
     // --- Data Rendering ---
     function renderAdminTable(append = false) {
         totalDbCount.innerText = displayedGamesData.length;

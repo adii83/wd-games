@@ -182,6 +182,22 @@
             class="search-input"
             style="max-width: 400px"
           />
+          <div style="display: flex; gap: 10px; align-items: center">
+            <label for="size-buffer-input" class="text-secondary" style="font-weight: 600">Buffer Size %:</label>
+            <input
+              type="number"
+              id="size-buffer-input"
+              class="admin-input"
+              value="5"
+              min="0"
+              max="100"
+              step="1"
+              style="max-width: 80px"
+            />
+            <button id="size-buffer-save-btn" class="custom-select btn-blue" style="border: none; padding: 6px 12px; font-size: 0.9rem">
+              Simpan
+            </button>
+          </div>
           <div class="stats text-secondary">
             Total Database:
             <strong id="total-db-count" class="text-accent">0</strong> Game
