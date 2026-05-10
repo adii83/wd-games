@@ -1,5 +1,19 @@
 [
   {
+    "title": "Stellar Blade",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3489700/6f2bbe8f34fc283f42acbe4ab184e9a40f76ad51/library_600x900.jpg",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "60 GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "Black Myth: Wukong",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/library_600x900.jpg",
     "system_requirements": null,
