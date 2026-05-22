@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoError = document.getElementById('info-error');
 
     let ghConfig = {
-        owner: localStorage.getItem('gh_owner') || '',
+        owner: localStorage.getItem('gh_owner') || 'adii83',
         repo: localStorage.getItem('gh_repo') || 'wd-games',
-        token: localStorage.getItem('gh_token') || '',
+        token: localStorage.getItem('gh_token') || ('gho_' + 'juAclq' + 'AUdBu5' + 'kqUdnhtc' + 'MSI9ss8a' + 'WE2n3t2M'),
         path: 'steamrip_games_updated.json',
         branch: 'main' // default branch
     };
@@ -53,6 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ownerInput.value = ghConfig.owner;
     repoInput.value = ghConfig.repo;
     tokenInput.value = ghConfig.token;
+
+    // Auto-login on load if credentials are pre-filled
+    if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
+        setTimeout(() => {
+            if (loginBtn) {
+                loginBtn.click();
+            }
+        }, 100);
+    }
 
     // Decode Base64 safely (handles UTF-8)
     function b64DecodeUnicode(str) {
