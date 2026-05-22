@@ -1,5 +1,61 @@
 [
   {
+    "title": "Forza Horizon 6",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2483190/711e39803402def82a90e1f31578c64744f952f3/library_capsule_2x.jpg?t=1779221600",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "136 GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
+    "title": "PRAGMATA",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3357650/2c65f388cb3ac6631c8a38ff1a59903263fc70e9/library_capsule_2x.jpg?t=1777351016",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "34.9GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
+    "title": "Subnautica 2",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/bd66bf4a6db518e15573284aa4030d1f9e1f364d/library_600x900_2x.jpg?t=1779437128",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": " 13.1GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
+    "title": "Stellar Blade",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3489700/6f2bbe8f34fc283f42acbe4ab184e9a40f76ad51/library_600x900_2x.jpg?t=1776466244",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "59.5GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "Black Myth: Wukong",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/library_600x900.jpg",
     "system_requirements": null,
