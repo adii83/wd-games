@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // State Tracker
     let gamesData = [];
     let displayedGamesData = []; // Filtered games based on search
-    let selectedGames = new Set(); // Stores original indices of selected games
+    let selectedGames = new Set(); // Stores titles of selected games
+    let gamesByTitle = new Map(); // Fast O(1) lookup map
 
     const sizeConfigPath = 'size_config.json';
 
@@ -220,83 +221,135 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Core Logic ---
 
-    // Fetch JSON Data
-    async function loadGames() {
-        try {
-            const cacheBuster = new Date().getTime();
-            const pcUrl = `steamrip_games_updated.json?t=${cacheBuster}`;
-            const legacyPcUrl = `steamrip_games.json?t=${cacheBuster}`;
-            const ps2Url = `ps2.json?t=${cacheBuster}`;
+    let pcLoaded = false;
+    let ps2Loaded = false;
+    let pcLoadingPromise = null;
+    let ps2LoadingPromise = null;
 
-            const [pcRes, legacyPcRes, ps2Res] = await Promise.all([
-                fetch(pcUrl, { cache: 'no-store' }),
-                fetch(legacyPcUrl, { cache: 'no-store' }),
-                fetch(ps2Url, { cache: 'no-store' })
-            ]);
+    function rebuildLookup() {
+        // Clean/Parse sizes for logic + add stable indices
+        gamesData.forEach((game, idx) => {
+            game._index = idx;
 
-            if (!pcRes.ok && !legacyPcRes.ok && !ps2Res.ok) {
-                throw new Error('Gagal mengambil data');
+            if (!game.banner_url) {
+                game.banner_url = 'assets/logo.png';
             }
 
-            const pcGames = pcRes.ok ? await pcRes.json() : (legacyPcRes.ok ? await legacyPcRes.json() : []);
-            const ps2Games = ps2Res.ok ? await ps2Res.json() : [];
+            const rawSize = (game.game_info && game.game_info['Game Size'] != null)
+                ? game.game_info['Game Size']
+                : 0;
+            game._sizeGB = parseSizeToGB(rawSize);
 
-            // If ps2.json includes a "Popularity Rank" (from ROMSFUN popular list), sort by it.
-            // Otherwise, keep the JSON file order as-is.
-            function getPopularityRank(game) {
-                const val = game && game.game_info ? game.game_info['Popularity Rank'] : null;
-                const n = Number(val);
-                return Number.isFinite(n) ? n : 0;
+            // Use real size plus configured buffer percentage
+            game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB * sizeBufferMultiplier : 0);
+        });
+
+        // Rebuild gamesByTitle Map
+        gamesByTitle.clear();
+        gamesData.forEach(game => {
+            if (game && game.title) {
+                gamesByTitle.set(game.title, game);
             }
-            const hasPopularityRank = ps2Games.some(g => getPopularityRank(g) > 0);
-            if (hasPopularityRank) {
-                ps2Games.sort((a, b) => {
-                    const ra = getPopularityRank(a);
-                    const rb = getPopularityRank(b);
-                    if (ra !== rb) {
-                        if (ra === 0) return 1;
-                        if (rb === 0) return -1;
-                        return ra - rb;
-                    }
-                    return String(a && a.title ? a.title : '').localeCompare(String(b && b.title ? b.title : ''), 'id');
-                });
+        });
+    }
+
+    async function ensureGamesLoaded(needed) {
+        const cacheBuster = new Date().getTime();
+        const promises = [];
+
+        if (needed.includes('pc') && !pcLoaded) {
+            if (!pcLoadingPromise) {
+                pcLoadingPromise = fetch(`steamrip_games_updated.json?t=${cacheBuster}`, { cache: 'no-store' })
+                    .then(res => {
+                        if (!res.ok) throw new Error('Gagal memuat game PC');
+                        return res.json();
+                    })
+                    .then(data => {
+                        pcLoaded = true;
+                        pcLoadingPromise = null;
+                        return data.map(g => ({ ...g, _category: 'pc' }));
+                    })
+                    .catch(err => {
+                        pcLoadingPromise = null;
+                        console.error(err);
+                        showToast('Gagal memuat data game PC.', 'error');
+                        return [];
+                    });
             }
-
-            // Merge datasets and add category labels
-            gamesData = [];
-            pcGames.forEach(g => gamesData.push({ ...g, _category: 'pc' }));
-            ps2Games.forEach(g => gamesData.push({ ...g, _category: 'ps2' }));
-
-            // Clean/Parse sizes for logic + add stable indices
-            gamesData.forEach((game, idx) => {
-                game._index = idx;
-
-                // Default banner fallback to avoid broken images (ps2.json often has empty banner_url)
-                if (!game.banner_url) {
-                    game.banner_url = 'assets/logo.png';
+            promises.push(pcLoadingPromise.then(games => {
+                const alreadyAdded = gamesData.some(g => g && g._category === 'pc');
+                if (!alreadyAdded) {
+                    gamesData.push(...games);
+                    rebuildLookup();
                 }
+            }));
+        }
 
-                const rawSize = (game.game_info && game.game_info['Game Size'] != null)
-                    ? game.game_info['Game Size']
-                    : 0;
-                game._sizeGB = parseSizeToGB(rawSize);
+        if (needed.includes('ps2') && !ps2Loaded) {
+            if (!ps2LoadingPromise) {
+                ps2LoadingPromise = fetch(`ps2.json?t=${cacheBuster}`, { cache: 'no-store' })
+                    .then(res => {
+                        if (!res.ok) throw new Error('Gagal memuat game PS2');
+                        return res.json();
+                    })
+                    .then(data => {
+                        ps2Loaded = true;
+                        ps2LoadingPromise = null;
+                        
+                        function getPopularityRank(game) {
+                            const val = game && game.game_info ? game.game_info['Popularity Rank'] : null;
+                            const n = Number(val);
+                            return Number.isFinite(n) ? n : 0;
+                        }
+                        const hasPopularityRank = data.some(g => getPopularityRank(g) > 0);
+                        if (hasPopularityRank) {
+                            data.sort((a, b) => {
+                                const ra = getPopularityRank(a);
+                                const rb = getPopularityRank(b);
+                                if (ra !== rb) {
+                                    if (ra === 0) return 1;
+                                    if (rb === 0) return -1;
+                                    return ra - rb;
+                                }
+                                return String(a && a.title ? a.title : '').localeCompare(String(b && b.title ? b.title : ''), 'id');
+                            });
+                        }
+                        return data.map(g => ({ ...g, _category: 'ps2' }));
+                    })
+                    .catch(err => {
+                        ps2LoadingPromise = null;
+                        console.error(err);
+                        showToast('Gagal memuat data game PS2.', 'error');
+                        return [];
+                    });
+            }
+            promises.push(ps2LoadingPromise.then(games => {
+                const alreadyAdded = gamesData.some(g => g && g._category === 'ps2');
+                if (!alreadyAdded) {
+                    gamesData.push(...games);
+                    rebuildLookup();
+                }
+            }));
+        }
 
-                // Use real size plus configured buffer percentage
-                game._estimatedSizeGB = (Number.isFinite(game._sizeGB) ? game._sizeGB * sizeBufferMultiplier : 0);
-            });
-
-            // Initially, displayed dataset follows current filters
-            applyFilters();
-            updateStorageUI();
-        } catch (error) {
-            console.error(error);
-            grid.innerHTML = `<div class="loading-state text-accent">Error: Data game tidak ditemukan. Pastikan steamrip_games_updated.json berada di folder yang sama.</div>`;
+        if (promises.length > 0) {
+            grid.innerHTML = `<div class="loading-state">Memuat data game...</div>`;
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+            await Promise.all(promises);
         }
     }
 
-    function applyFilters() {
-        const query = (searchInput && searchInput.value ? searchInput.value : '').toLowerCase();
+    async function applyFilters() {
         const category = currentCategory || 'all';
+
+        // Lazy load files on demand based on what categories are needed
+        const needed = [];
+        if (category === 'all' || category === 'pc') needed.push('pc');
+        if (category === 'all' || category === 'ps2') needed.push('ps2');
+
+        await ensureGamesLoaded(needed);
+
+        const query = (searchInput && searchInput.value ? searchInput.value : '').toLowerCase();
 
         displayedGamesData = gamesData.filter((game) => {
             if (!game) return false;
@@ -304,6 +357,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const matchesCategory = (category === 'all') || (game._category === category);
             return matchesQuery && matchesCategory;
         });
+
+        // Prioritize PC games first when category is 'all'
+        if (category === 'all') {
+            displayedGamesData.sort((a, b) => {
+                if (a._category === b._category) {
+                    return a._index - b._index;
+                }
+                if (a._category === 'pc') return -1;
+                if (b._category === 'pc') return 1;
+                return 0;
+            });
+        }
 
         renderGrid(true);
     }
@@ -327,6 +392,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${rounded.toFixed(1)} GB`;
     }
 
+    function debounce(func, delay) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), delay);
+        };
+    }
+
     // Calculate actual size from string
     function calculateEstimatedSize(sizeStr) {
         const sizeGB = parseSizeToGB(sizeStr) * sizeBufferMultiplier;
@@ -341,8 +414,8 @@ document.addEventListener('DOMContentLoaded', () => {
         storageTotalEl.innerText = `${currentHddCapacity} GB`;
         
         totalUsedGB = 0;
-        selectedGames.forEach(index => {
-            const g = gamesData[index];
+        selectedGames.forEach(title => {
+            const g = gamesByTitle.get(title);
             totalUsedGB += g ? (Number.isFinite(g._estimatedSizeGB) ? g._estimatedSizeGB : 0) : 0;
         });
 
@@ -391,9 +464,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!selectedWidgetList) return;
 
         selectedWidgetList.innerHTML = '';
-        const selectedIndices = Array.from(selectedGames);
+        const selectedTitles = Array.from(selectedGames);
 
-        if (selectedIndices.length === 0) {
+        if (selectedTitles.length === 0) {
             const emptyEl = document.createElement('div');
             emptyEl.className = 'assistive-empty';
             emptyEl.textContent = 'Belum ada game yang dipilih.';
@@ -401,8 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        selectedIndices.forEach((index) => {
-            const game = gamesData[index];
+        selectedTitles.forEach((title) => {
+            const game = gamesByTitle.get(title);
             if (!game) return;
 
             const item = document.createElement('div');
@@ -427,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const checkBadge = document.createElement('button');
             checkBadge.type = 'button';
             checkBadge.className = 'assistive-check';
-            checkBadge.dataset.index = String(index);
+            checkBadge.dataset.title = game.title;
             checkBadge.setAttribute('aria-label', `Hapus ${game.title || 'game ini'} dari pilihan`);
             checkBadge.textContent = '🗑';
 
@@ -483,10 +556,18 @@ document.addEventListener('DOMContentLoaded', () => {
         setDropdownOptionsByStorageType(type);
         setCapacityByValue(preset.defaultCapacity);
 
-        currentCategory = preset.category;
         if (categoryFilter) {
-            categoryFilter.value = preset.category;
+            if (type === 'flashdisk') {
+                categoryFilter.innerHTML = `<option value="ps2" selected>PS2 Emu</option>`;
+            } else {
+                categoryFilter.innerHTML = `
+                    <option value="all" ${preset.category === 'all' ? 'selected' : ''}>Semua Kategori</option>
+                    <option value="pc" ${preset.category === 'pc' ? 'selected' : ''}>Game PC</option>
+                    <option value="ps2" ${preset.category === 'ps2' ? 'selected' : ''}>PS2 Emu</option>
+                `;
+            }
         }
+        currentCategory = (categoryFilter && categoryFilter.value) ? categoryFilter.value : preset.category;
 
         if (storageTypeLabelEl) {
             storageTypeLabelEl.innerText = preset.label;
@@ -576,12 +657,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.stopPropagation();
 
-            const idx = parseInt(checkBtn.dataset.index, 10);
-            if (Number.isNaN(idx)) return;
+            const title = checkBtn.dataset.title;
+            if (!title) return;
 
-            selectedGames.delete(idx);
+            selectedGames.delete(title);
 
-            const card = grid.querySelector(`.game-card[data-index="${idx}"]`);
+            const card = grid.querySelector(`.game-card[data-title="${CSS.escape(title)}"]`);
             if (card) {
                 card.classList.remove('selected');
             }
@@ -635,6 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'game-card';
             card.setAttribute('data-index', originalIndex);
+            card.setAttribute('data-title', game.title);
             
             // Extract Size String for Badge
             const sizeStr = game.game_info ? game.game_info['Game Size'] : 'N/A';
@@ -672,18 +754,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Ignore click if they pressed the info button
                 if (e.target.closest('.info-btn')) return;
 
-                if (selectedGames.has(originalIndex)) {
-                    selectedGames.delete(originalIndex);
+                if (selectedGames.has(game.title)) {
+                    selectedGames.delete(game.title);
                     card.classList.remove('selected');
                 } else {
-                    selectedGames.add(originalIndex);
+                    selectedGames.add(game.title);
                     card.classList.add('selected');
                 }
                 updateStorageUI();
             });
 
             // Initial selection state check (for cases when searching/filtering brings back a selected card)
-            if (selectedGames.has(originalIndex)) {
+            if (selectedGames.has(game.title)) {
                 card.classList.add('selected');
             }
 
@@ -775,7 +857,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let totalExportSize = 0;
         let counter = 1;
 
-        const selectedArr = Array.from(selectedGames).map(index => gamesData[index]);
+        const selectedArr = Array.from(selectedGames).map(title => gamesByTitle.get(title)).filter(Boolean);
         
         if (selectedArr.length === 0) {
             exportTableBody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--text-secondary); padding: 20px;">Belum ada game yang dipilih.</td></tr>`;
@@ -814,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildExportText() {
-        const selectedArr = Array.from(selectedGames).map(index => gamesData[index]).filter(Boolean);
+        const selectedArr = Array.from(selectedGames).map(title => gamesByTitle.get(title)).filter(Boolean);
         const totalSize = totalUsedGB;
 
         function stripVersionSuffix(title) {
@@ -939,10 +1021,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Search Logic ---
-    searchInput.addEventListener('input', (e) => {
+    searchInput.addEventListener('input', debounce((e) => {
         // Keep filters consistent (search + category)
         applyFilters();
-    });
+    }, 250));
 
     if (categoryFilter) {
         categoryFilter.addEventListener('change', (e) => {
@@ -954,6 +1036,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // START
     (async () => {
         await loadSizeBufferConfig();
-        await loadGames();
+        if (!document.body.classList.contains('landing-active')) {
+            await applyFilters();
+        }
     })();
 });

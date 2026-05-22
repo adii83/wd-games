@@ -83,15 +83,13 @@ def save_games(path: Path, data: List[Dict[str, Any]]) -> None:
     temp_path = path.with_suffix(path.suffix + ".tmp")
     try:
         with temp_path.open("w", encoding="utf-8") as handle:
-            json.dump(data, handle, ensure_ascii=False, indent=2)
-            handle.write("\n")
+            json.dump(data, handle, ensure_ascii=False, separators=(',', ':'))
         os.replace(temp_path, path)
     except Exception as e:
         print(f"[SAVE ERROR] Failed to atomically save file: {e}")
         # fallback to standard write if rename fails
         with path.open("w", encoding="utf-8") as handle:
-            json.dump(data, handle, ensure_ascii=False, indent=2)
-            handle.write("\n")
+            json.dump(data, handle, ensure_ascii=False, separators=(',', ':'))
 
 
 def normalize_banner_url(url: Optional[str]) -> str:
