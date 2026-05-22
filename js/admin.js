@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         owner: localStorage.getItem('gh_owner') || '',
         repo: localStorage.getItem('gh_repo') || 'wd-games',
         token: localStorage.getItem('gh_token') || '',
-        path: 'steamrip_games.json',
+        path: 'steamrip_games_updated.json',
         branch: 'main' // default branch
     };
     const sizeConfigPath = 'size_config.json';
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if(!response.ok) {
-                if(response.status === 404) throw new Error("Repository atau file steamrip_games.json tidak ditemukan.");
+                if(response.status === 404) throw new Error("Repository atau file steamrip_games_updated.json tidak ditemukan.");
                 if(response.status === 401) throw new Error("Token (PAT) tidak valid / Unauthorized.");
                 throw new Error("Gagal mengambil data dari GitHub API.");
             }

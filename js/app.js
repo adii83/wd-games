@@ -224,19 +224,21 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadGames() {
         try {
             const cacheBuster = new Date().getTime();
-            const pcUrl = `steamrip_games.json?t=${cacheBuster}`;
+            const pcUrl = `steamrip_games_updated.json?t=${cacheBuster}`;
+            const legacyPcUrl = `steamrip_games.json?t=${cacheBuster}`;
             const ps2Url = `ps2.json?t=${cacheBuster}`;
 
-            const [pcRes, ps2Res] = await Promise.all([
+            const [pcRes, legacyPcRes, ps2Res] = await Promise.all([
                 fetch(pcUrl, { cache: 'no-store' }),
+                fetch(legacyPcUrl, { cache: 'no-store' }),
                 fetch(ps2Url, { cache: 'no-store' })
             ]);
 
-            if (!pcRes.ok && !ps2Res.ok) {
+            if (!pcRes.ok && !legacyPcRes.ok && !ps2Res.ok) {
                 throw new Error('Gagal mengambil data');
             }
 
-            const pcGames = pcRes.ok ? await pcRes.json() : [];
+            const pcGames = pcRes.ok ? await pcRes.json() : (legacyPcRes.ok ? await legacyPcRes.json() : []);
             const ps2Games = ps2Res.ok ? await ps2Res.json() : [];
 
             // If ps2.json includes a "Popularity Rank" (from ROMSFUN popular list), sort by it.
@@ -288,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateStorageUI();
         } catch (error) {
             console.error(error);
-            grid.innerHTML = `<div class="loading-state text-accent">Error: Data game tidak ditemukan. Pastikan steamrip_games.json berada di folder yang sama.</div>`;
+            grid.innerHTML = `<div class="loading-state text-accent">Error: Data game tidak ditemukan. Pastikan steamrip_games_updated.json berada di folder yang sama.</div>`;
         }
     }
 
