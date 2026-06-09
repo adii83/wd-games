@@ -1,5 +1,33 @@
 [
   {
+    "title": "STAR WARS™ Battlefront™ II",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1237950/library_600x900_2x.jpg?t=1777393714",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "90 GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
+    "title": "MotoGP™26",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3875050/d1fa1483cd16f54f14060da35ecfe9ce166c3e4e/library_capsule_2x.jpg?t=1778499974",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "28.7 GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "Mafia: The Old Country",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1941540/3c2e4dee10f72e061ed382064be68b9648902534/library_600x900_2x.jpg?t=1764177372",
     "system_requirements": null,
