@@ -1,5 +1,19 @@
 [
   {
+    "title": "Assassin's Creed Shadows",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3159330/bdab6ed673aea5877d76e8c99c696ced92cf0d12/library_capsule.jpg",
+    "system_requirements": null,
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Game Science",
+      "Platform": "PC",
+      "Game Size": "148 GB",
+      "Released By": "Steam / Epic Games",
+      "Version": "v1.0.8.14860 | Full Version",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "007 First Light",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3768760/1159a696d257cbeb3f4479be3466cfba2ae938a0/library_600x900_2x.jpg?t=1780990824",
     "system_requirements": null,
