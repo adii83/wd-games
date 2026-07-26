@@ -27,11 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const storageTypeSelect = document.getElementById('storage-type-select');
     const landingScreen = document.getElementById('landing-screen');
     const landingActions = document.getElementById('landing-storage-actions');
+    const plannerHeader = document.querySelector('.planner-header');
+    const searchFabBtn = document.getElementById('search-fab-btn');
+
+    // Keep body's top spacing in sync with the fixed header's real height,
+    // since the header wraps to extra rows on narrow phones and a static
+    // padding-top would let it overlap the search bar.
+    function syncHeaderHeight() {
+        if (!plannerHeader) return;
+        document.documentElement.style.setProperty('--header-h', `${plannerHeader.offsetHeight}px`);
+    }
+    syncHeaderHeight();
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(syncHeaderHeight).catch(() => {});
+    }
+    window.addEventListener('load', syncHeaderHeight);
 
     // Floating Export Button behavior (move to bottom-left on scroll)
     const controlsEl = document.querySelector('.controls');
     let exportFloating = false;
     let exportBtnWrap = null;
+    let searchFloating = false;
+
+    function setSearchFabFloating(shouldFloat) {
+        if (shouldFloat === searchFloating) return;
+        searchFloating = shouldFloat;
+        document.body.classList.toggle('search-float', shouldFloat);
+    }
 
     function computeExportWrapSize() {
         if (!exportBtn || !exportBtnWrap) return;
@@ -80,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function onScrollOrResize() {
-        setExportFloating(shouldFloatExportButton());
+        const shouldFloat = shouldFloatExportButton();
+        setExportFloating(shouldFloat);
+        setSearchFabFloating(shouldFloat);
     }
 
     if (exportBtn) {
@@ -92,7 +116,17 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', onScrollOrResize, { passive: true });
         window.addEventListener('resize', () => {
             computeExportWrapSize();
+            syncHeaderHeight();
             onScrollOrResize();
+        });
+    }
+
+    if (searchFabBtn) {
+        searchFabBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                if (searchInput) searchInput.focus();
+            }, 300);
         });
     }
 
@@ -254,12 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function ensureGamesLoaded(needed) {
-        const cacheBuster = new Date().getTime();
         const promises = [];
 
         if (needed.includes('pc') && !pcLoaded) {
             if (!pcLoadingPromise) {
-                pcLoadingPromise = fetch(`steamrip_games_updated.json?t=${cacheBuster}`, { cache: 'no-store' })
+                // No cache-buster here: let the browser reuse/revalidate its HTTP cache
+                // instead of re-downloading the multi-MB database on every single visit.
+                pcLoadingPromise = fetch('steamrip_games_updated.json')
                     .then(res => {
                         if (!res.ok) throw new Error('Gagal memuat game PC');
                         return res.json();
@@ -287,7 +322,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (needed.includes('ps2') && !ps2Loaded) {
             if (!ps2LoadingPromise) {
-                ps2LoadingPromise = fetch(`ps2.json?t=${cacheBuster}`, { cache: 'no-store' })
+                ps2LoadingPromise = fetch('ps2.json')
                     .then(res => {
                         if (!res.ok) throw new Error('Gagal memuat game PS2');
                         return res.json();

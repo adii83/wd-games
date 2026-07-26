@@ -2,8 +2,8 @@
 
 .admin-body {
   background-color: var(--bg-dark);
-  /* Background image + dark overlay (place the image at: assets/background.png) */
-  background-image: linear-gradient(var(--overlay), var(--overlay)), url("../assets/background.png");
+  /* Background image + dark overlay (place the image at: assets/background.webp) */
+  background-image: linear-gradient(var(--overlay), var(--overlay)), url("../assets/background.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
