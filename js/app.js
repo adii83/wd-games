@@ -1025,23 +1025,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Shopee shop: WD GAMES (username wdgames_, shopId 1018547602)
-    const SHOPEE_CHAT_URL = 'https://shopee.co.id/user/chat?shopId=1018547602';
-
     if (copyTextBtn) {
         copyTextBtn.addEventListener('click', async () => {
             try {
                 const text = buildExportText();
                 const ok = await copyTextToClipboard(text);
                 if (!ok) throw new Error('Copy gagal');
-                showToast('Teks di-copy! Membuka chat Shopee WD Games...', 'success');
+                showToast('Teks daftar game berhasil di-copy!', 'success');
             } catch (err) {
                 console.error('Copy text error:', err);
                 showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
-            } finally {
-                // Always open the chat, even if clipboard copy failed (e.g. non-HTTPS/older browser),
-                // so the user can still reach the seller and type the order manually.
-                window.open(SHOPEE_CHAT_URL, '_blank', 'noopener');
             }
         });
     }
