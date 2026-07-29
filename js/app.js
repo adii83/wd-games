@@ -368,10 +368,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (promises.length > 0) {
-            grid.innerHTML = `<div class="loading-state">Memuat data game...</div>`;
+            renderSkeletonGrid();
             if (loadMoreBtn) loadMoreBtn.style.display = 'none';
             await Promise.all(promises);
         }
+    }
+
+    function renderSkeletonGrid(count = 10) {
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < count; i++) {
+            const skeleton = document.createElement('div');
+            skeleton.className = 'skeleton-card';
+            fragment.appendChild(skeleton);
+        }
+        grid.innerHTML = '';
+        grid.appendChild(fragment);
     }
 
     async function applyFilters() {
@@ -743,35 +754,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const fragment = document.createDocumentFragment();
 
-        currentDataChunk.forEach((game) => {
+        currentDataChunk.forEach((game, chunkIdx) => {
             // Kita butuh index ORISINAL dari gamesData untuk tracking selection
             const originalIndex = Number.isInteger(game._index) ? game._index : gamesData.indexOf(game);
-            
+
             // Create Card Element
             const card = document.createElement('div');
             card.className = 'game-card';
             card.setAttribute('data-index', originalIndex);
             card.setAttribute('data-title', game.title);
-            
+            // Stagger reveal delay, capped so long batches don't feel sluggish
+            card.style.setProperty('--i', Math.min(chunkIdx, 14));
+
             // Extract Size String for Badge
             const sizeStr = game.game_info ? game.game_info['Game Size'] : 'N/A';
             const estimatedSizeLabel = formatSizeGB(Number.isFinite(game._estimatedSizeGB) ? game._estimatedSizeGB : parseSizeToGB(sizeStr));
-            
+            const catCode = game._category === 'ps2' ? 'ps2' : 'pc';
+            const catLabel = game._category === 'ps2' ? 'PS2' : 'PC';
+
             card.innerHTML = `
                 <img src="${game.banner_url}" alt="${game.title}" class="card-img" loading="lazy" decoding="async">
-                
+
                 <div class="selected-overlay">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                 </div>
-                
-                <div class="size-badge">${estimatedSizeLabel}</div>
-                
+
+                <div class="size-badge"><span class="cat-tag cat-${catCode}">${catLabel}</span>${estimatedSizeLabel}</div>
+
                 <div class="title-overlay">
                     <div class="game-title">${game.title}</div>
                 </div>
-                
+
                 <div class="info-btn" data-index="${originalIndex}" title="Informasi Game">i</div>
             `;
 
@@ -1010,16 +1025,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Shopee shop: WD GAMES (username wdgames_, shopId 1018547602)
+    const SHOPEE_CHAT_URL = 'https://shopee.co.id/user/chat?shopId=1018547602';
+
     if (copyTextBtn) {
         copyTextBtn.addEventListener('click', async () => {
             try {
                 const text = buildExportText();
                 const ok = await copyTextToClipboard(text);
                 if (!ok) throw new Error('Copy gagal');
-                showToast('Teks daftar game berhasil di-copy!', 'success');
+                showToast('Teks di-copy! Membuka chat Shopee WD Games...', 'success');
             } catch (err) {
                 console.error('Copy text error:', err);
                 showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
+            } finally {
+                // Always open the chat, even if clipboard copy failed (e.g. non-HTTPS/older browser),
+                // so the user can still reach the seller and type the order manually.
+                window.open(SHOPEE_CHAT_URL, '_blank', 'noopener');
             }
         });
     }

@@ -7,6 +7,8 @@
   --text-secondary: #9aa0a6;
   --accent: #00d2ff;
   --accent-gradient: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  --accent-secondary: #a78bfa;
+  --accent-secondary-gradient: linear-gradient(135deg, #a78bfa, #7c3aed);
   --danger: #ff4757;
   --success: #2ed573;
   --border-color: rgba(255, 255, 255, 0.08);
@@ -283,6 +285,12 @@ body.landing-active .assistive-widget {
   letter-spacing: -0.5px;
 }
 
+.logo-wd,
+.logo-games {
+  font-family: "Russo One", sans-serif;
+  letter-spacing: 0.5px;
+}
+
 .logo-wd {
   color: var(--accent);
   text-shadow:
@@ -293,6 +301,12 @@ body.landing-active .assistive-widget {
 .logo-games {
   color: var(--text-primary);
   text-shadow: 0 0 6px var(--text-primary);
+}
+
+.logo-wd,
+.logo-games {
+  font-family: "Russo One", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .logo-wd {
@@ -599,6 +613,11 @@ body.export-float #export-btn {
   box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
+.game-card:hover:not(.selected) {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
 .card-img {
   width: 100%;
   height: 100%;
@@ -609,6 +628,23 @@ body.export-float #export-btn {
 
 .game-card:hover .card-img {
   transform: scale(1.05); /* subtle zoom */
+}
+
+/* Stagger reveal on render (skipped for reduced-motion users below) */
+.game-card {
+  animation: card-reveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 30ms);
+}
+
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Selected Checkmark Overlay */
@@ -643,6 +679,31 @@ body.export-float #export-btn {
   color: var(--accent);
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Category tag (distinguishes PC vs PS2 games, not by color alone) */
+.cat-tag {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 2px 6px;
+  border-radius: var(--radius-pill);
+  line-height: 1.4;
+}
+
+.cat-tag.cat-pc {
+  color: var(--accent);
+  background: rgba(0, 210, 255, 0.15);
+  border: 1px solid rgba(0, 210, 255, 0.4);
+}
+
+.cat-tag.cat-ps2 {
+  color: var(--accent-secondary);
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(124, 58, 237, 0.45);
 }
 
 .size-badge .size-line {
@@ -677,8 +738,8 @@ body.export-float #export-btn {
   position: absolute;
   top: 8px;
   left: 8px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
@@ -738,6 +799,29 @@ body.export-float #export-btn {
   padding: 40px;
   color: var(--text-secondary);
   font-weight: 600;
+}
+
+/* Skeleton Card (shown while game JSON is being fetched) */
+.skeleton-card {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    110deg,
+    var(--bg-card) 8%,
+    rgba(255, 255, 255, 0.06) 18%,
+    var(--bg-card) 33%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* --- Modal Bottom Sheet --- */
@@ -1086,8 +1170,8 @@ body.export-float #export-btn {
 }
 
 .assistive-check {
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px solid rgba(255, 71, 87, 0.5);
   color: var(--danger);
@@ -1158,4 +1242,17 @@ body.search-float .search-fab {
 
 .search-fab-btn:active {
   transform: scale(0.92);
+}
+
+/* Respect reduced-motion preference: keep functional transitions, drop decorative ones */
+@media (prefers-reduced-motion: reduce) {
+  .game-card {
+    animation: none;
+  }
+  .skeleton-card {
+    animation: none;
+  }
+  .game-card:hover:not(.selected) {
+    transform: none;
+  }
 }
