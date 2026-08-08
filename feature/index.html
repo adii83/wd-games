@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WD Games - Galeri Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link href="../css/feature.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="gallery-header">
+      <div class="gallery-header-inner">
+        <a href="../index.html" class="gallery-logo" aria-label="Kembali ke WD Games">
+          <span class="logo-wd">WD</span> <span class="logo-games">Games</span>
+        </a>
+        <h1 class="gallery-title">Game Gallery</h1>
+        <div class="gallery-search-wrap">
+          <input
+            type="text"
+            id="gallery-search"
+            class="gallery-search"
+            placeholder="Cari game PC..."
+            aria-label="Cari game"
+          />
+        </div>
+      </div>
+
+      <div class="storage-bar">
+        <div class="storage-picker">
+          <select id="storage-type-select" class="storage-select" aria-label="Pilih media penyimpanan">
+            <option value="hdd">HDD</option>
+            <option value="flashdisk">Flashdisk</option>
+            <option value="ssd">SSD</option>
+          </select>
+          <select id="storage-capacity-select" class="storage-select" aria-label="Pilih kapasitas"></select>
+        </div>
+        <div class="storage-progress-wrap">
+          <div class="storage-progress-text">
+            <span id="storage-used-text">0 GB</span> / <span id="storage-total-text">455 GB</span>
+          </div>
+          <div class="storage-progress-track">
+            <div id="storage-progress-fill" class="storage-progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="discover-main">
+      <!-- Hero carousel + quick-pick sidebar (Steam-storefront style) -->
+      <section class="discover-top" id="discover-top" style="display: none;">
+        <div class="hero-carousel" id="hero-carousel">
+          <div class="hero-slides" id="hero-slides"></div>
+          <button class="hero-nav prev" id="hero-prev" type="button" aria-label="Sebelumnya">&#8249;</button>
+          <button class="hero-nav next" id="hero-next" type="button" aria-label="Berikutnya">&#8250;</button>
+          <div class="hero-dots" id="hero-dots"></div>
+        </div>
+        <aside class="quick-list" id="quick-list">
+          <h2 class="quick-list-title">Rekomendasi</h2>
+          <div class="quick-list-items" id="quick-list-items"></div>
+        </aside>
+      </section>
+
+      <!-- Spotlight row: games with gameplay video -->
+      <section class="spotlight-section" id="spotlight-section" style="display: none;">
+        <h2 class="spotlight-title">🎮 Ada Gameplay Video</h2>
+        <div class="spotlight-scroll" id="spotlight-scroll"></div>
+      </section>
+
+      <!-- Full searchable catalog -->
+      <section class="catalog-section">
+        <h2 class="spotlight-title" id="catalog-title">Semua Game</h2>
+        <div id="gallery-grid" class="gallery-grid"></div>
+
+        <div class="gallery-load-more-wrap">
+          <button id="gallery-load-more" class="gallery-load-more" type="button" style="display: none;">
+            Muat Lebih Banyak
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Floating selected-games widget -->
+    <div id="feature-cart-backdrop" class="feature-cart-backdrop"></div>
+    <div id="feature-cart-widget" class="feature-cart-widget">
+      <button id="feature-cart-btn" class="feature-cart-btn" type="button" aria-label="Lihat game terpilih">
+        <span>Game Terpilih</span>
+        <span id="feature-cart-count" class="feature-cart-count">0</span>
+      </button>
+
+      <div id="feature-cart-panel" class="assistive-panel">
+        <div class="assistive-panel-header">
+          <div style="font-weight: 800;">Game Terpilih</div>
+          <button id="feature-cart-close" class="assistive-close" type="button" aria-label="Tutup">&times;</button>
+        </div>
+        <div id="feature-cart-list" class="assistive-list"></div>
+        <a href="../index.html" class="feature-cart-cta">Lanjut Pesan di WD Games</a>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+    <script src="../js/feature-cart.js"></script>
+    <script src="../js/feature-cart-widget.js"></script>
+    <script src="../js/feature.js"></script>
+  </body>
+</html>

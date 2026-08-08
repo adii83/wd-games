@@ -235,6 +235,23 @@ body.landing-active .assistive-widget {
   gap: 10px;
 }
 
+.gallery-nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.gallery-nav-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .storage-type-select {
   width: 140px;
   padding-right: 14px;

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WD Games - Detail Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../assets/logo.png" />
+    <link href="../css/feature.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="gallery-header">
+      <div class="gallery-header-inner">
+        <a href="../index.html" class="gallery-logo" aria-label="Kembali ke WD Games">
+          <span class="logo-wd">WD</span> <span class="logo-games">Games</span>
+        </a>
+        <a href="index.html" class="game-back-link">&larr; Game Gallery</a>
+      </div>
+
+      <div class="storage-bar">
+        <div class="storage-picker">
+          <select id="storage-type-select" class="storage-select" aria-label="Pilih media penyimpanan">
+            <option value="hdd">HDD</option>
+            <option value="flashdisk">Flashdisk</option>
+            <option value="ssd">SSD</option>
+          </select>
+          <select id="storage-capacity-select" class="storage-select" aria-label="Pilih kapasitas"></select>
+        </div>
+        <div class="storage-progress-wrap">
+          <div class="storage-progress-text">
+            <span id="storage-used-text">0 GB</span> / <span id="storage-total-text">455 GB</span>
+          </div>
+          <div class="storage-progress-track">
+            <div id="storage-progress-fill" class="storage-progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="game-main" class="game-main">
+      <div class="gallery-loading">Memuat game...</div>
+    </main>
+
+    <template id="game-detail-template">
+      <!-- Media carousel -->
+      <div class="carousel">
+        <div class="carousel-main" id="carousel-main">
+          <img class="carousel-main-img" id="carousel-main-img" src="" alt="" />
+          <video class="carousel-main-video" id="carousel-main-video" playsinline controls></video>
+          <button class="carousel-play-btn" id="carousel-play-btn" type="button" aria-label="Putar trailer">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button class="carousel-nav prev" id="carousel-prev" type="button" aria-label="Sebelumnya">&#8249;</button>
+          <button class="carousel-nav next" id="carousel-next" type="button" aria-label="Berikutnya">&#8250;</button>
+        </div>
+        <div class="carousel-thumbs" id="carousel-thumbs"></div>
+      </div>
+
+      <!-- Title + meta -->
+      <div class="game-header-row">
+        <div>
+          <h1 class="game-title" id="game-title"></h1>
+          <div class="game-tags" id="game-tags"></div>
+        </div>
+        <div class="game-meta-box" id="game-meta-box"></div>
+      </div>
+
+      <div class="game-content-grid">
+        <div class="game-content-main">
+          <section class="game-section">
+            <h2>Tentang Game Ini</h2>
+            <div class="about-content" id="about-content"></div>
+          </section>
+
+          <section class="game-section">
+            <h2>Persyaratan Sistem</h2>
+            <div class="requirements-grid" id="requirements-grid"></div>
+          </section>
+        </div>
+
+        <aside class="game-sidebar">
+          <div class="order-card">
+            <div class="order-card-label">Ukuran Game</div>
+            <div class="order-card-size" id="order-card-size">-</div>
+            <button id="select-game-btn" class="select-game-btn" type="button">Pilih Game Ini</button>
+            <a href="../index.html" class="order-cta">Pesan di WD Games</a>
+          </div>
+        </aside>
+      </div>
+    </template>
+
+    <!-- Floating selected-games widget (shared with feature/index.html) -->
+    <div id="feature-cart-backdrop" class="feature-cart-backdrop"></div>
+    <div id="feature-cart-widget" class="feature-cart-widget">
+      <button id="feature-cart-btn" class="feature-cart-btn" type="button" aria-label="Lihat game terpilih">
+        <span>Game Terpilih</span>
+        <span id="feature-cart-count" class="feature-cart-count">0</span>
+      </button>
+
+      <div id="feature-cart-panel" class="assistive-panel">
+        <div class="assistive-panel-header">
+          <div style="font-weight: 800;">Game Terpilih</div>
+          <button id="feature-cart-close" class="assistive-close" type="button" aria-label="Tutup">&times;</button>
+        </div>
+        <div id="feature-cart-list" class="assistive-list"></div>
+        <a href="../index.html" class="feature-cart-cta">Lanjut Pesan di WD Games</a>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+    <script src="../js/feature-cart.js"></script>
+    <script src="../js/feature-cart-widget.js"></script>
+    <script src="../js/feature-detail.js"></script>
+  </body>
+</html>

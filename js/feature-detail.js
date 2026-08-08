@@ -1,0 +1,354 @@
+(function () {
+    'use strict';
+
+    // Standalone script for feature/game.html — isolated from js/app.js. Uses
+    // js/feature-cart.js (loaded before this file) for the shared /feature
+    // storage-picker + selection state.
+
+    const mainEl = document.getElementById('game-main');
+    const template = document.getElementById('game-detail-template');
+
+    const storageTypeSelect = document.getElementById('storage-type-select');
+    const storageCapacitySelect = document.getElementById('storage-capacity-select');
+    const storageUsedText = document.getElementById('storage-used-text');
+    const storageTotalText = document.getElementById('storage-total-text');
+    const storageProgressFill = document.getElementById('storage-progress-fill');
+
+    let allGames = [];
+    let currentGame = null;
+    let hlsInstance = null;
+
+    function parseSizeToGB(sizeVal) {
+        if (typeof sizeVal === 'number' && Number.isFinite(sizeVal)) return sizeVal;
+        if (typeof sizeVal !== 'string') return 0;
+        const match = sizeVal.trim().match(/([\d.]+)\s*(GB|MB)/i);
+        if (!match) return 0;
+        const num = parseFloat(match[1]);
+        return match[2].toUpperCase() === 'MB' ? num / 1024 : num;
+    }
+
+    function formatSizeGB(gb) {
+        if (!Number.isFinite(gb) || gb <= 0) return 'N/A';
+        return gb >= 1 ? `${gb.toFixed(1)} GB` : `${Math.round(gb * 1024)} MB`;
+    }
+
+    function renderNotFound() {
+        mainEl.innerHTML = `
+            <div class="gallery-empty">
+                Game tidak ditemukan.<br />
+                <a href="index.html" class="detail-cta" style="margin-top: 16px; display: inline-block;">Kembali ke Galeri</a>
+            </div>
+        `;
+    }
+
+    async function loadGame() {
+        const params = new URLSearchParams(window.location.search);
+        const wantedTitle = params.get('t');
+        if (!wantedTitle) return renderNotFound();
+
+        let games;
+        let gameplayData = {};
+        try {
+            const [gamesRes, gameplayRes] = await Promise.all([
+                fetch('../steamrip_games_updated.json'),
+                fetch('../steamrip_games_gameplay.json').catch(() => null),
+            ]);
+            if (!gamesRes.ok) throw new Error('Gagal memuat data game');
+            games = await gamesRes.json();
+            gameplayData = gameplayRes && gameplayRes.ok ? await gameplayRes.json() : {};
+        } catch (err) {
+            console.error(err);
+            return renderNotFound();
+        }
+
+        allGames = Array.isArray(games) ? games : [];
+        const base = allGames.find((g) => g.title === wantedTitle);
+        if (!base) return renderNotFound();
+
+        const game = { ...base, ...(gameplayData[base.title] || {}) };
+        renderGame(game);
+    }
+
+    function renderGame(game) {
+        currentGame = game;
+        document.title = `${game.title} - WD Games`;
+
+        const frag = template.content.cloneNode(true);
+        mainEl.innerHTML = '';
+        mainEl.appendChild(frag);
+
+        setupCarousel(game);
+        setupHeader(game);
+        setupAbout(game);
+        setupRequirements(game);
+        setupOrderCard(game);
+        setupStoragePicker();
+    }
+
+    // --- Carousel ---
+
+    function setupCarousel(game) {
+        const items = [];
+        if (game.trailer_hls) {
+            items.push({
+                type: 'video',
+                hls: game.trailer_hls,
+                thumb: game.trailer_thumb || game.banner_url,
+                label: 'Trailer',
+            });
+        }
+        (Array.isArray(game.screenshots) ? game.screenshots : []).forEach((src, idx) => {
+            items.push({ type: 'image', src, label: `Screenshot ${idx + 1}` });
+        });
+        if (items.length === 0) {
+            items.push({ type: 'image', src: game.banner_url || '../assets/logo.png', label: game.title });
+        }
+
+        const mainImg = document.getElementById('carousel-main-img');
+        const mainVideo = document.getElementById('carousel-main-video');
+        const playBtn = document.getElementById('carousel-play-btn');
+        const mainWrap = document.getElementById('carousel-main');
+        const thumbsEl = document.getElementById('carousel-thumbs');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+
+        let currentIndex = 0;
+
+        function stopVideo() {
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
+            mainVideo.pause();
+            mainVideo.removeAttribute('src');
+            mainVideo.load();
+            mainWrap.classList.remove('playing');
+        }
+
+        function showItem(idx) {
+            currentIndex = (idx + items.length) % items.length;
+            const item = items[currentIndex];
+
+            stopVideo();
+            mainWrap.classList.toggle('has-video', item.type === 'video');
+
+            mainImg.src = item.type === 'video' ? (item.thumb || '../assets/logo.png') : item.src;
+            mainImg.alt = item.label || game.title;
+
+            thumbsEl.querySelectorAll('.carousel-thumb').forEach((el, i) => {
+                el.classList.toggle('active', i === currentIndex);
+            });
+            const activeThumb = thumbsEl.querySelector(`.carousel-thumb[data-idx="${currentIndex}"]`);
+            if (activeThumb) activeThumb.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+        }
+
+        playBtn.addEventListener('click', () => {
+            const item = items[currentIndex];
+            if (item.type !== 'video') return;
+
+            mainWrap.classList.add('playing');
+            if (mainVideo.canPlayType('application/vnd.apple.mpegurl')) {
+                mainVideo.src = item.hls;
+            } else if (window.Hls && window.Hls.isSupported()) {
+                hlsInstance = new window.Hls();
+                hlsInstance.loadSource(item.hls);
+                hlsInstance.attachMedia(mainVideo);
+            } else {
+                mainVideo.src = item.hls;
+            }
+            mainVideo.play().catch(() => {});
+        });
+
+        prevBtn.addEventListener('click', () => showItem(currentIndex - 1));
+        nextBtn.addEventListener('click', () => showItem(currentIndex + 1));
+        prevBtn.style.display = items.length > 1 ? '' : 'none';
+        nextBtn.style.display = items.length > 1 ? '' : 'none';
+
+        thumbsEl.innerHTML = '';
+        if (items.length > 1) {
+            items.forEach((item, idx) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'carousel-thumb';
+                thumb.setAttribute('data-idx', idx);
+                thumb.innerHTML = `
+                    <img src="${item.type === 'video' ? (item.thumb || '../assets/logo.png') : item.src}" alt="${item.label}" loading="lazy">
+                    ${item.type === 'video' ? '<span class="carousel-thumb-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' : ''}
+                `;
+                thumb.addEventListener('click', () => showItem(idx));
+                thumbsEl.appendChild(thumb);
+            });
+        }
+
+        showItem(0);
+    }
+
+    // --- Title, tags, meta box ---
+
+    function setupHeader(game) {
+        document.getElementById('game-title').textContent = game.title;
+
+        const tags = Array.isArray(game.genres) && game.genres.length
+            ? game.genres
+            : (game.game_info && game.game_info.Genre ? game.game_info.Genre.split(',').map((s) => s.trim()) : []);
+
+        const tagsEl = document.getElementById('game-tags');
+        tagsEl.innerHTML = tags.map((t) => `<span class="game-tag">${t}</span>`).join('');
+
+        const metaRows = [];
+        const developer = (Array.isArray(game.developers) && game.developers[0]) || (game.game_info && game.game_info.Developer);
+        const publisher = Array.isArray(game.publishers) && game.publishers.length ? game.publishers.join(', ') : null;
+        const releaseDate = game.release_date;
+
+        if (developer) metaRows.push(['Developer', developer]);
+        if (publisher) metaRows.push(['Publisher', publisher]);
+        if (releaseDate) metaRows.push(['Rilis', releaseDate]);
+        if (Number.isFinite(game.metacritic_score)) metaRows.push(['Metacritic', `${game.metacritic_score}/100`]);
+
+        const metaBox = document.getElementById('game-meta-box');
+        metaBox.innerHTML = metaRows.map(([label, val]) => `
+            <div class="meta-row"><span class="meta-label">${label}</span><span class="meta-value">${val}</span></div>
+        `).join('');
+    }
+
+    // --- About ---
+
+    function setupAbout(game) {
+        const el = document.getElementById('about-content');
+        if (game.about_the_game) {
+            el.innerHTML = game.about_the_game;
+            // Browsers don't reliably honor the `autoplay` attribute on
+            // <video> tags injected via innerHTML — kick playback manually.
+            el.querySelectorAll('video').forEach((v) => {
+                v.muted = true;
+                v.play().catch(() => {});
+            });
+            return;
+        }
+        const genre = game.game_info && game.game_info.Genre;
+        const developer = game.game_info && game.game_info.Developer;
+        let fallback = game.title;
+        if (genre) fallback += ` adalah game bergenre ${genre}`;
+        if (developer) fallback += ` yang dikembangkan oleh ${developer}`;
+        fallback += '.';
+        el.innerHTML = `<p>${fallback}</p>`;
+    }
+
+    // --- Requirements ---
+
+    function setupRequirements(game) {
+        const el = document.getElementById('requirements-grid');
+
+        if (game.requirements_minimum || game.requirements_recommended) {
+            el.innerHTML = `
+                ${game.requirements_minimum ? `<div class="req-col">${game.requirements_minimum}</div>` : ''}
+                ${game.requirements_recommended ? `<div class="req-col">${game.requirements_recommended}</div>` : ''}
+            `;
+            return;
+        }
+
+        const reqEntries = game.system_requirements
+            ? Object.entries(game.system_requirements).filter(([, val]) => String(val ?? '').trim() !== '')
+            : [];
+
+        if (reqEntries.length === 0) {
+            el.innerHTML = `<div class="req-col"><p class="req-empty">Tidak ada data spesifikasi untuk game ini.</p></div>`;
+            return;
+        }
+
+        el.innerHTML = `<div class="req-col"><ul class="req-flat-list">
+            ${reqEntries.map(([key, val]) => `<li><strong>${key}:</strong> ${val}</li>`).join('')}
+        </ul></div>`;
+    }
+
+    // --- Order / size card + selection ---
+
+    function setupOrderCard(game) {
+        const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
+        document.getElementById('order-card-size').textContent = formatSizeGB(parseSizeToGB(sizeStr));
+
+        const facts = [];
+        if (game.game_info) {
+            ['Platform', 'Version', 'Released By', 'Pre-Installed Game'].forEach((key) => {
+                if (game.game_info[key] === undefined || game.game_info[key] === null || game.game_info[key] === '') return;
+                const val = typeof game.game_info[key] === 'boolean' ? (game.game_info[key] ? 'Ya' : 'Tidak') : game.game_info[key];
+                facts.push([key, val]);
+            });
+        }
+        if (facts.length) {
+            const factsEl = document.createElement('div');
+            factsEl.className = 'order-card-facts';
+            factsEl.innerHTML = facts.map(([k, v]) => `<div class="meta-row"><span class="meta-label">${k}</span><span class="meta-value">${v}</span></div>`).join('');
+            document.querySelector('.order-card').insertBefore(factsEl, document.getElementById('select-game-btn'));
+        }
+
+        const selectBtn = document.getElementById('select-game-btn');
+        function syncSelectBtn() {
+            const selected = window.FeatureCart.isSelected(game.title);
+            selectBtn.classList.toggle('selected', selected);
+            selectBtn.textContent = selected ? 'Game Terpilih ✓' : 'Pilih Game Ini';
+        }
+        selectBtn.addEventListener('click', () => {
+            const nowSelected = window.FeatureCart.toggle(game.title);
+            syncSelectBtn();
+            if (nowSelected) window.FeatureCartWidget.flyToCart(selectBtn);
+        });
+        syncSelectBtn();
+    }
+
+    // --- Storage picker (shared with feature/index.html) ---
+
+    function populateCapacityOptions() {
+        storageCapacitySelect.innerHTML = window.FeatureCart.CAPACITY_TIERS
+            .map((t) => `<option value="${t.value}">${t.label}</option>`)
+            .join('');
+    }
+
+    function updateStorageUI() {
+        const state = window.FeatureCart.getState();
+        storageTypeSelect.value = state.storageType;
+        storageCapacitySelect.value = String(state.capacityGB);
+
+        const usedGB = state.selected.reduce((sum, title) => {
+            const game = allGames.find((g) => g.title === title);
+            if (!game) return sum;
+            const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
+            return sum + parseSizeToGB(sizeStr);
+        }, 0);
+
+        storageUsedText.textContent = formatSizeGB(usedGB);
+        storageTotalText.textContent = formatSizeGB(state.capacityGB);
+        const pct = state.capacityGB > 0 ? (usedGB / state.capacityGB) * 100 : 0;
+        storageProgressFill.style.width = `${Math.min(100, pct)}%`;
+        storageProgressFill.classList.remove('threshold-warn', 'threshold-danger');
+        if (pct > 100) storageProgressFill.classList.add('threshold-danger');
+        else if (pct >= 75) storageProgressFill.classList.add('threshold-warn');
+    }
+
+    function setupStoragePicker() {
+        populateCapacityOptions();
+        updateStorageUI();
+
+        storageTypeSelect.addEventListener('change', () => {
+            window.FeatureCart.setStorage(storageTypeSelect.value, Number(storageCapacitySelect.value));
+        });
+        storageCapacitySelect.addEventListener('change', () => {
+            window.FeatureCart.setStorage(storageTypeSelect.value, Number(storageCapacitySelect.value));
+        });
+        window.FeatureCart.onChange(() => {
+            updateStorageUI();
+            const selectBtn = document.getElementById('select-game-btn');
+            if (selectBtn && currentGame) {
+                const selected = window.FeatureCart.isSelected(currentGame.title);
+                selectBtn.classList.toggle('selected', selected);
+                selectBtn.textContent = selected ? 'Game Terpilih ✓' : 'Pilih Game Ini';
+            }
+        });
+
+        window.FeatureCartWidget.init({
+            findGame: (title) => allGames.find((g) => g.title === title),
+            onRemove: () => updateStorageUI(),
+        });
+    }
+
+    loadGame();
+})();
