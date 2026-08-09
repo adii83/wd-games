@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" href="../assets/logo.png" />
     <link href="../css/feature.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="has-footer-bar">
     <!-- Header -->
     <header class="gallery-header">
       <div class="gallery-header-inner">
@@ -21,19 +21,26 @@
           <span class="logo-wd">WD</span> <span class="logo-games">Games</span>
         </a>
         <h1 class="gallery-title">Game Gallery</h1>
+
         <div class="gallery-search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input
             type="text"
             id="gallery-search"
             class="gallery-search"
             placeholder="Cari game PC..."
             aria-label="Cari game"
+            autocomplete="off"
+            role="combobox"
+            aria-expanded="false"
+            aria-controls="search-suggest-panel"
           />
+          <div class="search-suggest-panel" id="search-suggest-panel"></div>
         </div>
       </div>
 
-      <div class="storage-bar">
-        <div class="storage-picker">
+      <div class="category-bar">
+        <div class="storage-picker-inline">
           <select id="storage-type-select" class="storage-select" aria-label="Pilih media penyimpanan">
             <option value="hdd">HDD</option>
             <option value="flashdisk">Flashdisk</option>
@@ -41,41 +48,97 @@
           </select>
           <select id="storage-capacity-select" class="storage-select" aria-label="Pilih kapasitas"></select>
         </div>
-        <div class="storage-progress-wrap">
-          <div class="storage-progress-text">
-            <span id="storage-used-text">0 GB</span> / <span id="storage-total-text">455 GB</span>
-          </div>
-          <div class="storage-progress-track">
-            <div id="storage-progress-fill" class="storage-progress-fill"></div>
-          </div>
-        </div>
       </div>
     </header>
 
     <main class="discover-main">
-      <!-- Hero carousel + quick-pick sidebar (Steam-storefront style) -->
+      <!-- Hero carousel: newest games added to the catalog -->
       <section class="discover-top" id="discover-top" style="display: none;">
         <div class="hero-carousel" id="hero-carousel">
           <div class="hero-slides" id="hero-slides"></div>
           <button class="hero-nav prev" id="hero-prev" type="button" aria-label="Sebelumnya">&#8249;</button>
           <button class="hero-nav next" id="hero-next" type="button" aria-label="Berikutnya">&#8250;</button>
-          <div class="hero-dots" id="hero-dots"></div>
+          <div class="hero-thumbs" id="hero-thumbs"></div>
         </div>
-        <aside class="quick-list" id="quick-list">
-          <h2 class="quick-list-title">Rekomendasi</h2>
-          <div class="quick-list-items" id="quick-list-items"></div>
-        </aside>
       </section>
 
-      <!-- Spotlight row: games with gameplay video -->
-      <section class="spotlight-section" id="spotlight-section" style="display: none;">
-        <h2 class="spotlight-title">🎮 Ada Gameplay Video</h2>
-        <div class="spotlight-scroll" id="spotlight-scroll"></div>
+      <!-- Perks row -->
+      <section class="perks-row">
+        <div class="perk-card">
+          <div class="perk-icon perk-blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="4"/><line x1="7" y1="12" x2="7" y2="12"/><line x1="11" y1="12" x2="11" y2="12"/><circle cx="16" cy="10" r="1"/><circle cx="18.5" cy="12.5" r="1"/></svg>
+          </div>
+          <div>
+            <div class="perk-title">Plug &amp; Play</div>
+            <div class="perk-sub">Langsung main tanpa instalasi</div>
+          </div>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon perk-green">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+          </div>
+          <div>
+            <div class="perk-title">Update Rutin</div>
+            <div class="perk-sub">Game selalu terupdate</div>
+          </div>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon perk-purple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          </div>
+          <div>
+            <div class="perk-title">Aman &amp; Terpercaya</div>
+            <div class="perk-sub">Data aman tanpa virus</div>
+          </div>
+        </div>
+        <div class="perk-card">
+          <div class="perk-icon perk-orange">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3Z"/><path d="M3 19a2 2 0 0 0 2 2h1v-6H3Z"/></svg>
+          </div>
+          <div>
+            <div class="perk-title">Support 24/7</div>
+            <div class="perk-sub">Kami siap membantu Anda</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured This Week -->
+      <section class="featured-week-section" id="featured-week-section" style="display: none;">
+        <div class="section-header-row">
+          <div class="section-heading-text">
+            <h2 class="section-title">Featured This Week</h2>
+            <p class="section-subtitle">Game pilihan terbaik minggu ini untuk pengalaman bermain maksimal.</p>
+          </div>
+        </div>
+        <div class="featured-week-grid" id="featured-week-grid"></div>
+      </section>
+
+      <!-- Update Games strip -->
+      <section class="update-games-section" id="update-games-section" style="display: none;">
+        <div class="section-header-row">
+          <div class="section-heading-text">
+            <h2 class="section-title">Update Games</h2>
+            <p class="section-subtitle">Game terbaru yang baru masuk ke koleksi WD Games.</p>
+          </div>
+          <a href="#catalog-section" class="section-link" id="update-games-see-all">Lihat Semua &rarr;</a>
+        </div>
+        <div class="update-scroll-row" id="update-scroll-row"></div>
       </section>
 
       <!-- Full searchable catalog -->
-      <section class="catalog-section">
-        <h2 class="spotlight-title" id="catalog-title">Semua Game</h2>
+      <section class="catalog-section" id="catalog-section">
+        <div class="section-header-row">
+          <div class="section-heading-text">
+            <h2 class="section-title" id="catalog-title">Explore Your Collection</h2>
+            <p class="section-subtitle">Temukan game favoritmu dari koleksi lengkap WD Games.</p>
+          </div>
+          <div class="catalog-controls">
+            <select id="catalog-sort-select" class="catalog-select" aria-label="Urutkan">
+              <option value="newest">Terbaru</option>
+              <option value="az">A-Z</option>
+            </select>
+          </div>
+        </div>
         <div id="gallery-grid" class="gallery-grid"></div>
 
         <div class="gallery-load-more-wrap">
@@ -84,7 +147,75 @@
           </button>
         </div>
       </section>
+
+      <!-- Promo banner -->
+      <section class="promo-banner">
+        <div class="promo-banner-content">
+          <div class="promo-banner-eyebrow">WD GAMES COLLECTION</div>
+          <h2 class="promo-banner-title">Temukan game berikutnya</h2>
+          <p class="promo-banner-sub" id="promo-banner-count">Koleksi game PC siap dimainkan kapan saja.</p>
+          <a href="#catalog-section" class="promo-banner-btn" id="promo-banner-btn">
+            Lihat Semua Game
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <svg class="promo-banner-art" viewBox="0 0 240 180" width="240" height="180" aria-hidden="true">
+          <defs>
+            <radialGradient id="promoGlowCyan" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#00d2ff" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#00d2ff" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="promoGlowViolet" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#a78bfa" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="promoStroke" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00d2ff" />
+              <stop offset="100%" stop-color="#a78bfa" />
+            </linearGradient>
+          </defs>
+          <circle cx="70" cy="55" r="80" fill="url(#promoGlowCyan)" />
+          <circle cx="190" cy="130" r="60" fill="url(#promoGlowViolet)" />
+          <path
+            d="M65 78 h110 a24 24 0 0 1 23.8 27.1 l-7 49 a19 19 0 0 1 -33.6 9.6 L138 140 h-36 l-20.2 23.7 a19 19 0 0 1 -33.6-9.6 l-7-49 A24 24 0 0 1 65 78 Z"
+            fill="#12141b" stroke="url(#promoStroke)" stroke-width="3"
+          />
+          <path d="M78 104 h16 M86 96 v16" stroke="#eef1f7" stroke-width="4.5" stroke-linecap="round" />
+          <circle cx="176" cy="98" r="5" fill="#00d2ff" />
+          <circle cx="192" cy="112" r="5" fill="#a78bfa" />
+          <circle cx="176" cy="126" r="5" fill="#00d2ff" />
+          <circle cx="160" cy="112" r="5" fill="#a78bfa" />
+        </svg>
+      </section>
     </main>
+
+    <!-- Bottom storage footer bar -->
+    <footer class="storage-footer-bar" id="storage-footer-bar">
+      <div class="storage-footer-icon">
+        <img id="storage-footer-icon-img" src="../assets/HDD.webp" alt="" />
+      </div>
+      <div class="storage-footer-info">
+        <div class="storage-footer-label" id="storage-footer-label">Kapasitas HDD 1 TB</div>
+        <div class="storage-footer-sub" id="storage-footer-sub">0 GB terpakai dari 0 GB</div>
+      </div>
+      <div class="storage-footer-progress-wrap">
+        <div class="storage-progress-track">
+          <div id="storage-progress-fill" class="storage-progress-fill"></div>
+        </div>
+      </div>
+      <div class="storage-footer-percent" id="storage-footer-percent">100% Tersedia</div>
+      <button type="button" class="storage-footer-btn" id="storage-footer-btn">Kelola Penyimpanan</button>
+    </footer>
+
+    <!-- Trailer modal (hero "Tonton Trailer") -->
+    <div class="trailer-modal-backdrop" id="trailer-modal-backdrop">
+      <div class="trailer-modal-box">
+        <button type="button" class="trailer-modal-close" id="trailer-modal-close" aria-label="Tutup">&times;</button>
+        <div class="trailer-modal-video-wrap">
+          <video id="trailer-modal-video" playsinline controls></video>
+        </div>
+      </div>
+    </div>
 
     <!-- Floating selected-games widget -->
     <div id="feature-cart-backdrop" class="feature-cart-backdrop"></div>

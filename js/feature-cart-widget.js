@@ -131,6 +131,7 @@
         },
         render,
         flyToCart,
+        openPanel,
         closePanel,
     };
 })(window);

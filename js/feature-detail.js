@@ -32,6 +32,21 @@
         return gb >= 1 ? `${gb.toFixed(1)} GB` : `${Math.round(gb * 1024)} MB`;
     }
 
+    // Strips trailing version/build noise like "(Build 1491.50)",
+    // "(v0.4.3f3 + Online)" from a title for display only — lookups still
+    // use the raw title from the query string / catalog JSON.
+    function cleanDisplayTitle(title) {
+        if (!title) return title;
+        let t = title;
+        for (let i = 0; i < 4; i++) {
+            const next = t.replace(/\s*\([^)]*\)\s*$/, '');
+            if (next === t) break;
+            t = next;
+        }
+        t = t.replace(/\s*[+]\s*(co-?op|multiplayer|online|dlcs?)\s*$/i, '');
+        return t.trim();
+    }
+
     function renderNotFound() {
         mainEl.innerHTML = `
             <div class="gallery-empty">
@@ -71,7 +86,7 @@
 
     function renderGame(game) {
         currentGame = game;
-        document.title = `${game.title} - WD Games`;
+        document.title = `${cleanDisplayTitle(game.title)} - WD Games`;
 
         const frag = template.content.cloneNode(true);
         mainEl.innerHTML = '';
@@ -142,11 +157,15 @@
             if (activeThumb) activeThumb.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
         }
 
-        playBtn.addEventListener('click', () => {
+        function playCurrentVideo() {
             const item = items[currentIndex];
             if (item.type !== 'video') return;
 
             mainWrap.classList.add('playing');
+            // Browser autoplay policies only allow starting playback without
+            // a click if the video is muted — native controls still let the
+            // visitor unmute once it's running.
+            mainVideo.muted = true;
             if (mainVideo.canPlayType('application/vnd.apple.mpegurl')) {
                 mainVideo.src = item.hls;
             } else if (window.Hls && window.Hls.isSupported()) {
@@ -157,7 +176,9 @@
                 mainVideo.src = item.hls;
             }
             mainVideo.play().catch(() => {});
-        });
+        }
+
+        playBtn.addEventListener('click', playCurrentVideo);
 
         prevBtn.addEventListener('click', () => showItem(currentIndex - 1));
         nextBtn.addEventListener('click', () => showItem(currentIndex + 1));
@@ -180,12 +201,15 @@
         }
 
         showItem(0);
+        // Trailer starts playing as soon as the game page loads — no need
+        // to press play first if the game already has gameplay video.
+        if (items[0].type === 'video') playCurrentVideo();
     }
 
     // --- Title, tags, meta box ---
 
     function setupHeader(game) {
-        document.getElementById('game-title').textContent = game.title;
+        document.getElementById('game-title').textContent = cleanDisplayTitle(game.title);
 
         const tags = Array.isArray(game.genres) && game.genres.length
             ? game.genres
