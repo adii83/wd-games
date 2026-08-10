@@ -33,6 +33,7 @@
     const catalogTitle = document.getElementById('catalog-title');
     const catalogSection = document.getElementById('catalog-section');
     const catalogSortSelect = document.getElementById('catalog-sort-select');
+    const genreFilterSelect = document.getElementById('genre-filter-select');
 
     const discoverTop = document.getElementById('discover-top');
     const heroSlidesEl = document.getElementById('hero-slides');
@@ -69,6 +70,7 @@
     let heroTimer = null;
     let heroIndex = 0;
     let sortMode = 'newest';
+    let activeGenre = null;
     let trailerHlsInstance = null;
 
     function parseSizeToGB(sizeVal) {
@@ -124,6 +126,33 @@
         return game.banner_url || '../assets/logo.png';
     }
 
+    function gameGenres(game) {
+        return game.game_info && game.game_info.Genre
+            ? game.game_info.Genre.split(',').map((s) => s.trim()).filter(Boolean)
+            : [];
+    }
+
+    // Populates the compact "Kategori" <select> with the most common
+    // genres in the catalog, most-frequent first.
+    function renderGenreFilterOptions() {
+        const counts = new Map();
+        allGames.forEach((game) => {
+            gameGenres(game).forEach((genre) => {
+                counts.set(genre, (counts.get(genre) || 0) + 1);
+            });
+        });
+
+        const topGenres = [...counts.entries()]
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 20)
+            .map(([genre]) => genre);
+
+        genreFilterSelect.innerHTML = [
+            `<option value="">Semua Kategori</option>`,
+            ...topGenres.map((g) => `<option value="${g}">${g}</option>`),
+        ].join('');
+    }
+
     function renderSkeleton() {
         grid.innerHTML = Array.from({ length: SKELETON_COUNT }).map(() => `
             <div class="gallery-card skeleton-card">
@@ -161,6 +190,7 @@
             renderHeroSection(heroGames);
             renderFeaturedWeek(featuredGames);
             renderUpdateGamesRow();
+            renderGenreFilterOptions();
             renderGrid(true);
             if (promoBannerCount) {
                 promoBannerCount.textContent = `${allGames.length}+ koleksi game PC siap dimainkan kapan saja.`;
@@ -515,13 +545,20 @@
         const q = searchInput.value.trim().toLowerCase();
 
         const apply = () => {
-            filteredGames = allGames.filter((g) => !q || (g.title || '').toLowerCase().includes(q));
+            filteredGames = allGames.filter((g) => {
+                const matchesSearch = !q || (g.title || '').toLowerCase().includes(q);
+                const matchesGenre = !activeGenre || gameGenres(g).includes(activeGenre);
+                return matchesSearch && matchesGenre;
+            });
 
             if (sortMode === 'az') {
                 filteredGames = [...filteredGames].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
             }
 
-            catalogTitle.textContent = q ? `Hasil untuk "${searchInput.value.trim()}"` : 'Semua Game';
+            const labelParts = [];
+            if (activeGenre) labelParts.push(activeGenre);
+            if (q) labelParts.push(`"${searchInput.value.trim()}"`);
+            catalogTitle.textContent = labelParts.length ? `Hasil untuk ${labelParts.join(' · ')}` : 'Explore Your Collection';
 
             renderGrid(true);
             grid.classList.remove('grid-transitioning');
@@ -689,6 +726,11 @@
 
     catalogSortSelect.addEventListener('change', () => {
         sortMode = catalogSortSelect.value;
+        applyFilters();
+    });
+
+    genreFilterSelect.addEventListener('change', () => {
+        activeGenre = genreFilterSelect.value || null;
         applyFilters();
     });
 
