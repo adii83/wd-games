@@ -32,6 +32,8 @@
     const loadMoreBtn = document.getElementById('gallery-load-more');
     const searchInput = document.getElementById('gallery-search');
     const searchSuggestPanel = document.getElementById('search-suggest-panel');
+    const searchFab = document.getElementById('search-fab');
+    const searchFabBtn = document.getElementById('search-fab-btn');
     const catalogTitle = document.getElementById('catalog-title');
     const catalogSection = document.getElementById('catalog-section');
     const catalogSortSelect = document.getElementById('catalog-sort-select');
@@ -908,14 +910,35 @@
         onRemove: (title) => {
             document.querySelectorAll(`[data-title="${CSS.escape(title)}"]`).forEach((card) => {
                 card.classList.remove('selected');
-                const btn = card.querySelector('.card-select-btn');
-                if (btn) btn.classList.remove('selected');
+                card.querySelectorAll('.card-select-btn').forEach((btn) => btn.classList.remove('selected'));
             });
             updateStorageUI();
         },
     });
 
     window.FeatureCart.onChange(updateStorageUI);
+
+    // --- Floating search button (shows once the user has scrolled down a
+    // bit, since the header stays sticky but its search field can still be
+    // fiddly to reach on a long mobile page) ---
+    if (searchFab && searchFabBtn) {
+        let searchFabVisible = false;
+        function updateSearchFabVisibility() {
+            const shouldShow = window.scrollY > 400;
+            if (shouldShow === searchFabVisible) return;
+            searchFabVisible = shouldShow;
+            searchFab.classList.toggle('visible', shouldShow);
+        }
+        window.addEventListener('scroll', updateSearchFabVisibility, { passive: true });
+        updateSearchFabVisibility();
+
+        searchFabBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                if (searchInput) searchInput.focus();
+            }, 300);
+        });
+    }
 
     attachCardSelect(grid);
     attachCardSelect(updateScrollRow);

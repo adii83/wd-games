@@ -1740,6 +1740,45 @@ body.has-footer-bar .feature-cart-widget {
   transition: opacity 0.25s ease;
 }
 
+/* Floating search button (index.html only) — hidden until the user scrolls
+   down, sits just above the selected-games widget. */
+
+.search-fab {
+  position: fixed;
+  right: var(--spacing-lg);
+  bottom: calc(var(--spacing-lg) + 64px + 64px);
+  z-index: 49;
+  opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease-standard), transform 0.25s var(--ease-standard);
+}
+
+.search-fab.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.search-fab-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent-gradient);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  transition: transform 0.15s var(--ease-standard);
+}
+
+.search-fab-btn:active {
+  transform: scale(0.92);
+}
+
 /* Floating selected-games widget (index.html + game.html) */
 
 .feature-cart-widget {
@@ -2172,6 +2211,10 @@ body.has-footer-bar .feature-cart-widget {
   }
   body.has-footer-bar .feature-cart-widget {
     bottom: calc(var(--spacing-md) + 70px);
+  }
+  .search-fab {
+    right: var(--spacing-md);
+    bottom: calc(var(--spacing-md) + 70px + 60px);
   }
   .assistive-panel {
     width: min(300px, 88vw);
