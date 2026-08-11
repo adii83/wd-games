@@ -26,7 +26,8 @@ js/feature-detail.js    game.html logic: media carousel, About/requirements tabs
 js/feature-cart.js      shared cart/storage-picker state (localStorage) between index.html and game.html
 js/feature-cart-widget.js  shared floating "Game Terpilih" widget UI + copy-to-clipboard export, used by both pages
 js/filter-dropdown.js   shared custom dropdown controller (Kategori/HDD/Size headers) with full-page backdrop-blur when open
-js/admin.js            admin panel logic: GitHub API auth + read/write
+js/admin.js            admin panel logic: GitHub API auth + read/write + "Cari dari Steam" auto-fill
+cloudflare-worker-steam-proxy.js  deployed separately (not served by GitHub Pages) — CORS proxy for js/admin.js's Steam lookup, see "Admin panel" below
 assets/                logo, background, storage-icon images
 steamrip_games_updated.json   PC games data — source of truth, admin.html reads/writes this; NOT fetched live by the gallery/detail pages (see below)
 ps2.json                       PS2 games data — source of truth, admin.html reads/writes this; NOT fetched live by the gallery/detail pages (see below)
@@ -77,6 +78,8 @@ There is no real database or backend. `steamrip_games_updated.json` and `ps2.jso
 **Known issue, independent of any feature work**: `js/admin.js` currently has a default owner/repo and an embedded/obfuscated GitHub PAT used for auto-login. Treat this as a live secret-exposure risk — flag it rather than building further features on top of it silently, and prefer prompting for a token over hardcoding one if you touch this file.
 
 **Also easy to miss**: `admin.html` only ever touches `steamrip_games_updated.json` / `ps2.json` / `size_config.json`. It has no idea `*.lite.json` / `catalog/*.json` / `gameplay/*.json` exist, so an admin edit that "saved successfully" doesn't actually show up live until `split_catalog_data.py` (and `split_gameplay_data.py`, if relevant) are re-run and pushed — see the Stack section above.
+
+**"Cari dari Steam" auto-fill**: the game form's title field has a search button that queries Steam (via `storesearch`/`appdetails`) and auto-fills Banner URL / System Requirements / Game Info — everything except `Game Info["Game Size"]`, which is deliberately left blank for manual entry (Steam's API doesn't know the size of a repacked/pre-installed build, which is what this catalog actually distributes). This **requires a small external CORS proxy** — Steam's API sends no `Access-Control-Allow-Origin` header, so a direct browser `fetch()` to `store.steampowered.com` is blocked outright (confirmed: fails before the request even reaches Steam; public CORS-proxy services were tried and are unreliable/paywalled, not a viable fallback). `cloudflare-worker-steam-proxy.js` (repo root) is a stateless pass-through Worker that adds the missing headers — deploy it once (free Cloudflare tier, instructions in the file's header comment) and paste the resulting `*.workers.dev` URL into `STEAM_PROXY_BASE_URL` near the top of the "Cari dari Steam" section in `js/admin.js` (already deployed and wired in; if it ever needs redeploying, `STEAM_PROXY_BASE_URL` is the only thing to update). If that constant is ever reset to the `REPLACE-WITH-YOUR-WORKER` placeholder, the button shows a clear error toast instead of silently failing.
 
 ## Conventions
 

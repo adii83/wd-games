@@ -263,7 +263,30 @@
               style="font-weight: 600; margin-bottom: 5px; display: block"
               >Judul Game</label
             >
-            <input type="text" id="form-title" class="admin-input" required />
+            <div style="display: flex; gap: 8px">
+              <input type="text" id="form-title" class="admin-input" required style="flex: 1" />
+              <button
+                type="button"
+                id="steam-search-btn"
+                class="custom-select btn-blue"
+                style="border: none; padding: 0 16px; white-space: nowrap; flex-shrink: 0"
+              >
+                Cari dari Steam
+              </button>
+            </div>
+            <small class="text-secondary" id="steam-search-status" style="display: none; margin-top: 6px"></small>
+            <div
+              id="steam-search-results"
+              style="
+                display: none;
+                margin-top: 8px;
+                max-height: 260px;
+                overflow-y: auto;
+                border: 1px solid var(--border-color);
+                border-radius: var(--radius-md);
+                background: rgba(0, 0, 0, 0.2);
+              "
+            ></div>
           </div>
 
           <div class="input-group">
@@ -342,6 +365,6 @@
       </div>
     </div>
 
-    <script src="js/admin.js?v=1.1"></script>
+    <script src="js/admin.js?v=1.2"></script>
   </body>
 </html>

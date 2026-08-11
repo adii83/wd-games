@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveGameBtn = document.getElementById('save-game-btn');
     const reqsError = document.getElementById('reqs-error');
     const infoError = document.getElementById('info-error');
+    const steamSearchBtn = document.getElementById('steam-search-btn');
+    const steamSearchStatus = document.getElementById('steam-search-status');
+    const steamSearchResults = document.getElementById('steam-search-results');
 
     let ghConfig = {
         owner: localStorage.getItem('gh_owner') || 'adii83',
@@ -535,6 +538,150 @@ document.addEventListener('DOMContentLoaded', () => {
             formBannerPreview.style.display = 'block';
         } else {
             formBannerPreview.style.display = 'none';
+        }
+    });
+
+    // --- "Cari dari Steam" auto-fill ---
+    // Steam's storesearch/appdetails endpoints don't send CORS headers, so a
+    // direct browser fetch() to store.steampowered.com is blocked before it
+    // even reaches Steam (confirmed — not a code bug, a browser security
+    // restriction). STEAM_PROXY_BASE_URL points at a tiny Cloudflare Worker
+    // (see cloudflare-worker-steam-proxy.js in the repo root) that adds those
+    // headers; it doesn't store or modify anything, just relays the request.
+    const STEAM_PROXY_BASE_URL = 'https://young-field-436d.nadifakiyama.workers.dev';
+
+    // Converts Steam's pc_requirements HTML (e.g. "<ul><li><strong>OS:</strong>
+    // Windows 10 64-bit</li>...") into the flat {key: value} object shape
+    // system_requirements already uses across the catalog.
+    function parseSteamRequirementsHtml(html) {
+        if (!html) return {};
+        const container = document.createElement('div');
+        container.innerHTML = html;
+        const result = {};
+        container.querySelectorAll('li').forEach((li) => {
+            const strong = li.querySelector('strong');
+            if (!strong) return;
+            const key = strong.textContent.replace(/:\s*$/, '').trim();
+            const value = li.textContent.slice(strong.textContent.length).replace(/^:/, '').trim();
+            if (key && value) result[key] = value;
+        });
+        return result;
+    }
+
+    function renderSteamSearchResults(items) {
+        if (!items.length) {
+            steamSearchResults.innerHTML = '<div style="padding: 12px; text-align: center; color: var(--text-secondary);">Tidak ada hasil.</div>';
+            steamSearchResults.style.display = 'block';
+            return;
+        }
+        steamSearchResults.innerHTML = items.map((item) => `
+            <div class="steam-search-item" data-appid="${item.id}">
+                <img src="${item.tiny_image || ''}" alt="" onerror="this.style.visibility='hidden'">
+                <span>${item.name}</span>
+            </div>
+        `).join('');
+        steamSearchResults.style.display = 'block';
+
+        steamSearchResults.querySelectorAll('.steam-search-item').forEach((el) => {
+            el.addEventListener('click', () => applySteamAppDetails(Number(el.getAttribute('data-appid'))));
+        });
+    }
+
+    async function searchSteam() {
+        const term = formTitle.value.trim();
+        if (!term) {
+            showToast('Isi judul game dulu sebelum mencari di Steam.', 'error');
+            return;
+        }
+        if (STEAM_PROXY_BASE_URL.includes('REPLACE-WITH-YOUR-WORKER')) {
+            showToast('STEAM_PROXY_BASE_URL di js/admin.js belum diisi — deploy Worker-nya dulu (lihat cloudflare-worker-steam-proxy.js).', 'error');
+            return;
+        }
+
+        steamSearchStatus.style.display = 'block';
+        steamSearchStatus.textContent = 'Mencari di Steam...';
+        steamSearchResults.style.display = 'none';
+        steamSearchBtn.disabled = true;
+
+        try {
+            const res = await fetch(`${STEAM_PROXY_BASE_URL}/storesearch?term=${encodeURIComponent(term)}`);
+            if (!res.ok) throw new Error(`Proxy error (${res.status})`);
+            const data = await res.json();
+            const items = Array.isArray(data.items) ? data.items : [];
+            steamSearchStatus.textContent = items.length ? `${items.length} hasil ditemukan — pilih salah satu:` : '';
+            renderSteamSearchResults(items);
+        } catch (err) {
+            console.error(err);
+            steamSearchStatus.textContent = '';
+            showToast(`Gagal mencari di Steam: ${err.message}`, 'error');
+        } finally {
+            steamSearchBtn.disabled = false;
+        }
+    }
+
+    async function applySteamAppDetails(appid) {
+        steamSearchStatus.textContent = 'Mengambil detail game...';
+        try {
+            const res = await fetch(`${STEAM_PROXY_BASE_URL}/appdetails?appid=${appid}`);
+            if (!res.ok) throw new Error(`Proxy error (${res.status})`);
+            const payload = await res.json();
+            const entry = payload[String(appid)];
+            if (!entry || !entry.success || !entry.data) throw new Error('Data game tidak ditemukan di Steam.');
+            const appdata = entry.data;
+
+            formTitle.value = appdata.name || formTitle.value;
+
+            // Steam doesn't expose the portrait library-capsule art directly
+            // via appdetails — this matches the URL pattern most existing
+            // catalog entries use, but isn't guaranteed for every title.
+            // The preview below updates live, so a broken image is obvious
+            // and easy to swap for header_image (also returned by Steam) or
+            // any other URL before saving.
+            formBanner.value = `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appid}/library_600x900.jpg`;
+            formBanner.dispatchEvent(new Event('input'));
+
+            const req = appdata.pc_requirements || {};
+            const reqsObj = parseSteamRequirementsHtml(typeof req === 'object' ? req.minimum : '');
+            formReqs.value = Object.keys(reqsObj).length ? JSON.stringify(reqsObj, null, 2) : '';
+            reqsError.style.display = 'none';
+
+            // If this is an edit (not a brand-new entry) and a size was
+            // already filled in, keep it instead of blanking it out —
+            // "Cari dari Steam" is also useful just to refresh genre/specs
+            // on an existing entry without losing what's already there.
+            let existingSize = '';
+            try {
+                const existingInfo = JSON.parse(formInfo.value || '{}');
+                existingSize = existingInfo['Game Size'] || '';
+            } catch { /* ignore — formInfo wasn't valid JSON yet, nothing to carry over */ }
+
+            const infoObj = {
+                'Genre': (appdata.genres || []).map((g) => g.description).join(', '),
+                'Developer': (appdata.developers || []).join(', '),
+                'Platform': 'PC',
+                'Game Size': existingSize,
+                'Released By': 'Steam',
+                'Version': '',
+                'Pre-Installed Game': true,
+            };
+            formInfo.value = JSON.stringify(infoObj, null, 2);
+            infoError.style.display = 'none';
+
+            steamSearchResults.style.display = 'none';
+            steamSearchStatus.textContent = '';
+            showToast('Data dari Steam berhasil diisi. Isi "Game Size" secara manual sebelum menyimpan.', 'success');
+        } catch (err) {
+            console.error(err);
+            steamSearchStatus.textContent = '';
+            showToast(`Gagal mengambil detail: ${err.message}`, 'error');
+        }
+    }
+
+    steamSearchBtn.addEventListener('click', searchSteam);
+    formTitle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchSteam();
         }
     });
 
