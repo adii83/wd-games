@@ -57,6 +57,35 @@
         return parseSizeToGB(rawSize) * window.FeatureCart.getSizeBufferMultiplier();
     }
 
+    // steamrip_games_gameplay.json used to be fetched whole (23MB) just to
+    // read one game's entry out of it. split_gameplay_data.py splits it into
+    // one small file per title under gameplay/<hash>.json, hashed with
+    // FNV-1a 32-bit over the title's UTF-8 bytes — this must match the
+    // Python script's hash exactly (see js/feature.js for the same helper).
+    function fnv1aHash(str) {
+        const bytes = new TextEncoder().encode(str);
+        let h = 0x811c9dc5;
+        for (let i = 0; i < bytes.length; i++) {
+            h ^= bytes[i];
+            h = Math.imul(h, 0x01000193);
+        }
+        return (h >>> 0).toString(16);
+    }
+
+    async function fetchGameplayEntry(game) {
+        // steamrip_games_gameplay.json (the source split() runs against) is
+        // Steam/PC-only — PS2 titles never have an entry, so skip the
+        // request entirely instead of guaranteeing a 404 on every PS2
+        // detail-page view.
+        if (!game || game._category === 'ps2') return null;
+        try {
+            const res = await fetch(`gameplay/${fnv1aHash(game.title)}.json`);
+            return res.ok ? await res.json() : null;
+        } catch {
+            return null;
+        }
+    }
+
     // Strips trailing version/build noise like "(Build 1491.50)",
     // "(v0.4.3f3 + Online)" from a title for display only — lookups still
     // use the raw title from the query string / catalog JSON.
@@ -89,18 +118,15 @@
 
         let games;
         let ps2Games = [];
-        let gameplayData = {};
         try {
-            const [gamesRes, ps2Res, gameplayRes, sizeConfigRes] = await Promise.all([
+            const [gamesRes, ps2Res, sizeConfigRes] = await Promise.all([
                 fetch('steamrip_games_updated.json'),
                 fetch('ps2.json').catch(() => null),
-                fetch('steamrip_games_gameplay.json').catch(() => null),
                 fetch('size_config.json').catch(() => null),
             ]);
             if (!gamesRes.ok) throw new Error('Gagal memuat data game');
             games = await gamesRes.json();
             ps2Games = ps2Res && ps2Res.ok ? await ps2Res.json() : [];
-            gameplayData = gameplayRes && gameplayRes.ok ? await gameplayRes.json() : {};
 
             if (sizeConfigRes && sizeConfigRes.ok) {
                 const sizeConfig = await sizeConfigRes.json();
@@ -123,7 +149,8 @@
             : allGames.find((g) => g.title === wantedTitle);
         if (!base) return renderNotFound();
 
-        const game = { ...base, ...(gameplayData[base.title] || {}) };
+        const gp = await fetchGameplayEntry(base);
+        const game = { ...base, ...(gp || {}) };
         renderGame(game);
     }
 

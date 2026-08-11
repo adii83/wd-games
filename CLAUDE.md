@@ -8,7 +8,7 @@ The site is a Steam-like catalog + game detail experience (trailer video, screen
 
 Plain static HTML/CSS/vanilla JS. No framework, no bundler, no `package.json`, no build step. Deployed via GitHub Pages (see `CNAME`). Edit files directly and open `index.html` / `game.html` / `admin.html` in a browser (or a simple static server) to see changes — nothing to compile.
 
-A few standalone Python scripts in the repo root (`fill_ps2_banners.py`, `fix_titles.py`, `minify_jsons.py`, `sort_ps2_by_romsfun_popular.py`, `update_steamrip_banners.py`, `update_pc_genres_from_steam.py`, `enrich_steam_data.py`) are offline one-off data-prep tools run manually against the JSON files. They are not part of the served site and not run automatically.
+A few standalone Python scripts in the repo root (`fill_ps2_banners.py`, `fix_titles.py`, `minify_jsons.py`, `sort_ps2_by_romsfun_popular.py`, `update_steamrip_banners.py`, `update_pc_genres_from_steam.py`, `enrich_steam_data.py`, `split_gameplay_data.py`) are offline one-off data-prep tools run manually against the JSON files. They are not part of the served site and not run automatically. Re-run `split_gameplay_data.py` after `enrich_steam_data.py` refreshes `steamrip_games_gameplay.json`, so the `gameplay/` folder stays in sync — the live site never fetches `steamrip_games_gameplay.json` itself (see "Data model" below).
 
 ## Structure
 
@@ -28,7 +28,8 @@ js/admin.js            admin panel logic: GitHub API auth + read/write
 assets/                logo, background, storage-icon images
 steamrip_games_updated.json   PC games data (live — fetched by js/feature.js / js/feature-detail.js)
 ps2.json                       PS2 games data (live — fetched by js/feature.js / js/feature-detail.js)
-steamrip_games_gameplay.json  per-title trailer/screenshots/description/genres, keyed by title — fetched alongside the two files above
+steamrip_games_gameplay.json  source-of-truth trailer/screenshots/description data, keyed by title — NOT fetched live (23MB); split_gameplay_data.py breaks it into gameplay/*.json
+gameplay/<hash>.json           one small file per Steam-matched title, fetched on demand (see "Data model")
 size_config.json               { "size_buffer_percentage": N } — global size buffer, admin-editable
 CNAME                            GitHub Pages custom domain
 ```
@@ -60,7 +61,7 @@ There is no real database or backend. `steamrip_games_updated.json` and `ps2.jso
 - `game_info["Game Size"]` is the field the size math reads (`parseSizeToGB()` in `js/feature.js` / `js/feature-detail.js`). Accepts strings like `"90 GB"` / `"530 MB"` or a raw number (PS2 entries use raw numbers). A global buffer multiplier from `size_config.json` (`size_buffer_percentage`) is applied on top via `estimatedSizeGB()`.
 - `game_info.Genre` for PC entries was reconciled against Steam's real store genre taxonomy (`update_pc_genres_from_steam.py`, sourced from `steamrip_games_gameplay.json`) — treat it as accurate per-title data, not a loose scraped tag.
 - PS2 entries additionally have a `url` field (source page) and `game_info["Popularity Rank"]`, used to sort the PS2 list.
-- Trailer/screenshots/description/requirements live in the separate `steamrip_games_gameplay.json` (keyed by title: `trailer_hls`, `trailer_thumb`, `screenshots`, `about_the_game`, `requirements_minimum`, `requirements_recommended`, `genres`, `developers`, `publishers`, `release_date`), not inline on the catalog entries — kept apart so the main catalog JSON payload stays lean. `js/feature.js`/`js/feature-detail.js` fetch both and merge by title at render time. Not every title has a gameplay entry (only Steam-matched ones) — UI must degrade gracefully when it's missing.
+- Trailer/screenshots/description/requirements (`trailer_hls`, `trailer_thumb`, `screenshots`, `about_the_game`, `requirements_minimum`, `requirements_recommended`, `genres`, `developers`, `publishers`, `release_date`) live per-title under `gameplay/<hash>.json`, not inline on the catalog entries. `<hash>` is FNV-1a 32-bit over the title's UTF-8 bytes — the exact same hash function is duplicated in `split_gameplay_data.py` (Python), `js/feature.js`, and `js/feature-detail.js` (JS, via `TextEncoder`); if you ever change one, change all three or lookups break silently (404 → graceful fallback, not a crash, but the enrichment data won't show). Only Steam-matched PC titles have a file — PS2 titles never do (skip the fetch for `_category === 'ps2'` rather than requesting a guaranteed 404) and ~8% of PC titles don't either; UI must degrade gracefully when it's missing (already handled). `js/feature.js` only fetches the handful of titles shown in the hero/Featured This Week sections (~11 games) on `index.html`; `js/feature-detail.js` fetches just the one game `game.html` is showing. Grid/Update-Games card tags read `game_info.Genre` from the catalog instead, so the bulk of the page needs no gameplay fetch at all.
 - Unlike the retired old site, `index.html`/`game.html` load PC (`steamrip_games_updated.json`) and PS2 (`ps2.json`) data together upfront (`loadGames()` in `js/feature.js`, `Promise.all` in `js/feature-detail.js`) — don't assume either is lazy/on-demand now.
 
 ## Admin panel

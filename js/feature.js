@@ -84,7 +84,6 @@
     let allGames = [];
     let filteredGames = [];
     let currentPage = 1;
-    let gameplayData = {};
     let heroTimer = null;
     let heroIndex = 0;
     let sortMode = 'newest';
@@ -127,6 +126,45 @@
         return parseSizeToGB(rawSize) * window.FeatureCart.getSizeBufferMultiplier();
     }
 
+    // --- Per-game gameplay data (trailer/screenshots/about/rating) ---
+    // steamrip_games_gameplay.json used to be fetched whole (23MB) on every
+    // page load just so the hero/Featured This Week sections (a handful of
+    // games) could read a bit of extra data. split_gameplay_data.py splits
+    // it into one small file per title under gameplay/<hash>.json, hashed
+    // with FNV-1a 32-bit over the title's UTF-8 bytes (matching the Python
+    // script exactly, so no separate title->filename index needs fetching).
+    // Fetched lazily, only for the specific games that need it.
+    function fnv1aHash(str) {
+        const bytes = new TextEncoder().encode(str);
+        let h = 0x811c9dc5;
+        for (let i = 0; i < bytes.length; i++) {
+            h ^= bytes[i];
+            h = Math.imul(h, 0x01000193);
+        }
+        return (h >>> 0).toString(16);
+    }
+
+    const gameplayCache = new Map();
+
+    async function fetchGameplayEntry(title) {
+        if (gameplayCache.has(title)) return gameplayCache.get(title);
+        const promise = fetch(`gameplay/${fnv1aHash(title)}.json`)
+            .then((res) => (res.ok ? res.json() : null))
+            .catch(() => null);
+        gameplayCache.set(title, promise);
+        const data = await promise;
+        gameplayCache.set(title, data);
+        return data;
+    }
+
+    async function fetchGameplayForGames(games) {
+        const map = {};
+        await Promise.all(games.map(async (g) => {
+            map[g.title] = await fetchGameplayEntry(g.title);
+        }));
+        return map;
+    }
+
     // Strips trailing version/build noise like "(Build 1491.50)",
     // "(v0.4.3f3 + Online)", "(v1.0.29315)" from a title for display only —
     // the raw title (used for hrefs, data-title, cart lookups) is untouched
@@ -162,11 +200,11 @@
         return game.banner_url || 'assets/logo.png';
     }
 
-    // Genres used for the Kategori filter (dropdown options + matching).
-    // game_info.Genre already holds Steam's real genre list for every PC
-    // title with a Steam match (update_pc_genres_from_steam.py rewrote
-    // steamrip_games_updated.json directly), so this can just read it —
-    // no need to special-case gameplayData here too.
+    // Genres used for the Kategori filter (dropdown options + matching) and
+    // card tags. game_info.Genre already holds Steam's real genre list for
+    // every PC title with a Steam match (update_pc_genres_from_steam.py
+    // rewrote steamrip_games_updated.json directly), so this can just read
+    // it — no need to fetch the separate per-game gameplay data for it.
     function gameGenres(game) {
         return game.game_info && game.game_info.Genre
             ? game.game_info.Genre.split(',').map((s) => s.trim()).filter(Boolean)
@@ -238,16 +276,14 @@
         const startedAt = Date.now();
         renderSkeleton();
         try {
-            const [gamesRes, ps2Res, gameplayRes, sizeConfigRes] = await Promise.all([
+            const [gamesRes, ps2Res, sizeConfigRes] = await Promise.all([
                 fetch('steamrip_games_updated.json'),
                 fetch('ps2.json').catch(() => null),
-                fetch('steamrip_games_gameplay.json').catch(() => null),
                 fetch('size_config.json').catch(() => null),
             ]);
             if (!gamesRes.ok) throw new Error('Gagal memuat data game');
             const data = await gamesRes.json();
             const ps2Data = ps2Res && ps2Res.ok ? await ps2Res.json() : [];
-            gameplayData = gameplayRes && gameplayRes.ok ? await gameplayRes.json() : {};
 
             if (sizeConfigRes && sizeConfigRes.ok) {
                 const sizeConfig = await sizeConfigRes.json();
@@ -271,8 +307,6 @@
             const heroTitles = new Set(heroGames.map((g) => g.title));
             const featuredGames = newestPool.filter((g) => !heroTitles.has(g.title)).slice(0, 3);
 
-            renderHeroSection(heroGames);
-            renderFeaturedWeek(featuredGames);
             renderUpdateGamesRow();
             renderGenreFilterOptions();
 
@@ -280,6 +314,15 @@
             // default "Explore Your Collection" view so nothing repeats.
             filteredGames = allGames.filter((g) => !updateGamesTitles.has(g.title));
             renderGrid(true);
+
+            // Hero + Featured This Week each need a bit of extra per-game
+            // gameplay data (trailer/screenshot/rating) — fetched on demand
+            // for just those ~11 games (see fetchGameplayForGames above)
+            // instead of blocking on it. Deliberately not awaited: the grid
+            // is already visible by this point, so these two sections pop
+            // in a moment later without holding up first paint.
+            renderHeroSection(heroGames).catch((err) => console.error(err));
+            renderFeaturedWeek(featuredGames).catch((err) => console.error(err));
         } catch (err) {
             grid.innerHTML = `<div class="gallery-empty">Gagal memuat data game. Coba refresh halaman.</div>`;
             console.error(err);
@@ -302,9 +345,8 @@
         const options = opts || {};
         const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
         const sizeLabel = formatSizeGB(estimatedSizeGB(sizeStr));
-        const gp = gameplayData[game.title];
         const isSelected = window.FeatureCart.isSelected(game.title);
-        const tags = gp && Array.isArray(gp.genres) ? gp.genres.slice(0, 2) : [];
+        const tags = gameGenres(game).slice(0, 2);
 
         const card = document.createElement('a');
         card.className = 'gallery-card' + (isSelected ? ' selected' : '');
@@ -354,23 +396,24 @@
         return `${fallback}.`;
     }
 
-    function renderHeroSection(heroGames) {
-        if (heroGames.length) {
-            renderHero(heroGames);
-            landingHasContent.hero = true;
-            discoverTop.style.display = '';
-        }
+    async function renderHeroSection(heroGames) {
+        if (!heroGames.length) return;
+        const gpMap = await fetchGameplayForGames(heroGames);
+        renderHero(heroGames, gpMap);
+        landingHasContent.hero = true;
+        discoverTop.style.display = '';
     }
 
     // --- Featured This Week: one large card + two smaller side cards, drawn
     // from the catalog slice right after the hero pool so it reads as a
     // distinct set of games rather than repeating "Update Games". ---
 
-    function renderFeaturedWeek(games) {
+    async function renderFeaturedWeek(games) {
         if (!games.length) return;
+        const gpMap = await fetchGameplayForGames(games);
 
         const [main, ...side] = games;
-        const mainGp = gameplayData[main.title];
+        const mainGp = gpMap[main.title];
         const mainBg = randomBackgroundFor(main, mainGp);
         const mainTag = (mainGp && Array.isArray(mainGp.genres) && mainGp.genres[0])
             || (main.game_info && main.game_info.Genre ? main.game_info.Genre.split(',')[0].trim() : 'Game');
@@ -398,7 +441,7 @@
         `;
 
         const sideHtml = `<div class="featured-side-col">${side.map((game) => {
-            const gp = gameplayData[game.title];
+            const gp = gpMap[game.title];
             const bg = randomBackgroundFor(game, gp);
             const sizeLabel = formatSizeGB(estimatedSizeGB(game.game_info ? game.game_info['Game Size'] : null));
             return `
@@ -465,18 +508,18 @@
         if (e.key === 'Escape' && trailerModalBackdrop.classList.contains('open')) closeTrailerModal();
     });
 
-    function renderHero(games) {
+    function renderHero(games, gpMap) {
         // Pick each slide's background once and reuse it for both the big
         // slide and its thumbnail, so a game doesn't show two different
         // screenshots in the same carousel. Randomized per game so the same
         // game shows different gameplay art across refreshes.
-        const backgrounds = games.map((game) => randomBackgroundFor(game, gameplayData[game.title]));
+        const backgrounds = games.map((game) => randomBackgroundFor(game, gpMap[game.title]));
 
         heroSlidesEl.innerHTML = games.map((game, i) => {
-            const gp = gameplayData[game.title];
+            const gp = gpMap[game.title];
             const tags = gp && Array.isArray(gp.genres) && gp.genres.length
                 ? gp.genres
-                : (game.game_info && game.game_info.Genre ? game.game_info.Genre.split(',').map((s) => s.trim()) : []);
+                : gameGenres(game);
             const desc = heroDescriptionFor(game, gp);
             const trailerUrl = gp && gp.trailer_hls;
 
