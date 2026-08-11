@@ -28,6 +28,23 @@
         instance.btn.setAttribute('aria-expanded', 'true');
         if (backdrop) backdrop.classList.add('open');
         openInstance = instance;
+
+        // The panel is positioned relative to its own button (left: 0 by
+        // default), which doesn't know where the screen edge is — on
+        // narrow/mobile screens a dropdown near the right side of the
+        // header can spill past the viewport and cause page-level
+        // horizontal scroll. Flip it to a right-anchored panel instead
+        // whenever it would overflow.
+        instance.panel.style.left = '';
+        instance.panel.style.right = '';
+        const rect = instance.panel.getBoundingClientRect();
+        if (rect.right > window.innerWidth) {
+            instance.panel.style.left = 'auto';
+            instance.panel.style.right = '0';
+        } else if (rect.left < 0) {
+            instance.panel.style.left = '0';
+            instance.panel.style.right = 'auto';
+        }
     }
 
     document.addEventListener('click', (e) => {

@@ -48,6 +48,7 @@ body {
   background: var(--bg-dark);
   color: var(--text-primary);
   font-family: var(--font-main);
+  overflow-x: hidden;
 }
 
 img {
