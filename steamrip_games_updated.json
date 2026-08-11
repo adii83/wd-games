@@ -1935,24 +1935,25 @@
     }
   },
   {
-    "title": "Subnautica (v82304)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/library_600x900.jpg",
+    "title": "Subnautica",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/264710/library_600x900.jpg",
     "url": "https://steamrip.com/subnautica-free-download-s2/",
     "system_requirements": {
-      "OS": "Windows 7 or newer",
-      "Processor": "Intel Core i3 M380",
-      "Memory": "2 GB RAM",
-      "Graphics": "Intel HD 4000",
-      "DirectX": "Version 10",
-      "Storage": "1200 MB available space"
+      "OS *": "Windows Vista SP2 or newer, 64-bit",
+      "Processor": "Intel Haswell 2 cores / 4 threads @ 2.5Ghz or equivalent",
+      "Memory": "4 GB RAM",
+      "Graphics": "Intel HD 4600 or equivalent - This includes most GPUs scoring greater than 950 points in the 3DMark Fire Strike benchmark",
+      "DirectX": "Version 11",
+      "Storage": "20 GB available space",
+      "VR Support": "SteamVR. Keyboard or gamepad required"
     },
     "game_info": {
       "Genre": "Adventure, Indie",
-      "Developer": "Extremely OK Games, Ltd.",
+      "Developer": "Unknown Worlds Entertainment",
       "Platform": "PC",
       "Game Size": "3.6 GB",
-      "Released By": "CODEX emu",
-      "Version": "v82304 | Full Version",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     }
   },
@@ -7545,19 +7546,25 @@
     }
   },
   {
-    "title": "Subnautica: Below Zero (v53115)",
+    "title": "Subnautica: Below Zero",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/848450/library_600x900.jpg",
     "url": "https://steamrip.com/subnautica-below-zero-free-download-1s/",
     "system_requirements": {
-      "OS": "Windows 7 64-bit",
-      "Processor": "Intel Core i3 / AMD Ryzen 3 2.6ghz+",
+      "OS *": "Windows 7 64-bit",
+      "Processor": "Intel Core i3 4XXX series / AMD Ryzen 3 2.6ghz+",
       "Memory": "8 GB RAM",
       "Graphics": "Intel HD 530 or better",
       "DirectX": "Version 11",
       "Storage": "15 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie"
+      "Genre": "Adventure, Indie",
+      "Developer": "Unknown Worlds Entertainment",
+      "Platform": "PC",
+      "Game Size": "15 GB",
+      "Released By": "Steam",
+      "Version": "",
+      "Pre-Installed Game": true
     }
   },
   {
