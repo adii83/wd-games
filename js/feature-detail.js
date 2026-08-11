@@ -13,6 +13,7 @@
     const storageCapacityDropdownPanel = document.getElementById('storage-capacity-dropdown-panel');
     const storageUsedText = document.getElementById('storage-used-text');
     const storageTotalText = document.getElementById('storage-total-text');
+    const storageRemainingText = document.getElementById('storage-remaining-text');
     const storageProgressFill = document.getElementById('storage-progress-fill');
 
     const storageTypeDropdown = window.FilterDropdown.create(document.getElementById('storage-type-dropdown'));
@@ -410,11 +411,21 @@
 
         storageUsedText.textContent = formatSizeGB(usedGB);
         storageTotalText.textContent = formatSizeGB(state.capacityGB);
+        const availableGB = Math.max(0, state.capacityGB - usedGB);
+        storageRemainingText.textContent = formatSizeGB(availableGB);
         const pct = state.capacityGB > 0 ? (usedGB / state.capacityGB) * 100 : 0;
         storageProgressFill.style.width = `${Math.min(100, pct)}%`;
         storageProgressFill.classList.remove('threshold-warn', 'threshold-danger');
-        if (pct > 100) storageProgressFill.classList.add('threshold-danger');
-        else if (pct >= 75) storageProgressFill.classList.add('threshold-warn');
+        storageRemainingText.classList.remove('threshold-warn', 'threshold-danger', 'text-accent');
+        if (pct > 100) {
+            storageProgressFill.classList.add('threshold-danger');
+            storageRemainingText.classList.add('threshold-danger');
+        } else if (pct >= 75) {
+            storageProgressFill.classList.add('threshold-warn');
+            storageRemainingText.classList.add('threshold-warn');
+        } else {
+            storageRemainingText.classList.add('text-accent');
+        }
     }
 
     function setupStoragePicker() {

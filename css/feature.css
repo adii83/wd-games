@@ -373,6 +373,10 @@ body.has-footer-bar .feature-cart-widget {
   font-weight: 700;
 }
 
+.storage-progress-text span.text-accent { color: var(--accent); }
+.storage-progress-text span.threshold-warn { color: #ffb020; }
+.storage-progress-text span.threshold-danger { color: #ff4757; }
+
 .storage-progress-track {
   height: 8px;
   background: var(--bg-card);
