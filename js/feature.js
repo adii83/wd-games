@@ -1,13 +1,12 @@
 (function () {
     'use strict';
 
-    // Standalone script for feature/index.html — deliberately does not import
-    // or share state with js/app.js. Uses js/feature-cart.js (loaded before
-    // this file) for the independent storage-picker + selection state.
+    // Standalone script for index.html. Uses js/feature-cart.js (loaded
+    // before this file) for the storage-picker + selection state.
     //
     // Cards can be selected directly via their checkmark button (added to
     // the cart without opening the detail page); clicking anywhere else on
-    // a card navigates to feature/game.html as usual.
+    // a card navigates to game.html as usual.
 
     const ITEMS_PER_PAGE = 24;
     const SKELETON_COUNT = 12;
@@ -20,9 +19,12 @@
     const NEWEST_POOL_SIZE = 30;
 
     const STORAGE_TYPE_LABELS = { hdd: 'HDD', ssd: 'SSD', flashdisk: 'Flashdisk' };
-    const STORAGE_TYPE_ICONS = { hdd: '../assets/HDD.webp', ssd: '../assets/SSD.webp', flashdisk: '../assets/FLASHDISK.webp' };
+    const STORAGE_TYPE_ICONS = { hdd: 'assets/HDD.webp', ssd: 'assets/SSD.webp', flashdisk: 'assets/FLASHDISK.webp' };
+    // Sentinel Kategori value for the PS2 platform filter — kept out of the
+    // frequency-ranked genre list so it always shows as its own fixed entry.
+    const PS2_CATEGORY_VALUE = '__ps2__';
 
-    const HEART_ICON_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>';
+    const SELECT_ICON_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
     const SUGGEST_LIMIT = 6;
 
@@ -33,7 +35,7 @@
     const catalogTitle = document.getElementById('catalog-title');
     const catalogSection = document.getElementById('catalog-section');
     const catalogSortSelect = document.getElementById('catalog-sort-select');
-    const genreFilterSelect = document.getElementById('genre-filter-select');
+    const genreDropdownPanel = document.getElementById('genre-dropdown-panel');
 
     const discoverTop = document.getElementById('discover-top');
     const heroSlidesEl = document.getElementById('hero-slides');
@@ -47,21 +49,36 @@
     const updateGamesSection = document.getElementById('update-games-section');
     const updateScrollRow = document.getElementById('update-scroll-row');
     const updateGamesSeeAll = document.getElementById('update-games-see-all');
-    const promoBannerCount = document.getElementById('promo-banner-count');
-    const promoBannerBtn = document.getElementById('promo-banner-btn');
 
     const trailerModalBackdrop = document.getElementById('trailer-modal-backdrop');
     const trailerModalVideo = document.getElementById('trailer-modal-video');
     const trailerModalClose = document.getElementById('trailer-modal-close');
 
-    const storageTypeSelect = document.getElementById('storage-type-select');
-    const storageCapacitySelect = document.getElementById('storage-capacity-select');
+    const storageTypeDropdownPanel = document.querySelector('#storage-type-dropdown [data-dropdown-panel]');
+    const storageCapacityDropdownPanel = document.getElementById('storage-capacity-dropdown-panel');
     const storageProgressFill = document.getElementById('storage-progress-fill');
     const storageFooterIconImg = document.getElementById('storage-footer-icon-img');
     const storageFooterLabel = document.getElementById('storage-footer-label');
     const storageFooterSub = document.getElementById('storage-footer-sub');
     const storageFooterPercent = document.getElementById('storage-footer-percent');
-    const storageFooterBtn = document.getElementById('storage-footer-btn');
+
+    const genreDropdown = window.FilterDropdown.create(document.getElementById('genre-dropdown'));
+    const storageTypeDropdown = window.FilterDropdown.create(document.getElementById('storage-type-dropdown'));
+    const storageCapacityDropdown = window.FilterDropdown.create(document.getElementById('storage-capacity-dropdown'));
+
+    // Wires click-to-select on a dropdown's option buttons: marks the
+    // clicked one active, updates the trigger label, closes the panel, then
+    // hands the picked value to the caller.
+    function wireDropdownItems(panelEl, dropdownInstance, onSelect) {
+        panelEl.querySelectorAll('.filter-dropdown-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                panelEl.querySelectorAll('.filter-dropdown-item').forEach((i) => i.classList.toggle('active', i === item));
+                dropdownInstance.setLabel(item.textContent);
+                dropdownInstance.close();
+                onSelect(item.getAttribute('data-value'), item);
+            });
+        });
+    }
 
     let allGames = [];
     let filteredGames = [];
@@ -72,6 +89,14 @@
     let sortMode = 'newest';
     let activeGenre = null;
     let trailerHlsInstance = null;
+    // Tracks which landing sections actually have content to show, so
+    // filtering (search/category) can hide them and clearing the filter
+    // can bring back only the ones that were genuinely populated.
+    const landingHasContent = { hero: false, featured: false, update: false };
+    // Titles already shown in the "Update Games" strip — excluded from
+    // "Explore Your Collection" while browsing so the same game doesn't
+    // appear twice on the page.
+    let updateGamesTitles = new Set();
 
     function parseSizeToGB(sizeVal) {
         if (typeof sizeVal === 'number' && Number.isFinite(sizeVal)) return sizeVal;
@@ -88,7 +113,17 @@
     }
 
     function gameHref(game) {
-        return `game.html?t=${encodeURIComponent(game.title)}`;
+        const base = `game.html?t=${encodeURIComponent(game.title)}`;
+        // A handful of titles exist on both PC and PS2 (e.g. "Half-Life",
+        // "Grand Theft Auto: Vice City") — tag the platform in the URL so
+        // game.html opens the right one instead of just the first match.
+        return game._category === 'ps2' ? `${base}&c=ps2` : base;
+    }
+
+    // Buffered size: raw size times the admin-configured size_config.json
+    // buffer, used everywhere a size is displayed or summed.
+    function estimatedSizeGB(rawSize) {
+        return parseSizeToGB(rawSize) * window.FeatureCart.getSizeBufferMultiplier();
     }
 
     // Strips trailing version/build noise like "(Build 1491.50)",
@@ -123,17 +158,35 @@
     function randomBackgroundFor(game, gp) {
         const shots = gp && Array.isArray(gp.screenshots) ? gp.screenshots : [];
         if (shots.length) return shots[Math.floor(Math.random() * shots.length)];
-        return game.banner_url || '../assets/logo.png';
+        return game.banner_url || 'assets/logo.png';
     }
 
+    // Genres used for the Kategori filter (dropdown options + matching).
+    // game_info.Genre already holds Steam's real genre list for every PC
+    // title with a Steam match (update_pc_genres_from_steam.py rewrote
+    // steamrip_games_updated.json directly), so this can just read it —
+    // no need to special-case gameplayData here too.
     function gameGenres(game) {
         return game.game_info && game.game_info.Genre
             ? game.game_info.Genre.split(',').map((s) => s.trim()).filter(Boolean)
             : [];
     }
 
-    // Populates the compact "Kategori" <select> with the most common
-    // genres in the catalog, most-frequent first.
+    // Sets the Kategori filter (used both by the dropdown's own item clicks
+    // and by the Flashdisk -> PS2 category lock below) and keeps the
+    // dropdown's label/active state in sync either way.
+    function setActiveGenre(value) {
+        activeGenre = value || null;
+        genreDropdown.setLabel(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : (activeGenre || 'Semua Kategori'));
+        genreDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
+            item.classList.toggle('active', (item.getAttribute('data-value') || null) === activeGenre);
+        });
+        applyFilters();
+    }
+
+    // Populates the compact "Kategori" dropdown: "Semua Kategori", a fixed
+    // "Game PS2" platform shortcut, then the most common genres across the
+    // whole catalog (PC + PS2 both carry a Genre field), most-frequent first.
     function renderGenreFilterOptions() {
         const counts = new Map();
         allGames.forEach((game) => {
@@ -147,10 +200,15 @@
             .slice(0, 20)
             .map(([genre]) => genre);
 
-        genreFilterSelect.innerHTML = [
-            `<option value="">Semua Kategori</option>`,
-            ...topGenres.map((g) => `<option value="${g}">${g}</option>`),
+        genreDropdownPanel.innerHTML = [
+            `<button type="button" class="filter-dropdown-item${activeGenre === null ? ' active' : ''}" data-value="">Semua Kategori</button>`,
+            `<button type="button" class="filter-dropdown-item${activeGenre === PS2_CATEGORY_VALUE ? ' active' : ''}" data-value="${PS2_CATEGORY_VALUE}">Game PS2</button>`,
+            ...topGenres.map((g) => `<button type="button" class="filter-dropdown-item${activeGenre === g ? ' active' : ''}" data-value="${g}">${g}</button>`),
         ].join('');
+
+        wireDropdownItems(genreDropdownPanel, genreDropdown, (value) => {
+            setActiveGenre(value);
+        });
     }
 
     function renderSkeleton() {
@@ -167,16 +225,29 @@
     async function loadGames() {
         renderSkeleton();
         try {
-            const [gamesRes, gameplayRes] = await Promise.all([
-                fetch('../steamrip_games_updated.json'),
-                fetch('../steamrip_games_gameplay.json').catch(() => null),
+            const [gamesRes, ps2Res, gameplayRes, sizeConfigRes] = await Promise.all([
+                fetch('steamrip_games_updated.json'),
+                fetch('ps2.json').catch(() => null),
+                fetch('steamrip_games_gameplay.json').catch(() => null),
+                fetch('size_config.json').catch(() => null),
             ]);
             if (!gamesRes.ok) throw new Error('Gagal memuat data game');
             const data = await gamesRes.json();
+            const ps2Data = ps2Res && ps2Res.ok ? await ps2Res.json() : [];
             gameplayData = gameplayRes && gameplayRes.ok ? await gameplayRes.json() : {};
 
-            allGames = Array.isArray(data) ? data : [];
-            filteredGames = allGames;
+            if (sizeConfigRes && sizeConfigRes.ok) {
+                const sizeConfig = await sizeConfigRes.json();
+                const pct = Number(sizeConfig && sizeConfig.size_buffer_percentage);
+                if (Number.isFinite(pct)) window.FeatureCart.setSizeBufferMultiplier(1 + Math.min(100, Math.max(0, pct)) / 100);
+            }
+
+            const pcGames = (Array.isArray(data) ? data : []).map((g) => ({ ...g, _category: 'pc' }));
+            const ps2Games = (Array.isArray(ps2Data) ? ps2Data : []).map((g) => ({ ...g, _category: 'ps2' }));
+            // PC first so hero/Featured/Update Games (which only look at the
+            // front of this array) stay PC-only — those rely on Steam
+            // gameplay data and a "newest" ordering that PS2 doesn't have.
+            allGames = [...pcGames, ...ps2Games];
 
             // Hero + Featured This Week both draw from the same "newest"
             // pool, shuffled fresh on every load, and never share a game —
@@ -191,10 +262,11 @@
             renderFeaturedWeek(featuredGames);
             renderUpdateGamesRow();
             renderGenreFilterOptions();
+
+            // Games already shown in "Update Games" are left out of the
+            // default "Explore Your Collection" view so nothing repeats.
+            filteredGames = allGames.filter((g) => !updateGamesTitles.has(g.title));
             renderGrid(true);
-            if (promoBannerCount) {
-                promoBannerCount.textContent = `${allGames.length}+ koleksi game PC siap dimainkan kapan saja.`;
-            }
         } catch (err) {
             grid.innerHTML = `<div class="gallery-empty">Gagal memuat data game. Coba refresh halaman.</div>`;
             console.error(err);
@@ -206,7 +278,7 @@
     function buildGameCard(game, opts) {
         const options = opts || {};
         const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
-        const sizeLabel = formatSizeGB(parseSizeToGB(sizeStr));
+        const sizeLabel = formatSizeGB(estimatedSizeGB(sizeStr));
         const gp = gameplayData[game.title];
         const isSelected = window.FeatureCart.isSelected(game.title);
         const secondShot = gp && Array.isArray(gp.screenshots) ? gp.screenshots[1] : null;
@@ -222,10 +294,10 @@
         const displayTitle = cleanDisplayTitle(game.title);
         card.innerHTML = `
             <div class="gallery-card-img-wrap">
-                <img class="gallery-card-img" src="${game.banner_url || '../assets/logo.png'}" alt="${displayTitle}" loading="lazy" decoding="async">
-                ${options.badge ? `<div class="gallery-card-badges"><span class="update-card-badge">${options.badge}</span></div>` : ''}
+                <img class="gallery-card-img" src="${game.banner_url || 'assets/logo.png'}" alt="${displayTitle}" loading="lazy" decoding="async">
+                ${options.badge || game._category === 'ps2' ? `<div class="gallery-card-badges">${options.badge ? `<span class="update-card-badge">${options.badge}</span>` : ''}${game._category === 'ps2' ? '<span class="ps2-badge">PS2</span>' : ''}</div>` : ''}
                 <button class="card-select-btn${isSelected ? ' selected' : ''}" data-select-title="${game.title}" type="button" aria-label="Pilih game">
-                    ${HEART_ICON_SVG}
+                    ${SELECT_ICON_SVG}
                 </button>
                 ${tags.length ? `<div class="gallery-card-tags">${tags.map((t) => `<span>${t}</span>`).join('')}</div>` : ''}
             </div>
@@ -261,6 +333,7 @@
     function renderHeroSection(heroGames) {
         if (heroGames.length) {
             renderHero(heroGames);
+            landingHasContent.hero = true;
             discoverTop.style.display = '';
         }
     }
@@ -277,7 +350,7 @@
         const mainBg = randomBackgroundFor(main, mainGp);
         const mainTag = (mainGp && Array.isArray(mainGp.genres) && mainGp.genres[0])
             || (main.game_info && main.game_info.Genre ? main.game_info.Genre.split(',')[0].trim() : 'Game');
-        const mainSize = formatSizeGB(parseSizeToGB(main.game_info ? main.game_info['Game Size'] : null));
+        const mainSize = formatSizeGB(estimatedSizeGB(main.game_info ? main.game_info['Game Size'] : null));
         const mainSelected = window.FeatureCart.isSelected(main.title);
         const rating = mainGp && Number.isFinite(mainGp.metacritic_score) ? (mainGp.metacritic_score / 20).toFixed(1) : null;
 
@@ -293,7 +366,7 @@
                     <div class="featured-actions">
                         <a class="hero-cta-primary" href="${gameHref(main)}">Lihat Detail</a>
                         <button class="card-select-btn${mainSelected ? ' selected' : ''}" data-select-title="${main.title}" type="button" aria-label="Pilih game">
-                            ${HEART_ICON_SVG}
+                            ${SELECT_ICON_SVG}
                         </button>
                     </div>
                 </div>
@@ -303,7 +376,7 @@
         const sideHtml = `<div class="featured-side-col">${side.map((game) => {
             const gp = gameplayData[game.title];
             const bg = randomBackgroundFor(game, gp);
-            const sizeLabel = formatSizeGB(parseSizeToGB(game.game_info ? game.game_info['Game Size'] : null));
+            const sizeLabel = formatSizeGB(estimatedSizeGB(game.game_info ? game.game_info['Game Size'] : null));
             return `
                 <a class="featured-side-card" href="${gameHref(game)}" style="background-image: url('${bg}')">
                     <div class="featured-side-content">
@@ -315,6 +388,7 @@
         }).join('')}</div>`;
 
         featuredWeekGrid.innerHTML = mainHtml + sideHtml;
+        landingHasContent.featured = true;
         featuredWeekSection.style.display = '';
     }
 
@@ -327,6 +401,8 @@
             fragment.appendChild(buildGameCard(game, { animIndex: idx, badge: 'Baru' }));
         });
         updateScrollRow.appendChild(fragment);
+        updateGamesTitles = new Set(games.map((g) => g.title));
+        landingHasContent.update = true;
         updateGamesSection.style.display = '';
     }
 
@@ -545,10 +621,22 @@
         const q = searchInput.value.trim().toLowerCase();
 
         const apply = () => {
+            // Searching or picking a category focuses the page on just the
+            // matching games — hide the hero/Featured/Update Games "landing"
+            // sections instead of making people scroll past them. Clearing
+            // the filter brings back only the sections that actually had
+            // content to begin with. While filtering, Update Games titles
+            // are allowed back into the results (that strip is hidden
+            // anyway, so nothing repeats on screen) so search stays
+            // reliable across the whole catalog instead of hiding matches.
+            const isFiltering = Boolean(q) || Boolean(activeGenre);
+
             filteredGames = allGames.filter((g) => {
                 const matchesSearch = !q || (g.title || '').toLowerCase().includes(q);
-                const matchesGenre = !activeGenre || gameGenres(g).includes(activeGenre);
-                return matchesSearch && matchesGenre;
+                const matchesGenre = !activeGenre
+                    || (activeGenre === PS2_CATEGORY_VALUE ? g._category === 'ps2' : gameGenres(g).includes(activeGenre));
+                const notDuplicatingUpdateGames = isFiltering || !updateGamesTitles.has(g.title);
+                return matchesSearch && matchesGenre && notDuplicatingUpdateGames;
             });
 
             if (sortMode === 'az') {
@@ -556,9 +644,13 @@
             }
 
             const labelParts = [];
-            if (activeGenre) labelParts.push(activeGenre);
+            if (activeGenre) labelParts.push(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : activeGenre);
             if (q) labelParts.push(`"${searchInput.value.trim()}"`);
             catalogTitle.textContent = labelParts.length ? `Hasil untuk ${labelParts.join(' · ')}` : 'Explore Your Collection';
+
+            discoverTop.style.display = !isFiltering && landingHasContent.hero ? '' : 'none';
+            featuredWeekSection.style.display = !isFiltering && landingHasContent.featured ? '' : 'none';
+            updateGamesSection.style.display = !isFiltering && landingHasContent.update ? '' : 'none';
 
             renderGrid(true);
             grid.classList.remove('grid-transitioning');
@@ -661,10 +753,10 @@
 
         const shown = matches.slice(0, SUGGEST_LIMIT);
         const itemsHtml = shown.map((game) => {
-            const sizeLabel = formatSizeGB(parseSizeToGB(game.game_info ? game.game_info['Game Size'] : null));
+            const sizeLabel = formatSizeGB(estimatedSizeGB(game.game_info ? game.game_info['Game Size'] : null));
             return `
                 <a class="search-suggest-item" href="${gameHref(game)}">
-                    <img class="search-suggest-thumb" src="${game.banner_url || '../assets/logo.png'}" alt="" loading="lazy">
+                    <img class="search-suggest-thumb" src="${game.banner_url || 'assets/logo.png'}" alt="" loading="lazy">
                     <div class="search-suggest-info">
                         <div class="search-suggest-title">${highlightMatch(cleanDisplayTitle(game.title), q)}</div>
                         <div class="search-suggest-size">${sizeLabel}</div>
@@ -729,39 +821,50 @@
         applyFilters();
     });
 
-    genreFilterSelect.addEventListener('change', () => {
-        activeGenre = genreFilterSelect.value || null;
-        applyFilters();
-    });
-
     updateGamesSeeAll.addEventListener('click', (e) => {
         e.preventDefault();
         catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    // Plain, instant jump — no smooth-scroll/landing-page-style motion,
-    // just show the games grid straight away.
-    promoBannerBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        catalogSection.scrollIntoView({ behavior: 'auto', block: 'start' });
-    });
-
     // --- Storage picker + space indicator ---
 
+    function currentStoragePreset() {
+        const state = window.FeatureCart.getState();
+        return window.FeatureCart.STORAGE_PRESETS[state.storageType] || window.FeatureCart.STORAGE_PRESETS.hdd;
+    }
+
+    // Capacity options are type-dependent (HDD/SSD/Flashdisk each have their
+    // own tier list) — repopulated whenever the storage type changes, not
+    // just once at init.
     function populateCapacityOptions() {
-        storageCapacitySelect.innerHTML = window.FeatureCart.CAPACITY_TIERS
-            .map((t) => `<option value="${t.value}">${t.label}</option>`)
+        storageCapacityDropdownPanel.innerHTML = currentStoragePreset().capacities
+            .map((t) => `<button type="button" class="filter-dropdown-item" data-value="${t.value}">${t.label}</button>`)
             .join('');
+        wireDropdownItems(storageCapacityDropdownPanel, storageCapacityDropdown, (value) => {
+            const state = window.FeatureCart.getState();
+            window.FeatureCart.setStorage(state.storageType, Number(value));
+            updateStorageUI();
+        });
     }
 
     function syncStoragePickerFromState() {
         const state = window.FeatureCart.getState();
-        storageTypeSelect.value = state.storageType;
-        storageCapacitySelect.value = String(state.capacityGB);
+
+        const typeLabel = STORAGE_TYPE_LABELS[state.storageType] || state.storageType.toUpperCase();
+        storageTypeDropdown.setLabel(typeLabel);
+        storageTypeDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
+            item.classList.toggle('active', item.getAttribute('data-value') === state.storageType);
+        });
+
+        const capacityLabel = capacityLabelFor(state.capacityGB);
+        storageCapacityDropdown.setLabel(capacityLabel);
+        storageCapacityDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
+            item.classList.toggle('active', Number(item.getAttribute('data-value')) === state.capacityGB);
+        });
     }
 
     function capacityLabelFor(capacityGB) {
-        const tier = window.FeatureCart.CAPACITY_TIERS.find((t) => t.value === capacityGB);
+        const tier = currentStoragePreset().capacities.find((t) => t.value === capacityGB);
         return tier ? tier.label : formatSizeGB(capacityGB);
     }
 
@@ -771,7 +874,7 @@
             const game = allGames.find((g) => g.title === title);
             if (!game) return sum;
             const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
-            return sum + parseSizeToGB(sizeStr);
+            return sum + estimatedSizeGB(sizeStr);
         }, 0);
 
         const pct = state.capacityGB > 0 ? (usedGB / state.capacityGB) * 100 : 0;
@@ -784,8 +887,8 @@
         const availablePct = Math.max(0, Math.min(100, 100 - pct));
 
         storageFooterIconImg.src = STORAGE_TYPE_ICONS[state.storageType] || STORAGE_TYPE_ICONS.hdd;
-        storageFooterLabel.textContent = `Kapasitas ${typeLabel} ${capacityLabel}`;
-        storageFooterSub.textContent = `${formatSizeGB(availableGB)} tersedia dari ${capacityLabel}`;
+        storageFooterLabel.textContent = `${typeLabel} ${capacityLabel}`;
+        storageFooterSub.textContent = `Sisa ${formatSizeGB(availableGB)}`;
         storageFooterPercent.textContent = `${Math.round(availablePct)}% Tersedia`;
         storageFooterPercent.classList.remove('threshold-warn', 'threshold-danger');
         if (pct > 100) storageFooterPercent.classList.add('threshold-danger');
@@ -798,16 +901,25 @@
         else if (pct >= 75) storageProgressFill.classList.add('threshold-warn');
     }
 
-    storageTypeSelect.addEventListener('change', () => {
-        window.FeatureCart.setStorage(storageTypeSelect.value, Number(storageCapacitySelect.value));
+    wireDropdownItems(storageTypeDropdownPanel, storageTypeDropdown, (value) => {
+        const preset = window.FeatureCart.STORAGE_PRESETS[value];
+        if (!preset) return;
+        // Changing storage type always resets capacity to that type's
+        // default and repopulates its tier list.
+        window.FeatureCart.setStorage(value, preset.defaultCapacity);
+        populateCapacityOptions();
+        syncStoragePickerFromState();
         updateStorageUI();
-    });
-    storageCapacitySelect.addEventListener('change', () => {
-        window.FeatureCart.setStorage(storageTypeSelect.value, Number(storageCapacitySelect.value));
-        updateStorageUI();
-    });
 
-    storageFooterBtn.addEventListener('click', () => window.FeatureCartWidget.openPanel());
+        // Flashdisk is PS2-only on the main site too — lock the Kategori
+        // filter to "Game PS2" while it's selected, and release it back to
+        // "Semua Kategori" when switching to HDD/SSD.
+        if (preset.lockCategory === 'ps2') {
+            setActiveGenre(PS2_CATEGORY_VALUE);
+        } else if (activeGenre === PS2_CATEGORY_VALUE) {
+            setActiveGenre(null);
+        }
+    });
 
     // --- Floating cart widget (shared controller in js/feature-cart-widget.js) ---
 

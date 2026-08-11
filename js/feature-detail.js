@@ -1,18 +1,36 @@
 (function () {
     'use strict';
 
-    // Standalone script for feature/game.html — isolated from js/app.js. Uses
-    // js/feature-cart.js (loaded before this file) for the shared /feature
-    // storage-picker + selection state.
+    // Standalone script for game.html. Uses js/feature-cart.js (loaded
+    // before this file) for the shared storage-picker + selection state.
 
     const mainEl = document.getElementById('game-main');
     const template = document.getElementById('game-detail-template');
 
-    const storageTypeSelect = document.getElementById('storage-type-select');
-    const storageCapacitySelect = document.getElementById('storage-capacity-select');
+    const STORAGE_TYPE_LABELS = { hdd: 'HDD', ssd: 'SSD', flashdisk: 'Flashdisk' };
+
+    const storageTypeDropdownPanel = document.querySelector('#storage-type-dropdown [data-dropdown-panel]');
+    const storageCapacityDropdownPanel = document.getElementById('storage-capacity-dropdown-panel');
     const storageUsedText = document.getElementById('storage-used-text');
     const storageTotalText = document.getElementById('storage-total-text');
     const storageProgressFill = document.getElementById('storage-progress-fill');
+
+    const storageTypeDropdown = window.FilterDropdown.create(document.getElementById('storage-type-dropdown'));
+    const storageCapacityDropdown = window.FilterDropdown.create(document.getElementById('storage-capacity-dropdown'));
+
+    // Wires click-to-select on a dropdown's option buttons: marks the
+    // clicked one active, updates the trigger label, closes the panel, then
+    // hands the picked value to the caller.
+    function wireDropdownItems(panelEl, dropdownInstance, onSelect) {
+        panelEl.querySelectorAll('.filter-dropdown-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                panelEl.querySelectorAll('.filter-dropdown-item').forEach((i) => i.classList.toggle('active', i === item));
+                dropdownInstance.setLabel(item.textContent);
+                dropdownInstance.close();
+                onSelect(item.getAttribute('data-value'), item);
+            });
+        });
+    }
 
     let allGames = [];
     let currentGame = null;
@@ -30,6 +48,12 @@
     function formatSizeGB(gb) {
         if (!Number.isFinite(gb) || gb <= 0) return 'N/A';
         return gb >= 1 ? `${gb.toFixed(1)} GB` : `${Math.round(gb * 1024)} MB`;
+    }
+
+    // Buffered size: raw size times the admin-configured size_config.json
+    // buffer.
+    function estimatedSizeGB(rawSize) {
+        return parseSizeToGB(rawSize) * window.FeatureCart.getSizeBufferMultiplier();
     }
 
     // Strips trailing version/build noise like "(Build 1491.50)",
@@ -59,25 +83,43 @@
     async function loadGame() {
         const params = new URLSearchParams(window.location.search);
         const wantedTitle = params.get('t');
+        const wantedCategory = params.get('c'); // 'ps2' when linked from a PS2 card
         if (!wantedTitle) return renderNotFound();
 
         let games;
+        let ps2Games = [];
         let gameplayData = {};
         try {
-            const [gamesRes, gameplayRes] = await Promise.all([
-                fetch('../steamrip_games_updated.json'),
-                fetch('../steamrip_games_gameplay.json').catch(() => null),
+            const [gamesRes, ps2Res, gameplayRes, sizeConfigRes] = await Promise.all([
+                fetch('steamrip_games_updated.json'),
+                fetch('ps2.json').catch(() => null),
+                fetch('steamrip_games_gameplay.json').catch(() => null),
+                fetch('size_config.json').catch(() => null),
             ]);
             if (!gamesRes.ok) throw new Error('Gagal memuat data game');
             games = await gamesRes.json();
+            ps2Games = ps2Res && ps2Res.ok ? await ps2Res.json() : [];
             gameplayData = gameplayRes && gameplayRes.ok ? await gameplayRes.json() : {};
+
+            if (sizeConfigRes && sizeConfigRes.ok) {
+                const sizeConfig = await sizeConfigRes.json();
+                const pct = Number(sizeConfig && sizeConfig.size_buffer_percentage);
+                if (Number.isFinite(pct)) window.FeatureCart.setSizeBufferMultiplier(1 + Math.min(100, Math.max(0, pct)) / 100);
+            }
         } catch (err) {
             console.error(err);
             return renderNotFound();
         }
 
-        allGames = Array.isArray(games) ? games : [];
-        const base = allGames.find((g) => g.title === wantedTitle);
+        const pcGames = (Array.isArray(games) ? games : []).map((g) => ({ ...g, _category: 'pc' }));
+        const ps2Tagged = (Array.isArray(ps2Games) ? ps2Games : []).map((g) => ({ ...g, _category: 'ps2' }));
+        allGames = [...pcGames, ...ps2Tagged];
+
+        // A handful of titles exist on both PC and PS2 (e.g. "Half-Life") —
+        // prefer the platform the link came from when we know it.
+        const base = wantedCategory
+            ? allGames.find((g) => g.title === wantedTitle && g._category === wantedCategory)
+            : allGames.find((g) => g.title === wantedTitle);
         if (!base) return renderNotFound();
 
         const game = { ...base, ...(gameplayData[base.title] || {}) };
@@ -116,7 +158,7 @@
             items.push({ type: 'image', src, label: `Screenshot ${idx + 1}` });
         });
         if (items.length === 0) {
-            items.push({ type: 'image', src: game.banner_url || '../assets/logo.png', label: game.title });
+            items.push({ type: 'image', src: game.banner_url || 'assets/logo.png', label: game.title });
         }
 
         const mainImg = document.getElementById('carousel-main-img');
@@ -147,7 +189,7 @@
             stopVideo();
             mainWrap.classList.toggle('has-video', item.type === 'video');
 
-            mainImg.src = item.type === 'video' ? (item.thumb || '../assets/logo.png') : item.src;
+            mainImg.src = item.type === 'video' ? (item.thumb || 'assets/logo.png') : item.src;
             mainImg.alt = item.label || game.title;
 
             thumbsEl.querySelectorAll('.carousel-thumb').forEach((el, i) => {
@@ -192,7 +234,7 @@
                 thumb.className = 'carousel-thumb';
                 thumb.setAttribute('data-idx', idx);
                 thumb.innerHTML = `
-                    <img src="${item.type === 'video' ? (item.thumb || '../assets/logo.png') : item.src}" alt="${item.label}" loading="lazy">
+                    <img src="${item.type === 'video' ? (item.thumb || 'assets/logo.png') : item.src}" alt="${item.label}" loading="lazy">
                     ${item.type === 'video' ? '<span class="carousel-thumb-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' : ''}
                 `;
                 thumb.addEventListener('click', () => showItem(idx));
@@ -288,7 +330,7 @@
 
     function setupOrderCard(game) {
         const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
-        document.getElementById('order-card-size').textContent = formatSizeGB(parseSizeToGB(sizeStr));
+        document.getElementById('order-card-size').textContent = formatSizeGB(estimatedSizeGB(sizeStr));
 
         const facts = [];
         if (game.game_info) {
@@ -319,24 +361,51 @@
         syncSelectBtn();
     }
 
-    // --- Storage picker (shared with feature/index.html) ---
+    // --- Storage picker (shared with index.html) ---
 
+    function currentStoragePreset() {
+        const state = window.FeatureCart.getState();
+        return window.FeatureCart.STORAGE_PRESETS[state.storageType] || window.FeatureCart.STORAGE_PRESETS.hdd;
+    }
+
+    function capacityLabelFor(capacityGB) {
+        const tier = currentStoragePreset().capacities.find((t) => t.value === capacityGB);
+        return tier ? tier.label : formatSizeGB(capacityGB);
+    }
+
+    // Capacity options are type-dependent (HDD/SSD/Flashdisk each have their
+    // own tier list) — repopulated whenever the storage type changes, not
+    // just once at init.
     function populateCapacityOptions() {
-        storageCapacitySelect.innerHTML = window.FeatureCart.CAPACITY_TIERS
-            .map((t) => `<option value="${t.value}">${t.label}</option>`)
+        storageCapacityDropdownPanel.innerHTML = currentStoragePreset().capacities
+            .map((t) => `<button type="button" class="filter-dropdown-item" data-value="${t.value}">${t.label}</button>`)
             .join('');
+        wireDropdownItems(storageCapacityDropdownPanel, storageCapacityDropdown, (value) => {
+            const state = window.FeatureCart.getState();
+            window.FeatureCart.setStorage(state.storageType, Number(value));
+        });
     }
 
     function updateStorageUI() {
         const state = window.FeatureCart.getState();
-        storageTypeSelect.value = state.storageType;
-        storageCapacitySelect.value = String(state.capacityGB);
+
+        const typeLabel = STORAGE_TYPE_LABELS[state.storageType] || state.storageType.toUpperCase();
+        storageTypeDropdown.setLabel(typeLabel);
+        storageTypeDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
+            item.classList.toggle('active', item.getAttribute('data-value') === state.storageType);
+        });
+
+        const capacityLabel = capacityLabelFor(state.capacityGB);
+        storageCapacityDropdown.setLabel(capacityLabel);
+        storageCapacityDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
+            item.classList.toggle('active', Number(item.getAttribute('data-value')) === state.capacityGB);
+        });
 
         const usedGB = state.selected.reduce((sum, title) => {
             const game = allGames.find((g) => g.title === title);
             if (!game) return sum;
             const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
-            return sum + parseSizeToGB(sizeStr);
+            return sum + estimatedSizeGB(sizeStr);
         }, 0);
 
         storageUsedText.textContent = formatSizeGB(usedGB);
@@ -352,11 +421,13 @@
         populateCapacityOptions();
         updateStorageUI();
 
-        storageTypeSelect.addEventListener('change', () => {
-            window.FeatureCart.setStorage(storageTypeSelect.value, Number(storageCapacitySelect.value));
-        });
-        storageCapacitySelect.addEventListener('change', () => {
-            window.FeatureCart.setStorage(storageTypeSelect.value, Number(storageCapacitySelect.value));
+        wireDropdownItems(storageTypeDropdownPanel, storageTypeDropdown, (value) => {
+            const preset = window.FeatureCart.STORAGE_PRESETS[value];
+            if (!preset) return;
+            // Changing storage type always resets capacity to that type's
+            // default and repopulates its tier list.
+            window.FeatureCart.setStorage(value, preset.defaultCapacity);
+            populateCapacityOptions();
         });
         window.FeatureCart.onChange(() => {
             updateStorageUI();

@@ -1,7 +1,7 @@
-// Shared floating cart-widget UI controller for feature/index.html AND
-// feature/game.html — both pages render the identical #feature-cart-widget
-// markup, so the render/open/close/backdrop/fly-to-cart logic lives here
-// once instead of being duplicated in feature.js and feature-detail.js.
+// Shared floating cart-widget UI controller for index.html AND game.html —
+// both pages render the identical #feature-cart-widget markup, so the
+// render/open/close/backdrop/fly-to-cart logic lives here once instead of
+// being duplicated in feature.js and feature-detail.js.
 
 (function (window) {
     'use strict';
@@ -20,6 +20,12 @@
         return gb >= 1 ? `${gb.toFixed(1)} GB` : `${Math.round(gb * 1024)} MB`;
     }
 
+    // Buffered size: raw size times the admin-configured size_config.json
+    // buffer.
+    function estimatedSizeGB(rawSize) {
+        return parseSizeToGB(rawSize) * window.FeatureCart.getSizeBufferMultiplier();
+    }
+
     let findGame = () => null;
     let onRemove = () => {};
 
@@ -30,6 +36,7 @@
     const closeBtn = document.getElementById('feature-cart-close');
     const listEl = document.getElementById('feature-cart-list');
     const backdrop = document.getElementById('feature-cart-backdrop');
+    const copyBtn = document.getElementById('feature-cart-copy-btn');
 
     function prefersReducedMotion() {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -47,7 +54,7 @@
         listEl.innerHTML = state.selected.map((title) => {
             const game = findGame(title);
             const sizeStr = game && game.game_info ? game.game_info['Game Size'] : null;
-            const sizeLabel = formatSizeGB(parseSizeToGB(sizeStr));
+            const sizeLabel = formatSizeGB(estimatedSizeGB(sizeStr));
             return `
                 <div class="assistive-item" data-title="${title}">
                     <div>
@@ -115,6 +122,124 @@
         }, { once: true });
     }
 
+    // --- Copy-text export: builds the plain-text order list (header line,
+    // numbering, version-suffix stripping, PS2 suffix, total line,
+    // empty-state message) and copies it for pasting into Shopee chat. ---
+
+    function stripVersionSuffix(title) {
+        if (!title) return '';
+        let t = String(title).trim();
+        const versionSuffixRe = /\s*\((?:\s*(?:v\s*\d|build\b|Build\b|B_\d|b_\d)[^)]*)\)\s*$/;
+        while (versionSuffixRe.test(t)) {
+            t = t.replace(versionSuffixRe, '').trim();
+        }
+        return t;
+    }
+
+    function needsPs2Suffix(game) {
+        if (!game) return false;
+        if (game._category === 'ps2') return true;
+        const platform = game.game_info ? String(game.game_info.Platform || '') : '';
+        return platform.toUpperCase().includes('PS2');
+    }
+
+    function addPs2SuffixIfNeeded(title, game) {
+        const t = String(title || '').trim();
+        if (!needsPs2Suffix(game)) return t;
+        if (/\(PS2\)\s*$/i.test(t)) return t;
+        return `${t} (PS2)`;
+    }
+
+    function buildExportText() {
+        const state = window.FeatureCart.getState();
+        const selectedArr = state.selected.map((title) => findGame(title)).filter(Boolean);
+
+        if (selectedArr.length === 0) {
+            return `Daftar Game Pesanan\n\n(Belum ada game yang dipilih)`;
+        }
+
+        let totalSize = 0;
+        const lines = ['Daftar Game Pesanan', ''];
+
+        selectedArr.forEach((game, i) => {
+            const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
+            totalSize += estimatedSizeGB(sizeStr);
+            const title = game.title || 'Untitled';
+            const labeled = addPs2SuffixIfNeeded(stripVersionSuffix(title), game);
+            lines.push(`${i + 1}. ${labeled}`);
+        });
+
+        lines.push('');
+        lines.push(`Total Size: ${totalSize.toFixed(1)} GB`);
+        return lines.join('\n');
+    }
+
+    async function copyTextToClipboard(text) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            await navigator.clipboard.writeText(text);
+            return true;
+        }
+        // Fallback for older browsers / non-secure context
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.setAttribute('readonly', '');
+        temp.style.position = 'fixed';
+        temp.style.left = '-9999px';
+        temp.style.top = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        temp.setSelectionRange(0, temp.value.length);
+        const ok = document.execCommand('copy');
+        document.body.removeChild(temp);
+        return ok;
+    }
+
+    function showToast(message, type) {
+        document.querySelectorAll('.toast-notification').forEach((t) => t.remove());
+
+        const toast = document.createElement('div');
+        toast.className = `toast-notification toast-${type === 'error' ? 'error' : 'success'}`;
+        const iconSvg = type === 'error'
+            ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`
+            : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>`;
+        toast.innerHTML = `${iconSvg}<span>${message}</span>`;
+        document.body.appendChild(toast);
+
+        setTimeout(() => toast.classList.add('show'), 10);
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 4000);
+    }
+
+    async function handleCopyClick() {
+        const state = window.FeatureCart.getState();
+        const usedGB = state.selected.reduce((sum, title) => {
+            const game = findGame(title);
+            if (!game) return sum;
+            const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
+            return sum + estimatedSizeGB(sizeStr);
+        }, 0);
+
+        if (state.selected.length === 0) {
+            showToast('Belum ada game yang dipilih.', 'error');
+            return;
+        }
+        if (usedGB > state.capacityGB) {
+            showToast('Kapasitas tidak memadai! Silakan kurangi game atau sesuaikan kapasitas penyimpanan.', 'error');
+            return;
+        }
+
+        try {
+            const ok = await copyTextToClipboard(buildExportText());
+            if (!ok) throw new Error('Copy gagal');
+            showToast('Teks daftar game berhasil di-copy!', 'success');
+        } catch (err) {
+            console.error('Copy text error:', err);
+            showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
+        }
+    }
+
     window.FeatureCartWidget = {
         init(options) {
             findGame = (options && options.findGame) || findGame;
@@ -125,6 +250,7 @@
             });
             if (closeBtn) closeBtn.addEventListener('click', closePanel);
             if (backdrop) backdrop.addEventListener('click', closePanel);
+            if (copyBtn) copyBtn.addEventListener('click', handleCopyClick);
 
             window.FeatureCart.onChange(render);
             render();

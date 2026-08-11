@@ -2,26 +2,33 @@
 
 Customer-facing site (`wdgames.store`) where customers pick which games they want and the site tallies total download size against a storage medium (HDD/SSD/flashdisk) they own. Selection is exported as a plain-text order list the customer pastes into the seller's Shopee chat — there is no in-app checkout.
 
-A redesign is in progress toward a Steam-like catalog + game detail experience (trailer video, screenshots, size-fit gauge). See [REDESIGN_PLAN.md](REDESIGN_PLAN.md) for the full plan — read it before making UI changes so new work lands in the right place instead of extending the old bottom-sheet info modal.
+The site is a Steam-like catalog + game detail experience (trailer video, screenshots, size-fit gauge). This landed as the main site by promoting the former `/feature` prototype to root (`index.html`/`game.html`) — see [REDESIGN_PLAN.md](REDESIGN_PLAN.md) for the original design rationale (data fields, UI/UX intent); treat its "Rollout order"/file-path details as historical, superseded by "Structure" below.
 
 ## Stack
 
-Plain static HTML/CSS/vanilla JS. No framework, no bundler, no `package.json`, no build step. Deployed via GitHub Pages (see `CNAME`). Edit files directly and open `index.html` / `admin.html` in a browser (or a simple static server) to see changes — nothing to compile.
+Plain static HTML/CSS/vanilla JS. No framework, no bundler, no `package.json`, no build step. Deployed via GitHub Pages (see `CNAME`). Edit files directly and open `index.html` / `game.html` / `admin.html` in a browser (or a simple static server) to see changes — nothing to compile.
 
-A few standalone Python scripts in the repo root (`fill_ps2_banners.py`, `fix_titles.py`, `minify_jsons.py`, `sort_ps2_by_romsfun_popular.py`, `update_steamrip_banners.py`) are offline one-off data-prep tools run manually against the JSON files. They are not part of the served site and not run automatically.
+A few standalone Python scripts in the repo root (`fill_ps2_banners.py`, `fix_titles.py`, `minify_jsons.py`, `sort_ps2_by_romsfun_popular.py`, `update_steamrip_banners.py`, `update_pc_genres_from_steam.py`, `enrich_steam_data.py`) are offline one-off data-prep tools run manually against the JSON files. They are not part of the served site and not run automatically.
 
 ## Structure
 
 ```
-index.html          customer-facing catalog page
+index.html          customer-facing catalog/gallery page (hero, Featured This Week, Update Games, search/filter grid)
+game.html            per-game detail page (trailer/screenshot carousel, About, requirements, size-fit sidebar)
 admin.html           admin panel (game CRUD, writes to GitHub directly)
-css/style.css         main site styles + design tokens (:root, css/style.css:1-29)
+css/feature.css        styles + design tokens for index.html/game.html — isolated :root token set, own copy on purpose (see file header)
+css/style.css         design tokens + styles for admin.html ONLY — the old catalog page that used this was retired; don't assume index.html/game.html load it (they don't)
 css/admin.css         admin-panel-only styles
-js/app.js              catalog logic: data loading, search/filter, selection, size math, export
+js/feature.js           index.html logic: data loading, hero/Featured/Update Games, search/filter, selection, size math
+js/feature-detail.js    game.html logic: media carousel, About/requirements tabs, size-fit sidebar
+js/feature-cart.js      shared cart/storage-picker state (localStorage) between index.html and game.html
+js/feature-cart-widget.js  shared floating "Game Terpilih" widget UI + copy-to-clipboard export, used by both pages
+js/filter-dropdown.js   shared custom dropdown controller (Kategori/HDD/Size headers) with full-page backdrop-blur when open
 js/admin.js            admin panel logic: GitHub API auth + read/write
 assets/                logo, background, storage-icon images
-steamrip_games_updated.json   PC games data (live — fetched by js/app.js)
-ps2.json                       PS2 games data (live — fetched by js/app.js)
+steamrip_games_updated.json   PC games data (live — fetched by js/feature.js / js/feature-detail.js)
+ps2.json                       PS2 games data (live — fetched by js/feature.js / js/feature-detail.js)
+steamrip_games_gameplay.json  per-title trailer/screenshots/description/genres, keyed by title — fetched alongside the two files above
 size_config.json               { "size_buffer_percentage": N } — global size buffer, admin-editable
 CNAME                            GitHub Pages custom domain
 ```
@@ -49,10 +56,12 @@ There is no real database or backend. `steamrip_games_updated.json` and `ps2.jso
 }
 ```
 
-- `system_requirements` and `game_info` are free-form objects rendered generically as key/value lists — adding a key there is enough to have it show up in the info view, no code change needed. Don't put URLs or anything needing special rendering in these two objects; add a new top-level field instead (see `REDESIGN_PLAN.md` for the new `trailer_url`/`screenshots`/`description` fields).
-- `game_info["Game Size"]` is the field the size math reads (`parseSizeToGB()` in `js/app.js`). Accepts strings like `"90 GB"` / `"530 MB"` or a raw number (PS2 entries use raw numbers). A global buffer multiplier from `size_config.json` (`size_buffer_percentage`) is applied on top.
+- `system_requirements` and `game_info` are free-form objects rendered generically as key/value lists — adding a key there is enough to have it show up in the info view, no code change needed. Don't put URLs or anything needing special rendering in these two objects; add a new top-level field instead.
+- `game_info["Game Size"]` is the field the size math reads (`parseSizeToGB()` in `js/feature.js` / `js/feature-detail.js`). Accepts strings like `"90 GB"` / `"530 MB"` or a raw number (PS2 entries use raw numbers). A global buffer multiplier from `size_config.json` (`size_buffer_percentage`) is applied on top via `estimatedSizeGB()`.
+- `game_info.Genre` for PC entries was reconciled against Steam's real store genre taxonomy (`update_pc_genres_from_steam.py`, sourced from `steamrip_games_gameplay.json`) — treat it as accurate per-title data, not a loose scraped tag.
 - PS2 entries additionally have a `url` field (source page) and `game_info["Popularity Rank"]`, used to sort the PS2 list.
-- PC and PS2 data are lazy-loaded independently depending on the active category filter (`ensureGamesLoaded` in `js/app.js`) — don't assume both are loaded at once.
+- Trailer/screenshots/description/requirements live in the separate `steamrip_games_gameplay.json` (keyed by title: `trailer_hls`, `trailer_thumb`, `screenshots`, `about_the_game`, `requirements_minimum`, `requirements_recommended`, `genres`, `developers`, `publishers`, `release_date`), not inline on the catalog entries — kept apart so the main catalog JSON payload stays lean. `js/feature.js`/`js/feature-detail.js` fetch both and merge by title at render time. Not every title has a gameplay entry (only Steam-matched ones) — UI must degrade gracefully when it's missing.
+- Unlike the retired old site, `index.html`/`game.html` load PC (`steamrip_games_updated.json`) and PS2 (`ps2.json`) data together upfront (`loadGames()` in `js/feature.js`, `Promise.all` in `js/feature-detail.js`) — don't assume either is lazy/on-demand now.
 
 ## Admin panel
 
@@ -62,13 +71,14 @@ There is no real database or backend. `steamrip_games_updated.json` and `ps2.jso
 
 ## Conventions
 
-- Design tokens live in `css/style.css:1-29` as CSS variables (`--bg-dark`, `--accent`, `--accent-gradient`, `--radius-md`, etc.) — reuse them, don't hardcode new colors/spacing.
+- Design tokens for `index.html`/`game.html` live at the top of `css/feature.css` as CSS variables (`--bg-dark`, `--accent`, `--accent-gradient`, `--radius-md`, etc.) — reuse them, don't hardcode new colors/spacing. `css/feature.css` deliberately keeps its own copy of these tokens instead of importing `css/style.css`, so the two pages' styling never breaks each other — don't try to "de-duplicate" them into one shared file. `css/style.css` has its own separate (currently near-identical) token set used only by `admin.html`.
 - Dark theme only, cyan/violet accent gradient, "Outfit" body font (Google Fonts), "Russo One" for the logo wordmark. This is a deliberate single-theme design (matches the existing site and the gaming-storefront genre) — no light mode to maintain.
-- Mobile responsiveness is handled via CSS media queries (10 breakpoints between 480–1200px in `css/style.css`) plus a few JS-driven adjustments in `js/app.js` (`syncHeaderHeight()`, `getItemsPerPage()`). Check both when changing header/grid layout, not just CSS.
-- `prefers-reduced-motion` is respected for stagger/hover animations — keep that when adding new animated UI.
-- The export/copy flow (`buildExportText()` in `js/app.js`) is the only "checkout" — it builds a plain-text order list and copies it to the clipboard for the customer to paste into Shopee chat. There is intentionally no in-app purchase flow; don't add one without being asked.
+- Mobile responsiveness is handled via CSS media queries in `css/feature.css`. Check both CSS and `js/feature.js`/`js/feature-detail.js` when changing header/grid layout, since some header/dropdown behavior is JS-driven.
+- `prefers-reduced-motion` is respected for stagger/hover/spinner animations — keep that when adding new animated UI.
+- The export/copy flow (`buildExportText()` in `js/feature-cart-widget.js`, shared by both pages via the floating "Game Terpilih" widget) is the only "checkout" — it builds a plain-text order list and copies it to the clipboard for the customer to paste into Shopee chat. There is intentionally no in-app purchase flow; don't add one without being asked.
 - `js/admin.js` is cache-busted manually via a `?v=` query string on its `<script>` tag in `admin.html` — bump that version when shipping admin.js changes, since there's no build step to hash filenames.
+- Custom dropdowns (Kategori/HDD/Size in the header) are plain button+panel components (`js/filter-dropdown.js`), not native `<select>` — this is intentional so their open state can drive a full-page backdrop-blur (native `<select>` option lists can't be styled/blurred-behind via CSS). Follow the same pattern for any new header dropdown.
 
 ## Current focus
 
-Steam-style redesign (video trailer + screenshots + richer game detail view, sidebar filters). Full plan, new data fields, and rollout order are in [REDESIGN_PLAN.md](REDESIGN_PLAN.md).
+The Steam-style redesign (video trailer + screenshots + richer game detail view, filter dropdowns) has landed as the live main site (`index.html`/`game.html`). [REDESIGN_PLAN.md](REDESIGN_PLAN.md) still documents the original design intent but its file paths/rollout order are historical — see "Structure" above for what actually exists now.

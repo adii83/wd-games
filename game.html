@@ -10,13 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Russo+One&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="../assets/logo.png" />
-    <link href="../css/feature.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link href="css/feature.css" rel="stylesheet" />
   </head>
   <body>
     <header class="gallery-header">
       <div class="gallery-header-inner">
-        <a href="../index.html" class="gallery-logo" aria-label="Kembali ke WD Games">
+        <a href="index.html" class="gallery-logo" aria-label="WD Games">
           <span class="logo-wd">WD</span> <span class="logo-games">Games</span>
         </a>
         <a href="index.html" class="game-back-link">&larr; Game Gallery</a>
@@ -24,12 +24,24 @@
 
       <div class="storage-bar">
         <div class="storage-picker">
-          <select id="storage-type-select" class="storage-select" aria-label="Pilih media penyimpanan">
-            <option value="hdd">HDD</option>
-            <option value="flashdisk">Flashdisk</option>
-            <option value="ssd">SSD</option>
-          </select>
-          <select id="storage-capacity-select" class="storage-select" aria-label="Pilih kapasitas"></select>
+          <div class="filter-dropdown" id="storage-type-dropdown">
+            <button type="button" class="storage-select filter-dropdown-btn" data-dropdown-toggle aria-haspopup="listbox" aria-expanded="false">
+              <span data-dropdown-label>HDD</span>
+              <svg class="filter-dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="filter-dropdown-panel" data-dropdown-panel role="listbox" aria-label="Pilih media penyimpanan">
+              <button type="button" class="filter-dropdown-item active" data-value="hdd">HDD</button>
+              <button type="button" class="filter-dropdown-item" data-value="flashdisk">Flashdisk</button>
+              <button type="button" class="filter-dropdown-item" data-value="ssd">SSD</button>
+            </div>
+          </div>
+          <div class="filter-dropdown" id="storage-capacity-dropdown">
+            <button type="button" class="storage-select filter-dropdown-btn" data-dropdown-toggle aria-haspopup="listbox" aria-expanded="false">
+              <span data-dropdown-label>500 GB</span>
+              <svg class="filter-dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="filter-dropdown-panel" id="storage-capacity-dropdown-panel" data-dropdown-panel role="listbox" aria-label="Pilih kapasitas"></div>
+          </div>
         </div>
         <div class="storage-progress-wrap">
           <div class="storage-progress-text">
@@ -41,6 +53,8 @@
         </div>
       </div>
     </header>
+
+    <div id="filter-dropdown-backdrop" class="feature-cart-backdrop"></div>
 
     <main id="game-main" class="game-main">
       <div class="gallery-loading">Memuat game...</div>
@@ -88,13 +102,12 @@
             <div class="order-card-label">Ukuran Game</div>
             <div class="order-card-size" id="order-card-size">-</div>
             <button id="select-game-btn" class="select-game-btn" type="button">Pilih Game Ini</button>
-            <a href="../index.html" class="order-cta">Pesan di WD Games</a>
           </div>
         </aside>
       </div>
     </template>
 
-    <!-- Floating selected-games widget (shared with feature/index.html) -->
+    <!-- Floating selected-games widget (shared with index.html) -->
     <div id="feature-cart-backdrop" class="feature-cart-backdrop"></div>
     <div id="feature-cart-widget" class="feature-cart-widget">
       <button id="feature-cart-btn" class="feature-cart-btn" type="button" aria-label="Lihat game terpilih">
@@ -108,13 +121,14 @@
           <button id="feature-cart-close" class="assistive-close" type="button" aria-label="Tutup">&times;</button>
         </div>
         <div id="feature-cart-list" class="assistive-list"></div>
-        <a href="../index.html" class="feature-cart-cta">Lanjut Pesan di WD Games</a>
+        <button type="button" id="feature-cart-copy-btn" class="feature-cart-cta">Copy Teks</button>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
-    <script src="../js/feature-cart.js"></script>
-    <script src="../js/feature-cart-widget.js"></script>
-    <script src="../js/feature-detail.js"></script>
+    <script src="js/feature-cart.js"></script>
+    <script src="js/feature-cart-widget.js"></script>
+    <script src="js/filter-dropdown.js"></script>
+    <script src="js/feature-detail.js"></script>
   </body>
 </html>

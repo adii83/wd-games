@@ -1,25 +1,56 @@
-// Shared cart/storage-picker state for the /feature gallery + detail pages.
-// Deliberately independent from index.html/js/app.js (separate localStorage
-// key, never read by the main site) — but shared BETWEEN feature/index.html
-// and feature/game.html so a selection made on either page is reflected on
-// both, surviving full page navigation between them.
+// Shared cart/storage-picker state for the gallery + detail pages. Shared
+// BETWEEN index.html and game.html so a selection made on either page is
+// reflected on both, surviving full page navigation between them.
 
 (function (window) {
     'use strict';
 
     const STORAGE_KEY = 'wdgames_feature_cart';
 
-    const CAPACITY_TIERS = [
-        { label: '320 GB', value: 288 },
-        { label: '500 GB', value: 455 },
-        { label: '1 TB', value: 920 },
-    ];
+    // Capacities, defaults, and the Flashdisk -> PS2-only category lock per
+    // storage type.
+    const STORAGE_PRESETS = {
+        hdd: {
+            label: 'HDD',
+            lockCategory: null,
+            defaultCapacity: 455,
+            capacities: [
+                { label: '320 GB', value: 288 },
+                { label: '500 GB', value: 455 },
+                { label: '1 TB', value: 920 },
+            ],
+        },
+        flashdisk: {
+            label: 'Flashdisk',
+            lockCategory: 'ps2',
+            defaultCapacity: 58,
+            capacities: [
+                { label: '32 GB', value: 29 },
+                { label: '64 GB', value: 58 },
+                { label: '128 GB', value: 116 },
+            ],
+        },
+        ssd: {
+            label: 'SSD',
+            lockCategory: null,
+            defaultCapacity: 476,
+            capacities: [
+                { label: '256 GB', value: 238 },
+                { label: '512 GB', value: 476 },
+                { label: '1 TB', value: 953 },
+            ],
+        },
+    };
 
     const DEFAULT_STATE = {
         storageType: 'hdd',
         capacityGB: 455,
         selected: [],
     };
+
+    // Same "estimated size" buffer as the main site (size_config.json,
+    // admin-editable) — set once at page load via setSizeBufferMultiplier().
+    let sizeBufferMultiplier = 1.05;
 
     function load() {
         try {
@@ -52,7 +83,15 @@
     });
 
     window.FeatureCart = {
-        CAPACITY_TIERS,
+        STORAGE_PRESETS,
+
+        getSizeBufferMultiplier() {
+            return sizeBufferMultiplier;
+        },
+
+        setSizeBufferMultiplier(multiplier) {
+            if (Number.isFinite(multiplier) && multiplier > 0) sizeBufferMultiplier = multiplier;
+        },
 
         getState() {
             return { ...state, selected: [...state.selected] };
