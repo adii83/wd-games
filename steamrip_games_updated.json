@@ -4,7 +4,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3321460/0ea942465fd1dff8a7fbc11cc9fca8c476c5e5ae/library_capsule.jpg",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "90  GB",
@@ -18,7 +18,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2840770/library_600x900.jpg",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "140 GB",
@@ -32,7 +32,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3159330/bdab6ed673aea5877d76e8c99c696ced92cf0d12/library_capsule.jpg",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "148 GB",
@@ -46,7 +46,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3768760/1159a696d257cbeb3f4479be3466cfba2ae938a0/library_600x900_2x.jpg?t=1780990824",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "49,2 GB",
@@ -60,7 +60,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1237950/library_600x900_2x.jpg?t=1777393714",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "90 GB",
@@ -74,7 +74,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3875050/d1fa1483cd16f54f14060da35ecfe9ce166c3e4e/library_capsule_2x.jpg?t=1778499974",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Racing, Simulation, Sports",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "28.7 GB",
@@ -88,7 +88,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1941540/3c2e4dee10f72e061ed382064be68b9648902534/library_600x900_2x.jpg?t=1764177372",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "45.6 GB",
@@ -102,7 +102,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215200/f40c725261e949ef758d80bb067d09794635927e/library_capsule_2x.jpg?t=1779499107",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "38.5 GB",
@@ -116,7 +116,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2483190/711e39803402def82a90e1f31578c64744f952f3/library_capsule_2x.jpg?t=1779221600",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Racing, Simulation, Sports",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "136 GB",
@@ -130,7 +130,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3357650/2c65f388cb3ac6631c8a38ff1a59903263fc70e9/library_capsule_2x.jpg?t=1777351016",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "34.9GB",
@@ -144,7 +144,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962700/bd66bf4a6db518e15573284aa4030d1f9e1f364d/library_600x900_2x.jpg?t=1779437128",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure, Early Access",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": " 13.1GB",
@@ -158,7 +158,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3489700/6f2bbe8f34fc283f42acbe4ab184e9a40f76ad51/library_600x900_2x.jpg?t=1776466244",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "59.5GB",
@@ -172,7 +172,7 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/library_600x900.jpg",
     "system_requirements": null,
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Game Science",
       "Platform": "PC",
       "Game Size": "152 GB",
@@ -226,7 +226,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation, Strategy, Early Access",
+      "Genre": "Adventure",
       "Developer": "TVGS",
       "Platform": "PC",
       "Game Size": "5.3 GB",
@@ -268,7 +268,7 @@
       "Storage": "72 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Simulation, Open World",
+      "Genre": "Action, Adventure, Racing",
       "Developer": "Rockstar Games",
       "Platform": "PC",
       "Released By": "Mr_Goldberg Emu",
@@ -488,7 +488,7 @@
       "Storage": "48 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Simulation",
+      "Genre": "Adventure, Casual, Simulation, Free To Play",
       "Developer": "Maxis",
       "Platform": "PC",
       "Game Size": "76.6 GB",
@@ -555,7 +555,7 @@
       "Storage": "40 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Pocketpair",
       "Platform": "PC",
       "Game Size": "25.1 GB",
@@ -1125,7 +1125,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Simulation, Early Access",
+      "Genre": "Adventure, Indie, Simulation",
       "Developer": "Redbeet Interactive",
       "Platform": "PC",
       "Game Size": "2.5 GB",
@@ -1231,7 +1231,7 @@
       "Hard Drive": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Open World, Racing, RPG, Simulation",
+      "Genre": "Indie, Simulation",
       "Developer": "SCS Software",
       "Platform": "PC",
       "Game Size": "33.4 GB",
@@ -1252,7 +1252,7 @@
       "Storage": "126 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Shooter, Third-person",
+      "Genre": "Adventure",
       "Developer": "Naughty Dog LLC, Iron Galaxy Studios",
       "Platform": "PC",
       "Game Size": "80 GB",
@@ -1296,7 +1296,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Strategy",
+      "Genre": "Action, Indie, Simulation",
       "Developer": "Mike Klubnika",
       "Platform": "PC",
       "Game Size": "387 MB",
@@ -1515,7 +1515,7 @@
       "Hard Drive": "12GB"
     },
     "game_info": {
-      "Genre": "Action, Shooter",
+      "Genre": "Action",
       "Developer": "Treyarch",
       "Platform": "PC",
       "Game Size": "10.51 GB",
@@ -1559,7 +1559,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Building, Simulation",
+      "Genre": "Action, Strategy",
       "Developer": "Mojang",
       "Platform": "PC",
       "Game Size": "526 MB",
@@ -1778,7 +1778,7 @@
       "Storage": "75 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Casual",
       "Developer": "Insomniac Games, Nixxes Software",
       "Platform": "PC",
       "Game Size": "53 GB",
@@ -2183,7 +2183,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Action, Indie",
       "Developer": "Fancy Games",
       "Platform": "PC",
       "Game Size": "25.5 GB",
@@ -2227,7 +2227,7 @@
       "Storage": "250 MB available space"
     },
     "game_info": {
-      "Genre": "Sci-fi, Survival",
+      "Genre": "Casual",
       "Developer": "Innersloth",
       "Platform": "PC",
       "Game Size": "572 MB",
@@ -2613,7 +2613,7 @@
       "HDD": "3.23 GB"
     },
     "game_info": {
-      "Genre": "RPG, Online Co-op",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Mojang",
       "Platform": "PC",
       "Game Size": "2.3 GB",
@@ -2898,7 +2898,7 @@
       "Disk space": "64 GB"
     },
     "game_info": {
-      "Genre": "Action, RPG, Stealth, Open World, 3rd Person",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Ubisoft Montreal",
       "Platform": "PC",
       "Game Size": "145 GB",
@@ -3180,7 +3180,7 @@
       "Storage": "35 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Racing, Simulation",
+      "Genre": "Racing, Simulation",
       "Developer": "Red Dot Games",
       "Platform": "PC",
       "Game Size": "14.1 GB",
@@ -3223,7 +3223,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Simulation, VR",
+      "Genre": "Action, Adventure, Indie, Simulation",
       "Developer": "Endnight Games Ltd",
       "Platform": "PC",
       "Game Size": "3.8 GB",
@@ -3244,7 +3244,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Free To Play",
+      "Genre": "Indie, RPG",
       "Developer": "tobyfox",
       "Platform": "PC",
       "Game Size": "426 MB",
@@ -3267,7 +3267,7 @@
       "Storage": "40 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Red Barrels",
       "Platform": "PC",
       "Game Size": "20.7 GB",
@@ -3442,7 +3442,7 @@
       "Storage": "13 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Horror",
+      "Genre": "Action",
       "Developer": "Valve",
       "Platform": "PC",
       "Game Size": "7.4 GB",
@@ -3594,7 +3594,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Racing, Simulation, Early Access",
+      "Genre": "Indie, Racing, Simulation",
       "Developer": "Amistech Games",
       "Platform": "PC",
       "Game Size": "401 MB",
@@ -3638,7 +3638,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation",
+      "Genre": "Adventure, Casual, Indie, RPG, Simulation",
       "Developer": "Eek! Games, LLC",
       "Platform": "PC",
       "Game Size": "6.6 GB",
@@ -3945,7 +3945,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Strategy",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation, Sports, Strategy",
       "Developer": "Nitrome, Yacht Club Games",
       "Platform": "PC",
       "Game Size": "279 MB",
@@ -3968,7 +3968,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Sports, Early Access",
+      "Genre": "Sports",
       "Developer": "Skywall Studios LLC",
       "Platform": "PC",
       "Game Size": "520 MB",
@@ -4014,7 +4014,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "Facepunch Studios",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -4036,7 +4036,7 @@
       "Hard Drive": "17 GB"
     },
     "game_info": {
-      "Genre": "Adventure",
+      "Genre": "Action, Adventure",
       "Developer": "Ubisoft Montreal",
       "Platform": "PC",
       "Game Size": "11.9 GB",
@@ -4366,7 +4366,7 @@
       "Storage": "22 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie",
+      "Genre": "Action, Indie",
       "Developer": "Sloclap",
       "Platform": "PC",
       "Game Size": "24 GB",
@@ -4697,7 +4697,7 @@
       "HDD": "80 GB"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG, Strategy",
+      "Genre": "Action, Adventure",
       "Developer": "Ubisoft Toronto",
       "Platform": "PC",
       "Game Size": "130 GB",
@@ -4807,7 +4807,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, Early Access",
       "Developer": "CyberLight Game Studio",
       "Platform": "PC",
       "Game Size": "5.3 GB",
@@ -4918,7 +4918,7 @@
       "memory Hard Disk Memory": "2GB"
     },
     "game_info": {
-      "Genre": "Racing, Simulation, Sports games, Early access",
+      "Genre": "Racing, Simulation, Sports, Early Access",
       "Developer": "PiBoSo",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -5159,7 +5159,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation",
+      "Genre": "Adventure, Casual, Indie, Simulation",
       "Developer": "Nacho Sama",
       "Platform": "PC",
       "Game Size": "495 MB",
@@ -5371,7 +5371,7 @@
       "Free space on hard disk": "76 GB"
     },
     "game_info": {
-      "Genre": "Action, Shooter, Stealth, Open World, 3rd Person",
+      "Genre": "Action, Adventure",
       "Developer": "Ubisoft Toronto",
       "Platform": "PC",
       "Game Size": "100 GB",
@@ -5414,7 +5414,7 @@
       "Storage": "60 GB available space"
     },
     "game_info": {
-      "Genre": "Action, RPG, Simulation, Strategy",
+      "Genre": "Action, Indie, RPG, Simulation, Strategy",
       "Developer": "TaleWorlds Entertainment",
       "Platform": "PC",
       "Game Size": "68 GB",
@@ -5502,7 +5502,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Racing, Simulation",
+      "Genre": "Adventure, Casual, Indie, Racing, Simulation",
       "Developer": "SantaGoat",
       "Platform": "PC",
       "Game Size": "581 MB",
@@ -5635,7 +5635,7 @@
       "Hard Drive": "915 MB of free hard disk space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Adventure",
       "Developer": "Rockstar Games",
       "Platform": "PC",
       "Game Size": "1.17 GB",
@@ -5806,7 +5806,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy, Early Access",
+      "Genre": "Adventure",
       "Developer": "Spike Chunsoft Co., Ltd.",
       "Platform": "PC",
       "Game Size": "983 MB",
@@ -6106,7 +6106,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Motion Twin",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -6192,7 +6192,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation",
+      "Genre": "Action, Casual, Indie, Massively Multiplayer, Simulation",
       "Developer": "SCKR Games",
       "Platform": "PC",
       "Game Size": "4.8 GB",
@@ -6235,7 +6235,7 @@
       "Storage": "100 GB or more"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG,",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Square Enix",
       "Platform": "PC",
       "Game Size": "93.3 GB",
@@ -6392,7 +6392,7 @@
       "Storage": "40 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Early Access",
       "Developer": "Obsidian Entertainment, Eidos-Montréal",
       "Platform": "PC",
       "Game Size": "16.7 GB",
@@ -6414,7 +6414,7 @@
       "HDD": "2 GB"
     },
     "game_info": {
-      "Genre": "Simulation",
+      "Genre": "Adventure, Indie",
       "Developer": "WSS playground, xemono",
       "Platform": "PC",
       "Game Size": "2.3 GB",
@@ -6457,7 +6457,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Animation & Modeling, Design & Illustration, Education, Photo Editing, Utilities, Game Development",
+      "Genre": "Action, Adventure, Indie, Software Training, Utilities",
       "Developer": "CenterPoint Gaming",
       "Platform": "PC",
       "Game Size": "180 MB",
@@ -6479,7 +6479,7 @@
       "Storage": "70 GB."
     },
     "game_info": {
-      "Genre": "Action, Horror",
+      "Genre": "Action, Adventure",
       "Developer": "Deep Silver Dambuster Studios",
       "Platform": "PC",
       "Game Size": "63.6 GB",
@@ -6567,7 +6567,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Horror",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "CreepyToad",
       "Platform": "PC",
       "Game Size": "4.6 GB",
@@ -6634,7 +6634,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, RPG, Simulation",
+      "Genre": "Adventure, Casual, RPG, Simulation",
       "Developer": "MINTROCKET",
       "Platform": "PC",
       "Game Size": "2.9 GB",
@@ -6830,7 +6830,7 @@
       "Storage": "30 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation, Early Access",
+      "Genre": "Action, Indie, Simulation",
       "Developer": "BlackFoot Studios",
       "Platform": "PC",
       "Game Size": "41.5 GB",
@@ -7138,7 +7138,7 @@
       "Storage": "12 GB available space"
     },
     "game_info": {
-      "Genre": "Racing",
+      "Genre": "Racing, RPG",
       "Developer": "Genki Co.,Ltd.",
       "Platform": "PC",
       "Game Size": "9.8 GB",
@@ -7181,7 +7181,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "RPG",
       "Developer": "Bethesda Game Studios",
       "Platform": "PC",
       "Game Size": "6.9 GB",
@@ -7311,7 +7311,7 @@
       "Hard Disk Space": "10 GB"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Casual, Indie, Strategy",
       "Developer": "Radical Entertainment",
       "Platform": "PC",
       "Game Size": "8.6 GB",
@@ -7377,7 +7377,7 @@
       "Storage": "43 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Early Access",
+      "Genre": "Action",
       "Developer": "343 Industries, Splash Damage, Ruffian Games, Bungie, Saber Interactive",
       "Platform": "PC",
       "Game Size": "106 GB",
@@ -7467,7 +7467,7 @@
       "Storage": "30 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy, Early Access",
+      "Genre": "Indie, Racing, Simulation, Strategy, Early Access",
       "Developer": "Camshaft Software Ltd",
       "Platform": "PC",
       "Game Size": "10.2 GB",
@@ -7533,7 +7533,9 @@
       "DirectX": "Version 11",
       "Storage": "15 GB available space"
     },
-    "game_info": {}
+    "game_info": {
+      "Genre": "Adventure, Indie"
+    }
   },
   {
     "title": "Vampire Survivors (v1.14.111)",
@@ -7698,7 +7700,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Arcade, Fighting",
+      "Genre": "Action",
       "Developer": "Arc System Works",
       "Platform": "PC",
       "Game Size": "28.4 GB",
@@ -7787,7 +7789,7 @@
       "Storage": "60 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG, Early Access",
       "Developer": "Keen Games GmbH",
       "Platform": "PC",
       "Game Size": "22.7 GB",
@@ -7983,7 +7985,7 @@
       "Hard Disk Space": "8 GB free hard disk space"
     },
     "game_info": {
-      "Genre": "Racing",
+      "Genre": "Action, Racing",
       "Developer": "Criterion Games",
       "Platform": "PC",
       "Game Size": "7.32 GB",
@@ -8289,7 +8291,7 @@
       "Storage": "12 GB available space"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Casual, Simulation",
       "Developer": "Joure & Joe",
       "Platform": "PC",
       "Game Size": "11.1 GB",
@@ -8510,7 +8512,7 @@
       "HardDrive": "250 MB HD space"
     },
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Indie",
       "Developer": "Nihon Falcom, Engine Software BV, PH3 GmbH",
       "Platform": "PC",
       "Game Size": "232 MB",
@@ -8800,7 +8802,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Anime, 3rd person",
+      "Genre": "Action",
       "Developer": "Koei Tecmo",
       "Platform": "PC",
       "Game Size": "25.5 GB",
@@ -8843,7 +8845,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Horror, Survival",
+      "Genre": "Indie",
       "Developer": "Joe Fender, Luke Fanning",
       "Platform": "PC",
       "Game Size": "8.1 GB",
@@ -8907,7 +8909,7 @@
       "Storage": "512 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Simulation, Sports, Strategy, Free To Play",
+      "Genre": "Action, Adventure, Indie, Simulation, Sports, Strategy",
       "Developer": "Panik Arcade",
       "Platform": "PC",
       "Game Size": "145.5 MB",
@@ -8952,7 +8954,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Simulation",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation, Strategy",
       "Developer": "Klei Entertainment",
       "Platform": "PC",
       "Game Size": "2.8 GB",
@@ -9014,7 +9016,7 @@
       "Graphics": "Nvidia GTX950"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, RPG",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation",
       "Developer": "Pugstorm",
       "Platform": "PC",
       "Game Size": "411 MB",
@@ -9311,7 +9313,7 @@
       "Storage": "14 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Clock Wizard Games",
       "Platform": "PC",
       "Game Size": "27.6 GB",
@@ -9951,7 +9953,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Massively Multiplayer, Racing, Simulation, Sports",
+      "Genre": "Action, Casual, Massively Multiplayer, Racing, Simulation, Sports",
       "Developer": "CarX Technologies, LLC",
       "Platform": "PC",
       "Game Size": "5 GB",
@@ -10037,7 +10039,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure,",
+      "Genre": "Adventure",
       "Developer": "Miju Games",
       "Platform": "PC",
       "Game Size": "3.1 GB",
@@ -10103,7 +10105,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Strategy",
+      "Genre": "Action, Casual, Indie",
       "Developer": "Clever Endeavour Games",
       "Platform": "PC",
       "Version": "v1.11.01 + Co-op",
@@ -10167,7 +10169,7 @@
       "Storage": "30 GB available space"
     },
     "game_info": {
-      "Genre": "Racing",
+      "Genre": "Racing, Simulation, Sports",
       "Developer": "Studio 397",
       "Platform": "PC",
       "Game Size": "33.3 GB",
@@ -10674,7 +10676,7 @@
       "Storage": "9 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Adventure",
       "Developer": "KONAMI",
       "Platform": "PC",
       "Game Size": "8.8 GB",
@@ -10804,7 +10806,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Animation & Modeling, Utilities",
+      "Genre": "Free To Play, Animation & Modeling, Utilities",
       "Developer": "Voracious Games",
       "Platform": "PC",
       "Game Size": "375 MB",
@@ -10915,7 +10917,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "DRAGO entertainment",
       "Platform": "PC",
       "Game Size": "14 GB",
@@ -11246,7 +11248,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Two Star Games",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -11793,7 +11795,7 @@
       "Storage": "30 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG",
+      "Genre": "Action, RPG, Strategy",
       "Developer": "Blizzard Entertainment, Vicarious Visions",
       "Platform": "PC",
       "Game Size": "28.8 GB",
@@ -12061,7 +12063,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Strategy, Early Access",
+      "Genre": "Action, Casual, Indie, Strategy",
       "Developer": "Mirage Creative Lab",
       "Platform": "PC",
       "Game Size": "2.3 GB",
@@ -12255,7 +12257,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, RPG",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "ColePowered Games",
       "Platform": "PC",
       "Game Size": "588 MB",
@@ -12564,7 +12566,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, Simulation, Early Access",
+      "Genre": "Action, Adventure, Casual, Indie, Early Access",
       "Developer": "Triiodide Studios",
       "Platform": "PC",
       "Game Size": "10.7 GB",
@@ -12653,7 +12655,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Platformer",
+      "Genre": "Action, Adventure",
       "Developer": "Ubisoft",
       "Platform": "PC",
       "Game Size": "4.9 GB",
@@ -12783,7 +12785,7 @@
       "Hard Drive": "3 GB HD space"
     },
     "game_info": {
-      "Genre": "Action, Racing",
+      "Genre": "Action",
       "Developer": "SEGA",
       "Platform": "PC",
       "Game Size": "2.4 GB",
@@ -12957,7 +12959,7 @@
       "Storage": "61 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Free To Play",
       "Developer": "Ubisoft Montreal",
       "Platform": "PC",
       "Game Size": "130 GB (Torrent)",
@@ -13152,7 +13154,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation",
+      "Genre": "Action, Casual, Indie, Simulation, Strategy",
       "Developer": "FEKK Games",
       "Platform": "PC",
       "Game Size": "5.9 GB",
@@ -13173,7 +13175,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Adventure, Casual, Indie, Simulation",
       "Developer": "No Brakes Games",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -13329,7 +13331,7 @@
       "Additional Notes": "Input: Mouse / Keyboard (Recommended: Xbox 360® Controller for Windows®)"
     },
     "game_info": {
-      "Genre": "Action, AdventureDeveloper:CAPCOM Co., Ltd.",
+      "Genre": "Action, Adventure",
       "Platform": "PC",
       "Game Size": "18.2 GB",
       "Released By": "Goldberg + Owla CSF, cs.rin.ru",
@@ -13458,7 +13460,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation",
+      "Genre": "Casual, Simulation",
       "Developer": "PlayWay S.A.",
       "Platform": "PC",
       "Game Size": "11.9 GB",
@@ -13502,7 +13504,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Building, Indie, Simulation, Strategy",
+      "Genre": "Action, Adventure, Casual, Indie, Massively Multiplayer, Simulation, Strategy",
       "Developer": "Empyrean",
       "Platform": "PC",
       "Game Size": "11.4 GB",
@@ -13568,7 +13570,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Simulation",
+      "Genre": "Adventure, Casual, Simulation",
       "Developer": "Coffee Stain North AB",
       "Platform": "PC",
       "Game Size": "5.9 GB",
@@ -13654,7 +13656,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation, Strategy, Early Access",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Timon Herzog",
       "Platform": "PC",
       "Game Size": "109 MB",
@@ -13676,7 +13678,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation, Early Access",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "CayPlay",
       "Platform": "PC",
       "Game Size": "3.4 GB",
@@ -13916,7 +13918,9 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1040200/library_600x900.jpg",
     "url": "https://steamrip.com/crime-scene-cleaner-free-download-1c/",
     "system_requirements": {},
-    "game_info": {}
+    "game_info": {
+      "Genre": "Action, Simulation"
+    }
   },
   {
     "title": "NightClub Simulator (Build 18256808)",
@@ -13954,7 +13958,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Early Access",
+      "Genre": "Simulation",
       "Developer": "Biotech Gameworks",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -14239,7 +14243,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation, Free To Play",
       "Developer": "ambr",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -14374,7 +14378,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure",
       "Developer": "GANBARION Co., Ltd.",
       "Platform": "PC",
       "Game Size": "22.3 GB",
@@ -14593,7 +14597,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, RPG",
+      "Genre": "Adventure, Indie, RPG",
       "Developer": "MAGES.",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -15097,7 +15101,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation, Early Access",
+      "Genre": "Action, Casual, Indie, Racing, Simulation, Early Access",
       "Developer": "DreamWay Games",
       "Platform": "PC",
       "Game Size": "8.4 GB",
@@ -15207,7 +15211,7 @@
       "Storage": "75 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG",
+      "Genre": "Action, Adventure",
       "Developer": "Crystal Dynamics, Eidos-Montréal, Nixxes",
       "Platform": "PC",
       "Game Size": "151 GB",
@@ -15336,7 +15340,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Simulation, Sports, Early Access",
+      "Genre": "Simulation, Sports, Utilities, Early Access",
       "Developer": "Joy Way",
       "Platform": "PC",
       "Game Size": "4.7 GB",
@@ -15426,7 +15430,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Casual",
       "Developer": "Steel Wool Studios",
       "Platform": "PC",
       "Game Size": "10.2 GB",
@@ -15715,7 +15719,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation, Early Access",
+      "Genre": "Action, Indie, Simulation",
       "Developer": "jorgen games Ltd, Oliver Josh",
       "Platform": "PC",
       "Game Size": "1.2 GB",
@@ -15871,7 +15875,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Mads Skovgaard",
       "Platform": "PC",
       "Game Size": "412 MB",
@@ -16225,7 +16229,7 @@
       "DirectX": "Version 10"
     },
     "game_info": {
-      "Genre": "Adventure, Early Access",
+      "Genre": "Adventure",
       "Developer": "Renderise",
       "Platform": "PC",
       "Game Size": "4.3 GB",
@@ -16714,7 +16718,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, RPG, Simulation",
+      "Genre": "Action, Casual, Simulation",
       "Developer": "HakJak",
       "Platform": "PC",
       "Game Size": "1.7 GB",
@@ -16758,7 +16762,7 @@
       "Storage": "11 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Early Access",
+      "Genre": "Adventure, Indie, Simulation, Early Access",
       "Developer": "EXODIAC STUDIOS",
       "Platform": "PC",
       "Game Size": "6.8 GB",
@@ -16825,7 +16829,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Flow Studio",
       "Platform": "PC",
       "Game Size": "3.4 GB",
@@ -16934,7 +16938,7 @@
       "Hard Drive": "4.6 GB"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "RPG",
       "Developer": "Hyperstrange",
       "Platform": "PC",
       "Game Size": "5.2 GB",
@@ -17002,7 +17006,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Shooter",
+      "Genre": "Action, Adventure",
       "Developer": "Epic Games, The Coalition, People Can Fly, Splash Damage",
       "Platform": "PC",
       "Game Size": "9.9 GB",
@@ -17266,7 +17270,7 @@
       "Storage": "16 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Early Access",
+      "Genre": "Action, Casual, Early Access",
       "Developer": "Dustfade",
       "Platform": "PC",
       "Game Size": "22.8 GB",
@@ -17398,7 +17402,7 @@
       "Storage": "18 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action",
       "Developer": "Traveller’s Tales",
       "Platform": "PC",
       "Game Size": "18.9 GB",
@@ -17463,7 +17467,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Casual VR",
+      "Genre": "Casual",
       "Developer": "Schell Games, Innersloth LLC, Robot Teddy",
       "Platform": "PC",
       "Game Size": "152 MB",
@@ -17674,7 +17678,9 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2559270/library_600x900.jpg",
     "url": "https://steamrip.com/gym-simulator-24-free-download-g1/",
     "system_requirements": {},
-    "game_info": {}
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Sports"
+    }
   },
   {
     "title": "Blue Prince (v1.05)",
@@ -18021,7 +18027,7 @@
       "Storage": "300 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "CABO Studio",
       "Platform": "PC",
       "Game Size": "287 MB",
@@ -18177,7 +18183,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Early Access",
+      "Genre": "Indie, RPG, Simulation",
       "Developer": "NPC Studio",
       "Platform": "PC",
       "Game Size": "248 MB",
@@ -18242,7 +18248,7 @@
       "Storage": "50 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Free to Play",
+      "Genre": "Action, Free To Play",
       "Developer": "343 Industries",
       "Platform": "PC",
       "Game Size": "44.9 GB",
@@ -18369,7 +18375,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Simulation, Strategy, Early Access",
+      "Genre": "Action, Casual, Simulation, Strategy",
       "Developer": "Sandstorm Studios Inc.",
       "Platform": "PC",
       "Game Size": "4.6 GB",
@@ -18391,7 +18397,7 @@
       "Storage": "60 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Action, Strategy",
       "Developer": "CREATIVE ASSEMBLY, Feral Interactive (Mac), Feral Interactive (Linux)",
       "Platform": "PC",
       "Game Size": "40.5 GB",
@@ -18413,7 +18419,7 @@
       "Storage": "16 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure",
+      "Genre": "Massively Multiplayer, RPG, Strategy, Free To Play",
       "Developer": "TYPE-MOON, fuzz Inc.",
       "Platform": "PC",
       "Game Size": "7.3 GB",
@@ -18672,7 +18678,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Simulation, Early Access",
+      "Genre": "Action, Adventure, Indie, Simulation",
       "Developer": "CM Games",
       "Platform": "PC",
       "Game Size": "12.2 GB",
@@ -18957,7 +18963,7 @@
       "Sound Card": "DirectX Compatible Sound Card"
     },
     "game_info": {
-      "Genre": "RPG",
+      "Genre": "Action, RPG",
       "Developer": "Square Enix",
       "Platform": "PC",
       "Game Size": "36.8 GB",
@@ -19746,7 +19752,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy, Early Access",
+      "Genre": "RPG, Simulation, Strategy, Early Access",
       "Developer": "Long Jaunt",
       "Platform": "PC",
       "Game Size": "890 MB",
@@ -19920,7 +19926,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, RPG",
+      "Genre": "Action, Indie, Early Access",
       "Developer": "SteelRaven7",
       "Platform": "PC",
       "Game Size": "711 MB",
@@ -20138,7 +20144,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Early Access",
+      "Genre": "Action, Casual, Indie, Simulation, Early Access",
       "Developer": "The Munky",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -20464,7 +20470,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Simulation, Strategy",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Uncasual Games",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -20748,7 +20754,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure",
       "Developer": "Pontypants",
       "Platform": "PC",
       "Game Size": "208 MB",
@@ -20991,7 +20997,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation",
       "Developer": "Nearga",
       "Platform": "PC",
       "Game Size": "17.4 GB",
@@ -21236,7 +21242,7 @@
       "Additional Notes": "Input: Mouse / Keyboard (Recommended: Xbox 360® Controller for Windows®)"
     },
     "game_info": {
-      "Genre": "Action, AdventureDeveloper:CAPCOM Co., Ltd.",
+      "Genre": "Action, Adventure",
       "Platform": "PC",
       "Game Size": "11.5 GB",
       "Released By": "Codex + lanternjoe CSF, cs.rin.ru",
@@ -21390,7 +21396,7 @@
       "Storage": "100 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie",
+      "Genre": "Action, Adventure, Massively Multiplayer, RPG, Free To Play",
       "Developer": "sen",
       "Platform": "PC",
       "Game Size": "177 MB",
@@ -21455,7 +21461,7 @@
       "Storage": "18 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, Simulation, Early Access",
+      "Genre": "Action, Adventure, Casual, Indie, Simulation, Free To Play, Early Access",
       "Developer": "Voracious Games",
       "Platform": "PC",
       "Game Size": "17.4 GB",
@@ -21499,7 +21505,7 @@
       "Additional Notes": "1280×768 or better Display"
     },
     "game_info": {
-      "Genre": "RPG, Design & Illustration, Web Publishing",
+      "Genre": "RPG, Design & Illustration, Education, Web Publishing, Game Development",
       "Developer": "Gotcha Gotcha Games, KADOKAWA, Yoji Ojima",
       "Platform": "PC",
       "Game Size": "1.01 GB",
@@ -21719,7 +21725,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, Free To Play",
       "Developer": "Glowstick Entertainment",
       "Platform": "PC",
       "Game Size": "7.54 GB",
@@ -21961,7 +21967,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Racing, Simulation, Early Access",
+      "Genre": "Adventure, Casual, Indie, Racing, Simulation, Early Access",
       "Developer": "P3 Games",
       "Platform": "PC",
       "Game Size": "2.9 GB",
@@ -22224,7 +22230,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation, Early Access",
+      "Genre": "Action, Simulation",
       "Developer": "RUST LTD.",
       "Platform": "PC",
       "Game Size": "16.2 GB",
@@ -22268,7 +22274,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Galaxy Grove",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -22358,7 +22364,7 @@
       "Storage": "50 GB available space"
     },
     "game_info": {
-      "Genre": "Racing, Simulation, Sports",
+      "Genre": "Action, Indie, Racing, Simulation, Sports",
       "Developer": "Reiza Studios",
       "Platform": "PC",
       "Game Size": "117 GB",
@@ -22401,7 +22407,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy",
+      "Genre": "Simulation, Strategy",
       "Developer": "3Division",
       "Platform": "PC",
       "Game Size": "6.3 GB",
@@ -22660,7 +22666,7 @@
       "Storage": "85 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Indie, RPG",
       "Developer": "Fatshark",
       "Platform": "PC",
       "Game Size": "54 GB",
@@ -22682,7 +22688,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie, Early Access",
       "Developer": "Headlight Studio",
       "Platform": "PC",
       "Game Size": "8.30 GB",
@@ -22980,7 +22986,7 @@
       "Free space on hard disk": "23.2 GB"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action",
       "Developer": "Toys For Bob",
       "Platform": "PC",
       "Game Size": "23.6 GB",
@@ -23200,7 +23206,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Racing, Simulation, Early Access",
+      "Genre": "Indie, Racing, Simulation",
       "Developer": "Viking Game Studio",
       "Platform": "PC",
       "Game Size": "3.6 GB",
@@ -23460,7 +23466,7 @@
       "Storage": "15 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "BraveCat’Studios",
       "Platform": "PC",
       "Game Size": "14.2 GB",
@@ -23609,7 +23615,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Early Access",
+      "Genre": "Action, Adventure",
       "Developer": "Bossa Studios",
       "Platform": "PC",
       "Game Size": "9.4 GB",
@@ -23784,7 +23790,7 @@
       "Storage": "256 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, RPG",
+      "Genre": "Adventure, Casual, Indie, RPG, Simulation",
       "Developer": "Blast Programming",
       "Platform": "PC",
       "Game Size": "197 MB",
@@ -23918,7 +23924,7 @@
       "Additional Notes": "Onboard (built-in) integrated chipsets are not supported"
     },
     "game_info": {
-      "Genre": "Action, Racing",
+      "Genre": "Action, Indie, Simulation",
       "Developer": "Black Rock Studio",
       "Platform": "PC",
       "Game Size": "6.9 GB",
@@ -24074,7 +24080,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG, Simulation",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation",
       "Developer": "Frontier Developments",
       "Platform": "PC",
       "Game Size": "20 GB",
@@ -24120,7 +24126,7 @@
       "Sound Card": "Fully DirectX compatible Sound Card"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Adventure",
       "Developer": "Rockstar Games",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -24292,7 +24298,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Anime, VR",
+      "Genre": "Action, Adventure",
       "Developer": "INTI CREATES CO., LTD.",
       "Platform": "PC",
       "Game Size": "1.82 GB",
@@ -24358,7 +24364,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie",
+      "Genre": "Casual, Indie, Strategy",
       "Developer": "Jackbox Games, Inc.",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -24445,7 +24451,7 @@
       "Additional Notes": "For Rift, Rift S or Vive"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Action, Indie",
       "Developer": "CM Games",
       "Platform": "PC",
       "Game Size": "8 GB",
@@ -24599,7 +24605,7 @@
       "STORAGE": "11 GB"
     },
     "game_info": {
-      "Genre": "Arcade, Simulator, 1st person, VR",
+      "Genre": "Action, Indie, Sports",
       "Developer": "Crytek",
       "Platform": "PC",
       "Game Size": "5.4 GB",
@@ -24645,7 +24651,7 @@
       "Additional Notes": "Does not work well with integrated GPUs"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Early Access",
+      "Genre": "Action, Adventure, Casual, RPG",
       "Developer": "Mardonpol Inc.",
       "Platform": "PC",
       "Game Size": "3 GB",
@@ -24731,7 +24737,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, Racing, Strategy, Early Access",
+      "Genre": "Action, Adventure, Casual, Indie, Early Access",
       "Developer": "Noisestorm Limited",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -24796,7 +24802,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie",
+      "Genre": "Casual, Indie, Strategy",
       "Developer": "Jackbox Games, Inc.",
       "Platform": "PC",
       "Game Size": "4.8 GB",
@@ -24818,7 +24824,7 @@
       "Storage": "1024 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Insignis Games",
       "Platform": "PC",
       "Game Size": "736 MB",
@@ -24998,7 +25004,7 @@
       "Storage": "40 GB available space"
     },
     "game_info": {
-      "Genre": "RPG",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Obsidian Entertainment",
       "Platform": "PC",
       "Game Size": "55.53 GB",
@@ -25285,7 +25291,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Strategy",
+      "Genre": "Action, Adventure, Casual, Indie, Simulation, Strategy",
       "Developer": "Door 407",
       "Platform": "PC",
       "Game Size": "8.2 GB",
@@ -25395,7 +25401,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Strategy",
+      "Genre": "Action, Casual, Indie, Strategy, Free To Play",
       "Developer": "7th Beat Games",
       "Platform": "PC",
       "Game Size": "442 MB",
@@ -25572,7 +25578,7 @@
       "Additional Notes": "SSD recommended"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "The Chinese Room",
       "Platform": "PC",
       "Game Size": "11.6 GB",
@@ -25745,7 +25751,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, VR",
+      "Genre": "Casual, Indie",
       "Developer": "Flat2VR Studios, Holy Wow Studios",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -25767,7 +25773,7 @@
       "Storage": "1200 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation",
+      "Genre": "Action, Adventure, Casual, Indie, RPG, Simulation, Sports",
       "Developer": "Business Tycoon",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -25789,7 +25795,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Strategy",
+      "Genre": "Action, Indie, Strategy",
       "Developer": "EarthWork Games",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -26136,7 +26142,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "One More Game",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -26181,7 +26187,7 @@
       "Additional Notes": "720p, 30 FPS"
     },
     "game_info": {
-      "Genre": "Action, AdventureDeveloper:Quantic Dream",
+      "Genre": "Action, Adventure",
       "Platform": "PC",
       "Game Size": "34.5 GB",
       "Released By": "Goldberg | Ty Owla, cs.rin.ru",
@@ -26482,7 +26488,7 @@
       "Free space on hard disk": "20 GB"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Ember Lab",
       "Platform": "PC",
       "Game Size": "24.2 GB",
@@ -26611,7 +26617,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Shooter",
+      "Genre": "Action",
       "Developer": "Raven Software and Endrant Studios",
       "Platform": "PC",
       "Game Size": "5.5 GB",
@@ -26940,7 +26946,7 @@
       "Sound": "Standard audio device"
     },
     "game_info": {
-      "Genre": "Action, Horror",
+      "Genre": "Action, Adventure",
       "Developer": "Capcom Vancouver",
       "Platform": "PC",
       "Game Size": "6.5 GB",
@@ -27245,7 +27251,7 @@
       "Hard Disk": "4 GB available hard disk space"
     },
     "game_info": {
-      "Genre": "ActionDeveloper:Ubisoft Montreal",
+      "Genre": "Action",
       "Platform": "PC",
       "Game Size": "3.66 GB",
       "Released By": "Steamless + lanternjoe CSF, cs.rin.ru",
@@ -27862,7 +27868,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Adventure",
       "Developer": "TT Fusion, Traveller’s Tales",
       "Platform": "PC",
       "Game Size": "5.4 GB",
@@ -27884,7 +27890,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Early Access",
+      "Genre": "Action, Adventure",
       "Developer": "Piece of Cake studios",
       "Platform": "PC",
       "Game Size": "3.92 GB",
@@ -28008,7 +28014,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Casual",
+      "Genre": "Casual, Indie, Strategy",
       "Developer": "Jackbox Games, Inc.",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -28030,7 +28036,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation, Sports",
+      "Genre": "Action, Adventure, Indie, Simulation, Sports",
       "Developer": "Easy Day Studios Pty Ltd",
       "Platform": "PC",
       "Game Size": "4.6 GB",
@@ -28118,7 +28124,7 @@
       "Storage": "350 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Genre": "Casual, Simulation, Strategy",
       "Developer": "Dinosaur Polo Club",
       "Platform": "PC",
       "Game Size": "182 MB",
@@ -28270,7 +28276,7 @@
       "Free space on hard disk": "17.1 GB"
     },
     "game_info": {
-      "Genre": "Arcade, Adventure",
+      "Genre": "Action, Adventure",
       "Developer": "Sonic Team, Hardlight",
       "Platform": "PC",
       "Game Size": "16 GB",
@@ -28651,7 +28657,7 @@
       "Storage": "40 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG, Strategy",
+      "Genre": "Action, Adventure, Indie, RPG, Strategy",
       "Developer": "Owlcat Games",
       "Platform": "PC",
       "Game Size": "32 GB",
@@ -28762,7 +28768,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Sports, Early Access",
+      "Genre": "Action",
       "Developer": "Buckethead Entertainment",
       "Platform": "PC",
       "Game Size": "532 MB",
@@ -29007,7 +29013,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Simulation, Early Access",
+      "Genre": "Action, Casual, Massively Multiplayer, RPG, Simulation, Free To Play, Early Access",
       "Developer": "Cybernetic Walrus",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -29094,7 +29100,7 @@
       "Sound Card": "DirectSound compatible sound card"
     },
     "game_info": {
-      "Genre": "ActionDeveloper:Remedy Entertainment",
+      "Genre": "Action",
       "Platform": "PC",
       "Game Size": "881 MB",
       "Released By": "Goldberg + lanternjoe CSF, cs.rin.ru",
@@ -29268,7 +29274,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Massively Multiplayer, RPG, Simulation, Early Access",
+      "Genre": "Adventure, Indie, RPG, Simulation",
       "Developer": "CampFire Studio",
       "Platform": "PC",
       "Game Size": "10 GB",
@@ -29290,7 +29296,7 @@
       "Storage": "50 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Anime, RPG",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "BANDAI NAMCO Studios Inc.",
       "Platform": "PC",
       "Game Size": "18.4 GB",
@@ -29994,7 +30000,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Heart Machine",
       "Platform": "PC",
       "Game Size": "4.8 GB",
@@ -30528,7 +30534,7 @@
       "Storage": "14 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Massively Multiplayer, RPG, Strategy, Free To Play",
       "Developer": "Marvelous Inc.",
       "Platform": "PC",
       "Game Size": "12.4 GB",
@@ -30616,7 +30622,7 @@
       "Storage": "35 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Massively Multiplayer",
       "Developer": "Torn Banner Studios",
       "Platform": "PC",
       "Game Size": "25.1 GB",
@@ -30682,7 +30688,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Embers",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -30880,7 +30886,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Simulation, Early Access",
+      "Genre": "Adventure, Simulation, Strategy, Early Access",
       "Developer": "Sand Sailor Studio",
       "Platform": "PC",
       "Game Size": "2.9 GB",
@@ -30902,7 +30908,7 @@
       "Hard Drive": "300 MB"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Indie",
       "Developer": "Team Meat",
       "Platform": "PC",
       "Game Size": "418 MB",
@@ -30947,7 +30953,7 @@
       "Storage": "400 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation",
+      "Genre": "Action, Casual, Indie",
       "Developer": "Resolution Games",
       "Platform": "PC",
       "Game Size": "536 MB",
@@ -30993,7 +30999,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Early Access",
+      "Genre": "Adventure, Casual, Indie, RPG, Simulation",
       "Developer": "James Bendon",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -31279,7 +31285,7 @@
       "** Supported chipsets": "NVIDIA GeForce 6800 GT or greater; ATI Radeon 9800 Pro (Radeon X800 Pro for Vista) or greater. Laptop versions of these chipsets may work but are not supported. Integrated chipsets are not supported. Updates to your video and sound card drivers may be required."
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Adventure, Casual, Indie, Strategy",
       "Developer": "Crytek",
       "Platform": "PC",
       "Game Size": "8.0 GB",
@@ -31542,7 +31548,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure game, Action game, Fighting game",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Free Range Games",
       "Platform": "PC",
       "Game Size": "17.7 GB",
@@ -31845,7 +31851,7 @@
       "Storage": "60 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, Simulation",
       "Developer": "EYES OUT, LLC.",
       "Platform": "PC",
       "Game Size": "42.6 GB",
@@ -32218,7 +32224,7 @@
       "Storage": "200 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Indie",
       "Developer": "Mosu",
       "Platform": "PC",
       "Game Size": "107 MB",
@@ -32262,7 +32268,7 @@
       "Storage": "30 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Shooter",
+      "Genre": "Action",
       "Developer": "Arkane Studios",
       "Platform": "PC",
       "Game Size": "30.5 GB",
@@ -32828,7 +32834,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Adventure, Strategy",
       "Developer": "Explosive Squat Games",
       "Platform": "PC",
       "Game Size": "6.2 GB",
@@ -33027,7 +33033,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation",
+      "Genre": "Action, Adventure, Casual, Indie, Simulation",
       "Developer": "HOGO Games",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -33561,7 +33567,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Indie, Simulation",
       "Developer": "Voracious Games",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -33582,7 +33588,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Simulation, Strategy, Early Access",
+      "Genre": "Action, Casual, Indie, Simulation, Strategy",
       "Developer": "Indoor Astronaut",
       "Platform": "PC",
       "Game Size": "380 MB",
@@ -33626,7 +33632,7 @@
       "REQUIRED FOR MULTIPLAYER": "INTERNET: Cable modem, DSL modem, or 56.6kbps modem for online multiplayer play: Network: TCP/IP compliant network"
     },
     "game_info": {
-      "Genre": "Strategy",
+      "Genre": "Action, Simulation, Strategy",
       "Developer": "Relic Entertainment",
       "Platform": "PC",
       "Game Size": "6.3 GB",
@@ -33994,7 +34000,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG",
+      "Genre": "Adventure, Casual, Indie",
       "Developer": "Emotion Spark Studio",
       "Platform": "PC",
       "Game Size": "4.5 GB",
@@ -34493,7 +34499,7 @@
       "Storage": "35 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, Racing, Simulation",
+      "Genre": "Action, Adventure, Casual, Racing, Simulation",
       "Developer": "Road Studio S.A.",
       "Platform": "PC",
       "Game Size": "23.7 GB",
@@ -34603,7 +34609,7 @@
       "Storage": "1500 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Vanimals",
       "Platform": "PC",
       "Game Size": "2.4 GB",
@@ -34951,7 +34957,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Massively Multiplayer, Racing, Simulation, Sports, Early Access",
+      "Genre": "Massively Multiplayer, Racing, Simulation, Sports",
       "Developer": "OverDrift Crew",
       "Platform": "PC",
       "Game Size": "4.2GB",
@@ -35016,7 +35022,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG",
+      "Genre": "Action, Adventure, Indie, RPG, Strategy",
       "Developer": "Super Evil Megacorp",
       "Platform": "PC",
       "Game Size": "2.4 GB",
@@ -35123,7 +35129,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Urban Games",
       "Platform": "PC",
       "Game Size": "29 GB",
@@ -35188,7 +35194,7 @@
       "Storage": "12 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Weed Games",
       "Platform": "PC",
       "Game Size": "3.7 GB",
@@ -35254,7 +35260,7 @@
       "Storage": "600 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Strategy",
+      "Genre": "Action, Indie, Strategy, Early Access",
       "Developer": "Basically Games",
       "Platform": "PC",
       "Game Size": "100 MB",
@@ -35492,7 +35498,7 @@
       "HDD": "6 GB free hard disc space"
     },
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "GSC Game World",
       "Platform": "PC",
       "Game Size": "3.9 GB",
@@ -35623,7 +35629,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Mechanistry",
       "Platform": "PC",
       "Game Size": "777 MB",
@@ -35755,7 +35761,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie, Early Access",
       "Developer": "Fayju",
       "Platform": "PC",
       "Game Size": "8.3 GB",
@@ -36556,7 +36562,7 @@
       "Storage": "5000 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "GalaxyVerse",
       "Platform": "PC",
       "Game Size": "5.5 GB",
@@ -36794,7 +36800,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Genre": "Simulation, Strategy",
       "Developer": "Ndemic Creations",
       "Platform": "PC",
       "Game Size": "684 MB",
@@ -36882,7 +36888,7 @@
       "Sound": "Windows compatible sound card"
     },
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Gearbox Software, Blind Squirrel Games",
       "Platform": "PC",
       "Game Size": "12.1 GB",
@@ -37315,7 +37321,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, VR",
+      "Genre": "Casual, Indie",
       "Developer": "Monstars Inc., Resonair, Stage Games",
       "Platform": "PC",
       "Game Size": "3.1 GB",
@@ -37425,7 +37431,7 @@
       "Storage": "2000 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation, Strategy, Early Access",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "tobspr Games",
       "Platform": "PC",
       "Game Size": "1.61 GB",
@@ -37448,7 +37454,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Action, RPG",
+      "Genre": "Massively Multiplayer, RPG, Strategy, Free To Play",
       "Developer": "KOEI TECMO GAMES CO., LTD.",
       "Platform": "PC",
       "Game Size": "21 GB",
@@ -37490,7 +37496,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Strategy",
+      "Genre": "RPG, Strategy",
       "Developer": "Triumph Studios",
       "Platform": "PC",
       "Game Size": "19.2 GB",
@@ -37511,7 +37517,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure, Indie, Simulation",
       "Developer": "Bippinbits",
       "Platform": "PC",
       "Game Size": "667 MB",
@@ -37577,7 +37583,7 @@
       "Additional Notes": "Requires a CPU which supports the AVX and SSE4.2 instruction set"
     },
     "game_info": {
-      "Genre": "Action, AdventureDeveloper:Ryu Ga Gotoku Studio",
+      "Genre": "Action, Adventure",
       "Platform": "PC",
       "Game Size": "25.2 GB",
       "Released By": "Codex + lantenjoe CSF, cs.rin.ru",
@@ -37820,7 +37826,7 @@
       "Supported Chipsets": "NVIDIA GeForce 6800 or greater; ATI Radeon X1600 Pro or greater. Please note that NVIDIA GeForce 7300, 8100, 8200, 8300, 8400, and 9300; ATI Radeon HD3200, and HD4350 are below minimum system requirements. Updates to your video and sound card drivers may be required."
     },
     "game_info": {
-      "Genre": "RPG",
+      "Genre": "Action, RPG",
       "Developer": "BioWare",
       "Platform": "PC",
       "Game Size": "27.9 GB",
@@ -38250,7 +38256,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "ELPhobia Game Studio",
       "Platform": "PC",
       "Game Size": "345 MB",
@@ -38338,7 +38344,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Massively Multiplayer, RPG, Simulation, Early Access",
+      "Genre": "Action, Adventure, Massively Multiplayer, RPG, Simulation",
       "Developer": "Uuvana Studios",
       "Platform": "PC",
       "Game Size": "1.8 GB",
@@ -38418,7 +38424,9 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1216320/library_600x900.jpg",
     "url": "https://steamrip.com/shieldwall-free-download-1h/",
     "system_requirements": {},
-    "game_info": {}
+    "game_info": {
+      "Genre": "Action, Casual, Indie, Simulation, Strategy"
+    }
   },
   {
     "title": "LEGO The Hobbit (v1.0.0.21750)",
@@ -38820,7 +38828,7 @@
       "Graphics": "GTX 750TI 2GB"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation, Strategy",
+      "Genre": "Adventure, Casual, Indie, Simulation",
       "Developer": "Live Motion Games",
       "Platform": "PC",
       "Game Size": "8.5 GB",
@@ -38953,7 +38961,7 @@
       "Sound Card": "DirectX compatible"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, RPG, Simulation",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "FreeMind S.A.",
       "Platform": "PC",
       "Game Size": "4.7 GB",
@@ -39235,7 +39243,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy, Early Access",
+      "Genre": "Indie, RPG, Simulation, Strategy",
       "Developer": "Foxy Voxel",
       "Platform": "PC",
       "Game Size": "466 MB",
@@ -39431,7 +39439,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Casual, Indie, Strategy",
       "Developer": "Jackbox Games, Inc.",
       "Platform": "PC",
       "Game Size": "1.4 GB",
@@ -39496,7 +39504,7 @@
       "Storage": "17 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation, Early Access",
       "Developer": "DNA ARMY GAMING",
       "Platform": "PC",
       "Game Size": "7.9 GB",
@@ -39869,7 +39877,7 @@
       "Storage": "50 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, RPG, Simulation",
+      "Genre": "Action, Adventure, Casual, RPG, Simulation",
       "Developer": "KOEI TECMO GAMES CO., LTD.",
       "Platform": "PC",
       "Game Size": "26.6 GB",
@@ -39890,7 +39898,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Embers",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -40326,7 +40334,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Early Access",
+      "Genre": "Action, Early Access",
       "Developer": "Clover Bite",
       "Platform": "PC",
       "Game Size": "8.7 GB",
@@ -40731,7 +40739,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Early Access",
+      "Genre": "Action, Indie",
       "Developer": "Godmode Interactive",
       "Platform": "PC",
       "Game Size": "872 MB",
@@ -40927,7 +40935,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, RPG, Simulation, Strategy",
+      "Genre": "Adventure, Casual, Indie, RPG, Simulation, Strategy",
       "Developer": "Vile Monarch",
       "Platform": "PC",
       "Game Size": "833 MB",
@@ -40993,7 +41001,7 @@
       "Storage": "11 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Early Access",
+      "Genre": "Adventure, Indie, RPG, Simulation, Strategy",
       "Developer": "Stubby Games",
       "Platform": "PC",
       "Game Size": "9.8 GB",
@@ -41056,7 +41064,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Strategy",
+      "Genre": "Adventure, Indie, Strategy",
       "Developer": "Pengonauts",
       "Platform": "PC",
       "Game Size": "674 MB",
@@ -41166,7 +41174,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Casual",
       "Developer": "Psyop",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -41382,7 +41390,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation",
+      "Genre": "Indie, RPG, Simulation",
       "Developer": "Victor Game Studio",
       "Platform": "PC",
       "Game Size": "1.4 GB",
@@ -41403,7 +41411,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Strategy",
+      "Genre": "Action, Adventure, Casual, Indie, Strategy",
       "Developer": "HeadArrow",
       "Platform": "PC",
       "Game Size": "14 GB",
@@ -41577,7 +41585,7 @@
       "Storage": "15 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Early Access",
+      "Genre": "Action, Adventure, Indie, Early Access",
       "Developer": "PARASIGHT",
       "Platform": "PC",
       "Game Size": "10.6 GB",
@@ -41842,7 +41850,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "RPG, Simulation, Strategy",
+      "Genre": "Casual, Strategy",
       "Developer": "Sproing",
       "Platform": "PC",
       "Game Size": "1.16 GB",
@@ -41885,7 +41893,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG",
+      "Genre": "Indie, RPG, Strategy",
       "Developer": "Emprom Game, Wild Kid Games",
       "Platform": "PC",
       "Game Size": "508 MB",
@@ -42016,7 +42024,7 @@
       "Storage": "200 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie",
+      "Genre": "Action, Casual, Indie, Strategy",
       "Developer": "RealPeach",
       "Platform": "PC",
       "Game Size": "67 MB",
@@ -42346,7 +42354,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation",
+      "Genre": "Action, Simulation",
       "Developer": "BEPLAYER, Art Games Studio S.A.",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -42540,7 +42548,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie",
+      "Genre": "Adventure, Casual, Indie, Simulation",
       "Developer": "Gentle Troll Entertainment",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -42692,7 +42700,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG, Simulation, Strategy, Early Access",
+      "Genre": "Adventure, Indie, RPG, Simulation, Strategy",
       "Developer": "Neutron Star Studio",
       "Platform": "PC",
       "Game Size": "285 MB",
@@ -43148,7 +43156,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, Simulation",
+      "Genre": "Action, Adventure, Casual, Simulation",
       "Developer": "Estoty",
       "Platform": "PC",
       "Game Size": "343 MB",
@@ -43301,7 +43309,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "TEAM HORAY",
       "Platform": "PC",
       "Game Size": "185 MB",
@@ -43365,7 +43373,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Adventure, Indie, Simulation",
       "Developer": "Team17 Digital",
       "Platform": "PC",
       "Game Size": "1.2 GB",
@@ -43387,7 +43395,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Strategy",
+      "Genre": "Adventure, RPG, Strategy",
       "Developer": "Lavapotion",
       "Platform": "PC",
       "Game Size": "2.6 GB",
@@ -44210,7 +44218,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation",
+      "Genre": "Casual, Indie, RPG, Simulation, Strategy",
       "Developer": "养蛋人工作室 Egg Hatcher",
       "Platform": "PC",
       "Game Size": "1.6 GB",
@@ -44454,7 +44462,7 @@
       "Storage": "15 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Nomada Studio",
       "Platform": "PC",
       "Game Size": "6.4 GB",
@@ -44909,7 +44917,7 @@
       "Storage": "512 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation",
       "Developer": "MDickie",
       "Platform": "PC",
       "Game Size": "220 MB",
@@ -45018,7 +45026,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Indie, Simulation",
       "Developer": "Striking Distance Studios",
       "Platform": "PC",
       "Game Size": "9.5 GB",
@@ -45032,7 +45040,9 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/780310/library_600x900.jpg",
     "url": "https://steamrip.com/the-riftbreaker-free-download/",
     "system_requirements": {},
-    "game_info": {}
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, RPG, Simulation, Strategy"
+    }
   },
   {
     "title": "Mad Streets (Build 8378620)",
@@ -45045,7 +45055,7 @@
       "Graphics": "NVIDIA GeForce GTS 250 (1 GB) / AMD Radeon HD 6670 (1 GB)"
     },
     "game_info": {
-      "Genre": "Action, Casual, Simulation",
+      "Genre": "Action, Casual, Indie",
       "Developer": "Craftshop Arts Inc.",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -45112,7 +45122,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie",
+      "Genre": "Action",
       "Developer": "Young Horses",
       "Platform": "PC",
       "Game Size": "6.5 GB",
@@ -45155,7 +45165,7 @@
       "Storage": "800 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, VR",
+      "Genre": "Action, Indie, Sports",
       "Developer": "Cloudhead Games ltd.",
       "Platform": "PC",
       "Game Size": "300 MB",
@@ -45457,7 +45467,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy",
+      "Genre": "Casual, Indie, Simulation, Strategy, Early Access",
       "Developer": "Shiro Games",
       "Platform": "PC",
       "Game Size": "2.3 GB",
@@ -45500,7 +45510,7 @@
       "Storage": "200 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Indie, RPG, Simulation, Sports",
       "Developer": "MDickie",
       "Platform": "PC",
       "Game Size": "231 MB",
@@ -45716,7 +45726,7 @@
       "Sound Card": "Requires openAL support"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "Casual, Indie, Simulation, Strategy, Early Access",
       "Developer": "Gamatron AB",
       "Platform": "PC",
       "Game Size": "480 MB",
@@ -45847,7 +45857,7 @@
       "Sound Card": "DirectX compatible"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Early Access",
+      "Genre": "Indie, Simulation",
       "Developer": "Bewolba Studios",
       "Platform": "PC",
       "Game Size": "1.4 GB",
@@ -46499,7 +46509,7 @@
       "Storage": "11 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Indie",
       "Developer": "Lince Works",
       "Platform": "PC",
       "Game Size": "4.8 GB",
@@ -46565,7 +46575,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, RPG, Strategy, Early Access",
+      "Genre": "Indie, RPG, Strategy",
       "Developer": "ATICO",
       "Platform": "PC",
       "Game Size": "178 MB",
@@ -46759,7 +46769,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Studio Far Out Games",
       "Platform": "PC",
       "Game Size": "3.7 GB",
@@ -46781,7 +46791,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation",
       "Developer": "Double Fine Productions",
       "Platform": "PC",
       "Game Size": "24.8 GB",
@@ -47472,7 +47482,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation, Early Access",
+      "Genre": "Early Access",
       "Developer": "FRAME BREAK, Amplifier Studios",
       "Platform": "PC",
       "Game Size": "4 GB",
@@ -47754,7 +47764,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy",
+      "Genre": "Action, Adventure, Casual, Simulation",
       "Developer": "Haemimont Games, Abstraction",
       "Platform": "PC",
       "Game Size": "6.6 GB",
@@ -47841,7 +47851,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, RPG, Simulation",
+      "Genre": "Action, Adventure, Casual, RPG, Simulation",
       "Developer": "Young Horses",
       "Platform": "PC",
       "Game Size": "2.8 GB",
@@ -47862,7 +47872,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Indie, RPG",
       "Developer": "Voracious Games",
       "Platform": "PC",
       "Game Size": "740 MB",
@@ -47973,7 +47983,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Early Access",
+      "Genre": "Adventure, Simulation, Early Access",
       "Developer": "Misc Games",
       "Platform": "PC",
       "Game Size": "24.4 GB",
@@ -48751,7 +48761,7 @@
       "Storage": "150 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "Igor Uduslivii",
       "Platform": "PC",
       "Game Size": "185 MB",
@@ -48989,7 +48999,7 @@
       "Storage": "9 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "MVR",
       "Platform": "PC",
       "Game Size": "7.9 GB",
@@ -49163,7 +49173,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Horror, Indie, Simulation",
+      "Genre": "Adventure, Indie, Simulation",
       "Developer": "White Chamber",
       "Platform": "PC",
       "Game Size": "825 MB",
@@ -49206,7 +49216,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation, Early Access",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Asobism.Co.,Ltd",
       "Platform": "PC",
       "Game Size": "374 MB",
@@ -49313,7 +49323,7 @@
       "Storage": "11 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, VR",
+      "Genre": "Adventure, Indie",
       "Developer": "Bloober Team SA",
       "Platform": "PC",
       "Game Size": "10.86 GB",
@@ -49485,7 +49495,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Action, RPG, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG, Strategy",
       "Developer": "NANOO",
       "Platform": "PC",
       "Game Size": "192 MB",
@@ -49829,7 +49839,7 @@
       "Storage": "18 GB available space"
     },
     "game_info": {
-      "Genre": "Anime, RPG",
+      "Genre": "RPG",
       "Developer": "FURYU Corporation",
       "Platform": "PC",
       "Game Size": "10.5 GB",
@@ -50539,7 +50549,7 @@
       "Storage": "40 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Casual",
       "Developer": "1010 Games Ltd",
       "Platform": "PC",
       "Game Size": "41.1 GB",
@@ -50779,7 +50789,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Jujubee",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -50799,7 +50809,7 @@
       "Graphics": "DirectX or OpenGL compatible card"
     },
     "game_info": {
-      "Genre": "Adult, Interactive fiction, Visual novel, Side, 2D",
+      "Genre": "Casual, Indie, Free To Play",
       "Developer": "GB Patch Games",
       "Platform": "PC",
       "Game Size": "952 MB",
@@ -50843,7 +50853,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Lighthouse Games Studio",
       "Platform": "PC",
       "Game Size": "3.1 GB",
@@ -51084,7 +51094,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, RPG, Simulation, Early Access",
+      "Genre": "Adventure, Casual, Indie, RPG, Simulation",
       "Developer": "RedSaw Games Studio",
       "Platform": "PC",
       "Game Size": "481 MB",
@@ -51104,7 +51114,7 @@
       "Storage": "200 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Panitia GameDev",
       "Platform": "PC",
       "Game Size": "179 MB",
@@ -51147,7 +51157,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Strategy, Early Access",
+      "Genre": "Indie, RPG, Strategy",
       "Developer": "Roboatino",
       "Platform": "PC",
       "Game Size": "141 MB",
@@ -51494,7 +51504,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "Digixart",
       "Platform": "PC",
       "Game Size": "4.3 GB",
@@ -51603,7 +51613,7 @@
       "Storage": "1000 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Racing, Sports, Strategy",
+      "Genre": "Casual, Indie, Racing",
       "Developer": "Volume Games",
       "Platform": "PC",
       "Game Size": "342 MB",
@@ -51710,7 +51720,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, VR",
+      "Genre": "Action",
       "Developer": "XR Games",
       "Platform": "PC",
       "Game Size": "2.16 GB",
@@ -51906,7 +51916,7 @@
       "Storage": "3500 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "Caipirinha Games",
       "Platform": "PC",
       "Game Size": "2.4 GB",
@@ -52405,7 +52415,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Kashkool Games",
       "Platform": "PC",
       "Game Size": "3.1 GB",
@@ -52534,7 +52544,7 @@
       "Storage": "300 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, Strategy, Early Access",
+      "Genre": "Indie, Strategy",
       "Developer": "Tambouille",
       "Platform": "PC",
       "Game Size": "264 MB",
@@ -52645,7 +52655,7 @@
       "Storage": "1100 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Casual, Indie",
       "Developer": "Neverjam",
       "Platform": "PC",
       "Game Size": "396 MB",
@@ -52776,7 +52786,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Microbird Games",
       "Platform": "PC",
       "Game Size": "3.4 GB",
@@ -54099,7 +54109,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Early Access",
+      "Genre": "Action, Adventure, Indie, Early Access",
       "Developer": "Supra Games",
       "Platform": "PC",
       "Game Size": "3.6 GB",
@@ -54312,7 +54322,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Strategy",
+      "Genre": "Indie, Strategy",
       "Developer": "Yaza Games",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -54916,7 +54926,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Adventure, Casual, Indie",
       "Developer": "2D BOY",
       "Platform": "PC",
       "Game Size": "1.7 GB",
@@ -55413,7 +55423,7 @@
       "Storage": "80 MB available space"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Action, Indie",
       "Developer": "torcado",
       "Platform": "PC",
       "Game Size": "105 MB",
@@ -56016,7 +56026,7 @@
       "Storage": "35 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation",
+      "Genre": "Simulation, Free To Play",
       "Developer": "Zen Studios",
       "Platform": "PC",
       "Game Size": "37.6 GB",
@@ -56275,7 +56285,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "ActionA ction, Adventure, Casual, Indie, Simulation",
+      "Genre": "Adventure, Casual, Indie, Simulation",
       "Developer": "Giant Squid",
       "Platform": "PC",
       "Game Size": "1.03 GB",
@@ -56536,7 +56546,7 @@
       "Storage": "18432 MB available space"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Action, Adventure, Indie, Early Access",
       "Developer": "Viktor Mosenkov",
       "Platform": "PC",
       "Game Size": "8.8 GB",
@@ -56645,7 +56655,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Maddison Baek(Hellfire Railway Interactive)",
       "Platform": "PC",
       "Game Size": "3.2 GB",
@@ -56731,7 +56741,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Strategy",
+      "Genre": "Casual, Strategy",
       "Developer": "Darenn Keller",
       "Platform": "PC",
       "Game Size": "222 MB",
@@ -56931,7 +56941,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, RPG, Simulation, Strategy, Early Access",
+      "Genre": "Action, Adventure, Casual, Indie, RPG, Simulation, Strategy",
       "Developer": "Tbjbu2",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -57172,7 +57182,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Simulation",
+      "Genre": "Simulation",
       "Developer": "Merge Conflict Studio",
       "Platform": "PC",
       "Game Size": "239 MB",
@@ -57237,7 +57247,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Racing",
+      "Genre": "Action, Indie, Racing, Free To Play",
       "Developer": "Landfall",
       "Platform": "PC",
       "Game Size": "114 MB",
@@ -57346,7 +57356,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Casual, Indie",
       "Developer": "Funnylocks Corp",
       "Platform": "PC",
       "Game Size": "3.2 GB",
@@ -57563,7 +57573,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Sports, Strategy",
+      "Genre": "Strategy",
       "Developer": "Ironhide Game Studio",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -57608,7 +57618,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Racing, Early Access",
+      "Genre": "Racing",
       "Developer": "Giorgi Abelashvili",
       "Platform": "PC",
       "Game Size": "846 MB",
@@ -57630,7 +57640,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Racing",
+      "Genre": "Action, Adventure, Casual",
       "Developer": "NOW PRODUCTION",
       "Platform": "PC",
       "Game Size": "4.1 GB",
@@ -57695,7 +57705,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG, Strategy",
+      "Genre": "Action, Adventure, RPG, Early Access",
       "Developer": "Z Studio",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -57912,7 +57922,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Okomotive",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -57934,7 +57944,7 @@
       "Storage": "9 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Casual, Indie, RPG, Strategy",
       "Developer": "Dandylion",
       "Platform": "PC",
       "Game Size": "15 GB",
@@ -58044,7 +58054,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG, Strategy",
+      "Genre": "Indie, RPG, Strategy",
       "Developer": "Thunderful Development",
       "Platform": "PC",
       "Game Size": "2.3 GB",
@@ -58252,7 +58262,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Simulation, Strategy",
+      "Genre": "Action, Casual, Indie, Simulation, Strategy, Free To Play",
       "Developer": "Moco Studios I",
       "Platform": "PC",
       "Game Size": "3.6 GB",
@@ -58467,7 +58477,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, RPG, Early Access",
+      "Genre": "Action, Casual, RPG",
       "Developer": "Crema, GGTech Studios",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -58663,7 +58673,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, FPS, Indie, Shooter",
+      "Genre": "Action, Indie",
       "Developer": "Megastorm Games",
       "Platform": "PC",
       "Game Size": "3.16 GB",
@@ -58924,7 +58934,7 @@
       "Storage": "256 MB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Mister Morris Games",
       "Platform": "PC",
       "Game Size": "121 MB",
@@ -59273,7 +59283,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation, Early Access",
+      "Genre": "Adventure, Casual, Indie, Simulation",
       "Developer": "devotid",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -59383,7 +59393,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Hunter Studio",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -59669,7 +59679,7 @@
       "Storage": "25 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, RPG, Strategy",
+      "Genre": "RPG, Strategy",
       "Developer": "Mimimi Games",
       "Platform": "PC",
       "Game Size": "15 GB",
@@ -60036,7 +60046,7 @@
       "Storage": "900 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Simulation",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation",
       "Developer": "Crunchy Leaf Games",
       "Platform": "PC",
       "Game Size": "688 MB",
@@ -60171,7 +60181,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy, Early Access",
+      "Genre": "RPG, Simulation, Strategy, Early Access",
       "Developer": "MinMax Games Ltd.",
       "Platform": "PC",
       "Game Size": "269 MB",
@@ -60193,7 +60203,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation",
+      "Genre": "Casual, Simulation",
       "Developer": "Dasius, Noble Games Studio",
       "Platform": "PC",
       "Game Size": "546 MB",
@@ -60971,7 +60981,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, RPG, Simulation, Early Access",
+      "Genre": "Casual, Indie, RPG, Simulation",
       "Developer": "JanduSoft, Eric Rodríguez",
       "Platform": "PC",
       "Game Size": "395 MB",
@@ -61774,7 +61784,7 @@
       "Storage": "850 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Adventure, Indie, Simulation, Strategy",
       "Developer": "BEHEMUTT",
       "Platform": "PC",
       "Game Size": "725 MB",
@@ -61796,7 +61806,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Early Access",
+      "Genre": "Action, Casual, Indie",
       "Developer": "ThirdPixel Interactive",
       "Platform": "PC",
       "Game Size": "8.7 GB",
@@ -61838,7 +61848,7 @@
       "Storage": "3000 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Simulation, Strategy, Early Access",
+      "Genre": "Action, Indie, Simulation, Strategy",
       "Developer": "Jannik Nickel",
       "Platform": "PC",
       "Game Size": "497 MB",
@@ -62008,7 +62018,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Puzzle",
+      "Genre": "Casual",
       "Developer": "MONKEYCRAFT Co. Ltd.",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -62030,7 +62040,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "Sluggerfly",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -62117,7 +62127,7 @@
       "Storage": "35 GB available space"
     },
     "game_info": {
-      "Genre": "Strategy",
+      "Genre": "RPG, Strategy",
       "Developer": "Absolutely Games",
       "Platform": "PC",
       "Game Size": "13.4 GB",
@@ -62697,7 +62707,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Early Access",
+      "Genre": "Action, Casual, Indie",
       "Developer": "Lyrebird Studio, Magical Works",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -62761,7 +62771,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Strategy",
+      "Genre": "Casual, Strategy",
       "Developer": "Oriol Cosp Games",
       "Platform": "PC",
       "Game Size": "132 MB",
@@ -62869,7 +62879,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Pixpil",
       "Platform": "PC",
       "Game Size": "1.7 GB",
@@ -62977,7 +62987,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Racing",
+      "Genre": "Adventure, Indie, RPG",
       "Developer": "Shedworks",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -63173,7 +63183,7 @@
       "Storage": "1500 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual",
+      "Genre": "Adventure, Casual, Simulation, Strategy",
       "Developer": "Gameloft",
       "Platform": "PC",
       "Game Size": "869 MB",
@@ -63237,7 +63247,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Rocket Flair Studios",
       "Platform": "PC",
       "Game Size": "1.6 GB",
@@ -63411,7 +63421,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Cleversan Games",
       "Platform": "PC",
       "Game Size": "3 GB",
@@ -63433,7 +63443,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Throughline Games",
       "Platform": "PC",
       "Game Size": "4.1 GB",
@@ -63861,7 +63871,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG, Early Access",
+      "Genre": "Action, Adventure, RPG",
       "Developer": "Klei Entertainment",
       "Platform": "PC",
       "Game Size": "728 MB",
@@ -63988,7 +63998,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Voracious Games",
       "Platform": "PC",
       "Game Size": "9.9 GB",
@@ -64226,7 +64236,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "Supra Games",
       "Platform": "PC",
       "Game Size": "4.2 GB",
@@ -64438,7 +64448,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, Early Access",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "That Fish, That Other Fish",
       "Platform": "PC",
       "Game Size": "3.1 GB",
@@ -64977,7 +64987,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Casual, Free To Play, Indie",
       "Developer": "DarkBear Studios, iNightGaming LLC",
       "Platform": "PC",
       "Game Size": "7.1 GB",
@@ -65064,7 +65074,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie",
+      "Genre": "Action, Casual, Indie, Racing, Simulation",
       "Developer": "RewindApp",
       "Platform": "PC",
       "Game Size": "1.6 GB",
@@ -65607,7 +65617,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "RPG, Simulation, Strategy",
       "Developer": "Goldhawk Interactive",
       "Platform": "PC",
       "Game Size": "3.8 GB",
@@ -65673,7 +65683,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Snoozy Kazoo",
       "Platform": "PC",
       "Game Size": "864 MB",
@@ -65781,7 +65791,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG",
+      "Genre": "Adventure, RPG, Strategy",
       "Developer": "AskaLot Games",
       "Platform": "PC",
       "Game Size": "3.8 GB",
@@ -65909,7 +65919,7 @@
       "Storage": "200 MB available space"
     },
     "game_info": {
-      "Genre": "RPG, Indie",
+      "Genre": "Indie, RPG, Strategy",
       "Developer": "Four Quarters",
       "Platform": "PC",
       "Game Size": "211 MB",
@@ -65976,7 +65986,7 @@
       "Storage": "160 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, Strategy",
+      "Genre": "Action, Adventure, Casual, Indie, Simulation, Strategy",
       "Developer": "Midjiwan AB",
       "Platform": "PC",
       "Game Size": "129 MB",
@@ -66257,7 +66267,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie, Simulation, Strategy, Early Access",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Toukana Interactive",
       "Platform": "PC",
       "Game Size": "341 MB",
@@ -66303,7 +66313,7 @@
       "Additional Notes": "Windows 10 requires 6 GB RAM"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "Casual, Indie, Simulation, Strategy",
       "Developer": "Prideful Sloth",
       "Platform": "PC",
       "Game Size": "681 MB",
@@ -66497,7 +66507,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy",
+      "Genre": "Strategy",
       "Developer": "Asteroid Lab",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -66519,7 +66529,7 @@
       "Storage": "1500 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation",
+      "Genre": "Casual, Indie, RPG, Simulation",
       "Developer": "Interactive Fate",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -66584,7 +66594,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "RocketBrush Studio",
       "Platform": "PC",
       "Game Size": "457 MB",
@@ -66650,7 +66660,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG",
+      "Genre": "Adventure, Casual, Indie, RPG",
       "Developer": "Cotton Game",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -66695,7 +66705,7 @@
       "Storage": "400 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Simulation, Early Access",
+      "Genre": "Adventure, Casual, Simulation",
       "Developer": "Noun Town",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -66781,7 +66791,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Strategy",
+      "Genre": "Simulation, Strategy",
       "Developer": "Vile Monarch",
       "Platform": "PC",
       "Game Size": "1.7 GB",
@@ -66891,7 +66901,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Early Access",
+      "Genre": "Action, Indie",
       "Developer": "T19 Games",
       "Platform": "PC",
       "Game Size": "1.9 GB",
@@ -67472,7 +67482,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, RPG",
+      "Genre": "Action, Adventure, Massively Multiplayer, RPG, Simulation, Strategy, Free To Play",
       "Developer": "Impossible",
       "Platform": "PC",
       "Game Size": "3 GB",
@@ -67665,7 +67675,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Simulation",
+      "Genre": "Action, Indie, Strategy",
       "Developer": "Gambit Games Studio",
       "Platform": "PC",
       "Game Size": "4.4 GB",
@@ -67751,7 +67761,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "T0 STUDIO",
       "Platform": "PC",
       "Game Size": "1.8 GB",
@@ -67837,7 +67847,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Casual",
+      "Genre": "Casual, Indie, Strategy",
       "Developer": "Grounding Inc.",
       "Platform": "PC",
       "Game Size": "430 MB",
@@ -67947,7 +67957,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Roost Games",
       "Platform": "PC",
       "Game Size": "489 MB",
@@ -68489,7 +68499,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG, Simulation, Strategy",
+      "Genre": "Casual, Indie, RPG, Simulation",
       "Developer": "Brent Arnold",
       "Platform": "PC",
       "Game Size": "1.6 GB",
@@ -68573,7 +68583,7 @@
       "Graphics": "6GB VRAM Graphics Cards"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Casual, Indie",
       "Developer": "The Fox Knocks",
       "Platform": "PC",
       "Game Size": "140 MB",
@@ -68707,7 +68717,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, Simulation, Strategy",
       "Developer": "Oiffy, Wolf & Wood Interactive Ltd",
       "Platform": "PC",
       "Game Size": "2.4 GB",
@@ -68902,7 +68912,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Casual, Indie",
       "Developer": "Toydium, Million Edge",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -68966,7 +68976,7 @@
       "Storage": "512 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG, Simulation, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation",
       "Developer": "10tons Ltd",
       "Platform": "PC",
       "Game Size": "1.5 GB",
@@ -69031,7 +69041,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Strategy, Early Access",
+      "Genre": "Simulation, Strategy",
       "Developer": "Stage Games Inc.",
       "Platform": "PC",
       "Game Size": "1.6 GB",
@@ -69095,7 +69105,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Strategy",
+      "Genre": "Action, Casual, Indie, Strategy",
       "Developer": "9FingerGames",
       "Platform": "PC",
       "Game Size": "1.4 GB",
@@ -69401,7 +69411,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, Free To Play",
       "Developer": "Voyager Softworks",
       "Platform": "PC",
       "Game Size": "2.9 GB",
@@ -69444,7 +69454,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, RPG, Strategy",
+      "Genre": "Action, Indie, RPG, Strategy",
       "Developer": "FlyAnvil",
       "Platform": "PC",
       "Game Size": "2.4 GB",
@@ -69531,7 +69541,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure, Indie, Simulation, Strategy",
       "Developer": "Draw Distance",
       "Platform": "PC",
       "Game Size": "6.7 GB",
@@ -69637,7 +69647,7 @@
       "Storage": "1000 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Strategy",
+      "Genre": "Adventure, Indie, RPG, Strategy",
       "Developer": "Laki Studios",
       "Platform": "PC",
       "Game Size": "1.2 GB",
@@ -70137,7 +70147,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Early Access",
+      "Genre": "Simulation",
       "Developer": "Cozy Bee Games",
       "Platform": "PC",
       "Game Size": "1.7 GB",
@@ -70330,7 +70340,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "RPG, Strategy",
+      "Genre": "Action, Indie, Massively Multiplayer, RPG, Simulation, Strategy",
       "Developer": "Shiny Shoe",
       "Platform": "PC",
       "Game Size": "1.8 GB",
@@ -70415,7 +70425,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Brace Yourself Games",
       "Platform": "PC",
       "Game Size": "3.9 GB",
@@ -70480,7 +70490,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Strategy, Early Access",
+      "Genre": "Indie, RPG, Strategy",
       "Developer": "Guidelight Games",
       "Platform": "PC",
       "Game Size": "850 MB",
@@ -70546,7 +70556,7 @@
       "Storage": "6000 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Early Access",
+      "Genre": "Indie, Simulation",
       "Developer": "Stefan Kelnberger",
       "Platform": "PC",
       "Game Size": "2.59 GB",
@@ -70761,7 +70771,7 @@
       "Storage": "300 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, Sports",
+      "Genre": "Action, Adventure, Casual, Indie, Sports",
       "Developer": "ExceptioNULL Games",
       "Platform": "PC",
       "Game Size": "240 MB",
@@ -70868,7 +70878,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Casual, Indie",
       "Developer": "Passion Republic Games",
       "Platform": "PC",
       "Game Size": "8.1 GB",
@@ -70889,7 +70899,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG, Strategy, Early Access",
+      "Genre": "Adventure, Indie, RPG, Strategy",
       "Developer": "Tako Boy Studios LLC",
       "Platform": "PC",
       "Game Size": "423 MB",
@@ -71062,7 +71072,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "RPG",
+      "Genre": "RPG, Simulation, Strategy",
       "Developer": "CyberConnect2",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -71386,7 +71396,7 @@
       "Sound Card": "DirectX compatible soundcard or onboard chipset"
     },
     "game_info": {
-      "Genre": "RPG",
+      "Genre": "Action, Indie",
       "Developer": "CyberConnect2",
       "Platform": "PC",
       "Game Size": "38.97 GB",
@@ -71408,7 +71418,7 @@
       "Storage": "600 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure, Casual, Indie, RPG, Simulation",
       "Developer": "Applava",
       "Platform": "PC",
       "Game Size": "809 MB",
@@ -71472,7 +71482,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, Strategy",
       "Developer": "BUSAN SANAI GAMES",
       "Platform": "PC",
       "Game Size": "1.03 GB",
@@ -71494,7 +71504,7 @@
       "Storage": "100 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Strategy",
+      "Genre": "RPG, Strategy",
       "Developer": "Benjamin “ThingOnItsOwn” Hauer",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -71560,7 +71570,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "RPG, Strategy",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Chasing Carrots",
       "Platform": "PC",
       "Game Size": "619 MB",
@@ -71604,7 +71614,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Racing, Simulation, Sports",
+      "Genre": "Adventure, Casual, Indie",
       "Developer": "Kunos Simulazioni",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -71625,7 +71635,7 @@
       "Free space on hard disk": "8.7 GB"
     },
     "game_info": {
-      "Genre": "Adventure, Simulation",
+      "Genre": "Action, Adventure",
       "Developer": "ACE Team",
       "Platform": "PC",
       "Game Size": "6.3 GB",
@@ -71734,7 +71744,7 @@
       "Storage": "12 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "emergeWorlds",
       "Platform": "PC",
       "Game Size": "4.3 GB",
@@ -71968,7 +71978,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "RPG, Strategy",
+      "Genre": "RPG, Simulation, Strategy",
       "Developer": "Electric Succubi",
       "Platform": "PC",
       "Game Size": "222 MB",
@@ -72077,7 +72087,7 @@
       "Storage": "10 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Fabraz",
       "Platform": "PC",
       "Game Size": "3.6 GB",
@@ -72335,7 +72345,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Racing, Sports, Early Access",
+      "Genre": "Action, Racing, Sports",
       "Developer": "Hugecalf Studios",
       "Platform": "PC",
       "Game Size": "3.8 GB",
@@ -72485,7 +72495,7 @@
       "Storage": "200 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie, RPG, Early Access",
+      "Genre": "Action, Casual, Indie, RPG",
       "Developer": "Sluggerfly",
       "Platform": "PC",
       "Game Size": "328 MB",
@@ -73093,7 +73103,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Strategy",
+      "Genre": "Casual, Indie, Strategy",
       "Developer": "Monster Couch",
       "Platform": "PC",
       "Game Size": "769 MB",
@@ -73783,7 +73793,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation, Early Access",
+      "Genre": "Adventure, Casual, Indie, Simulation",
       "Developer": "Voolgi",
       "Platform": "PC",
       "Game Size": "934 MB",
@@ -74020,7 +74030,7 @@
       "Storage": "250 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation",
+      "Genre": "Casual, Simulation",
       "Developer": "TNgineers",
       "Platform": "PC",
       "Game Size": "376 MB",
@@ -74129,7 +74139,7 @@
       "Storage": "1000 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Genre": "Indie, Simulation, Strategy",
       "Developer": "Thunder Devs",
       "Platform": "PC",
       "Game Size": "475 MB",
@@ -74301,7 +74311,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie",
+      "Genre": "Adventure, Indie",
       "Developer": "Happy Juice Games",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -74564,7 +74574,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, RPG, Simulation",
+      "Genre": "Action, Adventure, Casual, Indie, RPG, Simulation",
       "Developer": "1M Bits Horde",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -75083,7 +75093,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Simulation",
+      "Genre": "Action, Casual, Indie, Simulation, Strategy, Free To Play",
       "Developer": "Lucid11 Interactive",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -75599,7 +75609,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation, Strategy",
+      "Genre": "Racing",
       "Developer": "Team6 Game Studios",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -76073,7 +76083,7 @@
       "Storage": "5000 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, RPG, Strategy",
       "Developer": "MGP Studios, Solid9 Studio",
       "Platform": "PC",
       "Game Size": "1.7 GB",
@@ -76137,7 +76147,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG, Simulation, Strategy, Early Access",
+      "Genre": "Action, Adventure, Indie, RPG, Simulation, Strategy",
       "Developer": "Isolated Games",
       "Platform": "PC",
       "Game Size": "1.62 GB",
@@ -76242,7 +76252,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie, RPG",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Next Stage Inc., Visual DART Co., Ltd",
       "Platform": "PC",
       "Game Size": "4.8 GB",
@@ -76286,7 +76296,7 @@
       "Storage": "20 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "Purple Ray Studio",
       "Platform": "PC",
       "Game Size": "4.2 GB",
@@ -76307,7 +76317,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Massively Multiplayer",
+      "Genre": "Action, Adventure, Indie, Massively Multiplayer",
       "Developer": "Rone Vine",
       "Platform": "PC",
       "Game Size": "2.7 GB",
@@ -76457,7 +76467,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, RPG, Strategy",
+      "Genre": "Action, Adventure, Indie, RPG, Early Access",
       "Developer": "Barrel Smash Studios",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -76479,7 +76489,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual",
+      "Genre": "Adventure, Casual, Indie",
       "Developer": "Hyper Luminal Games Ltd",
       "Platform": "PC",
       "Game Size": "897 B",
@@ -76523,7 +76533,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "Black Cube Games",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -76781,7 +76791,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, RPG",
+      "Genre": "Action, Casual, Indie, Free To Play, Early Access",
       "Developer": "HanbitSoft Inc.",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -76868,7 +76878,7 @@
       "Storage": "65 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Adventure, Casual, Indie",
       "Developer": "Slow Bros.",
       "Platform": "PC",
       "Game Size": "40 GB",
@@ -77148,7 +77158,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, Simulation, Early Access",
+      "Genre": "Casual, Indie, Simulation",
       "Developer": "Solverto, FreeMind S.A.",
       "Platform": "PC",
       "Game Size": "393 MB",
@@ -77279,7 +77289,7 @@
       "Storage": "60 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie, Early Access",
+      "Genre": "Action, Indie",
       "Developer": "The Fox Knocks",
       "Platform": "PC",
       "Game Size": "132 MB",
@@ -77301,7 +77311,7 @@
       "Storage": "350 MB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Strategy",
+      "Genre": "Indie, Strategy",
       "Developer": "First Games Interactive",
       "Platform": "PC",
       "Game Size": "508 MB",
@@ -77733,7 +77743,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action",
+      "Genre": "Action, Free To Play",
       "Developer": "Alex Djenkov",
       "Platform": "PC",
       "Game Size": "776 MB",
@@ -77854,7 +77864,9 @@
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1442840/library_600x900.jpg",
     "url": "https://steamrip.com/dig-deep-in-galaxies-free-download-1v/",
     "system_requirements": {},
-    "game_info": {}
+    "game_info": {
+      "Genre": "Action, Adventure, Indie"
+    }
   },
   {
     "title": "HALF DEAD 2 (v1.01)",
@@ -78211,7 +78223,7 @@
       "Storage": "6 GB available space"
     },
     "game_info": {
-      "Genre": "Casual, Indie",
+      "Genre": "Action, Casual, Indie",
       "Developer": "Hello There Games",
       "Platform": "PC",
       "Game Size": "2 GB",
@@ -78576,7 +78588,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie",
+      "Genre": "Adventure, Indie, RPG",
       "Developer": "SEKTAHOUSE",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -79133,7 +79145,7 @@
       "Storage": "100 MB available space"
     },
     "game_info": {
-      "Genre": "Squid Game, Indie",
+      "Genre": "Casual, Indie",
       "Developer": "AZAMATIKA",
       "Platform": "PC",
       "Game Size": "67.2 MB",
@@ -79284,7 +79296,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Indie, Strategy",
       "Developer": "Big Blue Bubble",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -79347,7 +79359,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Indie, RPG",
       "Developer": "OrionGames",
       "Platform": "PC",
       "Game Size": "1.7 GB",
@@ -79369,7 +79381,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Action, RPG, Arcade",
+      "Genre": "Action, RPG",
       "Developer": "G CHOICE, Monkey Craft",
       "Platform": "PC",
       "Game Size": "1.78 GB",
@@ -79454,7 +79466,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Voracious Games",
       "Platform": "PC",
       "Game Size": "2.2 GB",
@@ -79538,7 +79550,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Indie",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "Bedtime Digital Games",
       "Platform": "PC",
       "Game Size": "2.6 GB",
@@ -79882,7 +79894,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual",
+      "Genre": "Adventure, Casual, Indie",
       "Developer": "The Chinese Room",
       "Platform": "PC",
       "Game Size": "3.2 GB",
@@ -79903,7 +79915,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, RPG, Strategy",
+      "Genre": "Adventure, Casual, Indie, Strategy",
       "Developer": "OneShark",
       "Platform": "PC",
       "Game Size": "480 MB",
@@ -79968,7 +79980,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, RPG",
+      "Genre": "RPG",
       "Developer": "The Scholastics",
       "Platform": "PC",
       "Game Size": "1.3 GB",
@@ -80380,7 +80392,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie",
+      "Genre": "Action, Casual, Strategy",
       "Developer": "CATASTROPHIC_OVERLOAD",
       "Platform": "PC",
       "Game Size": "1 GB",
@@ -80659,7 +80671,7 @@
       "Storage": "5 GB available space"
     },
     "game_info": {
-      "Genre": "Simulation, Sports, Strategy",
+      "Genre": "Indie, Simulation, Sports, Strategy",
       "Developer": "Umix Studios",
       "Platform": "PC",
       "Game Size": "467 MB",
@@ -80702,7 +80714,7 @@
       "Storage": "200 MB available space"
     },
     "game_info": {
-      "Genre": "Indie",
+      "Genre": "Indie, Free To Play",
       "Developer": "OKYO GAMES",
       "Platform": "PC",
       "Game Size": "144 MB",
@@ -81193,7 +81205,7 @@
       "Graphics": "Nvidia GeForce GTX 950"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Simulation",
+      "Genre": "Action, Adventure, Indie",
       "Developer": "Sunwolf Entertainment",
       "Platform": "PC",
       "Game Size": "2.3 GB",
@@ -81259,7 +81271,7 @@
       "Storage": "4 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure, Indie, Massively Multiplayer, RPG, Free To Play",
       "Developer": "Monothetic LLC",
       "Platform": "PC",
       "Game Size": "754 MB",
@@ -81303,7 +81315,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Indie, Simulation, Strategy",
+      "Genre": "Adventure, Indie",
       "Developer": "Double Eleven, Introversion Software",
       "Platform": "PC",
       "Game Size": "1.76 GB",
@@ -81366,7 +81378,7 @@
       "Storage": "500 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Indie",
+      "Genre": "Action, Adventure, Indie, Simulation",
       "Developer": "Jonas Tyroller",
       "Platform": "PC",
       "Game Size": "200 MB",
@@ -82011,7 +82023,7 @@
       "Storage": "7 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "Bonte Avond",
       "Platform": "PC",
       "Game Size": "255 MB",
@@ -82054,7 +82066,7 @@
       "Storage": "700 MB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, Early Access",
+      "Genre": "Adventure, Indie",
       "Developer": "FIRECHICK",
       "Platform": "PC",
       "Game Size": "195 MB",
@@ -82139,7 +82151,7 @@
       "Storage": "8 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, RPG, Strategy",
+      "Genre": "Action, Adventure, Casual, Indie, RPG",
       "Developer": "Digitality Studios",
       "Platform": "PC",
       "Game Size": "2.6 GB",
@@ -82266,7 +82278,7 @@
       "Storage": "3 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Indie, RPG",
+      "Genre": "Adventure, Indie",
       "Developer": "BitNine Studio",
       "Platform": "PC",
       "Game Size": "938 MB",
@@ -82569,7 +82581,7 @@
       "Storage": "1300 MB available space"
     },
     "game_info": {
-      "Genre": "Action, Adventure, Casual, Indie, Early Access",
+      "Genre": "Action, Adventure, Casual, Indie",
       "Developer": "Fischmell",
       "Platform": "PC",
       "Game Size": "1.1 GB",
@@ -82591,7 +82603,7 @@
       "Storage": "2 GB available space"
     },
     "game_info": {
-      "Genre": "Adventure, Casual, Indie, Strategy",
+      "Genre": "Adventure, Casual, Indie, Simulation, Strategy",
       "Developer": "ACE Entertainment",
       "Platform": "PC",
       "Game Size": "1.4 GB",
@@ -82636,7 +82648,7 @@
       "Storage": "1 GB available space"
     },
     "game_info": {
-      "Genre": "Action, Casual, Indie",
+      "Genre": "Adventure, Casual, Indie",
       "Developer": "Cogoo",
       "Platform": "PC",
       "Game Size": "1.1 GB",
