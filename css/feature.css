@@ -2084,6 +2084,10 @@ body.has-footer-bar .feature-cart-widget {
   .gallery-search {
     min-width: 0;
     width: 100%;
+    /* Mobile Safari/Chrome auto-zoom the whole page on focusing any text
+       input smaller than 16px, and don't reliably zoom back out after —
+       16px is the documented threshold that suppresses it. */
+    font-size: 16px;
   }
   .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
