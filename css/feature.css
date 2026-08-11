@@ -553,22 +553,6 @@ body.has-footer-bar .feature-cart-widget {
     linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.05) 60%, transparent 100%);
 }
 
-.hero-slide-badge {
-  display: inline-flex;
-  align-self: flex-start;
-  align-items: center;
-  gap: 6px;
-  background: var(--accent-gradient);
-  color: #000;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 12px;
-}
-
 .hero-slide-tags {
   display: flex;
   gap: 6px;
@@ -2193,11 +2177,31 @@ body.has-footer-bar .feature-cart-widget {
   .game-title {
     font-size: 1.4rem;
   }
+  .hero-slide-overlay {
+    padding: var(--spacing-md);
+  }
   .hero-slide-title {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
+    -webkit-line-clamp: 1;
+    margin-bottom: 6px;
   }
   .hero-slide-desc {
     display: none;
+  }
+  .hero-slide-tags {
+    margin-bottom: 6px;
+  }
+  .hero-slide-tags span {
+    font-size: 0.6rem;
+    padding: 2px 8px;
+  }
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    padding: 7px 14px;
+    font-size: 0.74rem;
+  }
+  .hero-cta-secondary {
+    padding: 7px 10px;
   }
   .hero-cta-secondary span.hero-cta-label {
     display: none;

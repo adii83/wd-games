@@ -527,7 +527,6 @@
                 <div class="hero-slide">
                     <div class="hero-slide-bg" style="background-image: url('${backgrounds[i]}')"></div>
                     <div class="hero-slide-overlay">
-                        <span class="hero-slide-badge">Update Terbaru</span>
                         <div class="hero-slide-tags">${tags.slice(0, 3).map((t) => `<span>${t}</span>`).join('')}</div>
                         <h2 class="hero-slide-title">${cleanDisplayTitle(game.title)}</h2>
                         <p class="hero-slide-desc">${desc}</p>
