@@ -59,8 +59,11 @@ QUOTE_MAP = str.maketrans({
 })
 # Any dash/hyphen -> space, applied LAST (after tag-stripping, which still
 # needs to recognize "+Co-op" etc). Steam's search API returns zero results
-# for queries containing a hyphen of any kind — confirmed empirically.
-DASH_MAP = str.maketrans({"-": " ", "–": " ", "—": " "})
+# for queries containing a hyphen of any kind, or a colon with a space on
+# both sides ("Title : Subtitle" — but NOT "Title: Subtitle") — confirmed
+# empirically for both. Rather than rely on that fragile spacing distinction,
+# colons are normalized to spaces too.
+DASH_MAP = str.maketrans({"-": " ", "–": " ", "—": " ", ":": " "})
 
 
 def clean_title(title):
@@ -217,8 +220,18 @@ def save_state(state):
     _atomic_replace(tmp, STATE_FILE)
 
 
-def write_output(state):
-    matched = {title: v for title, v in state.items() if v.get("matched")}
+def write_output(state, valid_titles):
+    # state is append-only (keyed by every title ever seen, so a renamed or
+    # removed title's old entry is never deleted from it) — restrict the
+    # output to titles that still exist in the source catalog, or a rename
+    # leaves the old title's entry in steamrip_games_gameplay.json forever,
+    # orphaning a gameplay/<hash>.json file that nothing will ever request
+    # again (split_gameplay_data.py prunes derived files it didn't just
+    # write, but only this filters the source data itself).
+    matched = {
+        title: v for title, v in state.items()
+        if v.get("matched") and title in valid_titles
+    }
     output = {title: v["data"] for title, v in matched.items()}
     tmp = OUTPUT_FILE + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
@@ -234,6 +247,7 @@ def main():
     with open(DATA_FILE, encoding="utf-8") as f:
         games = json.load(f)
     titles = [g["title"] for g in games if g.get("title")]
+    valid_titles = set(titles)
 
     state = load_state()
     remaining = [t for t in titles if t not in state]
@@ -267,12 +281,12 @@ def main():
         done = len(state)
         if processed_this_run % 25 == 0 or (i == len(remaining) - 1):
             save_state(state)
-            write_output(state)
+            write_output(state, valid_titles)
             pct = done / total * 100
             print(f"[{done}/{total}] ({pct:.1f}%) — this run: {processed_this_run} processed, {matched_this_run} matched. Last: '{title[:50]}' -> {'OK' if state[title]['matched'] else 'no match'}", flush=True)
 
     save_state(state)
-    write_output(state)
+    write_output(state, valid_titles)
     total_matched = sum(1 for v in state.values() if v.get("matched"))
     print(f"\nDone. {len(state)}/{total} titles processed, {total_matched} matched with gameplay data.")
 

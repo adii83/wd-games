@@ -22,7 +22,13 @@ Usage:
 """
 import json
 import os
+import sys
 import time
+
+# See split_catalog_data.py — avoids crashing on Windows terminals when a
+# title contains characters cp1252 can't display.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 SOURCE_FILE = "steamrip_games_gameplay.json"
 OUTPUT_DIR = "gameplay"
@@ -82,6 +88,19 @@ def main():
             print(f"  hash {h}: kept {kept!r}, dropped {title!r}")
     else:
         print("No hash collisions.")
+
+    # A title rename changes that entry's hash, which creates a new file but
+    # leaves the old hash's file behind with stale data — see the identical
+    # comment/fix in split_catalog_data.py. Delete anything in gameplay/ that
+    # isn't a hash we just wrote.
+    valid_files = {f"{h}.json" for h in hash_to_title}
+    removed = 0
+    for name in os.listdir(OUTPUT_DIR):
+        if name.endswith(".json") and name not in valid_files:
+            os.remove(os.path.join(OUTPUT_DIR, name))
+            removed += 1
+    if removed:
+        print(f"Removed {removed} orphaned file(s) left over from title changes.")
 
 
 if __name__ == "__main__":

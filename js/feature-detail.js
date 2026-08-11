@@ -396,7 +396,11 @@
         }
         selectBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
-                const nowSelected = window.FeatureCart.toggle(game.title);
+                if (!window.FeatureCart.isSelected(game.title) && !window.FeatureCart.canAdd(game._category)) {
+                    window.FeatureCartWidget.showToast('Flashdisk cuma untuk game PS2 — ganti media penyimpanan dulu untuk pilih game PC.', 'error');
+                    return;
+                }
+                const nowSelected = window.FeatureCart.toggle(game.title, game._category);
                 syncSelectBtns();
                 if (nowSelected) window.FeatureCartWidget.flyToCart(btn);
             });
@@ -481,6 +485,23 @@
             // default and repopulates its tier list.
             window.FeatureCart.setStorage(value, preset.defaultCapacity);
             populateCapacityOptions();
+
+            // Flashdisk is PS2-only — drop any already-selected PC games
+            // instead of letting them silently ride along in the cart.
+            if (preset.lockCategory === 'ps2') {
+                const state = window.FeatureCart.getState();
+                const removed = state.selected.filter((title) => {
+                    const g = allGames.find((game) => game.title === title);
+                    return g && !window.FeatureCart.canAdd(g._category);
+                });
+                removed.forEach((title) => window.FeatureCart.remove(title));
+                if (removed.length) {
+                    window.FeatureCartWidget.showToast(
+                        `${removed.length} game PC dihapus dari daftar — Flashdisk cuma untuk game PS2.`,
+                        'error'
+                    );
+                }
+            }
         });
         window.FeatureCart.onChange(() => {
             updateStorageUI();

@@ -107,15 +107,26 @@
             return state.selected.includes(title);
         },
 
-        toggle(title) {
+        // Flashdisk only ever carries PS2 games (that's the whole point of
+        // the Flashdisk option on this site) — a PC title can't be added
+        // while it's the active storage type. Category is optional so
+        // existing callers that don't pass one (nothing to enforce against)
+        // keep working; every selection entry point should pass it.
+        canAdd(category) {
+            return !(state.storageType === 'flashdisk' && category && category !== 'ps2');
+        },
+
+        toggle(title, category) {
             const idx = state.selected.indexOf(title);
             if (idx >= 0) {
                 state.selected.splice(idx, 1);
-            } else {
-                state.selected.push(title);
+                persist();
+                return false;
             }
+            if (!this.canAdd(category)) return false;
+            state.selected.push(title);
             persist();
-            return state.selected.includes(title);
+            return true;
         },
 
         remove(title) {

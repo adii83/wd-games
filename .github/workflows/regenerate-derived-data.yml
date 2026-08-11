@@ -1,0 +1,60 @@
+name: Regenerate derived game data
+
+# Why this exists: the live site never fetches steamrip_games_updated.json /
+# ps2.json / steamrip_games_gameplay.json directly (too heavy) — it fetches
+# smaller files derived from them (*.lite.json, catalog/*.json,
+# gameplay/*.json) via split_catalog_data.py / split_gameplay_data.py.
+# admin.html only ever writes to steamrip_games_updated.json / ps2.json, with
+# no idea the derived ones (or steamrip_games_gameplay.json) exist, so every
+# admin-panel save used to need manual follow-up: run enrich_steam_data.py to
+# fetch trailer/screenshots/description for the new title, then re-run the
+# split scripts, then push. This workflow does all of that automatically: it
+# watches the three source files, and whenever one changes on `main`, runs
+# enrich_steam_data.py (matches any title not yet in steam_enrich_progress.json
+# against Steam — fast, since already-processed titles are skipped) followed
+# by both split scripts, and commits whatever changes, straight back to
+# `main`.
+#
+# No infinite loop: even though the auto-commit below can touch
+# steamrip_games_gameplay.json (one of the paths this workflow watches),
+# `[skip ci]` in the commit message tells GitHub to skip evaluating the
+# `paths:` filter entirely for that push, so it can't retrigger itself.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "steamrip_games_updated.json"
+      - "ps2.json"
+      - "steamrip_games_gameplay.json"
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run enrichment + split scripts
+        run: |
+          python enrich_steam_data.py
+          python split_catalog_data.py
+          python split_gameplay_data.py
+
+      - name: Commit and push derived files, if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add steamrip_games_gameplay.json steam_enrich_progress.json steamrip_games_updated.lite.json ps2.lite.json catalog/ gameplay/
+          if git diff --staged --quiet; then
+            echo "Nothing changed — derived files were already up to date."
+          else
+            git commit -m "Auto-regenerate derived game data [skip ci]"
+            git push
+          fi

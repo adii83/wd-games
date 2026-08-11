@@ -67,6 +67,7 @@
 
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                if (btn.disabled) return;
                 if (openInstance === instance) closeAll();
                 else open(instance);
             });
@@ -77,6 +78,15 @@
                 },
                 setLabel(text) {
                     if (label) label.textContent = text;
+                },
+                // Used to lock the Kategori dropdown to "Game PS2" while
+                // Flashdisk is the active storage type, instead of just
+                // pre-selecting PS2 and letting the user pick something
+                // else right back out of it.
+                setDisabled(disabled) {
+                    btn.disabled = !!disabled;
+                    btn.classList.toggle('is-disabled', !!disabled);
+                    if (disabled && openInstance === instance) closeAll();
                 },
             };
         },

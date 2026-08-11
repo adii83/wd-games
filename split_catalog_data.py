@@ -40,7 +40,16 @@ Usage:
 """
 import json
 import os
+import sys
 import time
+
+# Windows terminals default to a codepage (cp1252) that can't display every
+# character some game titles contain (CJK, emoji, etc.) — without this,
+# printing them crashes the script after the actual file-writing work is
+# already done. Harmless either way on GitHub Actions' Ubuntu runner
+# (UTF-8 by default), but this keeps local runs from crashing too.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 SOURCES = [
     ("steamrip_games_updated.json", "pc", "steamrip_games_updated.lite.json"),
@@ -94,6 +103,7 @@ def main():
 
     hash_to_key = {}
     collisions = []
+    duplicate_titles = []
     catalog_written = 0
 
     for source_file, category, lite_file in SOURCES:
@@ -107,9 +117,19 @@ def main():
 
             key = f"{category}:{title}"
             h = fnv1a_32(key)
-            if h in hash_to_key and hash_to_key[h] != key:
-                collisions.append((key, hash_to_key[h], h))
-                continue
+            if h in hash_to_key:
+                # Same category+title appearing twice in the source data
+                # (e.g. two PS2 entries that happen to share a title) is a
+                # different problem than an actual hash collision — the hash
+                # function did its job, the *source data* is ambiguous.
+                # Either way, only one of them can occupy catalog/<hash>.json,
+                # so the later entry silently wins; at least make that loud
+                # instead of leaving it invisible in the output.
+                if hash_to_key[h] == key:
+                    duplicate_titles.append(key)
+                else:
+                    collisions.append((key, hash_to_key[h], h))
+                    continue
             hash_to_key[h] = key
 
             _write_json_compact(os.path.join(CATALOG_DIR, f"{h}.json"), entry)
@@ -118,13 +138,31 @@ def main():
         _write_json_compact(lite_file, lite_list)
         print(f"{source_file}: {len(entries)} entries -> {lite_file}")
 
-    print(f"\nPer-game files written to {CATALOG_DIR}/: {catalog_written}")
+    print(f"\nPer-game files written to {CATALOG_DIR}/: {catalog_written} ({len(hash_to_key)} unique)")
+    if duplicate_titles:
+        print(f"\nNOTE: {len(duplicate_titles)} title(s) appear more than once in the source data — only the last occurrence's data survives in catalog/ (same title -> same file):")
+        for key in duplicate_titles:
+            print(f"  {key!r}")
     if collisions:
         print(f"\nWARNING: {len(collisions)} hash collision(s) skipped (kept the first, dropped the rest):")
         for key, kept, h in collisions:
             print(f"  hash {h}: kept {kept!r}, dropped {key!r}")
     else:
         print("No hash collisions.")
+
+    # A title edit (admin panel or otherwise) changes that entry's hash,
+    # which creates a new file but leaves the old hash's file behind with
+    # stale data — nothing ever pointed at the new hash, and nothing will
+    # ever ask for the old one again either. Delete anything in catalog/
+    # that isn't a hash we just wrote.
+    valid_files = {f"{h}.json" for h in hash_to_key}
+    removed = 0
+    for name in os.listdir(CATALOG_DIR):
+        if name.endswith(".json") and name not in valid_files:
+            os.remove(os.path.join(CATALOG_DIR, name))
+            removed += 1
+    if removed:
+        print(f"Removed {removed} orphaned file(s) left over from title changes.")
 
 
 if __name__ == "__main__":

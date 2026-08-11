@@ -11,7 +11,7 @@
     const ITEMS_PER_PAGE = 24;
     const SKELETON_COUNT = 12;
     const HERO_SLIDE_COUNT = 8;
-    const HERO_ROTATE_MS = 6000;
+    const HERO_ROTATE_MS = 3000;
     // How far into the "newest first" list (admin unshift() order) the hero
     // + Featured This Week are allowed to draw from — keeps them feeling
     // "recent" while still leaving room to shuffle a different mix in on
@@ -28,6 +28,8 @@
     const SUGGEST_LIMIT = 3;
 
     const appLoadingScreen = document.getElementById('app-loading-screen');
+    const landingScreen = document.getElementById('landing-screen');
+    const landingActions = document.getElementById('landing-storage-actions');
     const grid = document.getElementById('gallery-grid');
     const loadMoreBtn = document.getElementById('gallery-load-more');
     const searchInput = document.getElementById('gallery-search');
@@ -97,6 +99,10 @@
     // "Explore Your Collection" while browsing so the same game doesn't
     // appear twice on the page.
     let updateGamesTitles = new Set();
+    // The wider "still recently added" pool (Update Games + a bit more) —
+    // used to badge cards as "Baru" in the main grid too, not just the
+    // Update Games strip.
+    let newGameTitles = new Set();
 
     function parseSizeToGB(sizeVal) {
         if (typeof sizeVal === 'number' && Number.isFinite(sizeVal)) return sizeVal;
@@ -261,15 +267,32 @@
         `).join('');
     }
 
-    // Reveals the gallery and fades out the branded loading screen. Called
-    // once loadGames() finishes (success or failure) so the screen never
-    // masks an error state forever.
+    // Fades out the branded loading screen and — instead of revealing the
+    // gallery directly — hands off to the mandatory storage-type picker.
+    // Called once loadGames() finishes (success or failure) so the loading
+    // screen never masks an error state forever.
     function hideAppLoadingScreen() {
-        if (!appLoadingScreen) return;
-        appLoadingScreen.classList.add('app-loading-hidden');
-        appLoadingScreen.addEventListener('transitionend', () => {
-            appLoadingScreen.remove();
-        }, { once: true });
+        if (appLoadingScreen) {
+            appLoadingScreen.classList.add('app-loading-hidden');
+            appLoadingScreen.addEventListener('transitionend', () => {
+                appLoadingScreen.remove();
+            }, { once: true });
+        }
+        if (landingScreen) landingScreen.classList.add('visible');
+    }
+
+    // The gallery itself stays behind body.landing-active (non-interactive,
+    // covered by the picker) until a storage type is actually chosen —
+    // required every visit, not just the first ever one.
+    if (landingActions) {
+        landingActions.addEventListener('click', (e) => {
+            const btn = e.target.closest('.landing-choice-card');
+            if (!btn) return;
+            const storageType = btn.getAttribute('data-storage');
+            applyStorageType(storageType);
+            document.body.classList.remove('landing-active');
+            if (landingScreen) landingScreen.classList.remove('visible');
+        });
     }
 
     async function loadGames() {
@@ -303,6 +326,14 @@
             // gameplay data and a "newest" ordering that PS2 doesn't have.
             allGames = [...pcGames, ...ps2Games];
 
+            // The storage bar was already rendered once at page init (before
+            // this fetch resolved), using an empty allGames — any items
+            // already in the cart from a previous visit computed as 0 GB
+            // used until the user touched a select button and re-triggered
+            // FeatureCart's onChange. Refresh it now that lookups actually
+            // work, so it's correct without needing that nudge.
+            updateStorageUI();
+
             // Hero + Featured This Week both draw from the same "newest"
             // pool, shuffled fresh on every load, and never share a game —
             // the hero picks first, Featured gets a disjoint slice of what's
@@ -311,6 +342,8 @@
             const heroGames = newestPool.slice(0, HERO_SLIDE_COUNT);
             const heroTitles = new Set(heroGames.map((g) => g.title));
             const featuredGames = newestPool.filter((g) => !heroTitles.has(g.title)).slice(0, 3);
+
+            newGameTitles = new Set(allGames.slice(0, NEWEST_POOL_SIZE).map((g) => g.title));
 
             renderUpdateGamesRow();
             renderGenreFilterOptions();
@@ -364,7 +397,7 @@
             <div class="gallery-card-img-wrap">
                 <img class="gallery-card-img" src="${game.banner_url || 'assets/logo.png'}" alt="${displayTitle}" loading="lazy" decoding="async">
                 ${options.badge || game._category === 'ps2' ? `<div class="gallery-card-badges">${options.badge ? `<span class="update-card-badge">${options.badge}</span>` : ''}${game._category === 'ps2' ? '<span class="ps2-badge">PS2</span>' : ''}</div>` : ''}
-                <button class="card-select-btn${isSelected ? ' selected' : ''}" data-select-title="${game.title}" type="button" aria-label="Pilih game">
+                <button class="card-select-btn${isSelected ? ' selected' : ''}" data-select-title="${game.title}" data-select-category="${game._category}" type="button" aria-label="Pilih game">
                     ${SELECT_ICON_SVG}
                 </button>
                 ${tags.length ? `<div class="gallery-card-tags">${tags.map((t) => `<span>${t}</span>`).join('')}</div>` : ''}
@@ -374,7 +407,7 @@
                     <div class="gallery-card-title">${displayTitle}</div>
                     <div class="gallery-card-size">${sizeLabel}</div>
                 </div>
-                <button class="card-select-btn card-select-btn-inline${isSelected ? ' selected' : ''}" data-select-title="${game.title}" type="button">Pilih</button>
+                <button class="card-select-btn card-select-btn-inline${isSelected ? ' selected' : ''}" data-select-title="${game.title}" data-select-category="${game._category}" type="button">Pilih</button>
             </div>
         `;
         return card;
@@ -437,7 +470,7 @@
                     </div>
                     <div class="featured-actions">
                         <a class="hero-cta-primary" href="${gameHref(main)}">Lihat Detail</a>
-                        <button class="card-select-btn${mainSelected ? ' selected' : ''}" data-select-title="${main.title}" type="button" aria-label="Pilih game">
+                        <button class="card-select-btn${mainSelected ? ' selected' : ''}" data-select-title="${main.title}" data-select-category="${main._category}" type="button" aria-label="Pilih game">
                             ${SELECT_ICON_SVG}
                         </button>
                     </div>
@@ -476,6 +509,51 @@
         updateGamesTitles = new Set(games.map((g) => g.title));
         landingHasContent.update = true;
         updateGamesSection.style.display = '';
+        setupUpdateGamesAutoScroll(updateScrollRow);
+    }
+
+    // Auto-advances the Update Games strip one card at a time — pauses the
+    // moment the user touches/scrolls/clicks it, and only resumes on its own
+    // after a stretch of no interaction, so it never fights a user actively
+    // browsing the row.
+    const UPDATE_SCROLL_INTERVAL_MS = 3000;
+    const UPDATE_SCROLL_RESUME_IDLE_MS = 5000;
+
+    function setupUpdateGamesAutoScroll(container) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        let autoTimer = null;
+        let resumeTimer = null;
+
+        function step() {
+            const card = container.querySelector('.gallery-card');
+            const cardWidth = card ? card.getBoundingClientRect().width : 200;
+            const gap = 12;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            const next = container.scrollLeft + cardWidth + gap;
+            container.scrollTo({ left: next >= maxScroll - 4 ? 0 : next, behavior: 'smooth' });
+        }
+
+        function startAuto() {
+            stopAuto();
+            autoTimer = setInterval(step, UPDATE_SCROLL_INTERVAL_MS);
+        }
+
+        function stopAuto() {
+            if (autoTimer) clearInterval(autoTimer);
+            autoTimer = null;
+        }
+
+        function onInteract() {
+            stopAuto();
+            clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(startAuto, UPDATE_SCROLL_RESUME_IDLE_MS);
+        }
+
+        container.addEventListener('pointerdown', onInteract);
+        container.addEventListener('touchstart', onInteract, { passive: true });
+        container.addEventListener('wheel', onInteract, { passive: true });
+
+        startAuto();
     }
 
     // --- Trailer modal (hero "Tonton Trailer") ---
@@ -658,7 +736,13 @@
             e.stopPropagation();
 
             const title = btn.getAttribute('data-select-title');
-            const selected = window.FeatureCart.toggle(title);
+            const category = btn.getAttribute('data-select-category');
+            if (!window.FeatureCart.isSelected(title) && !window.FeatureCart.canAdd(category)) {
+                window.FeatureCartWidget.showToast('Flashdisk cuma untuk game PS2 — ganti media penyimpanan dulu untuk pilih game PC.', 'error');
+                return;
+            }
+
+            const selected = window.FeatureCart.toggle(title, category);
             const card = btn.closest('.gallery-card');
             if (card) {
                 card.classList.toggle('selected', selected);
@@ -738,7 +822,8 @@
 
         const fragment = document.createDocumentFragment();
         chunk.forEach((game, chunkIdx) => {
-            fragment.appendChild(buildGameCard(game, { animIndex: chunkIdx }));
+            const badge = newGameTitles.has(game.title) ? 'Baru' : undefined;
+            fragment.appendChild(buildGameCard(game, { animIndex: chunkIdx, badge }));
         });
 
         grid.appendChild(fragment);
@@ -797,7 +882,9 @@
         }
 
         const qLower = q.toLowerCase();
-        const matches = allGames.filter((g) => (g.title || '').toLowerCase().includes(qLower));
+        const flashdiskLocked = window.FeatureCart.getState().storageType === 'flashdisk';
+        const matches = allGames.filter((g) => (g.title || '').toLowerCase().includes(qLower)
+            && (!flashdiskLocked || g._category === 'ps2'));
         suggestActiveIndex = -1;
 
         if (matches.length === 0) {
@@ -818,7 +905,7 @@
                         <div class="search-suggest-title">${highlightMatch(cleanDisplayTitle(game.title), q)}</div>
                         <div class="search-suggest-size">${sizeLabel}</div>
                     </div>
-                    <button class="card-select-btn card-select-btn-inline${isSelected ? ' selected' : ''}" data-select-title="${game.title}" type="button">Pilih</button>
+                    <button class="card-select-btn card-select-btn-inline${isSelected ? ' selected' : ''}" data-select-title="${game.title}" data-select-category="${game._category}" type="button">Pilih</button>
                 </a>
             `;
         }).join('');
@@ -955,7 +1042,26 @@
         else if (pct >= 75) storageProgressFill.classList.add('threshold-warn');
     }
 
-    wireDropdownItems(storageTypeDropdownPanel, storageTypeDropdown, (value) => {
+    // Removes any already-selected games that are no longer allowed once
+    // Flashdisk (PS2-only) becomes the active storage type — otherwise a PC
+    // game picked earlier under HDD/SSD would silently ride along in the
+    // cart/export list even though Flashdisk can't actually hold it.
+    function purgeIncompatibleSelections() {
+        const state = window.FeatureCart.getState();
+        const removed = state.selected.filter((title) => {
+            const game = allGames.find((g) => g.title === title);
+            return game && !window.FeatureCart.canAdd(game._category);
+        });
+        removed.forEach((title) => window.FeatureCart.remove(title));
+        if (removed.length) {
+            window.FeatureCartWidget.showToast(
+                `${removed.length} game PC dihapus dari daftar — Flashdisk cuma untuk game PS2.`,
+                'error'
+            );
+        }
+    }
+
+    function applyStorageType(value) {
         const preset = window.FeatureCart.STORAGE_PRESETS[value];
         if (!preset) return;
         // Changing storage type always resets capacity to that type's
@@ -966,14 +1072,20 @@
         updateStorageUI();
 
         // Flashdisk is PS2-only on the main site too — lock the Kategori
-        // filter to "Game PS2" while it's selected, and release it back to
-        // "Semua Kategori" when switching to HDD/SSD.
+        // filter to "Game PS2" while it's selected (and the dropdown itself,
+        // so the user can't just pick a different category right back out
+        // of it), and release both when switching to HDD/SSD.
         if (preset.lockCategory === 'ps2') {
             setActiveGenre(PS2_CATEGORY_VALUE);
-        } else if (activeGenre === PS2_CATEGORY_VALUE) {
-            setActiveGenre(null);
+            genreDropdown.setDisabled(true);
+            purgeIncompatibleSelections();
+        } else {
+            genreDropdown.setDisabled(false);
+            if (activeGenre === PS2_CATEGORY_VALUE) setActiveGenre(null);
         }
-    });
+    }
+
+    wireDropdownItems(storageTypeDropdownPanel, storageTypeDropdown, applyStorageType);
 
     // --- Floating cart widget (shared controller in js/feature-cart-widget.js) ---
 

@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link href="css/feature.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="has-footer-bar">
     <header class="gallery-header">
       <div class="gallery-header-inner">
         <a href="index.html" class="gallery-logo" aria-label="WD Games">
@@ -41,15 +41,6 @@
               <svg class="filter-dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="filter-dropdown-panel" id="storage-capacity-dropdown-panel" data-dropdown-panel role="listbox" aria-label="Pilih kapasitas"></div>
-          </div>
-        </div>
-        <div class="storage-progress-wrap">
-          <div class="storage-progress-text">
-            <span id="storage-used-text">0 GB</span> / <span id="storage-total-text">455 GB</span>
-            &bull; Sisa <span id="storage-remaining-text" class="text-accent">455.0 GB</span>
-          </div>
-          <div class="storage-progress-track">
-            <div id="storage-progress-fill" class="storage-progress-fill"></div>
           </div>
         </div>
       </div>
@@ -114,6 +105,17 @@
       </div>
     </template>
 
+    <!-- Bottom storage footer bar (matches index.html) -->
+    <footer class="storage-footer-bar" id="storage-footer-bar">
+      <div class="storage-progress-text">
+        <span id="storage-used-text">0 GB</span> / <span id="storage-total-text">455 GB</span>
+        &bull; Sisa <span id="storage-remaining-text" class="text-accent">455.0 GB</span>
+      </div>
+      <div class="storage-progress-track">
+        <div id="storage-progress-fill" class="storage-progress-fill"></div>
+      </div>
+    </footer>
+
     <!-- Floating selected-games widget (shared with index.html) -->
     <div id="feature-cart-backdrop" class="feature-cart-backdrop"></div>
     <div id="feature-cart-widget" class="feature-cart-widget">
@@ -126,6 +128,15 @@
         <div class="assistive-panel-header">
           <div style="font-weight: 800;">Game Terpilih</div>
           <button id="feature-cart-close" class="assistive-close" type="button" aria-label="Tutup">&times;</button>
+        </div>
+        <div class="assistive-storage-info">
+          <div class="storage-progress-text">
+            <span id="feature-cart-used">0 GB</span> / <span id="feature-cart-total">455.0 GB</span>
+            &bull; Sisa <span id="feature-cart-remaining" class="text-accent">455.0 GB</span>
+          </div>
+          <div class="storage-progress-track">
+            <div id="feature-cart-progress-fill" class="storage-progress-fill"></div>
+          </div>
         </div>
         <div id="feature-cart-list" class="assistive-list"></div>
         <button type="button" id="feature-cart-copy-btn" class="feature-cart-cta">Copy Teks</button>

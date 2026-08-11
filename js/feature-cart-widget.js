@@ -38,6 +38,10 @@
     const backdrop = document.getElementById('feature-cart-backdrop');
     const copyBtn = document.getElementById('feature-cart-copy-btn');
     const shopeeBtn = document.getElementById('feature-cart-shopee-btn');
+    const usedEl = document.getElementById('feature-cart-used');
+    const totalEl = document.getElementById('feature-cart-total');
+    const remainingEl = document.getElementById('feature-cart-remaining');
+    const progressFillEl = document.getElementById('feature-cart-progress-fill');
 
     // Seller's Shopee shop link, one per storage type — set on the "Lanjut
     // ke Shopee" button after a successful copy, matching whichever storage
@@ -62,11 +66,43 @@
         shopeeBtn.style.display = hasCopied ? 'block' : 'none';
     }
 
+    // Mirrors the storage bar already shown on the page itself, just scoped
+    // to this panel so users can see how full their pick is without closing
+    // the cart to look at the header/footer bar.
+    function syncStorageInfo(state) {
+        if (!usedEl || !totalEl || !remainingEl || !progressFillEl) return;
+        const usedGB = state.selected.reduce((sum, title) => {
+            const game = findGame(title);
+            const sizeStr = game && game.game_info ? game.game_info['Game Size'] : null;
+            return sum + estimatedSizeGB(sizeStr);
+        }, 0);
+        const availableGB = Math.max(0, state.capacityGB - usedGB);
+        const pct = state.capacityGB > 0 ? (usedGB / state.capacityGB) * 100 : 0;
+
+        usedEl.textContent = formatSizeGB(usedGB);
+        totalEl.textContent = formatSizeGB(state.capacityGB);
+        remainingEl.textContent = formatSizeGB(availableGB);
+        progressFillEl.style.width = `${Math.min(100, pct)}%`;
+
+        progressFillEl.classList.remove('threshold-warn', 'threshold-danger');
+        remainingEl.classList.remove('threshold-warn', 'threshold-danger', 'text-accent');
+        if (pct > 100) {
+            progressFillEl.classList.add('threshold-danger');
+            remainingEl.classList.add('threshold-danger');
+        } else if (pct >= 75) {
+            progressFillEl.classList.add('threshold-warn');
+            remainingEl.classList.add('threshold-warn');
+        } else {
+            remainingEl.classList.add('text-accent');
+        }
+    }
+
     function render() {
         if (!widget) return;
         const state = window.FeatureCart.getState();
         countEl.textContent = String(state.selected.length);
         syncShopeeButton(state);
+        syncStorageInfo(state);
 
         if (state.selected.length === 0) {
             listEl.innerHTML = `<div class="assistive-empty">Belum ada game dipilih. Buka detail game lalu tekan "Pilih Game Ini".</div>`;
@@ -282,5 +318,6 @@
         flyToCart,
         openPanel,
         closePanel,
+        showToast,
     };
 })(window);
