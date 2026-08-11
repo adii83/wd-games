@@ -1,5 +1,27 @@
 [
   {
+    "title": "DragonSword : Awakening",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4570720/e329632d57fa570d0771a9c64fec5bb4a61b6e6d/library_capsule.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel i5-9400F",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA Geforce GTX1660",
+      "DirectX": "Version 12",
+      "Storage": "25 GB available space",
+      "Additional Notes": "※ IMPORTANT: An SSD is strictly required for an optimal gameplay experience. Installing the game on an HDD may result in extended loading times, texture pop-in, framerate drops, or unexpected crashes."
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Hound13 Inc.",
+      "Platform": "PC",
+      "Game Size": "18 GB",
+      "Released By": "Steam",
+      "Version": "",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "Crimson Desert",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3321460/0ea942465fd1dff8a7fbc11cc9fca8c476c5e5ae/library_capsule.jpg",
     "system_requirements": null,
