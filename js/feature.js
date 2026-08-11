@@ -95,14 +95,10 @@
     // filtering (search/category) can hide them and clearing the filter
     // can bring back only the ones that were genuinely populated.
     const landingHasContent = { hero: false, featured: false, update: false };
-    // Titles already shown in the "Update Games" strip — excluded from
-    // "Explore Your Collection" while browsing so the same game doesn't
-    // appear twice on the page.
+    // Titles shown in the "Update Games" strip — also shown in "Explore Your
+    // Collection" (not excluded), badged "Baru" there too so it's clear
+    // which ones are the same recently-added games.
     let updateGamesTitles = new Set();
-    // The wider "still recently added" pool (Update Games + a bit more) —
-    // used to badge cards as "Baru" in the main grid too, not just the
-    // Update Games strip.
-    let newGameTitles = new Set();
 
     function parseSizeToGB(sizeVal) {
         if (typeof sizeVal === 'number' && Number.isFinite(sizeVal)) return sizeVal;
@@ -343,14 +339,12 @@
             const heroTitles = new Set(heroGames.map((g) => g.title));
             const featuredGames = newestPool.filter((g) => !heroTitles.has(g.title)).slice(0, 3);
 
-            newGameTitles = new Set(allGames.slice(0, NEWEST_POOL_SIZE).map((g) => g.title));
-
             renderUpdateGamesRow();
             renderGenreFilterOptions();
 
-            // Games already shown in "Update Games" are left out of the
-            // default "Explore Your Collection" view so nothing repeats.
-            filteredGames = allGames.filter((g) => !updateGamesTitles.has(g.title));
+            // Update Games' titles are also shown here, badged "Baru" (see
+            // renderGrid) — not excluded, so the collection stays complete.
+            filteredGames = allGames;
             renderGrid(true);
 
             // Hero + Featured This Week each need a bit of extra per-game
@@ -765,18 +759,14 @@
             // matching games — hide the hero/Featured/Update Games "landing"
             // sections instead of making people scroll past them. Clearing
             // the filter brings back only the sections that actually had
-            // content to begin with. While filtering, Update Games titles
-            // are allowed back into the results (that strip is hidden
-            // anyway, so nothing repeats on screen) so search stays
-            // reliable across the whole catalog instead of hiding matches.
+            // content to begin with.
             const isFiltering = Boolean(q) || Boolean(activeGenre);
 
             filteredGames = allGames.filter((g) => {
                 const matchesSearch = !q || (g.title || '').toLowerCase().includes(q);
                 const matchesGenre = !activeGenre
                     || (activeGenre === PS2_CATEGORY_VALUE ? g._category === 'ps2' : gameGenres(g).includes(activeGenre));
-                const notDuplicatingUpdateGames = isFiltering || !updateGamesTitles.has(g.title);
-                return matchesSearch && matchesGenre && notDuplicatingUpdateGames;
+                return matchesSearch && matchesGenre;
             });
 
             if (sortMode === 'az') {
@@ -822,7 +812,7 @@
 
         const fragment = document.createDocumentFragment();
         chunk.forEach((game, chunkIdx) => {
-            const badge = newGameTitles.has(game.title) ? 'Baru' : undefined;
+            const badge = updateGamesTitles.has(game.title) ? 'Baru' : undefined;
             fragment.appendChild(buildGameCard(game, { animIndex: chunkIdx, badge }));
         });
 
