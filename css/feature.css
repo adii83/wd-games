@@ -105,6 +105,71 @@ body.has-footer-bar .feature-cart-widget {
   color: var(--accent);
 }
 
+/* --- Branded loading screen: covers the page until game metadata is
+   actually fetched and rendered, then fades out. --- */
+.app-loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(0, 210, 255, 0.16), transparent 45%),
+    radial-gradient(circle at 85% 90%, rgba(58, 123, 213, 0.16), transparent 50%),
+    var(--bg-dark);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.app-loading-screen.app-loading-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.app-loading-logo {
+  font-family: var(--font-logo);
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  display: flex;
+  gap: 8px;
+}
+
+.app-loading-logo .logo-wd {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent), 0 0 18px var(--accent);
+}
+
+.app-loading-logo .logo-games {
+  color: var(--text-primary);
+  text-shadow: 0 0 6px var(--text-primary);
+}
+
+.app-loading-spinner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent);
+  border-right-color: var(--accent-secondary);
+  animation: app-loading-spin 0.85s linear infinite;
+}
+
+@keyframes app-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-loading-text {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
 .gallery-search-wrap {
   position: relative;
   flex: 1 1 auto;
@@ -1052,64 +1117,26 @@ body.has-footer-bar .feature-cart-widget {
   right: 0;
   bottom: 0;
   z-index: 20;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  padding: 12px var(--spacing-lg);
+  padding: 10px var(--spacing-lg) 12px;
   background: rgba(23, 25, 32, 0.95);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--border-color);
 }
 
-.storage-footer-icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--bg-card);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.storage-footer-icon img {
-  width: 26px;
-  height: 26px;
-  object-fit: contain;
-}
-
-.storage-footer-info {
-  flex-shrink: 0;
-  min-width: 150px;
-}
-
-.storage-footer-label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.storage-footer-sub {
-  font-size: 0.72rem;
+.storage-footer-text {
+  font-size: 0.8rem;
   color: var(--text-secondary);
+  margin-bottom: 6px;
 }
 
-.storage-footer-progress-wrap {
-  flex: 1;
-  min-width: 120px;
+.storage-footer-text span {
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
-.storage-footer-percent {
-  flex-shrink: 0;
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: #2ecc71;
-  white-space: nowrap;
-}
-
-.storage-footer-percent.threshold-warn { color: #ffb020; }
-.storage-footer-percent.threshold-danger { color: #ff4757; }
+.storage-footer-text span.text-accent { color: var(--accent); }
+.storage-footer-text span.threshold-warn { color: #ffb020; }
+.storage-footer-text span.threshold-danger { color: #ff4757; }
 
 /* Full catalog grid */
 
@@ -1249,8 +1276,35 @@ body.has-footer-bar .feature-cart-widget {
   color: #000;
 }
 
+.card-select-btn-inline {
+  position: static;
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.card-select-btn-inline:hover {
+  border-color: var(--accent);
+}
+
 .gallery-card-footer {
   padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.gallery-card-footer-info {
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .gallery-card-title {
@@ -1958,7 +2012,8 @@ body.has-footer-bar .feature-cart-widget {
   .select-game-btn.selected,
   .gallery-card-img,
   .gallery-card-tags,
-  .featured-side-card {
+  .featured-side-card,
+  .app-loading-spinner {
     animation: none !important;
     transition: none !important;
   }
@@ -2053,9 +2108,6 @@ body.has-footer-bar .feature-cart-widget {
     flex-basis: 100%;
   }
 
-  .storage-footer-sub {
-    display: none;
-  }
   .update-scroll-row .gallery-card {
     flex-basis: 160px;
   }
@@ -2118,10 +2170,6 @@ body.has-footer-bar .feature-cart-widget {
     width: min(300px, 88vw);
   }
   .storage-footer-bar {
-    padding: 10px var(--spacing-md);
-    gap: 8px;
-  }
-  .storage-footer-info {
-    min-width: 0;
+    padding: 8px var(--spacing-md) 10px;
   }
 }

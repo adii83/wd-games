@@ -19,7 +19,6 @@
     const NEWEST_POOL_SIZE = 30;
 
     const STORAGE_TYPE_LABELS = { hdd: 'HDD', ssd: 'SSD', flashdisk: 'Flashdisk' };
-    const STORAGE_TYPE_ICONS = { hdd: 'assets/HDD.webp', ssd: 'assets/SSD.webp', flashdisk: 'assets/FLASHDISK.webp' };
     // Sentinel Kategori value for the PS2 platform filter — kept out of the
     // frequency-ranked genre list so it always shows as its own fixed entry.
     const PS2_CATEGORY_VALUE = '__ps2__';
@@ -28,6 +27,7 @@
 
     const SUGGEST_LIMIT = 6;
 
+    const appLoadingScreen = document.getElementById('app-loading-screen');
     const grid = document.getElementById('gallery-grid');
     const loadMoreBtn = document.getElementById('gallery-load-more');
     const searchInput = document.getElementById('gallery-search');
@@ -57,10 +57,9 @@
     const storageTypeDropdownPanel = document.querySelector('#storage-type-dropdown [data-dropdown-panel]');
     const storageCapacityDropdownPanel = document.getElementById('storage-capacity-dropdown-panel');
     const storageProgressFill = document.getElementById('storage-progress-fill');
-    const storageFooterIconImg = document.getElementById('storage-footer-icon-img');
-    const storageFooterLabel = document.getElementById('storage-footer-label');
-    const storageFooterSub = document.getElementById('storage-footer-sub');
-    const storageFooterPercent = document.getElementById('storage-footer-percent');
+    const storageFooterUsed = document.getElementById('storage-footer-used');
+    const storageFooterTotal = document.getElementById('storage-footer-total');
+    const storageFooterRemaining = document.getElementById('storage-footer-remaining');
 
     const genreDropdown = window.FilterDropdown.create(document.getElementById('genre-dropdown'));
     const storageTypeDropdown = window.FilterDropdown.create(document.getElementById('storage-type-dropdown'));
@@ -222,7 +221,19 @@
         `).join('');
     }
 
+    // Reveals the gallery and fades out the branded loading screen. Called
+    // once loadGames() finishes (success or failure) so the screen never
+    // masks an error state forever.
+    function hideAppLoadingScreen() {
+        if (!appLoadingScreen) return;
+        appLoadingScreen.classList.add('app-loading-hidden');
+        appLoadingScreen.addEventListener('transitionend', () => {
+            appLoadingScreen.remove();
+        }, { once: true });
+    }
+
     async function loadGames() {
+        const startedAt = Date.now();
         renderSkeleton();
         try {
             const [gamesRes, ps2Res, gameplayRes, sizeConfigRes] = await Promise.all([
@@ -270,6 +281,16 @@
         } catch (err) {
             grid.innerHTML = `<div class="gallery-empty">Gagal memuat data game. Coba refresh halaman.</div>`;
             console.error(err);
+        } finally {
+            if (document.fonts && document.fonts.ready) {
+                await document.fonts.ready.catch(() => {});
+            }
+            const MIN_LOADING_MS = 500;
+            const elapsed = Date.now() - startedAt;
+            if (elapsed < MIN_LOADING_MS) {
+                await new Promise((resolve) => setTimeout(resolve, MIN_LOADING_MS - elapsed));
+            }
+            hideAppLoadingScreen();
         }
     }
 
@@ -281,7 +302,6 @@
         const sizeLabel = formatSizeGB(estimatedSizeGB(sizeStr));
         const gp = gameplayData[game.title];
         const isSelected = window.FeatureCart.isSelected(game.title);
-        const secondShot = gp && Array.isArray(gp.screenshots) ? gp.screenshots[1] : null;
         const tags = gp && Array.isArray(gp.genres) ? gp.genres.slice(0, 2) : [];
 
         const card = document.createElement('a');
@@ -289,7 +309,6 @@
         card.href = gameHref(game);
         card.setAttribute('data-title', game.title);
         if (Number.isFinite(options.animIndex)) card.style.setProperty('--i', Math.min(options.animIndex, 14));
-        if (secondShot) card.setAttribute('data-hover-preview', secondShot);
 
         const displayTitle = cleanDisplayTitle(game.title);
         card.innerHTML = `
@@ -302,8 +321,11 @@
                 ${tags.length ? `<div class="gallery-card-tags">${tags.map((t) => `<span>${t}</span>`).join('')}</div>` : ''}
             </div>
             <div class="gallery-card-footer">
-                <div class="gallery-card-title">${displayTitle}</div>
-                <div class="gallery-card-size">${sizeLabel}</div>
+                <div class="gallery-card-footer-info">
+                    <div class="gallery-card-title">${displayTitle}</div>
+                    <div class="gallery-card-size">${sizeLabel}</div>
+                </div>
+                <button class="card-select-btn card-select-btn-inline${isSelected ? ' selected' : ''}" data-select-title="${game.title}" type="button">Pilih</button>
             </div>
         `;
         return card;
@@ -565,52 +587,14 @@
 
             const title = btn.getAttribute('data-select-title');
             const selected = window.FeatureCart.toggle(title);
-            btn.classList.toggle('selected', selected);
             const card = btn.closest('.gallery-card');
-            if (card) card.classList.toggle('selected', selected);
-            if (selected) window.FeatureCartWidget.flyToCart(btn);
-        });
-    }
-
-    // --- Sustained-hover preview swap (grid cards) ---
-    // Event-delegated (one listener per container, not per card) so it stays
-    // cheap even with dozens of cards on screen. Only fires on real hover
-    // (desktop) — harmless no-op on touch devices, which never see mouseover.
-
-    function attachHoverPreview(container) {
-        let hoverTimer = null;
-
-        container.addEventListener('mouseover', (e) => {
-            const card = e.target.closest('[data-hover-preview]');
-            if (!card || card.classList.contains('previewing')) return;
-            clearTimeout(hoverTimer);
-            hoverTimer = setTimeout(() => {
-                const img = card.querySelector('img');
-                if (!img) return;
-                img.dataset.originalSrc = img.dataset.originalSrc || img.src;
-                card.classList.add('previewing');
-                img.style.opacity = '0';
-                setTimeout(() => {
-                    img.src = card.getAttribute('data-hover-preview');
-                    img.style.opacity = '1';
-                }, 150);
-            }, 600);
-        });
-
-        container.addEventListener('mouseout', (e) => {
-            const card = e.target.closest('[data-hover-preview]');
-            if (!card || card.contains(e.relatedTarget)) return;
-            clearTimeout(hoverTimer);
-            if (!card.classList.contains('previewing')) return;
-            const img = card.querySelector('img');
-            card.classList.remove('previewing');
-            if (img && img.dataset.originalSrc) {
-                img.style.opacity = '0';
-                setTimeout(() => {
-                    img.src = img.dataset.originalSrc;
-                    img.style.opacity = '1';
-                }, 150);
+            if (card) {
+                card.classList.toggle('selected', selected);
+                card.querySelectorAll('.card-select-btn').forEach((b) => b.classList.toggle('selected', selected));
+            } else {
+                btn.classList.toggle('selected', selected);
             }
+            if (selected) window.FeatureCartWidget.flyToCart(btn);
         });
     }
 
@@ -881,18 +865,14 @@
         storageProgressFill.style.width = `${Math.min(100, pct)}%`;
         applyStorageThreshold(pct);
 
-        const typeLabel = STORAGE_TYPE_LABELS[state.storageType] || state.storageType.toUpperCase();
-        const capacityLabel = capacityLabelFor(state.capacityGB);
         const availableGB = Math.max(0, state.capacityGB - usedGB);
-        const availablePct = Math.max(0, Math.min(100, 100 - pct));
-
-        storageFooterIconImg.src = STORAGE_TYPE_ICONS[state.storageType] || STORAGE_TYPE_ICONS.hdd;
-        storageFooterLabel.textContent = `${typeLabel} ${capacityLabel}`;
-        storageFooterSub.textContent = `Sisa ${formatSizeGB(availableGB)}`;
-        storageFooterPercent.textContent = `${Math.round(availablePct)}% Tersedia`;
-        storageFooterPercent.classList.remove('threshold-warn', 'threshold-danger');
-        if (pct > 100) storageFooterPercent.classList.add('threshold-danger');
-        else if (pct >= 75) storageFooterPercent.classList.add('threshold-warn');
+        storageFooterUsed.textContent = formatSizeGB(usedGB);
+        storageFooterTotal.textContent = formatSizeGB(state.capacityGB);
+        storageFooterRemaining.textContent = formatSizeGB(availableGB);
+        storageFooterRemaining.classList.remove('threshold-warn', 'threshold-danger', 'text-accent');
+        if (pct > 100) storageFooterRemaining.classList.add('threshold-danger');
+        else if (pct >= 75) storageFooterRemaining.classList.add('threshold-warn');
+        else storageFooterRemaining.classList.add('text-accent');
     }
 
     function applyStorageThreshold(pct) {
@@ -937,8 +917,6 @@
 
     window.FeatureCart.onChange(updateStorageUI);
 
-    attachHoverPreview(grid);
-    attachHoverPreview(updateScrollRow);
     attachCardSelect(grid);
     attachCardSelect(updateScrollRow);
     attachCardSelect(featuredWeekGrid);

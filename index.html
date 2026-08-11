@@ -14,6 +14,14 @@
     <link href="css/feature.css" rel="stylesheet" />
   </head>
   <body class="has-footer-bar">
+    <div id="app-loading-screen" class="app-loading-screen" role="alert" aria-live="polite" aria-label="Memuat WD Games">
+      <div class="app-loading-logo">
+        <span class="logo-wd">WD</span> <span class="logo-games">Games</span>
+      </div>
+      <div class="app-loading-spinner" aria-hidden="true"></div>
+      <p class="app-loading-text">Menyiapkan katalog game...</p>
+    </div>
+
     <!-- Header -->
     <header class="gallery-header">
       <div class="gallery-header-inner">
@@ -133,19 +141,13 @@
 
     <!-- Bottom storage footer bar -->
     <footer class="storage-footer-bar" id="storage-footer-bar">
-      <div class="storage-footer-icon">
-        <img id="storage-footer-icon-img" src="assets/HDD.webp" alt="" />
+      <div class="storage-footer-text">
+        <span id="storage-footer-used">0 GB</span> / <span id="storage-footer-total">455.0 GB</span>
+        &bull; Sisa <span id="storage-footer-remaining" class="text-accent">455.0 GB</span>
       </div>
-      <div class="storage-footer-info">
-        <div class="storage-footer-label" id="storage-footer-label">HDD 1 TB</div>
-        <div class="storage-footer-sub" id="storage-footer-sub">Sisa 0 GB</div>
+      <div class="storage-progress-track">
+        <div id="storage-progress-fill" class="storage-progress-fill"></div>
       </div>
-      <div class="storage-footer-progress-wrap">
-        <div class="storage-progress-track">
-          <div id="storage-progress-fill" class="storage-progress-fill"></div>
-        </div>
-      </div>
-      <div class="storage-footer-percent" id="storage-footer-percent">100% Tersedia</div>
     </footer>
 
     <!-- Trailer modal (hero "Tonton Trailer") -->
