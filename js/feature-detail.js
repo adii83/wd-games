@@ -375,18 +375,26 @@
             document.querySelector('.order-card').insertBefore(factsEl, document.getElementById('select-game-btn'));
         }
 
-        const selectBtn = document.getElementById('select-game-btn');
-        function syncSelectBtn() {
+        // Two buttons share this game's selection state: the sidebar one
+        // (sticky on desktop, so always in view there) and a mobile-only
+        // copy near the top, since the sidebar stacks to the bottom of the
+        // page on mobile instead of staying sticky.
+        const selectBtns = [document.getElementById('select-game-btn'), document.getElementById('select-game-btn-top')].filter(Boolean);
+        function syncSelectBtns() {
             const selected = window.FeatureCart.isSelected(game.title);
-            selectBtn.classList.toggle('selected', selected);
-            selectBtn.textContent = selected ? 'Game Terpilih ✓' : 'Pilih Game Ini';
+            selectBtns.forEach((btn) => {
+                btn.classList.toggle('selected', selected);
+                btn.textContent = selected ? 'Game Terpilih ✓' : 'Pilih Game Ini';
+            });
         }
-        selectBtn.addEventListener('click', () => {
-            const nowSelected = window.FeatureCart.toggle(game.title);
-            syncSelectBtn();
-            if (nowSelected) window.FeatureCartWidget.flyToCart(selectBtn);
+        selectBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const nowSelected = window.FeatureCart.toggle(game.title);
+                syncSelectBtns();
+                if (nowSelected) window.FeatureCartWidget.flyToCart(btn);
+            });
         });
-        syncSelectBtn();
+        syncSelectBtns();
     }
 
     // --- Storage picker (shared with index.html) ---
@@ -469,12 +477,13 @@
         });
         window.FeatureCart.onChange(() => {
             updateStorageUI();
-            const selectBtn = document.getElementById('select-game-btn');
-            if (selectBtn && currentGame) {
-                const selected = window.FeatureCart.isSelected(currentGame.title);
-                selectBtn.classList.toggle('selected', selected);
-                selectBtn.textContent = selected ? 'Game Terpilih ✓' : 'Pilih Game Ini';
-            }
+            if (!currentGame) return;
+            const selected = window.FeatureCart.isSelected(currentGame.title);
+            [document.getElementById('select-game-btn'), document.getElementById('select-game-btn-top')].forEach((btn) => {
+                if (!btn) return;
+                btn.classList.toggle('selected', selected);
+                btn.textContent = selected ? 'Game Terpilih ✓' : 'Pilih Game Ini';
+            });
         });
 
         window.FeatureCartWidget.init({

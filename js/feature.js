@@ -25,7 +25,7 @@
 
     const SELECT_ICON_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
-    const SUGGEST_LIMIT = 6;
+    const SUGGEST_LIMIT = 3;
 
     const appLoadingScreen = document.getElementById('app-loading-screen');
     const grid = document.getElementById('gallery-grid');
@@ -782,13 +782,15 @@
         const shown = matches.slice(0, SUGGEST_LIMIT);
         const itemsHtml = shown.map((game) => {
             const sizeLabel = formatSizeGB(estimatedSizeGB(game.game_info ? game.game_info['Game Size'] : null));
+            const isSelected = window.FeatureCart.isSelected(game.title);
             return `
-                <a class="search-suggest-item" href="${gameHref(game)}">
+                <a class="search-suggest-item" href="${gameHref(game)}" data-title="${game.title}">
                     <img class="search-suggest-thumb" src="${game.banner_url || 'assets/logo.png'}" alt="" loading="lazy">
                     <div class="search-suggest-info">
                         <div class="search-suggest-title">${highlightMatch(cleanDisplayTitle(game.title), q)}</div>
                         <div class="search-suggest-size">${sizeLabel}</div>
                     </div>
+                    <button class="card-select-btn card-select-btn-inline${isSelected ? ' selected' : ''}" data-select-title="${game.title}" type="button">Pilih</button>
                 </a>
             `;
         }).join('');
@@ -985,6 +987,7 @@
     attachCardSelect(grid);
     attachCardSelect(updateScrollRow);
     attachCardSelect(featuredWeekGrid);
+    attachCardSelect(searchSuggestPanel);
     populateCapacityOptions();
     syncStoragePickerFromState();
     updateStorageUI();
