@@ -276,9 +276,14 @@
         const startedAt = Date.now();
         renderSkeleton();
         try {
+            // Lean listings (title/banner_url/Genre/Game Size only) — the
+            // gallery never needs system_requirements or the rest of
+            // game_info, so it fetches these instead of the full catalogs
+            // (see split_catalog_data.py). game.html fetches the full
+            // per-game entry separately, on demand.
             const [gamesRes, ps2Res, sizeConfigRes] = await Promise.all([
-                fetch('steamrip_games_updated.json'),
-                fetch('ps2.json').catch(() => null),
+                fetch('steamrip_games_updated.lite.json'),
+                fetch('ps2.lite.json').catch(() => null),
                 fetch('size_config.json').catch(() => null),
             ]);
             if (!gamesRes.ok) throw new Error('Gagal memuat data game');
@@ -513,6 +518,14 @@
         // slide and its thumbnail, so a game doesn't show two different
         // screenshots in the same carousel. Randomized per game so the same
         // game shows different gameplay art across refreshes.
+        //
+        // These are full 1920x1080 Steam screenshots (300KB-1MB each) — not
+        // lazy-loadable via CSS background-image the way <img loading=lazy>
+        // is, so applying all of them up front would fetch every slide's
+        // image immediately regardless of whether the carousel ever reaches
+        // it. Instead the HTML below leaves background-image unset and
+        // applyHeroBg() (below) fills it in only for the active slide plus
+        // one ahead, applying more as the carousel actually rotates there.
         const backgrounds = games.map((game) => randomBackgroundFor(game, gpMap[game.title]));
 
         heroSlidesEl.innerHTML = games.map((game, i) => {
@@ -525,7 +538,7 @@
 
             return `
                 <div class="hero-slide">
-                    <div class="hero-slide-bg" style="background-image: url('${backgrounds[i]}')"></div>
+                    <div class="hero-slide-bg"></div>
                     <div class="hero-slide-overlay">
                         <div class="hero-slide-tags">${tags.slice(0, 3).map((t) => `<span>${t}</span>`).join('')}</div>
                         <h2 class="hero-slide-title">${cleanDisplayTitle(game.title)}</h2>
@@ -554,7 +567,7 @@
         heroThumbsEl.innerHTML = games.map((game, i) => {
             const displayTitle = cleanDisplayTitle(game.title);
             return `
-                <button class="hero-thumb" data-idx="${i}" style="background-image: url('${backgrounds[i]}')" aria-label="${displayTitle}">
+                <button class="hero-thumb" data-idx="${i}" aria-label="${displayTitle}">
                     <span class="hero-thumb-label">
                         <span class="hero-thumb-num">${String(i + 1).padStart(2, '0')}</span>
                         <span class="hero-thumb-title">${displayTitle}</span>
@@ -564,9 +577,24 @@
         }).join('');
 
         const slideEls = heroSlidesEl.querySelectorAll('.hero-slide');
+        const thumbEls = heroThumbsEl.querySelectorAll('.hero-thumb');
+        const loadedBg = new Set();
+
+        function applyHeroBg(idx) {
+            if (loadedBg.has(idx)) return;
+            loadedBg.add(idx);
+            const url = backgrounds[idx];
+            const slideBg = slideEls[idx] && slideEls[idx].querySelector('.hero-slide-bg');
+            if (slideBg) slideBg.style.backgroundImage = `url('${url}')`;
+            if (thumbEls[idx]) thumbEls[idx].style.backgroundImage = `url('${url}')`;
+        }
 
         function goTo(idx) {
             heroIndex = (idx + games.length) % games.length;
+            applyHeroBg(heroIndex);
+            // Preload the next slide's image now so it's already cached by
+            // the time auto-rotate or a manual "next" click reaches it.
+            applyHeroBg((heroIndex + 1) % games.length);
             heroSlidesEl.style.transform = `translateX(-${heroIndex * 100}%)`;
             heroThumbsEl.querySelectorAll('.hero-thumb').forEach((t, i) => t.classList.toggle('active', i === heroIndex));
             slideEls.forEach((s, i) => s.classList.toggle('active', i === heroIndex));

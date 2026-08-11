@@ -113,20 +113,38 @@
     async function loadGame() {
         const params = new URLSearchParams(window.location.search);
         const wantedTitle = params.get('t');
-        const wantedCategory = params.get('c'); // 'ps2' when linked from a PS2 card
+        // gameHref() in js/feature.js only ever appends &c=ps2 for PS2 titles
+        // and omits c= entirely for PC ones, so absence of the param means
+        // "pc" — matches the old array-search fallback, which always found
+        // the PC entry first for a category-less link.
+        const wantedCategory = params.get('c') || 'pc';
         if (!wantedTitle) return renderNotFound();
 
-        let games;
-        let ps2Games = [];
+        let base;
         try {
-            const [gamesRes, ps2Res, sizeConfigRes] = await Promise.all([
-                fetch('steamrip_games_updated.json'),
-                fetch('ps2.json').catch(() => null),
+            // Lite listings (title/banner_url/Genre/Game Size only) power
+            // the floating cart widget's lookup for OTHER selected games —
+            // it needs to show/size every item in the cart, not just the
+            // one game this page is displaying. The current game's own
+            // full detail (system_requirements etc.) comes from its own
+            // small catalog/<hash>.json, fetched alongside it, instead of
+            // searching either full 3MB+/1.6MB+ catalog for one entry.
+            const [liteRes, ps2LiteRes, catalogRes, sizeConfigRes] = await Promise.all([
+                fetch('steamrip_games_updated.lite.json'),
+                fetch('ps2.lite.json').catch(() => null),
+                fetch(`catalog/${fnv1aHash(`${wantedCategory}:${wantedTitle}`)}.json`),
                 fetch('size_config.json').catch(() => null),
             ]);
-            if (!gamesRes.ok) throw new Error('Gagal memuat data game');
-            games = await gamesRes.json();
-            ps2Games = ps2Res && ps2Res.ok ? await ps2Res.json() : [];
+            if (!liteRes.ok) throw new Error('Gagal memuat data game');
+            const liteData = await liteRes.json();
+            const ps2LiteData = ps2LiteRes && ps2LiteRes.ok ? await ps2LiteRes.json() : [];
+            const pcGames = (Array.isArray(liteData) ? liteData : []).map((g) => ({ ...g, _category: 'pc' }));
+            const ps2Games = (Array.isArray(ps2LiteData) ? ps2LiteData : []).map((g) => ({ ...g, _category: 'ps2' }));
+            allGames = [...pcGames, ...ps2Games];
+
+            if (!catalogRes.ok) return renderNotFound();
+            base = await catalogRes.json();
+            base._category = wantedCategory;
 
             if (sizeConfigRes && sizeConfigRes.ok) {
                 const sizeConfig = await sizeConfigRes.json();
@@ -137,17 +155,6 @@
             console.error(err);
             return renderNotFound();
         }
-
-        const pcGames = (Array.isArray(games) ? games : []).map((g) => ({ ...g, _category: 'pc' }));
-        const ps2Tagged = (Array.isArray(ps2Games) ? ps2Games : []).map((g) => ({ ...g, _category: 'ps2' }));
-        allGames = [...pcGames, ...ps2Tagged];
-
-        // A handful of titles exist on both PC and PS2 (e.g. "Half-Life") —
-        // prefer the platform the link came from when we know it.
-        const base = wantedCategory
-            ? allGames.find((g) => g.title === wantedTitle && g._category === wantedCategory)
-            : allGames.find((g) => g.title === wantedTitle);
-        if (!base) return renderNotFound();
 
         const gp = await fetchGameplayEntry(base);
         const game = { ...base, ...(gp || {}) };
