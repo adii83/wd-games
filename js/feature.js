@@ -715,6 +715,48 @@
             if (!prefersReducedMotion) restartHeroTimer();
         });
 
+        // Touch-swipe navigation — the mobile layout hides the nav arrows
+        // and thumbnail rail (see css/feature.css) and relies entirely on
+        // dragging the slide itself instead.
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchDeltaX = 0;
+        let isSwiping = false;
+        const heroCarouselEl = document.getElementById('hero-carousel');
+
+        heroCarouselEl.addEventListener('touchstart', (e) => {
+            const t = e.touches[0];
+            touchStartX = t.clientX;
+            touchStartY = t.clientY;
+            touchDeltaX = 0;
+            isSwiping = false;
+            clearInterval(heroTimer);
+        }, { passive: true });
+
+        heroCarouselEl.addEventListener('touchmove', (e) => {
+            const t = e.touches[0];
+            const dx = t.clientX - touchStartX;
+            const dy = t.clientY - touchStartY;
+            if (!isSwiping && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+                isSwiping = true;
+            }
+            if (isSwiping) {
+                touchDeltaX = dx;
+                // Only a confirmed horizontal swipe hijacks the gesture —
+                // this keeps vertical page scrolling untouched otherwise.
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        heroCarouselEl.addEventListener('touchend', () => {
+            if (isSwiping && Math.abs(touchDeltaX) > 40) {
+                goTo(touchDeltaX < 0 ? heroIndex + 1 : heroIndex - 1);
+            }
+            isSwiping = false;
+            touchDeltaX = 0;
+            if (!prefersReducedMotion) restartHeroTimer();
+        });
+
         goTo(0);
         if (!prefersReducedMotion) restartHeroTimer();
     }

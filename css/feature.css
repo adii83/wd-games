@@ -2253,23 +2253,13 @@ body.landing-active .search-fab {
     -webkit-line-clamp: 2;
   }
   .hero-thumbs {
-    /* Title/desc/buttons stack and claim the bottom on a short mobile
-       hero, so the rail moves to the top edge instead of bottom-right —
-       clear of the text, full width, swipeable with a finger. */
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-    left: var(--spacing-sm);
-    bottom: auto;
-    max-width: none;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
+    /* No thumbnail rail on mobile — the slide itself is swipeable (see
+       the touch handlers in js/feature.js), so a separate picker row
+       would just be redundant chrome on a short hero. */
+    display: none;
   }
-  .hero-thumb {
-    flex: 0 0 62px;
-    height: 40px;
-    scroll-snap-align: start;
-  }
-  .hero-thumb-label {
+  .hero-nav {
+    /* Arrows are replaced by direct touch-swipe on mobile. */
     display: none;
   }
 
