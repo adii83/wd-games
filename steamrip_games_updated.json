@@ -1,5 +1,27 @@
 [
   {
+    "title": "The First Berserker: Khazan",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2680010/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64bit 22H2",
+      "Processor": "Intel Core i3-6300 or AMD Ryzen 3 1200",
+      "Memory": "12 GB RAM",
+      "Graphics": "GeForce GTX 970 or Radeon RX 580 or Arc A580",
+      "DirectX": "Version 11",
+      "Storage": "70 GB available space",
+      "Additional Notes": "Requires SSD, 1080p resolution 30fps with low graphics options"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Neople",
+      "Platform": "PC",
+      "Game Size": "23 GB",
+      "Released By": "Steam",
+      "Version": "",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "DragonSword : Awakening",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4570720/e329632d57fa570d0771a9c64fec5bb4a61b6e6d/library_capsule.jpg",
     "system_requirements": {
