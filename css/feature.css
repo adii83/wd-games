@@ -690,8 +690,8 @@ body.landing-active .search-fab {
   flex-direction: column;
   justify-content: flex-end;
   padding: var(--spacing-lg) 30% var(--spacing-lg) var(--spacing-lg);
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.55) 45%, transparent 85%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.05) 60%, transparent 100%);
+  /* No darkening backdrop over the artwork — legibility for the title/desc
+     comes entirely from their own text-shadow below instead. */
 }
 
 .hero-slide-tags {
@@ -701,7 +701,7 @@ body.landing-active .search-fab {
 }
 
 .hero-slide-tags span {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
   padding: 3px 10px;
   border-radius: var(--radius-pill);
@@ -715,7 +715,9 @@ body.landing-active .search-fab {
   font-size: 2.4rem;
   font-weight: 400;
   letter-spacing: 0.5px;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
+  /* Layered halo instead of a full-bleed overlay — keeps the artwork bright
+     while still reading clearly over any background. */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 4px 20px rgba(0, 0, 0, 0.85), 0 0 44px rgba(0, 0, 0, 0.7);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -727,8 +729,8 @@ body.landing-active .search-fab {
   max-width: 480px;
   font-size: 0.88rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.82);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95), 0 3px 14px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 0, 0, 0.65);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -2251,9 +2253,23 @@ body.landing-active .search-fab {
     -webkit-line-clamp: 2;
   }
   .hero-thumbs {
-    /* No room for a thumbnail rail once title/desc/buttons are stacked in
-       a short mobile hero — arrows (always visible on touch, see the
-       hover:none rule above) are the manual nav here instead. */
+    /* Title/desc/buttons stack and claim the bottom on a short mobile
+       hero, so the rail moves to the top edge instead of bottom-right —
+       clear of the text, full width, swipeable with a finger. */
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    left: var(--spacing-sm);
+    bottom: auto;
+    max-width: none;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hero-thumb {
+    flex: 0 0 62px;
+    height: 40px;
+    scroll-snap-align: start;
+  }
+  .hero-thumb-label {
     display: none;
   }
 
