@@ -1074,6 +1074,23 @@
         else if (pct >= 75) storageProgressFill.classList.add('threshold-warn');
     }
 
+    // Card/select-button "selected" state is baked into the HTML string at
+    // render time (buildGameCard, Featured This Week) rather than read live
+    // — fine for clicks made right here, since attachCardSelect() also
+    // toggles the class directly, but it means a selection made elsewhere
+    // (game.html, another tab, or a bfcache-restored back navigation) never
+    // reaches already-rendered cards. Re-run this on every cart change to
+    // keep them honest.
+    function syncSelectionUI() {
+        document.querySelectorAll('[data-select-title]').forEach((btn) => {
+            const selected = window.FeatureCart.isSelected(btn.getAttribute('data-select-title'));
+            btn.classList.toggle('selected', selected);
+        });
+        document.querySelectorAll('.gallery-card[data-title], .featured-main-card[data-title]').forEach((card) => {
+            card.classList.toggle('selected', window.FeatureCart.isSelected(card.getAttribute('data-title')));
+        });
+    }
+
     // Removes any already-selected games that are no longer allowed once
     // Flashdisk (PS2-only) becomes the active storage type — otherwise a PC
     // game picked earlier under HDD/SSD would silently ride along in the
@@ -1133,6 +1150,7 @@
     });
 
     window.FeatureCart.onChange(updateStorageUI);
+    window.FeatureCart.onChange(syncSelectionUI);
 
     // --- Floating search button (shows once the user has scrolled down a
     // bit, since the header stays sticky but its search field can still be

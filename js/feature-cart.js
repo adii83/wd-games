@@ -82,6 +82,20 @@
         }
     });
 
+    // Browser back/forward often restores a page from bfcache instead of
+    // reloading it — scripts don't re-run, so `state` stays frozen at
+    // whatever it was before the user navigated away. That's what made a
+    // selection made on game.html disappear when going back to index.html
+    // via the browser's own back button (as opposed to an in-app link,
+    // which triggers a real navigation/reload). Re-reading localStorage on
+    // a bfcache restore closes that gap.
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) {
+            state = load();
+            listeners.forEach((cb) => cb(state));
+        }
+    });
+
     window.FeatureCart = {
         STORAGE_PRESETS,
 
