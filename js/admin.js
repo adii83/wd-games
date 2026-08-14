@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('admin-search');
     const saveGithubBtn = document.getElementById('save-github-btn');
     const addGameBtn = document.getElementById('add-game-btn');
+    const pendingFilterBtn = document.getElementById('pending-filter-btn');
+    const pendingCountEl = document.getElementById('pending-count');
 
     // DOM Elements - Modal Form
     const gameModal = document.getElementById('game-modal');
@@ -47,6 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let sizeConfigSha = '';
     let gamesData = [];
     let displayedGamesData = [];
+    // "Recently Added" (steamrip.com scrape) entries land with
+    // pending_review: true and sit at the END of gamesData — see
+    // scrape_steamrip_recent.py — so they don't show up in the site's
+    // hero/Featured/Update Games until an admin explicitly promotes them.
+    // This toggle filters the table down to just those for review.
+    let pendingOnlyFilter = false;
     
     // Pagination Variables
     let currentPage = 1;
@@ -285,8 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
             repoInfo.innerText = `Connected: ${ghConfig.owner}/${ghConfig.repo} | Branch: ${ghConfig.branch}`;
             loginContainer.style.display = 'none';
             dashboardContainer.style.display = 'block';
-            
-            renderAdminTable();
+
+            displayedGamesData = gamesData;
+            applyAdminFilters();
         }
 
         loginBtn.innerHTML = "Connect & Load Database";
@@ -366,15 +375,17 @@ document.addEventListener('DOMContentLoaded', () => {
         pageData.forEach((game) => {
             const originalIndex = gamesData.indexOf(game);
             const sizeStr = game.game_info && game.game_info['Game Size'] ? game.game_info['Game Size'] : 'N/A';
+            const isPending = Boolean(game.pending_review);
             const tr = document.createElement('tr');
-            
+
             tr.innerHTML = `
                 <td>${originalIndex + 1}</td>
-                <td style="font-weight:600;">${game.title}</td>
+                <td style="font-weight:600;">${game.title}${isPending ? ' <span style="display:inline-block; padding:2px 8px; border-radius:999px; font-size:0.7rem; font-weight:700; background:rgba(255,165,2,0.15); color:#ffa502; border:1px solid #ffa502; vertical-align:middle;">Recently Added</span>' : ''}</td>
                 <td><img src="${game.banner_url}" class="game-thumb" onerror="this.src='https://via.placeholder.com/60x80?text=No+Img'"></td>
                 <td class="text-accent">${sizeStr}</td>
                 <td>
                     <div class="action-btns">
+                        ${isPending ? `<button class="action-btn btn-promote" data-index="${originalIndex}" style="background:rgba(255,165,2,0.2); color:#ffa502; border:1px solid #ffa502;">Promosikan</button>` : ''}
                         <button class="action-btn btn-edit" data-index="${originalIndex}">Edit</button>
                         <button class="action-btn btn-del" data-index="${originalIndex}">Hapus</button>
                     </div>
@@ -391,12 +402,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.btn-del').forEach(btn => {
             btn.replaceWith(btn.cloneNode(true));
         });
+        document.querySelectorAll('.btn-promote').forEach(btn => {
+            btn.replaceWith(btn.cloneNode(true));
+        });
 
         document.querySelectorAll('.btn-edit').forEach(btn => {
             btn.addEventListener('click', (e) => openGameModal(parseInt(e.target.getAttribute('data-index'))));
         });
         document.querySelectorAll('.btn-del').forEach(btn => {
             btn.addEventListener('click', (e) => deleteGame(parseInt(e.target.getAttribute('data-index'))));
+        });
+        document.querySelectorAll('.btn-promote').forEach(btn => {
+            btn.addEventListener('click', (e) => promoteGame(parseInt(e.target.getAttribute('data-index'))));
         });
 
         // Handle Load More visibility
@@ -413,24 +430,62 @@ document.addEventListener('DOMContentLoaded', () => {
         renderAdminTable(true);
     });
 
-    // --- Search ---
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase();
-        if (query.trim() === '') {
-            displayedGamesData = gamesData;
-        } else {
-            displayedGamesData = gamesData.filter(g => g.title.toLowerCase().includes(query));
+    // --- Search + Recently Added filter ---
+    function updatePendingCount() {
+        if (pendingCountEl) {
+            pendingCountEl.textContent = gamesData.filter(g => g && g.pending_review).length;
         }
+    }
+
+    function applyAdminFilters() {
+        const query = searchInput.value.trim().toLowerCase();
+        displayedGamesData = gamesData.filter(g => {
+            if (pendingOnlyFilter && !g.pending_review) return false;
+            if (query && !g.title.toLowerCase().includes(query)) return false;
+            return true;
+        });
+        updatePendingCount();
         renderAdminTable();
-    });
+    }
+
+    searchInput.addEventListener('input', applyAdminFilters);
+
+    if (pendingFilterBtn) {
+        pendingFilterBtn.addEventListener('click', () => {
+            pendingOnlyFilter = !pendingOnlyFilter;
+            pendingFilterBtn.style.background = pendingOnlyFilter ? '#ffa502' : 'rgba(255, 165, 2, 0.08)';
+            pendingFilterBtn.style.color = pendingOnlyFilter ? '#000' : '#ffa502';
+            applyAdminFilters();
+        });
+    }
 
     // --- CRUD Logic ---
     function deleteGame(index) {
         if (confirm(`Peringatan: Apakah Anda yakin ingin menghapus game "${gamesData[index].title}" secara LOKAL? (Klik "Simpan ke GitHub" untuk menerapkan ke server)`)) {
             gamesData.splice(index, 1);
-            searchInput.dispatchEvent(new Event('input'));
+            applyAdminFilters();
             showToast("Game dihapus secara lokal.", "success");
         }
+    }
+
+    // Moves a "Recently Added" (pending_review) game to the front of
+    // gamesData and clears the flag — same slot admin.js's own "+ Tambah
+    // Game" flow uses (gamesData.unshift below), so it becomes eligible
+    // for the hero/Featured This Week/Update Games sections the next time
+    // the site loads (see NEWEST_POOL_SIZE in js/feature.js). Promoting
+    // multiple entries controls their relative order: whichever is
+    // promoted last ends up at the very front.
+    function promoteGame(index) {
+        const game = gamesData[index];
+        if (!game) return;
+        if (!confirm(`Promosikan "${game.title}" ke urutan paling atas? Game ini akan berpeluang muncul di Hero/Featured This Week/Update Games.`)) return;
+
+        gamesData.splice(index, 1);
+        delete game.pending_review;
+        gamesData.unshift(game);
+
+        applyAdminFilters();
+        showToast(`"${game.title}" dipromosikan ke urutan teratas.`, "success");
     }
 
     function openGameModal(index = -1) {
@@ -521,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         closeModal();
-        searchInput.dispatchEvent(new Event('input')); 
+        applyAdminFilters();
     });
 
     addGameBtn.addEventListener('click', () => openGameModal(-1));
