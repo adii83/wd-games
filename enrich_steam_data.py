@@ -24,6 +24,15 @@ import urllib.error
 import urllib.parse
 from difflib import SequenceMatcher
 
+# Windows terminals default to a codepage (cp1252) that can't display every
+# character some game titles contain (CJK, emoji, smart quotes, etc.) —
+# without this, printing them crashes the script after the actual
+# progress/matching work is already done and checkpointed. Harmless either
+# way on GitHub Actions' Ubuntu runner (UTF-8 by default), but this keeps
+# local runs from crashing too (see split_catalog_data.py for the same fix).
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 DATA_FILE = "steamrip_games_updated.json"
 STATE_FILE = "steam_enrich_progress.json"
 OUTPUT_FILE = "steamrip_games_gameplay.json"
