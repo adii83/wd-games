@@ -305,20 +305,53 @@ def select_best_grid(grids):
     return grids[0].get("url")
 
 
+def steamgriddb_autocomplete(title: str):
+    try:
+        payload = fetch_json(
+            f"{STEAM_API_BASE}/search/autocomplete/{quote(title)}",
+            headers={"Authorization": f"Bearer {STEAMGRIDDB_API_KEY}"},
+        )
+        if payload.get("success") and payload.get("data"):
+            return payload["data"]
+        return []
+    except Exception:
+        return []
+
+
 def get_steam_banner(title: str):
+    # Every fallback here is verified/selected to be portrait (2:3-ish) art
+    # to match the site's card layout. Steam storesearch's own "tiny_image"
+    # field (231x87 landscape) used to be the last resort here, but a wrong
+    # aspect ratio is worse than no banner at all, so it's not used anymore
+    # (see admin.html's "Recently Added" review flow for filling these in
+    # by hand instead).
     item = search_steam_store(title)
-    if not item:
-        return ""
-    appid = item["id"]
-    cdn_url = f"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/{appid}/library_600x900.jpg"
-    if url_exists(cdn_url):
-        return cdn_url
-    grids = steamgriddb_grids_for_steam_appid(appid)
-    cover = select_best_grid(grids)
-    if cover:
-        return cover
-    tiny_image = item.get("tiny_image")
-    return tiny_image or ""
+    if item:
+        appid = item["id"]
+        cdn_url = f"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/{appid}/library_600x900.jpg"
+        if url_exists(cdn_url):
+            return cdn_url
+        grids = steamgriddb_grids_for_steam_appid(appid)
+        cover = select_best_grid(grids)
+        if cover:
+            return cover
+
+    # No Steam appid match, or that appid had no usable art on either CDN -
+    # try SteamGridDB's own name search as a last resort before giving up.
+    for candidate in steamgriddb_autocomplete(title)[:3]:
+        try:
+            grids_payload = fetch_json(
+                f"{STEAM_API_BASE}/grids/game/{candidate['id']}",
+                headers={"Authorization": f"Bearer {STEAMGRIDDB_API_KEY}"},
+            )
+            grids = grids_payload.get("data") or []
+        except Exception:
+            grids = []
+        cover = select_best_grid(grids)
+        if cover:
+            return cover
+
+    return ""
 
 
 # --- Database I/O ---
