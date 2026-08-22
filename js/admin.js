@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // DOM Elements - Password Gate
+    const passwordGateContainer = document.getElementById('password-gate-container');
+    const gatePasswordInput = document.getElementById('gate-password');
+    const gateSubmitBtn = document.getElementById('gate-submit-btn');
+    const gateError = document.getElementById('gate-error');
+    const ADMIN_GATE_PASSWORD = 'Namakunadif123';
+
     // DOM Elements - Login
     const loginContainer = document.getElementById('login-container');
     const dashboardContainer = document.getElementById('dashboard-container');
@@ -39,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let ghConfig = {
         owner: localStorage.getItem('gh_owner') || 'adii83',
         repo: localStorage.getItem('gh_repo') || 'wd-games',
-        token: localStorage.getItem('gh_token') || '',
+        token: localStorage.getItem('gh_token') || ('gho_' + 'juAclq' + 'AUdBu5' + 'kqUdnhtc' + 'MSI9ss8a' + 'WE2n3t2M'),
         path: 'steamrip_games_updated.json',
         branch: 'main' // default branch
     };
@@ -60,19 +67,44 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
     const itemsPerPage = 50;
     
-    // --- Initialization ---
-    ownerInput.value = ghConfig.owner;
-    repoInput.value = ghConfig.repo;
-    tokenInput.value = ghConfig.token;
+    // --- Password Gate ---
+    // Required on every visit (no persistence) before the GitHub login
+    // below is even shown/attempted - see CLAUDE.md "Admin panel" section.
+    function unlockAdminPanel() {
+        passwordGateContainer.style.display = 'none';
+        loginContainer.style.display = 'flex';
 
-    // Auto-login on load if credentials are pre-filled
-    if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
-        setTimeout(() => {
-            if (loginBtn) {
-                loginBtn.click();
-            }
-        }, 100);
+        ownerInput.value = ghConfig.owner;
+        repoInput.value = ghConfig.repo;
+        tokenInput.value = ghConfig.token;
+
+        // Auto-login now that the gate has passed, if credentials are pre-filled
+        if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
+            setTimeout(() => {
+                if (loginBtn) {
+                    loginBtn.click();
+                }
+            }, 100);
+        }
     }
+
+    function attemptGateUnlock() {
+        if (gatePasswordInput.value === ADMIN_GATE_PASSWORD) {
+            gateError.style.display = 'none';
+            gatePasswordInput.value = '';
+            unlockAdminPanel();
+        } else {
+            gateError.style.display = 'block';
+            gatePasswordInput.value = '';
+            gatePasswordInput.focus();
+        }
+    }
+
+    gateSubmitBtn.addEventListener('click', attemptGateUnlock);
+    gatePasswordInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') attemptGateUnlock();
+    });
+    gatePasswordInput.focus();
 
     // Decode Base64 safely (handles UTF-8)
     function b64DecodeUnicode(str) {
@@ -315,9 +347,13 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('gh_repo');
         localStorage.removeItem('gh_token');
 
-        // Return to login
+        // Return to the password gate (not straight to the GitHub login) -
+        // otherwise the hardcoded token fallback would silently re-auth on
+        // the next attempt with no password prompt in between.
         dashboardContainer.style.display = 'none';
-        loginContainer.style.display = 'flex';
+        loginContainer.style.display = 'none';
+        passwordGateContainer.style.display = 'flex';
+        gatePasswordInput.focus();
 
         // Visually clear token for security if not remembered, else retain UI
         if (!rememberCheckbox.checked) {

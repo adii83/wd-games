@@ -13,8 +13,54 @@
     <link rel="icon" type="image/png" href="assets/logo.png" />
   </head>
   <body class="admin-body">
+    <!-- Password Gate: shown first, every visit. Only after this passes
+         does the GitHub login (below) run/auto-login. -->
+    <div id="password-gate-container" class="admin-login-container">
+      <div class="login-box">
+        <h2>Admin Access</h2>
+        <p class="text-secondary" style="margin-bottom: 20px">
+          Masukkan password untuk mengakses panel admin.
+        </p>
+        <div class="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="gate-password"
+            class="admin-input"
+            placeholder="Masukkan password"
+          />
+        </div>
+        <div
+          id="gate-error"
+          style="
+            color: var(--danger);
+            margin-top: 10px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+          "
+        >
+          Password salah.
+        </div>
+        <button
+          id="gate-submit-btn"
+          class="custom-select"
+          style="
+            width: 100%;
+            border: none;
+            background: var(--accent-gradient);
+            color: #000;
+            margin-top: 15px;
+            padding: 12px;
+          "
+        >
+          Masuk
+        </button>
+      </div>
+    </div>
+
     <!-- Login Overlay -->
-    <div id="login-container" class="admin-login-container">
+    <div id="login-container" class="admin-login-container" style="display: none">
       <div class="login-box">
         <h2>GitHub Admin Login</h2>
         <p class="text-secondary" style="margin-bottom: 20px">
@@ -379,6 +425,6 @@
       </div>
     </div>
 
-    <script src="js/admin.js?v=1.4"></script>
+    <script src="js/admin.js?v=1.5"></script>
   </body>
 </html>
