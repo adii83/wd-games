@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let ghConfig = {
         owner: localStorage.getItem('gh_owner') || 'adii83',
         repo: localStorage.getItem('gh_repo') || 'wd-games',
-        token: localStorage.getItem('gh_token') || ('gho_' + 'juAclq' + 'AUdBu5' + 'kqUdnhtc' + 'MSI9ss8a' + 'WE2n3t2M'),
+        token: localStorage.getItem('gh_token') || '',
         path: 'steamrip_games_updated.json',
         branch: 'main' // default branch
     };
@@ -307,11 +307,18 @@ document.addEventListener('DOMContentLoaded', () => {
         ghConfig.token = '';
         ghConfig.owner = '';
         ghConfig.repo = '';
-        
+
+        // Logout must actually end the session on this browser, regardless
+        // of the "remember" checkbox state — otherwise a previously-saved
+        // token silently re-authenticates on the next page load.
+        localStorage.removeItem('gh_owner');
+        localStorage.removeItem('gh_repo');
+        localStorage.removeItem('gh_token');
+
         // Return to login
         dashboardContainer.style.display = 'none';
         loginContainer.style.display = 'flex';
-        
+
         // Visually clear token for security if not remembered, else retain UI
         if (!rememberCheckbox.checked) {
             tokenInput.value = '';
