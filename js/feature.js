@@ -22,6 +22,9 @@
     // Sentinel Kategori value for the PS2 platform filter — kept out of the
     // frequency-ranked genre list so it always shows as its own fixed entry.
     const PS2_CATEGORY_VALUE = '__ps2__';
+    // Same idea for the "needs internet/Online" filter (see requiresOnline())
+    // — not a real Genre value, just a fixed shortcut in the dropdown.
+    const ONLINE_CATEGORY_VALUE = '__online__';
 
     const SELECT_ICON_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
@@ -234,7 +237,11 @@
     // dropdown's label/active state in sync either way.
     function setActiveGenre(value) {
         activeGenre = value || null;
-        genreDropdown.setLabel(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : (activeGenre || 'Kategori'));
+        genreDropdown.setLabel(
+            activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2'
+                : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online'
+                    : (activeGenre || 'Kategori')
+        );
         genreDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
             item.classList.toggle('active', (item.getAttribute('data-value') || null) === activeGenre);
         });
@@ -260,6 +267,7 @@
         genreDropdownPanel.innerHTML = [
             `<button type="button" class="filter-dropdown-item${activeGenre === null ? ' active' : ''}" data-value="">Semua Kategori</button>`,
             `<button type="button" class="filter-dropdown-item${activeGenre === PS2_CATEGORY_VALUE ? ' active' : ''}" data-value="${PS2_CATEGORY_VALUE}">Game PS2</button>`,
+            `<button type="button" class="filter-dropdown-item${activeGenre === ONLINE_CATEGORY_VALUE ? ' active' : ''}" data-value="${ONLINE_CATEGORY_VALUE}">Online</button>`,
             ...topGenres.map((g) => `<button type="button" class="filter-dropdown-item${activeGenre === g ? ' active' : ''}" data-value="${g}">${g}</button>`),
         ].join('');
 
@@ -860,7 +868,9 @@
             filteredGames = allGames.filter((g) => {
                 const matchesSearch = !q || (g.title || '').toLowerCase().includes(q);
                 const matchesGenre = !activeGenre
-                    || (activeGenre === PS2_CATEGORY_VALUE ? g._category === 'ps2' : gameGenres(g).includes(activeGenre));
+                    || (activeGenre === PS2_CATEGORY_VALUE ? g._category === 'ps2'
+                        : activeGenre === ONLINE_CATEGORY_VALUE ? requiresOnline(g.title)
+                            : gameGenres(g).includes(activeGenre));
                 return matchesSearch && matchesGenre;
             });
 
@@ -869,7 +879,7 @@
             }
 
             const labelParts = [];
-            if (activeGenre) labelParts.push(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : activeGenre);
+            if (activeGenre) labelParts.push(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online' : activeGenre);
             if (q) labelParts.push(`"${searchInput.value.trim()}"`);
             catalogTitle.textContent = labelParts.length ? `Hasil untuk ${labelParts.join(' · ')}` : 'Explore Your Collection';
 
