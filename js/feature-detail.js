@@ -396,6 +396,21 @@
         }
         selectBtns.forEach((btn) => {
             btn.addEventListener('click', () => {
+                if (!window.FeatureCart.isSelected(game.title)) {
+                    const state = window.FeatureCart.getState();
+                    const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
+                    const addedGB = estimatedSizeGB(sizeStr);
+                    const overBy = (computeUsedGB(state) + addedGB) - state.capacityGB;
+                    if (overBy > 0) {
+                        window.FeatureCartWidget.showToast(
+                            `Kapasitas tidak cukup! "${cleanDisplayTitle(game.title)}" (${formatSizeGB(addedGB)}) melebihi sisa ruang sekitar ${formatSizeGB(overBy)}. Silakan hapus game lain dari daftar terlebih dahulu untuk menambahkan game ini.`,
+                            'error',
+                            { shake: true }
+                        );
+                        return;
+                    }
+                }
+
                 if (!window.FeatureCart.isSelected(game.title) && !window.FeatureCart.canAdd(game._category)) {
                     window.FeatureCartWidget.showToast('Flashdisk cuma untuk game PS2 — ganti media penyimpanan dulu untuk pilih game PC.', 'error');
                     return;
@@ -433,6 +448,17 @@
         });
     }
 
+    // Shared by updateStorageUI() and the over-capacity check on the select
+    // button below, so both agree on exactly the same total.
+    function computeUsedGB(state) {
+        return state.selected.reduce((sum, title) => {
+            const game = allGames.find((g) => g.title === title);
+            if (!game) return sum;
+            const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
+            return sum + estimatedSizeGB(sizeStr);
+        }, 0);
+    }
+
     function updateStorageUI() {
         const state = window.FeatureCart.getState();
 
@@ -448,12 +474,7 @@
             item.classList.toggle('active', Number(item.getAttribute('data-value')) === state.capacityGB);
         });
 
-        const usedGB = state.selected.reduce((sum, title) => {
-            const game = allGames.find((g) => g.title === title);
-            if (!game) return sum;
-            const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
-            return sum + estimatedSizeGB(sizeStr);
-        }, 0);
+        const usedGB = computeUsedGB(state);
 
         storageUsedText.textContent = formatSizeGB(usedGB);
         storageTotalText.textContent = formatSizeGB(state.capacityGB);

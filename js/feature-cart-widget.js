@@ -251,7 +251,7 @@
         return ok;
     }
 
-    function showToast(message, type) {
+    function showToast(message, type, options) {
         document.querySelectorAll('.toast-notification').forEach((t) => t.remove());
 
         const toast = document.createElement('div');
@@ -263,6 +263,12 @@
         document.body.appendChild(toast);
 
         setTimeout(() => toast.classList.add('show'), 10);
+        if (options && options.shake && !prefersReducedMotion()) {
+            // Runs slightly after the slide-in transition starts so the
+            // shake doesn't fight the initial translateY(100px) -> 0 move.
+            setTimeout(() => toast.classList.add('shake'), 200);
+            toast.addEventListener('animationend', () => toast.classList.remove('shake'), { once: true });
+        }
         setTimeout(() => {
             toast.classList.remove('show');
             setTimeout(() => toast.remove(), 300);

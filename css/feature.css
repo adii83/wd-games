@@ -1238,6 +1238,89 @@ body.landing-active .search-fab {
   color: var(--accent);
 }
 
+/* Tutorial modal (cara order + arti label Online) */
+
+.tutorial-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s var(--ease-standard), visibility 0.2s;
+}
+
+.tutorial-modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tutorial-modal-box {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transform: scale(0.96);
+  transition: transform 0.2s var(--ease-standard);
+  color: var(--text-primary);
+}
+
+.tutorial-modal-backdrop.open .tutorial-modal-box {
+  transform: scale(1);
+}
+
+/* Unlike the trailer modal's close button (positioned above its box, since
+   that box has no overflow clipping), this box scrolls (overflow-y: auto)
+   for long content — a negative-top close button would get clipped by that
+   scroll container and become unclickable. Keep it inside instead. */
+.tutorial-modal-box .trailer-modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+}
+
+.tutorial-modal-box h3 {
+  margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.tutorial-modal-box h3:first-child {
+  margin-top: 0;
+}
+
+.tutorial-modal-box p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.tutorial-steps {
+  padding-left: 1.2em;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.tutorial-steps li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.tutorial-example {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 4px;
+}
+
+.tutorial-example-storage img {
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
 /* Storage footer bar */
 
 .storage-footer-bar {
@@ -2180,6 +2263,22 @@ body.landing-active .search-fab {
   color: var(--accent);
 }
 
+/* Extra attention-grabbing shake for capacity-exceeded alerts (see
+   showToast()'s options.shake in js/feature-cart-widget.js). Keeps
+   translateY(0) at every step since .show is already holding that value
+   via its own transition — overwriting transform wholesale here would
+   otherwise fight the slide-in position. */
+@keyframes toast-shake {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  20%, 80% { transform: translateY(0) translateX(-6px); }
+  40%, 60% { transform: translateY(0) translateX(6px); }
+  50% { transform: translateY(0) translateX(-3px); }
+}
+
+.toast-notification.shake {
+  animation: toast-shake 0.4s ease-in-out;
+}
+
 /* Motion */
 
 .game-main,
@@ -2300,8 +2399,8 @@ body.landing-active .search-fab {
     flex-wrap: wrap;
   }
   .storage-picker-inline .storage-select {
-    flex: 1 1 30%;
-    min-width: 90px;
+    flex: 1 1 22%;
+    min-width: 80px;
   }
   .storage-bar {
     padding: 0 var(--spacing-md) var(--spacing-sm);

@@ -58,6 +58,10 @@
     const trailerModalVideo = document.getElementById('trailer-modal-video');
     const trailerModalClose = document.getElementById('trailer-modal-close');
 
+    const tutorialBtn = document.getElementById('tutorial-btn');
+    const tutorialModalBackdrop = document.getElementById('tutorial-modal-backdrop');
+    const tutorialModalClose = document.getElementById('tutorial-modal-close');
+
     const storageTypeDropdownPanel = document.querySelector('#storage-type-dropdown [data-dropdown-panel]');
     const storageCapacityDropdownPanel = document.getElementById('storage-capacity-dropdown-panel');
     const storageProgressFill = document.getElementById('storage-progress-fill');
@@ -230,7 +234,7 @@
     // dropdown's label/active state in sync either way.
     function setActiveGenre(value) {
         activeGenre = value || null;
-        genreDropdown.setLabel(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : (activeGenre || 'Semua Kategori'));
+        genreDropdown.setLabel(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : (activeGenre || 'Kategori'));
         genreDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
             item.classList.toggle('active', (item.getAttribute('data-value') || null) === activeGenre);
         });
@@ -598,6 +602,25 @@
         if (e.key === 'Escape' && trailerModalBackdrop.classList.contains('open')) closeTrailerModal();
     });
 
+    // --- Tutorial modal (cara order + arti label Online) ---
+
+    function openTutorialModal() {
+        tutorialModalBackdrop.classList.add('open');
+    }
+
+    function closeTutorialModal() {
+        tutorialModalBackdrop.classList.remove('open');
+    }
+
+    tutorialBtn.addEventListener('click', openTutorialModal);
+    tutorialModalClose.addEventListener('click', closeTutorialModal);
+    tutorialModalBackdrop.addEventListener('click', (e) => {
+        if (e.target === tutorialModalBackdrop) closeTutorialModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && tutorialModalBackdrop.classList.contains('open')) closeTutorialModal();
+    });
+
     function renderHero(games, gpMap) {
         // Pick each slide's background once and reuse it for both the big
         // slide and its thumbnail, so a game doesn't show two different
@@ -786,6 +809,23 @@
 
             const title = btn.getAttribute('data-select-title');
             const category = btn.getAttribute('data-select-category');
+
+            if (!window.FeatureCart.isSelected(title)) {
+                const state = window.FeatureCart.getState();
+                const game = allGames.find((g) => g.title === title);
+                const sizeStr = game && game.game_info ? game.game_info['Game Size'] : null;
+                const addedGB = estimatedSizeGB(sizeStr);
+                const overBy = (computeUsedGB(state) + addedGB) - state.capacityGB;
+                if (overBy > 0) {
+                    window.FeatureCartWidget.showToast(
+                        `Kapasitas tidak cukup! "${cleanDisplayTitle(title)}" (${formatSizeGB(addedGB)}) melebihi sisa ruang sekitar ${formatSizeGB(overBy)}. Silakan hapus game lain dari daftar terlebih dahulu untuk menambahkan game ini.`,
+                        'error',
+                        { shake: true }
+                    );
+                    return;
+                }
+            }
+
             if (!window.FeatureCart.isSelected(title) && !window.FeatureCart.canAdd(category)) {
                 window.FeatureCartWidget.showToast('Flashdisk cuma untuk game PS2 — ganti media penyimpanan dulu untuk pilih game PC.', 'error');
                 return;
@@ -1058,14 +1098,20 @@
         return tier ? tier.label : formatSizeGB(capacityGB);
     }
 
-    function updateStorageUI() {
-        const state = window.FeatureCart.getState();
-        const usedGB = state.selected.reduce((sum, title) => {
+    // Shared by updateStorageUI() and the over-capacity check in
+    // attachCardSelect() below, so both agree on exactly the same total.
+    function computeUsedGB(state) {
+        return state.selected.reduce((sum, title) => {
             const game = allGames.find((g) => g.title === title);
             if (!game) return sum;
             const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
             return sum + estimatedSizeGB(sizeStr);
         }, 0);
+    }
+
+    function updateStorageUI() {
+        const state = window.FeatureCart.getState();
+        const usedGB = computeUsedGB(state);
 
         const pct = state.capacityGB > 0 ? (usedGB / state.capacityGB) * 100 : 0;
         storageProgressFill.style.width = `${Math.min(100, pct)}%`;

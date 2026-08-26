@@ -73,7 +73,7 @@
         <div class="storage-picker-inline">
           <div class="filter-dropdown" id="genre-dropdown">
             <button type="button" class="storage-select filter-dropdown-btn" data-dropdown-toggle aria-haspopup="listbox" aria-expanded="false">
-              <span data-dropdown-label>Semua Kategori</span>
+              <span data-dropdown-label>Kategori</span>
               <svg class="filter-dropdown-caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </button>
             <div class="filter-dropdown-panel" id="genre-dropdown-panel" data-dropdown-panel role="listbox" aria-label="Kategori game"></div>
@@ -98,6 +98,8 @@
             </button>
             <div class="filter-dropdown-panel" id="storage-capacity-dropdown-panel" data-dropdown-panel role="listbox" aria-label="Pilih kapasitas"></div>
           </div>
+
+          <button type="button" class="storage-select" id="tutorial-btn">Tutorial</button>
         </div>
       </div>
     </header>
@@ -182,6 +184,53 @@
         <div class="trailer-modal-video-wrap">
           <video id="trailer-modal-video" playsinline controls></video>
         </div>
+      </div>
+    </div>
+
+    <!-- Tutorial modal (cara order + arti label Online) -->
+    <div class="tutorial-modal-backdrop" id="tutorial-modal-backdrop">
+      <div class="tutorial-modal-box">
+        <button type="button" class="trailer-modal-close" id="tutorial-modal-close" aria-label="Tutup">&times;</button>
+        <h3>Cara Order</h3>
+        <ol class="tutorial-steps">
+          <li>
+            <span>Pilih media penyimpanan (HDD, Flashdisk, atau SSD) di layar awal.</span>
+            <div class="tutorial-example tutorial-example-storage">
+              <img src="assets/HDD.webp" alt="HDD" width="36" height="36">
+              <img src="assets/FLASHDISK.webp" alt="Flashdisk" width="36" height="36">
+              <img src="assets/SSD.webp" alt="SSD" width="36" height="36">
+            </div>
+          </li>
+          <li>
+            <span>Cari dan pilih game yang kamu mau — klik tombol:</span>
+            <div class="tutorial-example">
+              <button type="button" class="card-select-btn card-select-btn-inline" tabindex="-1" disabled>Pilih</button>
+            </div>
+          </li>
+          <li>
+            <span>Klik widget yang mengambang di kanan bawah:</span>
+            <div class="tutorial-example">
+              <span class="feature-cart-btn" style="cursor: default;"><span>Game Terpilih</span><span class="feature-cart-count">2</span></span>
+            </div>
+          </li>
+          <li>
+            <span>Klik tombol untuk menyalin daftar pesanan:</span>
+            <div class="tutorial-example">
+              <button type="button" class="feature-cart-cta" style="width: auto; margin: 0;" tabindex="-1" disabled>Copy Teks</button>
+            </div>
+          </li>
+          <li>
+            <span>Klik tombol, lalu tempel (paste) teksnya ke chat penjual:</span>
+            <div class="tutorial-example">
+              <span class="feature-cart-cta feature-cart-shopee-btn" style="width: auto; margin: 0; display: inline-block; cursor: default;">Lanjut ke Shopee</span>
+            </div>
+          </li>
+        </ol>
+        <h3>Apa Arti Label "Online"?</h3>
+        <div class="tutorial-example">
+          <span class="online-badge">Online</span>
+        </div>
+        <p>Game dengan label hijau ini butuh koneksi internet/WiFi aktif untuk dimainkan, dan wajib punya akun Steam atau Epic Games sendiri. Untuk main bareng (mabar) dengan teman, caranya adalah meng-copy folder game yang sudah terpasang ke PC/laptop teman — bukan install ulang dari awal.</p>
       </div>
     </div>
 
