@@ -183,6 +183,18 @@
         return t.trim();
     }
 
+    // Steamrip titles tag an added networked feature as a trailing
+    // "(... + Online/Multiplayer/Co-op/LAN)" group (the same group
+    // cleanDisplayTitle strips for display) — reusing that same shape here
+    // to flag which games need an internet connection to use that feature,
+    // without false-positiving on titles that just contain the word (e.g.
+    // "CarX Drift Racing Online").
+    function requiresOnline(title) {
+        if (!title) return false;
+        const m = title.match(/\(([^()]*)\)\s*$/);
+        return Boolean(m && /[+]/.test(m[1]) && /\b(online|multiplayer|co-?op|lan|crossplay)\b/i.test(m[1]));
+    }
+
     // Fisher-Yates — used so the hero/Featured pick differs on every page
     // load instead of always showing the same games in the same order.
     function shuffle(arr) {
@@ -387,10 +399,11 @@
         if (Number.isFinite(options.animIndex)) card.style.setProperty('--i', Math.min(options.animIndex, 14));
 
         const displayTitle = cleanDisplayTitle(game.title);
+        const isOnline = requiresOnline(game.title);
         card.innerHTML = `
             <div class="gallery-card-img-wrap">
                 <img class="gallery-card-img" src="${game.banner_url || 'assets/logo.png'}" alt="${displayTitle}" loading="lazy" decoding="async">
-                ${options.badge || game._category === 'ps2' ? `<div class="gallery-card-badges">${options.badge ? `<span class="update-card-badge">${options.badge}</span>` : ''}${game._category === 'ps2' ? '<span class="ps2-badge">PS2</span>' : ''}</div>` : ''}
+                ${options.badge || game._category === 'ps2' || isOnline ? `<div class="gallery-card-badges">${options.badge ? `<span class="update-card-badge">${options.badge}</span>` : ''}${game._category === 'ps2' ? '<span class="ps2-badge">PS2</span>' : ''}${isOnline ? '<span class="online-badge">Online</span>' : ''}</div>` : ''}
                 <button class="card-select-btn${isSelected ? ' selected' : ''}" data-select-title="${game.title}" data-select-category="${game._category}" type="button" aria-label="Pilih game">
                     ${SELECT_ICON_SVG}
                 </button>
