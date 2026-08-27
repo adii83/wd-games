@@ -1294,9 +1294,40 @@ body.landing-active .search-fab {
   margin-top: 0;
 }
 
+.tutorial-modal-box h4 {
+  margin: var(--spacing-md) 0 6px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
 .tutorial-modal-box p {
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+.tutorial-note {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.tutorial-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.tutorial-spec-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.tutorial-spec-table td:first-child {
+  width: 70px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .tutorial-steps {
