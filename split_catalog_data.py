@@ -54,6 +54,7 @@ if hasattr(sys.stdout, "reconfigure"):
 SOURCES = [
     ("steamrip_games_updated.json", "pc", "steamrip_games_updated.lite.json"),
     ("ps2.json", "ps2", "ps2.lite.json"),
+    ("ps3.json", "ps3", "ps3.lite.json"),
 ]
 CATALOG_DIR = "catalog"
 

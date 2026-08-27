@@ -2205,6 +2205,20 @@ body.landing-active .search-fab {
   white-space: nowrap;
 }
 
+/* PS3 platform badge on gallery cards — solid color (not the PS2 gradient)
+   so the two platforms stay visually distinguishable at a glance. */
+.ps3-badge {
+  background: #2d5be3;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
 /* Flags titles that need an internet connection for their added
    Online/Multiplayer/Co-op/LAN feature (see requiresOnline() in feature.js) */
 .online-badge {

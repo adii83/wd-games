@@ -22,6 +22,12 @@
     // Sentinel Kategori value for the PS2 platform filter — kept out of the
     // frequency-ranked genre list so it always shows as its own fixed entry.
     const PS2_CATEGORY_VALUE = '__ps2__';
+    // Same idea for PS3 — a separate catalog/category, but (unlike PS2) not
+    // tied to the Flashdisk storage-type lock: PS3 titles are large enough
+    // that Flashdisk isn't realistic for them, so they're selectable under
+    // HDD/SSD like PC titles. canAdd() in feature-cart.js already blocks any
+    // non-'ps2' category from Flashdisk, so no change needed there.
+    const PS3_CATEGORY_VALUE = '__ps3__';
     // Same idea for the "needs internet/Online" filter (see requiresOnline())
     // — not a real Genre value, just a fixed shortcut in the dropdown.
     const ONLINE_CATEGORY_VALUE = '__online__';
@@ -123,10 +129,12 @@
 
     function gameHref(game) {
         const base = `game.html?t=${encodeURIComponent(game.title)}`;
-        // A handful of titles exist on both PC and PS2 (e.g. "Half-Life",
-        // "Grand Theft Auto: Vice City") — tag the platform in the URL so
-        // game.html opens the right one instead of just the first match.
-        return game._category === 'ps2' ? `${base}&c=ps2` : base;
+        // A handful of titles exist identically across catalogs (e.g.
+        // "Half-Life", "Grand Theft Auto: Vice City" on PC vs PS2, or
+        // "God of War Collection" on PS2 vs PS3) — tag the category in the
+        // URL for anything non-PC so game.html opens the right one instead
+        // of just the first match.
+        return game._category !== 'pc' ? `${base}&c=${game._category}` : base;
     }
 
     // Buffered size: raw size times the admin-configured size_config.json
@@ -239,8 +247,9 @@
         activeGenre = value || null;
         genreDropdown.setLabel(
             activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2'
-                : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online'
-                    : (activeGenre || 'Kategori')
+                : activeGenre === PS3_CATEGORY_VALUE ? 'Game PS3'
+                    : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online'
+                        : (activeGenre || 'Kategori')
         );
         genreDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
             item.classList.toggle('active', (item.getAttribute('data-value') || null) === activeGenre);
@@ -267,6 +276,7 @@
         genreDropdownPanel.innerHTML = [
             `<button type="button" class="filter-dropdown-item${activeGenre === null ? ' active' : ''}" data-value="">Semua Kategori</button>`,
             `<button type="button" class="filter-dropdown-item${activeGenre === PS2_CATEGORY_VALUE ? ' active' : ''}" data-value="${PS2_CATEGORY_VALUE}">Game PS2</button>`,
+            `<button type="button" class="filter-dropdown-item${activeGenre === PS3_CATEGORY_VALUE ? ' active' : ''}" data-value="${PS3_CATEGORY_VALUE}">Game PS3</button>`,
             `<button type="button" class="filter-dropdown-item${activeGenre === ONLINE_CATEGORY_VALUE ? ' active' : ''}" data-value="${ONLINE_CATEGORY_VALUE}">Online</button>`,
             ...topGenres.map((g) => `<button type="button" class="filter-dropdown-item${activeGenre === g ? ' active' : ''}" data-value="${g}">${g}</button>`),
         ].join('');
@@ -324,14 +334,16 @@
             // game_info, so it fetches these instead of the full catalogs
             // (see split_catalog_data.py). game.html fetches the full
             // per-game entry separately, on demand.
-            const [gamesRes, ps2Res, sizeConfigRes] = await Promise.all([
+            const [gamesRes, ps2Res, ps3Res, sizeConfigRes] = await Promise.all([
                 fetch('steamrip_games_updated.lite.json'),
                 fetch('ps2.lite.json').catch(() => null),
+                fetch('ps3.lite.json').catch(() => null),
                 fetch('size_config.json').catch(() => null),
             ]);
             if (!gamesRes.ok) throw new Error('Gagal memuat data game');
             const data = await gamesRes.json();
             const ps2Data = ps2Res && ps2Res.ok ? await ps2Res.json() : [];
+            const ps3Data = ps3Res && ps3Res.ok ? await ps3Res.json() : [];
 
             if (sizeConfigRes && sizeConfigRes.ok) {
                 const sizeConfig = await sizeConfigRes.json();
@@ -341,10 +353,11 @@
 
             const pcGames = (Array.isArray(data) ? data : []).map((g) => ({ ...g, _category: 'pc' }));
             const ps2Games = (Array.isArray(ps2Data) ? ps2Data : []).map((g) => ({ ...g, _category: 'ps2' }));
+            const ps3Games = (Array.isArray(ps3Data) ? ps3Data : []).map((g) => ({ ...g, _category: 'ps3' }));
             // PC first so hero/Featured/Update Games (which only look at the
             // front of this array) stay PC-only — those rely on Steam
-            // gameplay data and a "newest" ordering that PS2 doesn't have.
-            allGames = [...pcGames, ...ps2Games];
+            // gameplay data and a "newest" ordering that PS2/PS3 don't have.
+            allGames = [...pcGames, ...ps2Games, ...ps3Games];
 
             // The storage bar was already rendered once at page init (before
             // this fetch resolved), using an empty allGames — any items
@@ -415,7 +428,7 @@
         card.innerHTML = `
             <div class="gallery-card-img-wrap">
                 <img class="gallery-card-img" src="${game.banner_url || 'assets/logo.png'}" alt="${displayTitle}" loading="lazy" decoding="async">
-                ${options.badge || game._category === 'ps2' || isOnline ? `<div class="gallery-card-badges">${options.badge ? `<span class="update-card-badge">${options.badge}</span>` : ''}${game._category === 'ps2' ? '<span class="ps2-badge">PS2</span>' : ''}${isOnline ? '<span class="online-badge">Online</span>' : ''}</div>` : ''}
+                ${options.badge || game._category === 'ps2' || game._category === 'ps3' || isOnline ? `<div class="gallery-card-badges">${options.badge ? `<span class="update-card-badge">${options.badge}</span>` : ''}${game._category === 'ps2' ? '<span class="ps2-badge">PS2</span>' : ''}${game._category === 'ps3' ? '<span class="ps3-badge">PS3</span>' : ''}${isOnline ? '<span class="online-badge">Online</span>' : ''}</div>` : ''}
                 <button class="card-select-btn${isSelected ? ' selected' : ''}" data-select-title="${game.title}" data-select-category="${game._category}" type="button" aria-label="Pilih game">
                     ${SELECT_ICON_SVG}
                 </button>
@@ -869,8 +882,9 @@
                 const matchesSearch = !q || (g.title || '').toLowerCase().includes(q);
                 const matchesGenre = !activeGenre
                     || (activeGenre === PS2_CATEGORY_VALUE ? g._category === 'ps2'
-                        : activeGenre === ONLINE_CATEGORY_VALUE ? requiresOnline(g.title)
-                            : gameGenres(g).includes(activeGenre));
+                        : activeGenre === PS3_CATEGORY_VALUE ? g._category === 'ps3'
+                            : activeGenre === ONLINE_CATEGORY_VALUE ? requiresOnline(g.title)
+                                : gameGenres(g).includes(activeGenre));
                 return matchesSearch && matchesGenre;
             });
 
@@ -879,7 +893,7 @@
             }
 
             const labelParts = [];
-            if (activeGenre) labelParts.push(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online' : activeGenre);
+            if (activeGenre) labelParts.push(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : activeGenre === PS3_CATEGORY_VALUE ? 'Game PS3' : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online' : activeGenre);
             if (q) labelParts.push(`"${searchInput.value.trim()}"`);
             catalogTitle.textContent = labelParts.length ? `Hasil untuk ${labelParts.join(' · ')}` : 'Explore Your Collection';
 

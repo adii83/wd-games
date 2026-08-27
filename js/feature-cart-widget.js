@@ -193,18 +193,25 @@
         return t;
     }
 
-    function needsPs2Suffix(game) {
-        if (!game) return false;
-        if (game._category === 'ps2') return true;
-        const platform = game.game_info ? String(game.game_info.Platform || '') : '';
-        return platform.toUpperCase().includes('PS2');
+    // Returns 'PS2'/'PS3' for titles that need a platform suffix to
+    // disambiguate from an identically-named entry in another catalog, or
+    // null if none is needed (PC titles, or any category not covered here).
+    function platformSuffixFor(game) {
+        if (!game) return null;
+        if (game._category === 'ps2') return 'PS2';
+        if (game._category === 'ps3') return 'PS3';
+        const platform = game.game_info ? String(game.game_info.Platform || '').toUpperCase() : '';
+        if (platform.includes('PS2')) return 'PS2';
+        if (platform.includes('PS3')) return 'PS3';
+        return null;
     }
 
-    function addPs2SuffixIfNeeded(title, game) {
+    function addPlatformSuffixIfNeeded(title, game) {
         const t = String(title || '').trim();
-        if (!needsPs2Suffix(game)) return t;
-        if (/\(PS2\)\s*$/i.test(t)) return t;
-        return `${t} (PS2)`;
+        const suffix = platformSuffixFor(game);
+        if (!suffix) return t;
+        if (new RegExp(`\\(${suffix}\\)\\s*$`, 'i').test(t)) return t;
+        return `${t} (${suffix})`;
     }
 
     function buildExportText() {
@@ -222,7 +229,7 @@
             const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
             totalSize += estimatedSizeGB(sizeStr);
             const title = game.title || 'Untitled';
-            const labeled = addPs2SuffixIfNeeded(stripVersionSuffix(title), game);
+            const labeled = addPlatformSuffixIfNeeded(stripVersionSuffix(title), game);
             lines.push(`${i + 1}. ${labeled}`);
         });
 

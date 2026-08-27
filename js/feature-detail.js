@@ -74,10 +74,10 @@
 
     async function fetchGameplayEntry(game) {
         // steamrip_games_gameplay.json (the source split() runs against) is
-        // Steam/PC-only — PS2 titles never have an entry, so skip the
-        // request entirely instead of guaranteeing a 404 on every PS2
+        // Steam/PC-only — PS2/PS3 titles never have an entry, so skip the
+        // request entirely instead of guaranteeing a 404 on every non-PC
         // detail-page view.
-        if (!game || game._category === 'ps2') return null;
+        if (!game || game._category !== 'pc') return null;
         try {
             const res = await fetch(`gameplay/${fnv1aHash(game.title)}.json`);
             return res.ok ? await res.json() : null;
@@ -129,18 +129,21 @@
             // full detail (system_requirements etc.) comes from its own
             // small catalog/<hash>.json, fetched alongside it, instead of
             // searching either full 3MB+/1.6MB+ catalog for one entry.
-            const [liteRes, ps2LiteRes, catalogRes, sizeConfigRes] = await Promise.all([
+            const [liteRes, ps2LiteRes, ps3LiteRes, catalogRes, sizeConfigRes] = await Promise.all([
                 fetch('steamrip_games_updated.lite.json'),
                 fetch('ps2.lite.json').catch(() => null),
+                fetch('ps3.lite.json').catch(() => null),
                 fetch(`catalog/${fnv1aHash(`${wantedCategory}:${wantedTitle}`)}.json`),
                 fetch('size_config.json').catch(() => null),
             ]);
             if (!liteRes.ok) throw new Error('Gagal memuat data game');
             const liteData = await liteRes.json();
             const ps2LiteData = ps2LiteRes && ps2LiteRes.ok ? await ps2LiteRes.json() : [];
+            const ps3LiteData = ps3LiteRes && ps3LiteRes.ok ? await ps3LiteRes.json() : [];
             const pcGames = (Array.isArray(liteData) ? liteData : []).map((g) => ({ ...g, _category: 'pc' }));
             const ps2Games = (Array.isArray(ps2LiteData) ? ps2LiteData : []).map((g) => ({ ...g, _category: 'ps2' }));
-            allGames = [...pcGames, ...ps2Games];
+            const ps3Games = (Array.isArray(ps3LiteData) ? ps3LiteData : []).map((g) => ({ ...g, _category: 'ps3' }));
+            allGames = [...pcGames, ...ps2Games, ...ps3Games];
 
             if (!catalogRes.ok) return renderNotFound();
             base = await catalogRes.json();

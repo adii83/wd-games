@@ -26,6 +26,7 @@ on:
     paths:
       - "steamrip_games_updated.json"
       - "ps2.json"
+      - "ps3.json"
       - "steamrip_games_gameplay.json"
 
 permissions:
@@ -51,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add steamrip_games_gameplay.json steam_enrich_progress.json steamrip_games_updated.lite.json ps2.lite.json catalog/ gameplay/
+          git add steamrip_games_gameplay.json steam_enrich_progress.json steamrip_games_updated.lite.json ps2.lite.json ps3.lite.json catalog/ gameplay/
           if git diff --staged --quiet; then
             echo "Nothing changed — derived files were already up to date."
           else
