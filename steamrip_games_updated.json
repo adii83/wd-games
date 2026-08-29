@@ -1,5 +1,51 @@
 [
   {
+    "title": "CAPTAIN TSUBASA 2: WORLD FIGHTERS",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/20adfad67cce44a8a08a29c302861e8c.png",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Intel i5-10600K / AMD Ryzen 5-5600X",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GTX 1650 Super (4 GB) / AMD Radeon RX 5600 XT (6 GB)",
+      "DirectX": "Version 12",
+      "Storage": "22 GB available space",
+      "Additional Notes": "The “Performance mode” game setting enables gameplay at 1080p/60fps.1080p/30fps gameplay is possible with the Intel i5-9600K / AMD Ryzen 5-3600 XT CPUs, 8GB RAM and NVIDIA GTX 970 [4 GB] / AMD Radeon RX 570 [4 GB] GPUs."
+    },
+    "game_info": {
+      "Genre": "Action, Sports",
+      "Developer": "TAMSOFT CORPORATION",
+      "Platform": "PC",
+      "Game Size": "20.5 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24839072",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/captain-tsubasa-2-world-fighters-free-download/"
+  },
+  {
+    "title": "NBA 2K27",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/41f111384c98a213f4b187cf3e952245.png",
+    "system_requirements": {
+      "OS": "Windows 10 64-Bit (latest update)",
+      "Processor": "Intel® Core™ i5-9400 or AMD Ryzen™ 5 1400",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA® GeForce® GTX 1060 5 GB or AMD Radeon™ RX 5500 XT 4 GB or Intel® Arc™ A580",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "110 GB available space",
+      "Additional Notes": "SSD Required. Dual-analog Gamepad recommended. Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include DirectX and Visual C++ Redistributable 2019. In order to play NBA 2K27 on PC, you need a processor capable of supporting AVX2 and a graphics card capable of supporting DirectX feature level 12.0."
+    },
+    "game_info": {
+      "Genre": "Sports",
+      "Developer": "Visual Concepts",
+      "Platform": "PC",
+      "Game Size": "102.6 GB",
+      "Released By": "RUNE",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/nba-2k27-free-download/"
+  },
+  {
     "title": "Assassin's Creed Black Flag Resynced",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3751950/36a1644b03afce1a648ab90b232196609e827539/library_capsule.jpg",
     "system_requirements": {
@@ -100397,30 +100443,6 @@
     "pending_review": true
   },
   {
-    "title": "NBA 2K27",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/41f111384c98a213f4b187cf3e952245.png",
-    "system_requirements": {
-      "OS": "Windows 10 64-Bit (latest update)",
-      "Processor": "Intel® Core™ i5-9400 or AMD Ryzen™ 5 1400",
-      "Memory": "8 GB RAM",
-      "Graphics": "NVIDIA® GeForce® GTX 1060 5 GB or AMD Radeon™ RX 5500 XT 4 GB or Intel® Arc™ A580",
-      "DirectX": "Version 12",
-      "Network": "Broadband Internet connection",
-      "Storage": "110 GB available space",
-      "Additional Notes": "SSD Required. Dual-analog Gamepad recommended. Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include DirectX and Visual C++ Redistributable 2019. In order to play NBA 2K27 on PC, you need a processor capable of supporting AVX2 and a graphics card capable of supporting DirectX feature level 12.0."
-    },
-    "game_info": {
-      "Genre": "Sports",
-      "Developer": "Visual Concepts",
-      "Platform": "PC",
-      "Game Size": "102.6 GB",
-      "Released By": "RUNE",
-      "Pre-Installed Game": true
-    },
-    "url": "https://steamrip.com/nba-2k27-free-download/",
-    "pending_review": true
-  },
-  {
     "title": "Elin",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2135150/library_600x900.jpg",
     "system_requirements": {
@@ -100509,30 +100531,6 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/star-wars-zero-company-free-download/",
-    "pending_review": true
-  },
-  {
-    "title": "CAPTAIN TSUBASA 2: WORLD FIGHTERS",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/20adfad67cce44a8a08a29c302861e8c.png",
-    "system_requirements": {
-      "OS": "Windows 11",
-      "Processor": "Intel i5-10600K / AMD Ryzen 5-5600X",
-      "Memory": "16 GB RAM",
-      "Graphics": "NVIDIA GTX 1650 Super (4 GB) / AMD Radeon RX 5600 XT (6 GB)",
-      "DirectX": "Version 12",
-      "Storage": "22 GB available space",
-      "Additional Notes": "The “Performance mode” game setting enables gameplay at 1080p/60fps.1080p/30fps gameplay is possible with the Intel i5-9600K / AMD Ryzen 5-3600 XT CPUs, 8GB RAM and NVIDIA GTX 970 [4 GB] / AMD Radeon RX 570 [4 GB] GPUs."
-    },
-    "game_info": {
-      "Genre": "Action, Sports",
-      "Developer": "TAMSOFT CORPORATION",
-      "Platform": "PC",
-      "Game Size": "20.5 GB",
-      "Released By": "RUNE",
-      "Version": "Build 24839072",
-      "Pre-Installed Game": true
-    },
-    "url": "https://steamrip.com/captain-tsubasa-2-world-fighters-free-download/",
     "pending_review": true
   },
   {
