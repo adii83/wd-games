@@ -149,20 +149,47 @@ def parse_listing_page(page_html: str):
     return items
 
 
-SUFFIX_RE = re.compile(r"\s*[\(\[][^)\]]*[\)\]]\s*$")
+# Only strips a trailing "(...)"/"[...]" when it STARTS with a
+# version/build/edition-noise keyword (e.g. "(v1.0.3751.0/1.72)",
+# "(Build 252084)", "(Multiplayer + DLCs)") - unlike a naive "strip any
+# trailing parens", this leaves alt-name parens like "(GTA 5)" alone so
+# they can still be matched via the punctuation-to-space step below,
+# instead of being silently deleted and no longer comparable at all.
+VERSION_SUFFIX_RE = re.compile(
+    r"\s*[\(\[]\s*(?:v\s*\d|build\b|b[_-]?\s*\d|patch\b|update\b|dlc\b|"
+    r"co[- ]?op\b|multiplayer\b|online\b|full\b|remake\b|repack\b)[^)\]]*[\)\]]\s*$",
+    re.I,
+)
+ROMAN_MAP = {
+    "i": 1, "ii": 2, "iii": 3, "iv": 4, "v": 5, "vi": 6, "vii": 7, "viii": 8,
+    "ix": 9, "x": 10, "xi": 11, "xii": 12, "xiii": 13, "xiv": 14, "xv": 15,
+    "xvi": 16, "xvii": 17, "xviii": 18, "xix": 19, "xx": 20,
+}
+ROMAN_TOKEN_RE = re.compile(r"\b(" + "|".join(sorted(ROMAN_MAP, key=len, reverse=True)) + r")\b")
 
 
 def normalize_title(title: str) -> str:
-    # Strips trailing "(...)"/"[...]" (version/edition noise) so e.g. a PC
-    # entry stored as "God of War Collection (Remastered)" still matches
-    # the PS3 listing's plain "God of War Collection".
     t = title.strip()
     while True:
-        new_t = SUFFIX_RE.sub("", t).strip()
+        new_t = VERSION_SUFFIX_RE.sub("", t).strip()
         if new_t == t:
             break
         t = new_t
-    return t.lower()
+    t = t.lower()
+    # Punctuation (parens, brackets, slashes, colons, apostrophes, ...)
+    # becomes a space rather than being deleted, so e.g. PC's
+    # "Grand Theft Auto V / GTA 5" and PS3's "Grand Theft Auto V (GTA 5)"
+    # both converge on "grand theft auto v gta 5" instead of the slash
+    # version keeping "gta 5" as real content while parens used to just
+    # erase it.
+    t = re.sub(r"[^a-z0-9]+", " ", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    # "Mortal Kombat X" vs "Mortal Kombat 10" or "Assassin's Creed IV" vs
+    # "...4" would otherwise miss each other - fold standalone roman
+    # numerals (I-XX, plenty for game sequel numbering) to arabic digits
+    # so both forms compare equal.
+    t = ROMAN_TOKEN_RE.sub(lambda m: str(ROMAN_MAP[m.group(1)]), t)
+    return t
 
 
 def load_pc_titles() -> set:
@@ -250,5 +277,27 @@ def main():
               f"the file first; this run does not resume/merge with a prior ps3.json).")
 
 
+def _selftest():
+    cases = [
+        ("Grand Theft Auto V (GTA 5)", "Grand Theft Auto V / GTA 5 (v1.0.3751.0/1.72)"),
+        ("Call of Duty: Black Ops II", "Call of Duty Black Ops II (Multiplayer + DLCs)"),
+        ("Mortal Kombat: Komplete Edition", "Mortal Kombat Komplete Edition (Build 344915)"),
+    ]
+    for ps3_title, pc_title in cases:
+        assert normalize_title(ps3_title) == normalize_title(pc_title), (ps3_title, pc_title)
+    # Different games/sequels must NOT collapse to the same key.
+    distinct = [
+        ("Mortal Kombat", "Mortal Kombat X"),
+        ("NBA 2K9", "NBA 2K19"),
+        ("Watch Dogs", "Watch Dogs 2"),
+    ]
+    for a, b in distinct:
+        assert normalize_title(a) != normalize_title(b), (a, b)
+    print("normalize_title selftest OK")
+
+
 if __name__ == "__main__":
-    main()
+    if "--selftest" in sys.argv:
+        _selftest()
+    else:
+        main()
