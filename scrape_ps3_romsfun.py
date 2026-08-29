@@ -46,6 +46,7 @@ def safe_print(*args, **kwargs):
 print = safe_print
 
 OUTPUT_FILE = Path("ps3.json")
+PC_CATALOG_FILE = Path("steamrip_games_updated.json")
 PS3_CONSOLE_TERM_ID = 15  # data-term-id="15" on romsfun.com's "PS3" console-filter checkbox
 BASE_URL = f"https://romsfun.com/browse-all-roms/?q&consoles%5B0%5D={PS3_CONSOLE_TERM_ID}&sort=popular"
 PAGE_URL_TMPL = f"https://romsfun.com/browse-all-roms/page/{{page}}/?q&consoles%5B0%5D={PS3_CONSOLE_TERM_ID}&sort=popular"
@@ -148,6 +149,32 @@ def parse_listing_page(page_html: str):
     return items
 
 
+SUFFIX_RE = re.compile(r"\s*[\(\[][^)\]]*[\)\]]\s*$")
+
+
+def normalize_title(title: str) -> str:
+    # Strips trailing "(...)"/"[...]" (version/edition noise) so e.g. a PC
+    # entry stored as "God of War Collection (Remastered)" still matches
+    # the PS3 listing's plain "God of War Collection".
+    t = title.strip()
+    while True:
+        new_t = SUFFIX_RE.sub("", t).strip()
+        if new_t == t:
+            break
+        t = new_t
+    return t.lower()
+
+
+def load_pc_titles() -> set:
+    # PC and PS3 releases of the same game only need the store to sell one
+    # copy - keep PC first, so PS3 only fills the gap of what's PC-only.
+    if not PC_CATALOG_FILE.exists():
+        return set()
+    with PC_CATALOG_FILE.open("r", encoding="utf-8") as f:
+        pc_games = json.load(f)
+    return {normalize_title(g["title"]) for g in pc_games if g.get("title")}
+
+
 def save_games(games) -> None:
     tmp = OUTPUT_FILE.with_suffix(OUTPUT_FILE.suffix + ".tmp")
     with tmp.open("w", encoding="utf-8") as f:
@@ -162,16 +189,23 @@ def main():
     total_count = detect_total_count(first_html)
     print(f"Detected {total_pages} pages, {total_count if total_count is not None else '?'} ROMs reported by the site.")
 
+    pc_titles = load_pc_titles()
+    print(f"Loaded {len(pc_titles)} PC titles - PS3 titles already on PC will be skipped.")
+
     games = []
     rank = 0
+    skipped_pc_dupes = 0
     seen_urls = set()
 
     def process(page_html):
-        nonlocal rank
+        nonlocal rank, skipped_pc_dupes
         for item in parse_listing_page(page_html):
             if item["url"] in seen_urls:
                 continue
             seen_urls.add(item["url"])
+            if normalize_title(item["title"]) in pc_titles:
+                skipped_pc_dupes += 1
+                continue
             rank += 1
             games.append({
                 "title": item["title"],
@@ -207,7 +241,7 @@ def main():
             save_games(games)
 
     save_games(games)
-    print(f"\nDone. {len(games)} PS3 titles written to {OUTPUT_FILE.resolve()}")
+    print(f"\nDone. {len(games)} PS3 titles written to {OUTPUT_FILE.resolve()} ({skipped_pc_dupes} skipped as already on PC).")
     if total_count is not None and len(games) != total_count:
         print(f"NOTE: site reported {total_count} ROMs but {len(games)} were collected - "
               f"romsfun's catalog may have changed between page-count detection and now, "
