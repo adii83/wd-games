@@ -100395,5 +100395,169 @@
     },
     "url": "https://steamrip.com/slip-skid-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "NBA 2K27",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/41f111384c98a213f4b187cf3e952245.png",
+    "system_requirements": {
+      "OS": "Windows 10 64-Bit (latest update)",
+      "Processor": "Intel® Core™ i5-9400 or AMD Ryzen™ 5 1400",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA® GeForce® GTX 1060 5 GB or AMD Radeon™ RX 5500 XT 4 GB or Intel® Arc™ A580",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "110 GB available space",
+      "Additional Notes": "SSD Required. Dual-analog Gamepad recommended. Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include DirectX and Visual C++ Redistributable 2019. In order to play NBA 2K27 on PC, you need a processor capable of supporting AVX2 and a graphics card capable of supporting DirectX feature level 12.0."
+    },
+    "game_info": {
+      "Genre": "Sports",
+      "Developer": "Visual Concepts",
+      "Platform": "PC",
+      "Game Size": "102.6 GB",
+      "Released By": "RUNE",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/nba-2k27-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Elin",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2135150/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "windows 8",
+      "Processor": "Pentium Core i-5",
+      "Memory": "8 GB RAM",
+      "Graphics": "Intel HD Graphics 615",
+      "DirectX": "Version 10",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, RPG, Simulation, Strategy, Early Access",
+      "Developer": "Lafrontier",
+      "Platform": "PC",
+      "Game Size": "1007.1 MB",
+      "Released By": "Goldberg + lanternjoe CSF",
+      "Version": "Build 24892994",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/elin-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Lou’s Lagoon",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2100020/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i3-9100F or AMD Ryzen 3 1200",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GTX 1050 Ti or similar (4 GB VRAM)"
+    },
+    "game_info": {
+      "Genre": "Adventure, Simulation",
+      "Developer": "Tiny Roar",
+      "Platform": "PC",
+      "Game Size": "4.9 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24964994",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/lous-lagoon-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "BRIGANDINE ABYSS",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/0edc1e0b6922f81abf71e5c65b196415.png",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Intel® Core™ i5‑4670 (quad‑core), 3.40 GHz or higher",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA® GeForce® GTX 1060 (VRAM 4GB) or higher",
+      "DirectX": "Version 12",
+      "Storage": "16 GB available space"
+    },
+    "game_info": {
+      "Genre": "Simulation, Strategy",
+      "Developer": "Adglobe",
+      "Platform": "PC",
+      "Game Size": "10.4 GB",
+      "Released By": "RUNE",
+      "Version": "Build 23992944",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/brigandine-abyss-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "STAR WARS Zero Company",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/75d8e84292296f1d00ba61471c8a7e5d.png",
+    "system_requirements": {
+      "OS": "64 bit Windows 10/11 (Windows 11 Recommended)",
+      "Processor": "Intel Core i5-8400 or Ryzen 5 2600X",
+      "Memory": "16 GB RAM",
+      "Graphics": "Nvidia GeForce GTX 1080, Radeon RX 5600 XT, or Intel ARC B580",
+      "DirectX": "Version 12",
+      "Storage": "50 GB available space",
+      "Additional Notes": "Resolution: 1920×1080 FPS: 30 Graphics Settings Preset: Low"
+    },
+    "game_info": {
+      "Genre": "Adventure, RPG, Simulation, Sports, Strategy",
+      "Developer": "Bit Reactor",
+      "Platform": "PC",
+      "Game Size": "34.9 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24874058",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/star-wars-zero-company-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "CAPTAIN TSUBASA 2: WORLD FIGHTERS",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/20adfad67cce44a8a08a29c302861e8c.png",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Intel i5-10600K / AMD Ryzen 5-5600X",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GTX 1650 Super (4 GB) / AMD Radeon RX 5600 XT (6 GB)",
+      "DirectX": "Version 12",
+      "Storage": "22 GB available space",
+      "Additional Notes": "The “Performance mode” game setting enables gameplay at 1080p/60fps.1080p/30fps gameplay is possible with the Intel i5-9600K / AMD Ryzen 5-3600 XT CPUs, 8GB RAM and NVIDIA GTX 970 [4 GB] / AMD Radeon RX 570 [4 GB] GPUs."
+    },
+    "game_info": {
+      "Genre": "Action, Sports",
+      "Developer": "TAMSOFT CORPORATION",
+      "Platform": "PC",
+      "Game Size": "20.5 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24839072",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/captain-tsubasa-2-world-fighters-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "METAL GEAR SOLID: MASTER COLLECTION Vol.2",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/be9c9692971c6207d224c8df4983e8cd.png",
+    "system_requirements": {
+      "OS": "Windows 11（64-bit OS required）",
+      "Processor": "Intel(R) Core(TM) i5-9600K",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1650",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "34 GB available space",
+      "Additional Notes": "SSD Recommended"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "KONAMI",
+      "Platform": "PC",
+      "Game Size": "40.7 GB",
+      "Released By": "RUNE | Bonus Content, Ty bullwinkle",
+      "Version": "Build 24588971",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/metal-gear-solid-master-collection-vol-2-free-download/",
+    "pending_review": true
   }
 ]
