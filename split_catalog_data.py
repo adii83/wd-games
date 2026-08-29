@@ -40,6 +40,7 @@ Usage:
 """
 import json
 import os
+import re
 import sys
 import time
 
@@ -87,6 +88,48 @@ def _write_json_compact(path, data):
     _atomic_replace(tmp, path)
 
 
+# "Low Spek" Kategori filter (js/feature.js): RAM minimum <=4GB AND the
+# Graphics requirement doesn't name a heavy-tier GPU. Computed here (not
+# client-side) because the lite listing deliberately excludes
+# system_requirements entirely to keep the gallery's payload small — only
+# this precomputed boolean gets baked into the lite entry instead.
+# ponytail: GPU "heavy" list is a manual keyword heuristic, not a real
+# benchmark tier lookup - repack-site requirement text has no structured
+# tier data to key off. Upgrade path if misclassifications turn up: curate
+# an explicit exclude-list of titles rather than growing this regex forever.
+_HEAVY_GPU_RE = re.compile(
+    r"\b(rtx|gtx\s*9[6-9]\d|gtx\s*1\d{3}|rx\s*[4-9]\d{2}|rx\s*[5-9]\d{3}|vega|radeon\s*vii|arc\s*a7\d0)\b",
+    re.IGNORECASE,
+)
+_LOW_SPEC_RAM_LIMIT_GB = 4
+
+
+def _parse_size_to_gb(value):
+    if isinstance(value, (int, float)):
+        return float(value)
+    if not isinstance(value, str):
+        return 0
+    m = re.search(r"([\d.]+)\s*(GB|MB)", value, re.IGNORECASE)
+    if not m:
+        return 0
+    n = float(m.group(1))
+    return n / 1024 if m.group(2).upper() == "MB" else n
+
+
+def is_low_spec(entry):
+    sr = entry.get("system_requirements") or {}
+    memory = sr.get("Memory")
+    if not memory:
+        return False
+    ram_gb = _parse_size_to_gb(memory)
+    if not ram_gb or ram_gb > _LOW_SPEC_RAM_LIMIT_GB:
+        return False
+    graphics = sr.get("Graphics")
+    if graphics and _HEAVY_GPU_RE.search(graphics):
+        return False
+    return True
+
+
 def lite_entry(entry):
     game_info = entry.get("game_info") or {}
     return {
@@ -96,6 +139,7 @@ def lite_entry(entry):
             "Genre": game_info.get("Genre"),
             "Game Size": game_info.get("Game Size"),
         },
+        "is_low_spec": is_low_spec(entry),
     }
 
 
@@ -166,5 +210,22 @@ def main():
         print(f"Removed {removed} orphaned file(s) left over from title changes.")
 
 
+def _selftest():
+    low = {"system_requirements": {"Memory": "4 GB RAM", "Graphics": "GeForce 9800GT"}}
+    assert is_low_spec(low) is True
+    high_ram = {"system_requirements": {"Memory": "16 GB RAM", "Graphics": "GeForce 9800GT"}}
+    assert is_low_spec(high_ram) is False
+    heavy_gpu = {"system_requirements": {"Memory": "4 GB RAM", "Graphics": "NVIDIA GeForce RTX 3060"}}
+    assert is_low_spec(heavy_gpu) is False
+    no_data = {"system_requirements": {}}
+    assert is_low_spec(no_data) is False
+    mb_ram = {"system_requirements": {"Memory": "512 MB RAM"}}
+    assert is_low_spec(mb_ram) is True
+    print("is_low_spec selftest OK")
+
+
 if __name__ == "__main__":
-    main()
+    if "--selftest" in sys.argv:
+        _selftest()
+    else:
+        main()

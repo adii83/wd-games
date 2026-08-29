@@ -31,6 +31,9 @@
     // Same idea for the "needs internet/Online" filter (see requiresOnline())
     // — not a real Genre value, just a fixed shortcut in the dropdown.
     const ONLINE_CATEGORY_VALUE = '__online__';
+    // Same idea for the "Low Spek" filter (see isLowSpec()) — PC-only, PS2/PS3
+    // carry no system_requirements at all so they never match it.
+    const LOW_SPEC_CATEGORY_VALUE = '__lowspec__';
 
     const SELECT_ICON_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
 
@@ -210,6 +213,17 @@
         return Boolean(m && /[+]/.test(m[1]) && /\b(online|multiplayer|co-?op|lan|crossplay)\b/i.test(m[1]));
     }
 
+    // "Low Spek" filter: RAM minimum <=4GB AND Graphics requirement doesn't
+    // name a heavy-tier GPU. Computed Python-side (split_catalog_data.py) from
+    // the full system_requirements and baked into the lite listing as a plain
+    // boolean, because the lite JSON this page fetches deliberately excludes
+    // system_requirements entirely (~32% of the full catalog's payload) — see
+    // CLAUDE.md's "Data model" section. PS2/PS3 entries have no
+    // system_requirements at all so this is always false for them.
+    function isLowSpec(game) {
+        return Boolean(game.is_low_spec);
+    }
+
     // Fisher-Yates — used so the hero/Featured pick differs on every page
     // load instead of always showing the same games in the same order.
     function shuffle(arr) {
@@ -249,7 +263,8 @@
             activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2'
                 : activeGenre === PS3_CATEGORY_VALUE ? 'Game PS3'
                     : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online'
-                        : (activeGenre || 'Kategori')
+                        : activeGenre === LOW_SPEC_CATEGORY_VALUE ? 'Low Spek'
+                            : (activeGenre || 'Kategori')
         );
         genreDropdownPanel.querySelectorAll('.filter-dropdown-item').forEach((item) => {
             item.classList.toggle('active', (item.getAttribute('data-value') || null) === activeGenre);
@@ -278,6 +293,7 @@
             `<button type="button" class="filter-dropdown-item${activeGenre === PS2_CATEGORY_VALUE ? ' active' : ''}" data-value="${PS2_CATEGORY_VALUE}">Game PS2</button>`,
             `<button type="button" class="filter-dropdown-item${activeGenre === PS3_CATEGORY_VALUE ? ' active' : ''}" data-value="${PS3_CATEGORY_VALUE}">Game PS3</button>`,
             `<button type="button" class="filter-dropdown-item${activeGenre === ONLINE_CATEGORY_VALUE ? ' active' : ''}" data-value="${ONLINE_CATEGORY_VALUE}">Online</button>`,
+            `<button type="button" class="filter-dropdown-item${activeGenre === LOW_SPEC_CATEGORY_VALUE ? ' active' : ''}" data-value="${LOW_SPEC_CATEGORY_VALUE}">Low Spek</button>`,
             ...topGenres.map((g) => `<button type="button" class="filter-dropdown-item${activeGenre === g ? ' active' : ''}" data-value="${g}">${g}</button>`),
         ].join('');
 
@@ -884,7 +900,8 @@
                     || (activeGenre === PS2_CATEGORY_VALUE ? g._category === 'ps2'
                         : activeGenre === PS3_CATEGORY_VALUE ? g._category === 'ps3'
                             : activeGenre === ONLINE_CATEGORY_VALUE ? requiresOnline(g.title)
-                                : gameGenres(g).includes(activeGenre));
+                                : activeGenre === LOW_SPEC_CATEGORY_VALUE ? isLowSpec(g)
+                                    : gameGenres(g).includes(activeGenre));
                 return matchesSearch && matchesGenre;
             });
 
@@ -893,7 +910,7 @@
             }
 
             const labelParts = [];
-            if (activeGenre) labelParts.push(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : activeGenre === PS3_CATEGORY_VALUE ? 'Game PS3' : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online' : activeGenre);
+            if (activeGenre) labelParts.push(activeGenre === PS2_CATEGORY_VALUE ? 'Game PS2' : activeGenre === PS3_CATEGORY_VALUE ? 'Game PS3' : activeGenre === ONLINE_CATEGORY_VALUE ? 'Online' : activeGenre === LOW_SPEC_CATEGORY_VALUE ? 'Low Spek' : activeGenre);
             if (q) labelParts.push(`"${searchInput.value.trim()}"`);
             catalogTitle.textContent = labelParts.length ? `Hasil untuk ${labelParts.join(' · ')}` : 'Explore Your Collection';
 
