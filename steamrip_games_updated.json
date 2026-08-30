@@ -100557,5 +100557,28 @@
     },
     "url": "https://steamrip.com/metal-gear-solid-master-collection-vol-2-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Resonance: A Plague Tale Legacy",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/19488d75fad434aed855298dad9d9d76.png",
+    "system_requirements": {
+      "OS": "Windows 10/11 64-bit",
+      "Processor": "AMD Ryzen 3 3100 / Intel Core i3-12100",
+      "Memory": "16 GB RAM",
+      "Graphics": "6 GB VRAM, AMD Radeon RX 5500 XT / Nvidia GeForce GTX 1060",
+      "DirectX": "Version 12",
+      "Storage": "75 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Asobo Studio",
+      "Platform": "PC",
+      "Game Size": "64.6 GB",
+      "Released By": "RUNE emu",
+      "Version": "Build 24773053 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/resonance-a-plague-tale-legacy-free-download/",
+    "pending_review": true
   }
 ]
