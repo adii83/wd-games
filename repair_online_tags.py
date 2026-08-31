@@ -27,7 +27,10 @@ import re
 import sys
 import time
 
-from scrape_steamrip_recent import fetch, parse_game_post, clean_title, REQUEST_DELAY
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from scrape_steamrip_recent import fetch, parse_game_post, clean_title, strip_free_download, REQUEST_DELAY
 
 DATA_FILE = "steamrip_games_updated.json"
 STATE_FILE = "online_tag_repair_progress.json"
@@ -101,8 +104,9 @@ def main():
         state[url] = {"raw_title": raw_title, "recovered": recovered}
         if recovered:
             old = g["title"]
-            g["title"] = raw_title
-            fixed.append((old, raw_title))
+            new_title = strip_free_download(raw_title)
+            g["title"] = new_title
+            fixed.append((old, new_title))
 
         time.sleep(REQUEST_DELAY)
         if (i + 1) % 50 == 0 or i == len(remaining) - 1:

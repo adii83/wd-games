@@ -161,6 +161,21 @@ def strip_version_suffix(title: str) -> str:
     return t
 
 
+_FREE_DOWNLOAD_RE = re.compile(r"\s*\bfree download\b\s*", re.IGNORECASE)
+
+
+def strip_free_download(title: str) -> str:
+    # "Free Download" is pure clutter steamrip's post titles carry (e.g.
+    # "Satisfactory Free Download (v1.2.3.1 + Online)") - unlike the
+    # "(... + Online)" tag right after it, it's never meaningful and every
+    # other title in the catalog is already clean of it. Surgical removal
+    # (not a full clean_title() pass) so the online/co-op tag next to it
+    # survives untouched.
+    if not title:
+        return title
+    return re.sub(r"\s+", " ", _FREE_DOWNLOAD_RE.sub(" ", title)).strip()
+
+
 def clean_title(raw_title: str) -> str:
     value = html.unescape(raw_title or "")
     value = strip_version_suffix(value)
@@ -464,7 +479,7 @@ def main():
         # the raw page title (falls back to the raw list-page title only if
         # the post page's own title didn't parse), while clean_title()'s
         # output is used only for the dedup re-check and the Steam lookup.
-        stored_title = raw_page_title or raw_list_title
+        stored_title = strip_free_download(raw_page_title or raw_list_title)
         search_title = clean_title(raw_page_title) or clean_title(raw_list_title)
 
         # Re-check against the on-page title too, and against titles added
