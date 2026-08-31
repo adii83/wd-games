@@ -432,13 +432,13 @@ def main():
     to_process = []
     seen_clean = set()
     for url, raw_title in merged:
-        title = clean_title(raw_title)
-        if not title or title.lower() in seen_clean:
+        search_title = clean_title(raw_title)
+        if not search_title or search_title.lower() in seen_clean:
             continue
-        if not is_new_title(title, existing_lower):
+        if not is_new_title(search_title, existing_lower):
             continue
-        seen_clean.add(title.lower())
-        to_process.append((url, title))
+        seen_clean.add(search_title.lower())
+        to_process.append((url, raw_title))
 
     print(f"\n{len(to_process)} candidate title(s) not yet in the database.")
     if limit and len(to_process) > limit:
@@ -446,30 +446,40 @@ def main():
         to_process = to_process[:limit]
 
     added = []
-    for i, (url, list_title) in enumerate(to_process, 1):
+    for i, (url, raw_list_title) in enumerate(to_process, 1):
         try:
             post_html = fetch(url)
         except Exception as e:
-            print(f"  [{i}/{len(to_process)}] SKIP (couldn't fetch page): {list_title!r}: {e}")
+            print(f"  [{i}/{len(to_process)}] SKIP (couldn't fetch page): {raw_list_title!r}: {e}")
             time.sleep(REQUEST_DELAY)
             continue
 
         raw_page_title, system_requirements, game_info = parse_game_post(post_html)
-        title = clean_title(raw_page_title) or list_title
+        # clean_title() strips the "+ Online"/"+ Co-op"/"+ Multiplayer" tag
+        # steamrip's own post titles carry (it's meant for Steam-search/dedup
+        # matching, where that noise only hurts) — but the rest of the
+        # database KEEPS that tag baked into the stored title (e.g. "Schedule
+        # I (v0.4.3f3 + Online)"), and js/feature.js's requiresOnline() badge
+        # detection depends on it surviving there. So the STORED title uses
+        # the raw page title (falls back to the raw list-page title only if
+        # the post page's own title didn't parse), while clean_title()'s
+        # output is used only for the dedup re-check and the Steam lookup.
+        stored_title = raw_page_title or raw_list_title
+        search_title = clean_title(raw_page_title) or clean_title(raw_list_title)
 
         # Re-check against the on-page title too, and against titles added
         # earlier in this same run (a list-page title and a widget title
         # can both resolve to the same on-page title).
-        if not is_new_title(title, existing_lower):
-            print(f"  [{i}/{len(to_process)}] SKIP (already in database after re-check): {title!r}")
+        if not is_new_title(search_title, existing_lower):
+            print(f"  [{i}/{len(to_process)}] SKIP (already in database after re-check): {stored_title!r}")
             time.sleep(REQUEST_DELAY)
             continue
 
         game_info.setdefault("Game Size", "")
-        banner = get_steam_banner(title)
+        banner = get_steam_banner(search_title)
 
         entry = {
-            "title": title,
+            "title": stored_title,
             "banner_url": banner,
             "system_requirements": system_requirements,
             "game_info": game_info,
@@ -477,12 +487,13 @@ def main():
             "pending_review": True,
         }
         games.append(entry)
-        existing_lower.add(title.lower())
-        added.append(title)
+        existing_lower.add(stored_title.lower())
+        existing_lower.add(search_title.lower())
+        added.append(stored_title)
 
         size_note = game_info.get("Game Size") or "size unknown"
         banner_note = "Steam art found" if banner else "no Steam match — banner left blank"
-        print(f"  [{i}/{len(to_process)}] ADD: {title!r} ({size_note}, {banner_note})")
+        print(f"  [{i}/{len(to_process)}] ADD: {stored_title!r} ({size_note}, {banner_note})")
 
         if len(added) % SAVE_EVERY == 0:
             save_games(games)
