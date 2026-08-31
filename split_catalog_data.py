@@ -132,7 +132,7 @@ def is_low_spec(entry):
 
 def lite_entry(entry):
     game_info = entry.get("game_info") or {}
-    return {
+    lite = {
         "title": entry.get("title"),
         "banner_url": entry.get("banner_url"),
         "game_info": {
@@ -141,6 +141,12 @@ def lite_entry(entry):
         },
         "is_low_spec": is_low_spec(entry),
     }
+    # Admin's "Online" override (js/admin.js) — a real bool means "force
+    # this badge on/off"; the key is simply absent for "auto-detect from
+    # title" (js/feature.js's requiresOnline() treats those the same way).
+    if isinstance(entry.get("online_override"), bool):
+        lite["online_override"] = entry["online_override"]
+    return lite
 
 
 def main():
@@ -222,6 +228,11 @@ def _selftest():
     mb_ram = {"system_requirements": {"Memory": "512 MB RAM"}}
     assert is_low_spec(mb_ram) is True
     print("is_low_spec selftest OK")
+
+    assert "online_override" not in lite_entry({"title": "X"})
+    assert lite_entry({"title": "X", "online_override": True})["online_override"] is True
+    assert lite_entry({"title": "X", "online_override": False})["online_override"] is False
+    print("lite_entry online_override selftest OK")
 
 
 if __name__ == "__main__":

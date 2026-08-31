@@ -353,6 +353,22 @@
             <label
               class="text-secondary"
               style="font-weight: 600; margin-bottom: 5px; display: block"
+              >Label "Online"</label
+            >
+            <select id="form-online-override" class="admin-input">
+              <option value="">Otomatis (deteksi dari judul)</option>
+              <option value="true">Selalu tampilkan</option>
+              <option value="false">Selalu sembunyikan</option>
+            </select>
+            <small class="text-secondary" style="margin-top: 6px; display: block"
+              >Otomatis = badge Online muncul kalau judul diakhiri "(... + Online/Co-op/Multiplayer/LAN)". Pilih manual untuk menimpa deteksi ini.</small
+            >
+          </div>
+
+          <div class="input-group">
+            <label
+              class="text-secondary"
+              style="font-weight: 600; margin-bottom: 5px; display: block"
               >Banner URL (Link Gambar)</label
             >
             <input type="text" id="form-banner" class="admin-input" required />

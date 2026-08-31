@@ -207,7 +207,12 @@
     // to flag which games need an internet connection to use that feature,
     // without false-positiving on titles that just contain the word (e.g.
     // "CarX Drift Racing Online").
-    function requiresOnline(title) {
+    function requiresOnline(game) {
+        // Admin's manual override (js/admin.js "Label Online" select) wins over
+        // the title guess whenever it's actually been set — see split_catalog_data.py's
+        // lite_entry(), which only ever includes this key as a real boolean.
+        if (typeof game.online_override === 'boolean') return game.online_override;
+        const title = game.title;
         if (!title) return false;
         const m = title.match(/\(([^()]*)\)\s*$/);
         return Boolean(m && /[+]/.test(m[1]) && /\b(online|multiplayer|co-?op|lan|crossplay)\b/i.test(m[1]));
@@ -440,7 +445,7 @@
         if (Number.isFinite(options.animIndex)) card.style.setProperty('--i', Math.min(options.animIndex, 14));
 
         const displayTitle = cleanDisplayTitle(game.title);
-        const isOnline = requiresOnline(game.title);
+        const isOnline = requiresOnline(game);
         card.innerHTML = `
             <div class="gallery-card-img-wrap">
                 <img class="gallery-card-img" src="${game.banner_url || 'assets/logo.png'}" alt="${displayTitle}" loading="lazy" decoding="async">
@@ -899,7 +904,7 @@
                 const matchesGenre = !activeGenre
                     || (activeGenre === PS2_CATEGORY_VALUE ? g._category === 'ps2'
                         : activeGenre === PS3_CATEGORY_VALUE ? g._category === 'ps3'
-                            : activeGenre === ONLINE_CATEGORY_VALUE ? requiresOnline(g.title)
+                            : activeGenre === ONLINE_CATEGORY_VALUE ? requiresOnline(g)
                                 : activeGenre === LOW_SPEC_CATEGORY_VALUE ? isLowSpec(g)
                                     : gameGenres(g).includes(activeGenre));
                 return matchesSearch && matchesGenre;

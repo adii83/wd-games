@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameModal = document.getElementById('game-modal');
     const closeFormBtn = document.getElementById('close-form-btn');
     const formTitle = document.getElementById('form-title');
+    const formOnlineOverride = document.getElementById('form-online-override');
     const formBanner = document.getElementById('form-banner');
     const formBannerPreview = document.getElementById('form-banner-preview');
     const formReqs = document.getElementById('form-reqs');
@@ -487,6 +488,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (query && !g.title.toLowerCase().includes(query)) return false;
             return true;
         });
+        // Scraper appends new pending entries to the END of gamesData, so the
+        // "Recently Added" view (pending-only) needs to be shown newest-first —
+        // reverse just this filtered view, not the full table (which stays in
+        // its normal order so Edit/Hapus row numbers don't shuffle around).
+        if (pendingOnlyFilter) displayedGamesData.reverse();
         updatePendingCount();
         renderAdminTable();
     }
@@ -541,6 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('form-modal-title').innerText = "Edit Game";
             const game = gamesData[index];
             formTitle.value = game.title || '';
+            formOnlineOverride.value = typeof game.online_override === 'boolean' ? String(game.online_override) : '';
             formBanner.value = game.banner_url || '';
             if(game.banner_url) {
                 formBannerPreview.src = game.banner_url;
@@ -551,6 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             document.getElementById('form-modal-title').innerText = "Tambah Game Baru";
             formTitle.value = '';
+            formOnlineOverride.value = '';
             formBanner.value = '';
             formReqs.value = '';
             formInfo.value = '';
@@ -609,6 +617,15 @@ document.addEventListener('DOMContentLoaded', () => {
             system_requirements: Object.keys(reqsObj).length > 0 ? reqsObj : null,
             game_info: Object.keys(infoObj).length > 0 ? infoObj : null
         };
+        // "" = auto (no override, let requiresOnline() read the title as usual) —
+        // omit the key entirely rather than storing null, so split_catalog_data.py's
+        // lite_entry() and js/feature.js's typeof-boolean check both treat it the
+        // same as a game that was never touched by this control.
+        if (formOnlineOverride.value === '') {
+            delete newGameObject.online_override;
+        } else {
+            newGameObject.online_override = formOnlineOverride.value === 'true';
+        }
 
         if (idx >= 0) {
             gamesData[idx] = newGameObject;
