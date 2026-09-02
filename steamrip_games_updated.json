@@ -100581,5 +100581,51 @@
     },
     "url": "https://steamrip.com/resonance-a-plague-tale-legacy-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Serious Sam: Shatterverse",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/0a1e1d8da51f5dd7077a7f2748b10d58.png",
+    "system_requirements": {
+      "OS": "Windows 10 x64 Bit",
+      "Processor": "Intel Core i7-6700 / AMD Ryzen 5 2500U",
+      "Memory": "8 GB RAM",
+      "Graphics": "GeForce GTX 1050 Ti /Radeon RX 560X",
+      "DirectX": "Version 12",
+      "Storage": "10 GB available space",
+      "Additional Notes": "Low Quality setting, in 1080p, producing 30 FPS"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Behaviour Interactive Inc.",
+      "Platform": "PC",
+      "Game Size": "7 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24825466",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/serious-sam-shatterverse-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Lady Death Demonicron",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2954890/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit)",
+      "Processor": "Intel Core i3-2100",
+      "Memory": "4 GB RAM",
+      "Graphics": "Geforce 9600 GT or AMD HD 3870 512MB",
+      "Storage": "5 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Art Of Play Interactive",
+      "Platform": "PC",
+      "Game Size": "1.6 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25021065",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/lady-death-demonicron-free-download/",
+    "pending_review": true
   }
 ]
