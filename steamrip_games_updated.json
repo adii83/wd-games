@@ -100834,5 +100834,28 @@
     },
     "url": "https://steamrip.com/vholume-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "SpeedRunners 2: King of Speed",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/76656091a99e79af714e6cfe921f5e7c.png",
+    "system_requirements": {
+      "OS": "Win 10 x64",
+      "Processor": "Ryzen 5 1600, Core i3-8100",
+      "Memory": "16 GB RAM",
+      "Graphics": "GTX 1660 Super",
+      "DirectX": "Version 11",
+      "Storage": "3 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Casual, Indie, Racing, Sports",
+      "Developer": "Fair Play Labs",
+      "Platform": "PC",
+      "Game Size": "1.4 GB",
+      "Released By": "RUNE emu",
+      "Version": "Build 25004838 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/speedrunners-2-king-of-speed-free-download/",
+    "pending_review": true
   }
 ]
