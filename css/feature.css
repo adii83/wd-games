@@ -1263,6 +1263,7 @@ body.landing-active .search-fab {
 }
 
 .shopee-redirect-box {
+  position: relative;
   width: min(360px, 100%);
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1271,6 +1272,26 @@ body.landing-active .search-fab {
   text-align: center;
   transform: scale(0.96);
   transition: transform 0.2s var(--ease-standard);
+}
+
+.shopee-redirect-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.shopee-redirect-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .shopee-redirect-overlay.open .shopee-redirect-box {
@@ -1294,6 +1315,12 @@ body.landing-active .search-fab {
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 4px;
+}
+
+.shopee-redirect-note {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0 0 var(--spacing-sm);
 }
 
 .shopee-redirect-sub {

@@ -67,39 +67,65 @@
     redirectOverlay.className = 'shopee-redirect-overlay';
     redirectOverlay.innerHTML = `
         <div class="shopee-redirect-box">
+            <button type="button" class="shopee-redirect-close" aria-label="Tutup">&times;</button>
             <div class="shopee-redirect-icon">&#10003;</div>
             <p class="shopee-redirect-text">Teks daftar game berhasil disalin!</p>
+            <p class="shopee-redirect-note">Silakan paste list game ini ke admin WD Games.</p>
             <p class="shopee-redirect-sub">Anda akan dibawa ke Shopee dalam <span class="shopee-redirect-count">${REDIRECT_COUNTDOWN_SECONDS}</span>...</p>
             <button type="button" class="shopee-redirect-skip">Lanjut Sekarang</button>
         </div>
     `;
     document.body.appendChild(redirectOverlay);
-    const redirectCountEl = redirectOverlay.querySelector('.shopee-redirect-count');
+    const redirectSubEl = redirectOverlay.querySelector('.shopee-redirect-sub');
     const redirectSkipBtn = redirectOverlay.querySelector('.shopee-redirect-skip');
+    const redirectCloseBtn = redirectOverlay.querySelector('.shopee-redirect-close');
+    let redirectTimer = null;
+
+    // Always available regardless of what the countdown/redirect below is
+    // doing — clicking it (or the backdrop) just dismisses the overlay,
+    // it never gets left stuck open with no way out.
+    function closeRedirectOverlay() {
+        clearInterval(redirectTimer);
+        redirectOverlay.classList.remove('open');
+    }
+    redirectCloseBtn.onclick = closeRedirectOverlay;
+    redirectOverlay.addEventListener('click', (e) => {
+        if (e.target === redirectOverlay) closeRedirectOverlay();
+    });
 
     function openShopeeRedirectCountdown(url) {
-        // Same-tab redirect: nothing opens/navigates until the countdown
-        // actually reaches zero (or "Lanjut Sekarang" is clicked). This
-        // also sidesteps popup blockers entirely — they only ever gate
-        // new-window/tab creation, never a plain navigation of the page
-        // itself, so there's no activation-timing concern to work around
-        // here the way there would be with window.open().
+        // Nothing opens until the countdown actually reaches zero (or
+        // "Lanjut Sekarang" is clicked) — the tab is opened THEN, not up
+        // front. That means window.open() at that point has no user
+        // gesture backing it anymore (the original "Copy Teks" click is
+        // long gone after a 5-second timer), so a real browser's popup
+        // blocker can legitimately swallow it silently. Guard for that: if
+        // window.open() doesn't hand back a live window, swap the message
+        // for a plain link the visitor can click themselves — a real click
+        // on it is its own fresh gesture, so that one always works.
+        clearInterval(redirectTimer);
         let secondsLeft = REDIRECT_COUNTDOWN_SECONDS;
-        redirectCountEl.textContent = secondsLeft;
+        redirectSubEl.innerHTML = `Anda akan dibawa ke Shopee dalam <span class="shopee-redirect-count">${secondsLeft}</span>...`;
         redirectOverlay.classList.add('open');
 
         function go() {
-            clearInterval(timer);
-            window.location.href = url;
+            clearInterval(redirectTimer);
+            const win = window.open(url, '_blank');
+            if (win) {
+                closeRedirectOverlay();
+            } else {
+                redirectSubEl.innerHTML = `Browser memblokir tab otomatis — <a href="${url}" target="_blank" rel="noopener">klik di sini untuk membuka Shopee</a>.`;
+            }
         }
 
-        const timer = setInterval(() => {
+        redirectTimer = setInterval(() => {
             secondsLeft -= 1;
             if (secondsLeft <= 0) {
                 go();
                 return;
             }
-            redirectCountEl.textContent = secondsLeft;
+            const countEl = redirectOverlay.querySelector('.shopee-redirect-count');
+            if (countEl) countEl.textContent = secondsLeft;
         }, 1000);
 
         // Reassigning .onclick (not addEventListener) each call is enough
