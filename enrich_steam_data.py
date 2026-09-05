@@ -40,6 +40,48 @@ OUTPUT_FILE = "steamrip_games_gameplay.json"
 REQUEST_DELAY = 0.25
 MIN_SIMILARITY = 0.55
 
+# scrape_steamrip_recent.py's own Steam banner search (unconditional first
+# search result, no fuzzy scoring) sometimes comes up empty for a title
+# that THIS script's fuzzier match (MIN_SIMILARITY-scored, cutoff 0.55)
+# still finds fine. Rather than leave the card with no cover art forever,
+# backfill banner_url straight from the appid this script already
+# confirmed - same CDN path scrape_steamrip_recent.py's own get_steam_banner()
+# uses, so it stays the exact same shape of URL everywhere in the catalog.
+BANNER_CDN_TEMPLATE = "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/{appid}/library_600x900.jpg"
+# Reused as-is (not reimplemented) for the same reason scrape_steamrip_recent.py
+# itself falls back to these when the flat CDN path 404s (common for very
+# recently released titles) - SteamGridDB actually has portrait/grid art,
+# unlike this title's own screenshots (landscape, would look cropped/wrong
+# in the site's portrait card layout - see get_steam_banner()'s own comment
+# about why Steam's landscape tiny_image was dropped as a fallback).
+from scrape_steamrip_recent import (
+    steamgriddb_grids_for_steam_appid,
+    steamgriddb_autocomplete,
+    select_best_grid,
+    fetch_json,
+    STEAM_API_BASE,
+    STEAMGRIDDB_API_KEY,
+)
+
+
+def steamgriddb_cover_by_name(title):
+    # Last-resort tier, same as get_steam_banner()'s own: search SteamGridDB
+    # by title instead of the (already-confirmed) Steam appid - only reached
+    # once both appid-based lookups above have already come up empty.
+    for candidate in steamgriddb_autocomplete(title)[:3]:
+        try:
+            grids_payload = fetch_json(
+                f"{STEAM_API_BASE}/grids/game/{candidate['id']}",
+                headers={"Authorization": f"Bearer {STEAMGRIDDB_API_KEY}"},
+            )
+            grids = grids_payload.get("data") or []
+        except Exception:
+            grids = []
+        cover = select_best_grid(grids)
+        if cover:
+            return cover
+    return None
+
 TRAILING_TAG_RE = re.compile(
     r"""\s*(?:
         \([^)]*\)                      # (v1.06), (Build 12345), (Multiplayer), ...
@@ -105,6 +147,15 @@ def http_get_json(url, retries=4):
             print(f"    ! request failed ({e}), retry in {wait}s", flush=True)
             time.sleep(wait)
     return None
+
+
+def url_exists(url):
+    try:
+        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return resp.status == 200
+    except Exception:
+        return False
 
 
 def _storesearch(term):
@@ -298,6 +349,45 @@ def main():
     write_output(state, valid_titles)
     total_matched = sum(1 for v in state.values() if v.get("matched"))
     print(f"\nDone. {len(state)}/{total} titles processed, {total_matched} matched with gameplay data.")
+
+    # Backfill banner_url for any title (this run's or an older run's) that
+    # has a confirmed Steam match but never got a card image - covers both
+    # the existing backlog and every future title in the same pass, so
+    # there's nothing extra to run later.
+    games_by_title = {g["title"]: g for g in games if g.get("title")}
+    banners_fixed = []
+    for title, v in state.items():
+        if not v.get("matched"):
+            continue
+        game = games_by_title.get(title)
+        if not game or game.get("banner_url"):
+            continue
+        appid = v.get("data", {}).get("steam_appid")
+        if not appid:
+            continue
+        cdn_url = BANNER_CDN_TEMPLATE.format(appid=appid)
+        if url_exists(cdn_url):
+            game["banner_url"] = cdn_url
+            banners_fixed.append(title)
+            time.sleep(REQUEST_DELAY)
+            continue
+        time.sleep(REQUEST_DELAY)
+        cover = select_best_grid(steamgriddb_grids_for_steam_appid(appid))
+        if not cover:
+            cover = steamgriddb_cover_by_name(title)
+        if cover:
+            game["banner_url"] = cover
+            banners_fixed.append(title)
+        time.sleep(REQUEST_DELAY)
+
+    if banners_fixed:
+        tmp = DATA_FILE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(games, f, ensure_ascii=False, indent=2)
+        _atomic_replace(tmp, DATA_FILE)
+        print(f"Backfilled banner_url for {len(banners_fixed)} title(s) that had a Steam match but no cover art:")
+        for title in banners_fixed:
+            print(f"  {title}")
 
 
 if __name__ == "__main__":
