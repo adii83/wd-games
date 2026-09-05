@@ -62,6 +62,18 @@
     const featuredWeekSection = document.getElementById('featured-week-section');
     const featuredWeekGrid = document.getElementById('featured-week-grid');
 
+    const recentlyAddedSection = document.getElementById('recently-added-section');
+    const recentlyAddedGrid = document.getElementById('recently-added-grid');
+    const recentlyAddedLoadMore = document.getElementById('recently-added-load-more');
+
+    const ps2Section = document.getElementById('ps2-section');
+    const ps2SectionGrid = document.getElementById('ps2-section-grid');
+    const ps2SectionLoadMore = document.getElementById('ps2-section-load-more');
+
+    const ps3Section = document.getElementById('ps3-section');
+    const ps3SectionGrid = document.getElementById('ps3-section-grid');
+    const ps3SectionLoadMore = document.getElementById('ps3-section-load-more');
+
     const updateGamesSection = document.getElementById('update-games-section');
     const updateScrollRow = document.getElementById('update-scroll-row');
     const updateGamesSeeAll = document.getElementById('update-games-see-all');
@@ -380,6 +392,22 @@
             // gameplay data and a "newest" ordering that PS2/PS3 don't have.
             allGames = [...pcGames, ...ps2Games, ...ps3Games];
 
+            // "Baru Saja Ditambahkan": scraper-added PC titles admin hasn't
+            // reviewed/promoted yet (see admin.html's own "Recently Added"
+            // panel) — the scraper appends new ones to the END of the array,
+            // so reversing this slice shows the newest arrival first.
+            const pendingGames = pcGames.filter((g) => g.pending_review).reverse();
+            recentlyAddedSection.style.display = pendingGames.length ? '' : 'none';
+            recentlyAddedPager.setGames(pendingGames);
+
+            // PS2/PS3 catalogs are already ordered by Popularity Rank at the
+            // source (sort_ps2_by_romsfun_popular.py / scrape_ps3_romsfun.py),
+            // so no re-sort needed here.
+            ps2Section.style.display = ps2Games.length ? '' : 'none';
+            ps2SectionPager.setGames(ps2Games);
+            ps3Section.style.display = ps3Games.length ? '' : 'none';
+            ps3SectionPager.setGames(ps3Games);
+
             // The storage bar was already rendered once at page init (before
             // this fetch resolved), using an empty allGames — any items
             // already in the cart from a previous visit computed as 0 GB
@@ -465,6 +493,46 @@
         `;
         return card;
     }
+
+    // --- Simple "load more" pager for the bottom-of-page sections (Baru
+    // Saja Ditambahkan / Game PS2 / Game PS3) — each of the three gets its
+    // own instance (own closure-local page cursor), but the render logic
+    // itself isn't copy-pasted three times. Deliberately simpler than the
+    // main grid's renderGrid() (no search/sort/badge interplay to handle).
+    function createSimpleGridPager(gridEl, loadMoreBtnEl) {
+        let games = [];
+        let page = 1;
+
+        function renderPage(reset) {
+            if (reset) {
+                gridEl.innerHTML = '';
+                page = 1;
+            }
+            const start = (page - 1) * ITEMS_PER_PAGE;
+            const end = start + ITEMS_PER_PAGE;
+            const chunk = games.slice(start, end);
+            const fragment = document.createDocumentFragment();
+            chunk.forEach((game, idx) => fragment.appendChild(buildGameCard(game, { animIndex: idx })));
+            gridEl.appendChild(fragment);
+            loadMoreBtnEl.style.display = end >= games.length ? 'none' : 'inline-block';
+        }
+
+        loadMoreBtnEl.addEventListener('click', () => {
+            page++;
+            renderPage(false);
+        });
+
+        return {
+            setGames(newGames) {
+                games = newGames;
+                renderPage(true);
+            },
+        };
+    }
+
+    const recentlyAddedPager = createSimpleGridPager(recentlyAddedGrid, recentlyAddedLoadMore);
+    const ps2SectionPager = createSimpleGridPager(ps2SectionGrid, ps2SectionLoadMore);
+    const ps3SectionPager = createSimpleGridPager(ps3SectionGrid, ps3SectionLoadMore);
 
     // --- Hero carousel ---
 

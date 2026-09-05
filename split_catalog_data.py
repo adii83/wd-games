@@ -146,6 +146,12 @@ def lite_entry(entry):
     # title" (js/feature.js's requiresOnline() treats those the same way).
     if isinstance(entry.get("online_override"), bool):
         lite["online_override"] = entry["online_override"]
+    # Scraper-added titles not yet reviewed via admin.html's "Recently Added"
+    # panel (see scrape_steamrip_recent.py) — js/feature.js's own "Baru Saja
+    # Ditambahkan" section reads this to show them before an admin promotes
+    # them. Omitted (not False) once promoteGame() deletes the source key.
+    if entry.get("pending_review"):
+        lite["pending_review"] = True
     return lite
 
 
@@ -233,6 +239,10 @@ def _selftest():
     assert lite_entry({"title": "X", "online_override": True})["online_override"] is True
     assert lite_entry({"title": "X", "online_override": False})["online_override"] is False
     print("lite_entry online_override selftest OK")
+
+    assert "pending_review" not in lite_entry({"title": "X"})
+    assert lite_entry({"title": "X", "pending_review": True})["pending_review"] is True
+    print("lite_entry pending_review selftest OK")
 
 
 if __name__ == "__main__":
