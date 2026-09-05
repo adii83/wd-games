@@ -77,24 +77,49 @@
     const redirectCountEl = redirectOverlay.querySelector('.shopee-redirect-count');
     const redirectSkipBtn = redirectOverlay.querySelector('.shopee-redirect-skip');
 
+    // Minimal same-look loading page written into the new tab the instant
+    // it opens, so it reads as "please wait, redirecting" instead of a
+    // blank/broken tab while the countdown finishes.
+    const REDIRECT_LOADING_HTML = `<!doctype html><html><head><meta charset="utf-8">
+        <title>Membuka Shopee...</title>
+        <style>
+            html,body{height:100%;margin:0;background:#0d0e12;color:#f0f0f5;font-family:"Outfit",sans-serif;
+                display:flex;align-items:center;justify-content:center;}
+            p{opacity:0.8;font-size:0.95rem;}
+        </style></head>
+        <body><p>Menunggu... Anda akan diarahkan ke Shopee.</p></body></html>`;
+
     function openShopeeRedirectCountdown(url) {
-        // Nothing opens/navigates until the countdown actually reaches
-        // zero (or "Lanjut Sekarang" is clicked) — no early blank tab. This
-        // means window.open() is never an option here: a new tab opened
-        // from a setInterval callback, 5 real seconds after the click that
-        // started it, gets silently blocked by every real browser's popup
-        // blocker (transient activation from the click doesn't survive a
-        // multi-second timer). Navigating the CURRENT tab instead
-        // (window.location.href) sidesteps that entirely, since popup
-        // blockers only ever target new-window/tab creation, never a plain
-        // navigation of the page itself.
+        // Popup blockers only tolerate window.open() called directly inside
+        // a user-gesture handler — a new tab opened 5 real seconds later
+        // from a setInterval callback (no gesture backing it at that point)
+        // gets silently blocked in every real browser. Opening the tab NOW
+        // (still inside the "Copy Teks" click) and writing a plain loading
+        // message into it sidesteps that, while still reading as "a new
+        // tab, not a blank one" rather than a broken empty page — the
+        // actual Shopee navigation still only happens once the countdown
+        // reaches zero (or "Lanjut Sekarang" is clicked), same as before.
+        const redirectWindow = window.open('', '_blank');
+        if (redirectWindow) {
+            redirectWindow.document.write(REDIRECT_LOADING_HTML);
+            redirectWindow.document.close();
+        }
+
         let secondsLeft = REDIRECT_COUNTDOWN_SECONDS;
         redirectCountEl.textContent = secondsLeft;
         redirectOverlay.classList.add('open');
 
         function go() {
             clearInterval(timer);
-            window.location.href = url;
+            redirectOverlay.classList.remove('open');
+            if (redirectWindow && !redirectWindow.closed) {
+                redirectWindow.location.href = url;
+            } else {
+                // Tab got closed by the visitor while waiting, or the
+                // browser blocked it outright despite the click — fall
+                // back to a fresh attempt from this (still-live) gesture.
+                window.open(url, '_blank');
+            }
         }
 
         const timer = setInterval(() => {
