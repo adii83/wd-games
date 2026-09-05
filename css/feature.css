@@ -2217,12 +2217,6 @@ body.landing-active .search-fab {
   transform: translateY(-2px);
 }
 
-.feature-cart-shopee-btn {
-  background: var(--accent-secondary-gradient);
-  color: #fff;
-  margin-top: 0;
-}
-
 /* PS2 platform badge on gallery cards */
 .ps2-badge {
   background: var(--accent-secondary-gradient);

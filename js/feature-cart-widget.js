@@ -37,33 +37,25 @@
     const listEl = document.getElementById('feature-cart-list');
     const backdrop = document.getElementById('feature-cart-backdrop');
     const copyBtn = document.getElementById('feature-cart-copy-btn');
-    const shopeeBtn = document.getElementById('feature-cart-shopee-btn');
     const usedEl = document.getElementById('feature-cart-used');
     const totalEl = document.getElementById('feature-cart-total');
     const remainingEl = document.getElementById('feature-cart-remaining');
     const progressFillEl = document.getElementById('feature-cart-progress-fill');
 
-    // Seller's Shopee shop link, one per storage type — set on the "Lanjut
-    // ke Shopee" button after a successful copy, matching whichever storage
-    // type the user currently has selected.
+    // Seller's own Shopee affiliate link, one per storage type — opened
+    // automatically right after a successful "Copy Teks" (see
+    // handleCopyClick), matching whichever storage type the user currently
+    // has selected. This is the seller's own referral link on the seller's
+    // own button, so ordinary last-click affiliate attribution applies —
+    // not the silent/hidden cookie-stuffing the owner explicitly ruled out.
     const SHOPEE_LINKS = {
         hdd: 'https://s.shopee.co.id/5q7GpJVBNj',
         flashdisk: 'https://s.shopee.co.id/LmKHHAMjs',
         ssd: 'https://s.shopee.co.id/1VyHfRF4lx',
     };
-    let hasCopied = false;
 
     function prefersReducedMotion() {
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    }
-
-    // Keeps the Shopee button pointed at whichever storage type is
-    // currently selected, even if the user changes it after already
-    // copying the order text.
-    function syncShopeeButton(state) {
-        if (!shopeeBtn) return;
-        shopeeBtn.href = SHOPEE_LINKS[state.storageType] || SHOPEE_LINKS.hdd;
-        shopeeBtn.style.display = hasCopied ? 'block' : 'none';
     }
 
     // Mirrors the storage bar already shown on the page itself, just scoped
@@ -101,7 +93,6 @@
         if (!widget) return;
         const state = window.FeatureCart.getState();
         countEl.textContent = String(state.selected.length);
-        syncShopeeButton(state);
         syncStorageInfo(state);
 
         if (state.selected.length === 0) {
@@ -303,9 +294,9 @@
         try {
             const ok = await copyTextToClipboard(buildExportText());
             if (!ok) throw new Error('Copy gagal');
-            showToast('Teks daftar game berhasil di-copy!', 'success');
-            hasCopied = true;
-            syncShopeeButton(state);
+            showToast('Teks daftar game berhasil di-copy! Membuka Shopee...', 'success');
+            const shopeeUrl = SHOPEE_LINKS[state.storageType] || SHOPEE_LINKS.hdd;
+            window.open(shopeeUrl, '_blank', 'noopener');
         } catch (err) {
             console.error('Copy text error:', err);
             showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
