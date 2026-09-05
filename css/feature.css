@@ -1238,6 +1238,89 @@ body.landing-active .search-fab {
   color: var(--accent);
 }
 
+/* Shopee redirect countdown — shown right after "Copy Teks" succeeds
+   (js/feature-cart-widget.js), same fixed-backdrop + scale-in pattern as
+   the trailer modal above. Injected into the DOM by JS (not static markup
+   in index.html/game.html) since it's fully self-contained/identical on
+   both pages — nothing here depends on which page it's shown on. */
+.shopee-redirect-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s var(--ease-standard), visibility 0.2s;
+}
+
+.shopee-redirect-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.shopee-redirect-box {
+  width: min(360px, 100%);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transform: scale(0.96);
+  transition: transform 0.2s var(--ease-standard);
+}
+
+.shopee-redirect-overlay.open .shopee-redirect-box {
+  transform: scale(1);
+}
+
+.shopee-redirect-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--spacing-md);
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopee-redirect-text {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+}
+
+.shopee-redirect-sub {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0 0 var(--spacing-md);
+}
+
+.shopee-redirect-count {
+  display: inline-block;
+  min-width: 1.2em;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.shopee-redirect-skip {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 10px 24px;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /* Tutorial modal (cara order + arti label Online) */
 
 .tutorial-modal-backdrop {

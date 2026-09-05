@@ -58,6 +58,74 @@
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
+    // Countdown overlay shown right after a successful "Copy Teks", before
+    // handing off to Shopee — injected once into the DOM here rather than
+    // as static markup in index.html/game.html, since it's identical on
+    // both pages and has nothing page-specific to hook into.
+    const REDIRECT_COUNTDOWN_SECONDS = 5;
+    const redirectOverlay = document.createElement('div');
+    redirectOverlay.className = 'shopee-redirect-overlay';
+    redirectOverlay.innerHTML = `
+        <div class="shopee-redirect-box">
+            <div class="shopee-redirect-icon">&#10003;</div>
+            <p class="shopee-redirect-text">Teks daftar game berhasil disalin!</p>
+            <p class="shopee-redirect-sub">Anda akan dibawa ke Shopee dalam <span class="shopee-redirect-count">${REDIRECT_COUNTDOWN_SECONDS}</span>...</p>
+            <button type="button" class="shopee-redirect-skip">Lanjut Sekarang</button>
+        </div>
+    `;
+    document.body.appendChild(redirectOverlay);
+    const redirectCountEl = redirectOverlay.querySelector('.shopee-redirect-count');
+    const redirectSkipBtn = redirectOverlay.querySelector('.shopee-redirect-skip');
+
+    function openShopeeRedirectCountdown(url) {
+        // Popup blockers drop window.open() once it's no longer tied to the
+        // click that triggered it — a setInterval finishing 5 real seconds
+        // later would get silently blocked in most browsers. Opening the
+        // tab now (still within the click's gesture window) and merely
+        // *navigating* it once the countdown ends sidesteps that: browsers
+        // never block a plain location change on a window reference they
+        // already handed back.
+        // No "noopener" here specifically — that flag makes window.open()
+        // hand back a reference the opener can't control (by design, it's
+        // meant to sever the link), which would defeat the whole point of
+        // holding onto redirectWindow to navigate later. The destination is
+        // always the hardcoded Shopee link below, never user input, so the
+        // usual reverse-tabnabbing concern noopener guards against doesn't
+        // apply here.
+        const redirectWindow = window.open('', '_blank');
+
+        let secondsLeft = REDIRECT_COUNTDOWN_SECONDS;
+        redirectCountEl.textContent = secondsLeft;
+        redirectOverlay.classList.add('open');
+
+        function go() {
+            clearInterval(timer);
+            redirectOverlay.classList.remove('open');
+            if (redirectWindow && !redirectWindow.closed) {
+                redirectWindow.location.href = url;
+            } else {
+                // Popup blocked outright (e.g. browser setting) — falling
+                // back still gives the same-tab-only experience instead of
+                // silently going nowhere.
+                window.open(url, '_blank', 'noopener');
+            }
+        }
+
+        const timer = setInterval(() => {
+            secondsLeft -= 1;
+            if (secondsLeft <= 0) {
+                go();
+                return;
+            }
+            redirectCountEl.textContent = secondsLeft;
+        }, 1000);
+
+        // Reassigning .onclick (not addEventListener) each call is enough
+        // since there's only ever one overlay/button pair — no listener
+        // pile-up to worry about across repeated copies.
+        redirectSkipBtn.onclick = go;
+    }
+
     // Mirrors the storage bar already shown on the page itself, just scoped
     // to this panel so users can see how full their pick is without closing
     // the cart to look at the header/footer bar.
@@ -294,9 +362,8 @@
         try {
             const ok = await copyTextToClipboard(buildExportText());
             if (!ok) throw new Error('Copy gagal');
-            showToast('Teks daftar game berhasil di-copy! Membuka Shopee...', 'success');
             const shopeeUrl = SHOPEE_LINKS[state.storageType] || SHOPEE_LINKS.hdd;
-            window.open(shopeeUrl, '_blank', 'noopener');
+            openShopeeRedirectCountdown(shopeeUrl);
         } catch (err) {
             console.error('Copy text error:', err);
             showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
