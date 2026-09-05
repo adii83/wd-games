@@ -78,37 +78,23 @@
     const redirectSkipBtn = redirectOverlay.querySelector('.shopee-redirect-skip');
 
     function openShopeeRedirectCountdown(url) {
-        // Popup blockers drop window.open() once it's no longer tied to the
-        // click that triggered it — a setInterval finishing 5 real seconds
-        // later would get silently blocked in most browsers. Opening the
-        // tab now (still within the click's gesture window) and merely
-        // *navigating* it once the countdown ends sidesteps that: browsers
-        // never block a plain location change on a window reference they
-        // already handed back.
-        // No "noopener" here specifically — that flag makes window.open()
-        // hand back a reference the opener can't control (by design, it's
-        // meant to sever the link), which would defeat the whole point of
-        // holding onto redirectWindow to navigate later. The destination is
-        // always the hardcoded Shopee link below, never user input, so the
-        // usual reverse-tabnabbing concern noopener guards against doesn't
-        // apply here.
-        const redirectWindow = window.open('', '_blank');
-
+        // Nothing opens/navigates until the countdown actually reaches
+        // zero (or "Lanjut Sekarang" is clicked) — no early blank tab. This
+        // means window.open() is never an option here: a new tab opened
+        // from a setInterval callback, 5 real seconds after the click that
+        // started it, gets silently blocked by every real browser's popup
+        // blocker (transient activation from the click doesn't survive a
+        // multi-second timer). Navigating the CURRENT tab instead
+        // (window.location.href) sidesteps that entirely, since popup
+        // blockers only ever target new-window/tab creation, never a plain
+        // navigation of the page itself.
         let secondsLeft = REDIRECT_COUNTDOWN_SECONDS;
         redirectCountEl.textContent = secondsLeft;
         redirectOverlay.classList.add('open');
 
         function go() {
             clearInterval(timer);
-            redirectOverlay.classList.remove('open');
-            if (redirectWindow && !redirectWindow.closed) {
-                redirectWindow.location.href = url;
-            } else {
-                // Popup blocked outright (e.g. browser setting) — falling
-                // back still gives the same-tab-only experience instead of
-                // silently going nowhere.
-                window.open(url, '_blank', 'noopener');
-            }
+            window.location.href = url;
         }
 
         const timer = setInterval(() => {
