@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const addGameBtn = document.getElementById('add-game-btn');
     const pendingFilterBtn = document.getElementById('pending-filter-btn');
     const pendingCountEl = document.getElementById('pending-count');
+    const scrapeTriggerBtn = document.getElementById('scrape-trigger-btn');
+    const scrapeTriggerStatus = document.getElementById('scrape-trigger-status');
 
     // DOM Elements - Modal Form
     const gameModal = document.getElementById('game-modal');
@@ -209,6 +211,112 @@ document.addEventListener('DOMContentLoaded', () => {
             saveGithubBtn.disabled = false;
         }
     }
+
+    // --- Trigger the "Scrape steamrip.com Recently Added" GitHub Action ---
+    // admin.html is a static, server-less page — it can't run
+    // scrape_steamrip_recent.py or scrape steamrip.com's HTML itself (CORS,
+    // and reimplementing the whole parser/Steam-banner-fallback chain in JS
+    // would just be a second copy of that script to keep in sync). Instead
+    // this triggers the SAME script via a workflow_dispatch call to the
+    // GitHub Actions API (.github/workflows/scrape-steamrip-recent.yml),
+    // reusing the token already used for reading/writing the JSON files.
+    const SCRAPE_WORKFLOW_FILE = 'scrape-steamrip-recent.yml';
+
+    function ghAuthHeaders() {
+        return {
+            'Authorization': `token ${ghConfig.token}`,
+            'Accept': 'application/vnd.github.v3+json',
+        };
+    }
+
+    async function getLatestScrapeRunId() {
+        const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/actions/workflows/${SCRAPE_WORKFLOW_FILE}/runs?per_page=1`;
+        const res = await fetch(url, { headers: ghAuthHeaders() });
+        if (!res.ok) return null;
+        const data = await res.json();
+        const latest = data.workflow_runs && data.workflow_runs[0];
+        return latest ? latest.id : null;
+    }
+
+    async function pollScrapeRun(previousRunId) {
+        const POLL_INTERVAL_MS = 15000;
+        const MAX_ATTEMPTS = 40; // ~10 minutes
+        let newRunId = null;
+
+        for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+            await new Promise((resolve) => setTimeout(resolve, POLL_INTERVAL_MS));
+            try {
+                if (!newRunId) {
+                    const latestId = await getLatestScrapeRunId();
+                    if (!latestId || latestId === previousRunId) {
+                        scrapeTriggerStatus.textContent = 'Menunggu GitHub memulai...';
+                        continue;
+                    }
+                    newRunId = latestId;
+                }
+
+                const runUrl = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/actions/runs/${newRunId}`;
+                const runRes = await fetch(runUrl, { headers: ghAuthHeaders() });
+                if (!runRes.ok) continue;
+                const run = await runRes.json();
+
+                if (run.status !== 'completed') {
+                    scrapeTriggerStatus.textContent = 'Sedang scraping...';
+                    continue;
+                }
+
+                scrapeTriggerBtn.disabled = false;
+                if (run.conclusion === 'success') {
+                    scrapeTriggerStatus.textContent = 'Selesai! Memuat ulang data...';
+                    const ok = await fetchGitHubData();
+                    if (ok) {
+                        applyAdminFilters();
+                        showToast('Scraping selesai — cek "Recently Added" untuk game baru.', 'success');
+                    }
+                } else {
+                    scrapeTriggerStatus.textContent = 'Gagal — cek tab Actions di GitHub.';
+                    showToast('Scraping gagal. Cek log di tab Actions repo GitHub.', 'error');
+                }
+                setTimeout(() => { scrapeTriggerStatus.style.display = 'none'; }, 6000);
+                return;
+            } catch (e) {
+                // Transient network hiccup — keep polling rather than giving up.
+            }
+        }
+
+        scrapeTriggerBtn.disabled = false;
+        scrapeTriggerStatus.textContent = 'Timeout menunggu — cek tab Actions di GitHub.';
+        setTimeout(() => { scrapeTriggerStatus.style.display = 'none'; }, 6000);
+    }
+
+    async function triggerScrapeWorkflow() {
+        scrapeTriggerBtn.disabled = true;
+        scrapeTriggerStatus.style.display = 'inline';
+        scrapeTriggerStatus.textContent = 'Memicu scraping...';
+
+        try {
+            const previousRunId = await getLatestScrapeRunId();
+            const dispatchUrl = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/actions/workflows/${SCRAPE_WORKFLOW_FILE}/dispatches`;
+            const res = await fetch(dispatchUrl, {
+                method: 'POST',
+                headers: { ...ghAuthHeaders(), 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ref: ghConfig.branch }),
+            });
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}));
+                throw new Error(errData.message || 'Gagal memicu GitHub Action.');
+            }
+            showToast('Scraping dipicu! Sedang berjalan di GitHub (biasanya 1-5 menit)...', 'success');
+            pollScrapeRun(previousRunId);
+        } catch (error) {
+            console.error(error);
+            showToast(`Error: ${error.message}`, 'error');
+            scrapeTriggerStatus.style.display = 'none';
+            scrapeTriggerBtn.disabled = false;
+        }
+    }
+
+    if (scrapeTriggerBtn) scrapeTriggerBtn.addEventListener('click', triggerScrapeWorkflow);
 
     function normalizeBufferPercentage(value) {
         const parsed = Number(value);

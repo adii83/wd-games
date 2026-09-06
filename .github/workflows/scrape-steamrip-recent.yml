@@ -1,0 +1,55 @@
+name: Scrape steamrip.com Recently Added
+
+# Manually triggered (workflow_dispatch) so admin.html's "Scrape Game Baru"
+# button can kick this off on demand via the GitHub Actions API, instead of
+# only running via the local Windows Task Scheduler job once a day. Runs the
+# exact same scrape_steamrip_recent.py already used locally — nothing
+# reimplemented — and commits whatever it finds straight to main, same as
+# the local run does.
+#
+# Deliberately does NOT use [skip ci] in the commit message: pushing a
+# changed steamrip_games_updated.json is exactly what should make
+# regenerate-derived-data.yml fire next, so newly-scraped titles get their
+# lite/catalog files and Steam enrichment without a second manual step.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max new games to add this run (blank = script default)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run scraper
+        run: |
+          if [ -n "${{ inputs.limit }}" ]; then
+            python scrape_steamrip_recent.py --limit "${{ inputs.limit }}"
+          else
+            python scrape_steamrip_recent.py
+          fi
+
+      - name: Commit and push, if anything new was found
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add steamrip_games_updated.json
+          if git diff --staged --quiet; then
+            echo "Nothing new found — steamrip_games_updated.json unchanged."
+          else
+            git commit -m "Add steamrip.com Recently Added scrape ($(date -u +%F))"
+            git push
+          fi

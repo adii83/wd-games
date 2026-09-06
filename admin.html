@@ -242,6 +242,15 @@
           >
             🆕 Recently Added (<span id="pending-count">0</span>)
           </button>
+          <button
+            id="scrape-trigger-btn"
+            class="custom-select btn-blue"
+            style="border: none; padding: 8px 16px; white-space: nowrap"
+            title="Memicu GitHub Action yang menjalankan scrape_steamrip_recent.py — hasilnya masuk otomatis sebagai Recently Added dalam beberapa menit"
+          >
+            🔄 Scrape Game Baru
+          </button>
+          <span id="scrape-trigger-status" class="text-secondary" style="font-size: 0.85rem; display: none"></span>
           <div style="display: flex; gap: 10px; align-items: center">
             <label for="size-buffer-input" class="text-secondary" style="font-weight: 600">Buffer Size %:</label>
             <input
@@ -441,6 +450,6 @@
       </div>
     </div>
 
-    <script src="js/admin.js?v=1.5"></script>
+    <script src="js/admin.js?v=1.6"></script>
   </body>
 </html>
