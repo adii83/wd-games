@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const pendingCountEl = document.getElementById('pending-count');
     const scrapeTriggerBtn = document.getElementById('scrape-trigger-btn');
     const scrapeTriggerStatus = document.getElementById('scrape-trigger-status');
+    const scrapeTriggerProgressWrap = document.getElementById('scrape-trigger-progress-wrap');
+    const scrapeTriggerProgressFill = document.getElementById('scrape-trigger-progress-fill');
+    const scrapeTriggerPct = document.getElementById('scrape-trigger-pct');
 
     // DOM Elements - Modal Form
     const gameModal = document.getElementById('game-modal');
@@ -238,9 +241,39 @@ document.addEventListener('DOMContentLoaded', () => {
         return latest ? latest.id : null;
     }
 
-    async function pollScrapeRun(previousRunId) {
-        const POLL_INTERVAL_MS = 15000;
-        const MAX_ATTEMPTS = 40; // ~10 minutes
+    // GitHub's API only ever reports queued/in_progress/completed for a run
+    // — no real "38% done" number exists to read. The bar below is a
+    // simulated fill (asymptotic curve, capped at 90% until the run is
+    // actually confirmed done) purely so the button doesn't look frozen for
+    // the ~15-30s a real run takes; it always snaps to 100% only once
+    // pollScrapeRun() has genuinely confirmed completion, never before.
+    const PROGRESS_TIME_CONSTANT_S = 9;
+    let progressTicker = null;
+
+    function startProgressSimulation(startedAt) {
+        clearInterval(progressTicker);
+        progressTicker = setInterval(() => {
+            const elapsedS = (Date.now() - startedAt) / 1000;
+            const pct = Math.min(90, 90 * (1 - Math.exp(-elapsedS / PROGRESS_TIME_CONSTANT_S)));
+            scrapeTriggerProgressFill.style.width = `${pct}%`;
+            scrapeTriggerPct.textContent = `${Math.round(pct)}%`;
+        }, 300);
+    }
+
+    function finishProgressBar(success) {
+        clearInterval(progressTicker);
+        scrapeTriggerProgressFill.style.width = '100%';
+        scrapeTriggerProgressFill.style.background = success ? '' : 'var(--danger)';
+        scrapeTriggerPct.textContent = '100%';
+        setTimeout(() => {
+            scrapeTriggerProgressWrap.style.display = 'none';
+            scrapeTriggerProgressFill.style.background = '';
+        }, 5000);
+    }
+
+    async function pollScrapeRun(previousRunId, startedAt) {
+        const POLL_INTERVAL_MS = 4000;
+        const MAX_ATTEMPTS = 150; // ~10 minutes at 4s/poll
         let newRunId = null;
 
         for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
@@ -261,13 +294,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const run = await runRes.json();
 
                 if (run.status !== 'completed') {
-                    scrapeTriggerStatus.textContent = 'Sedang scraping...';
+                    scrapeTriggerStatus.textContent = run.status === 'queued' ? 'Menunggu antrian GitHub...' : 'Sedang scraping...';
                     continue;
                 }
 
                 scrapeTriggerBtn.disabled = false;
                 if (run.conclusion === 'success') {
                     scrapeTriggerStatus.textContent = 'Selesai! Memuat ulang data...';
+                    finishProgressBar(true);
                     const ok = await fetchGitHubData();
                     if (ok) {
                         applyAdminFilters();
@@ -275,9 +309,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 } else {
                     scrapeTriggerStatus.textContent = 'Gagal — cek tab Actions di GitHub.';
+                    finishProgressBar(false);
                     showToast('Scraping gagal. Cek log di tab Actions repo GitHub.', 'error');
                 }
-                setTimeout(() => { scrapeTriggerStatus.style.display = 'none'; }, 6000);
                 return;
             } catch (e) {
                 // Transient network hiccup — keep polling rather than giving up.
@@ -286,13 +320,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrapeTriggerBtn.disabled = false;
         scrapeTriggerStatus.textContent = 'Timeout menunggu — cek tab Actions di GitHub.';
-        setTimeout(() => { scrapeTriggerStatus.style.display = 'none'; }, 6000);
+        finishProgressBar(false);
     }
 
     async function triggerScrapeWorkflow() {
         scrapeTriggerBtn.disabled = true;
-        scrapeTriggerStatus.style.display = 'inline';
         scrapeTriggerStatus.textContent = 'Memicu scraping...';
+        scrapeTriggerProgressWrap.style.display = 'flex';
+        scrapeTriggerProgressFill.style.width = '0%';
+        scrapeTriggerPct.textContent = '0%';
 
         try {
             const previousRunId = await getLatestScrapeRunId();
@@ -307,11 +343,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(errData.message || 'Gagal memicu GitHub Action.');
             }
             showToast('Scraping dipicu! Sedang berjalan di GitHub (biasanya 1-5 menit)...', 'success');
-            pollScrapeRun(previousRunId);
+            const startedAt = Date.now();
+            startProgressSimulation(startedAt);
+            pollScrapeRun(previousRunId, startedAt);
         } catch (error) {
             console.error(error);
             showToast(`Error: ${error.message}`, 'error');
-            scrapeTriggerStatus.style.display = 'none';
+            scrapeTriggerProgressWrap.style.display = 'none';
             scrapeTriggerBtn.disabled = false;
         }
     }

@@ -250,7 +250,13 @@
           >
             🔄 Scrape Game Baru
           </button>
-          <span id="scrape-trigger-status" class="text-secondary" style="font-size: 0.85rem; display: none"></span>
+          <div id="scrape-trigger-progress-wrap" style="display: none; align-items: center; gap: 10px; min-width: 220px">
+            <div class="progress-bar-container" style="flex: 1">
+              <div id="scrape-trigger-progress-fill" class="progress-bar"></div>
+            </div>
+            <span id="scrape-trigger-pct" class="text-accent" style="font-weight: 700; font-size: 0.85rem; min-width: 3ch">0%</span>
+            <span id="scrape-trigger-status" class="text-secondary" style="font-size: 0.8rem; white-space: nowrap"></span>
+          </div>
           <div style="display: flex; gap: 10px; align-items: center">
             <label for="size-buffer-input" class="text-secondary" style="font-weight: 600">Buffer Size %:</label>
             <input
@@ -450,6 +456,6 @@
       </div>
     </div>
 
-    <script src="js/admin.js?v=1.6"></script>
+    <script src="js/admin.js?v=1.7"></script>
   </body>
 </html>
