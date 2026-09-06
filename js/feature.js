@@ -1351,6 +1351,9 @@
     attachCardSelect(updateScrollRow);
     attachCardSelect(featuredWeekGrid);
     attachCardSelect(searchSuggestPanel);
+    attachCardSelect(recentlyAddedGrid);
+    attachCardSelect(ps2SectionGrid);
+    attachCardSelect(ps3SectionGrid);
     populateCapacityOptions();
     syncStoragePickerFromState();
     updateStorageUI();
