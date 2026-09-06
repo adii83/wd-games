@@ -100982,22 +100982,22 @@
   },
   {
     "title": "BioEden",
-    "banner_url": "",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3265840/9e8acb4c24a1980d8fed3a7126f94aaf04df36bb/library_capsule.jpg",
     "system_requirements": {
       "OS": "Windows 10/11 64-bit",
       "Processor": "AMD Ryzen 3 1200 / Intel Core i5-4690K",
       "Memory": "8 GB RAM",
       "Graphics": "4 GB VRAM, AMD Radeon RX 460 / Nvidia GeForce GTX 960",
       "Storage": "3 GB available space",
-      "Additional Notes": "SSD Required. 30 FPS in 1920×1080 with “Low” preset."
+      "Additional Notes": "SSD Required. 30 FPS in 1920x1080 with \"Low\" preset."
     },
     "game_info": {
       "Genre": "Simulation, Strategy",
       "Developer": "Broken Arms Games",
       "Platform": "PC",
       "Game Size": "2.2 GB",
-      "Released By": "RUNE",
-      "Version": "Build 24907471",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/bioeden-free-download/",
@@ -101030,7 +101030,7 @@
   },
   {
     "title": "Click the Button",
-    "banner_url": "",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3946950/02d6f758cbaf774e4a2cc7af85a0e1733f064a1b/library_capsule.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core 2 Duo E8400 or AMD Phenom II X2 550",
@@ -101052,7 +101052,7 @@
   },
   {
     "title": "Farm to Table",
-    "banner_url": "",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3582250/a78c950f0ee86b92eba4fe329fbb6f942dbceff1/library_capsule_2x.jpg",
     "system_requirements": {
       "OS": "Windows 10 or newer",
       "Processor": "Intel Core i5-7360U or better",
@@ -101066,8 +101066,8 @@
       "Developer": "indieGiant",
       "Platform": "PC",
       "Game Size": "796.3 MB",
-      "Released By": "Goldberg + Dound CSF, cs.rin.ru",
-      "Version": "Build 23883127",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/farm-to-table-free-download/",
