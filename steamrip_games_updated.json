@@ -101592,29 +101592,6 @@
     "pending_review": true
   },
   {
-    "title": "eFootball PES 2021 (v1.01.00)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/75a2f27519c5dd2390aa7cd6b4946e57.png",
-    "system_requirements": {
-      "OS": "Windows 8.1/10 – 64bit",
-      "Processor": "Intel Core i5-3470 / AMD FX 4350",
-      "Memory": "8 GB RAM",
-      "Graphics": "NVIDIA GTX 670 / AMD Radeon HD 7870",
-      "Network": "Broadband Internet connection",
-      "Storage": "40 GB available space"
-    },
-    "game_info": {
-      "Genre": "Sports",
-      "Developer": "Konami Digital Entertainment",
-      "Platform": "PC",
-      "Game Size": "24 GB",
-      "Repack By": "CPY",
-      "Version": "v1.01.00 Data Pack 1.00 | Updated Version",
-      "Pre-Installed Game": true
-    },
-    "url": "https://steamrip.com/efootball-pes-2021-free-download-c1/",
-    "pending_review": true
-  },
-  {
     "title": "Emergency Call 112 – The Fire Fighting Simulation 2",
     "banner_url": "https://cdn2.steamgriddb.com/grid/4c9b32c7662efa32eb87ceb58b756deb.png",
     "system_requirements": {
@@ -101873,9 +101850,9 @@
   },
   {
     "title": "Sniper: Ghost Warrior",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/368070/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/34830/library_600x900.jpg",
     "system_requirements": {
-      "OS": "Windows® XP (SP3) / Vista™ (SP1) / 7",
+      "OS *": "Windows® XP (SP3) / Vista™ (SP1) / 7",
       "Processor": "Intel Pentium 4 3,2 GHz, Intel Pentium D 2,66 GHz, AMD Athlon 64 3500+",
       "Memory": "1GB for XP / 2GB for Vista and 7",
       "Graphics": "256 MB RAM compatible with DX10.0 or DX9.0c, Shader Model 3.0",
@@ -101889,8 +101866,8 @@
       "Developer": "City Interactive",
       "Platform": "PC",
       "Game Size": "6.3 GB",
-      "Released By": "Prophet + CSF",
-      "Version": "Build 48420",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/sniper-ghost-warrior-free-download/",
