@@ -404,11 +404,38 @@ def build_existing_title_set(games):
     return existing
 
 
+_ROMAN_MAP = {
+    "i": 1, "ii": 2, "iii": 3, "iv": 4, "v": 5, "vi": 6, "vii": 7, "viii": 8,
+    "ix": 9, "x": 10, "xi": 11, "xii": 12, "xiii": 13, "xiv": 14, "xv": 15,
+}
+_ROMAN_TOKEN_RE = re.compile(r"\b(" + "|".join(sorted(_ROMAN_MAP, key=len, reverse=True)) + r")\b")
+
+
+def _number_signature(text: str) -> set:
+    # "Mortal Kombat" vs "Mortal Kombat 11", "Sniper Elite 3" vs "Sniper
+    # Elite 4", "Age of History 2" vs "Age of History 3" - a differing
+    # number/roman-numeral almost always means a different installment, not
+    # the same game spelled slightly differently. See is_new_title().
+    t = text.lower()
+    t = re.sub(r"[^a-z0-9]+", " ", t)
+    t = _ROMAN_TOKEN_RE.sub(lambda m: str(_ROMAN_MAP[m.group(1)]), t)
+    return set(re.findall(r"\d+", t))
+
+
 def is_new_title(title: str, existing_lower: set) -> bool:
     key = title.lower()
     if key in existing_lower:
         return False
-    return not difflib.get_close_matches(key, existing_lower, n=1, cutoff=NEAR_DUPLICATE_CUTOFF)
+    close = difflib.get_close_matches(key, existing_lower, n=1, cutoff=NEAR_DUPLICATE_CUTOFF)
+    if not close:
+        return True
+    # A high text-similarity ratio alone isn't enough — cutoff=0.92 still
+    # happily matches "Mortal Kombat 1" against an existing "Mortal Kombat
+    # 11", or "Call of Duty: Black Ops II" against "...III". Only treat it
+    # as a real duplicate (not new) if the number/roman-numeral signature
+    # also matches; otherwise this is a different installment slipping
+    # through under a near-identical name, and should still count as new.
+    return _number_signature(key) != _number_signature(close[0])
 
 
 def main():
@@ -526,5 +553,18 @@ def main():
         print("\nNothing new to add.")
 
 
+def _selftest():
+    existing = {"mortal kombat 11", "sniper elite 4", "call of duty: black ops iii", "age of history 3"}
+    assert is_new_title("Mortal Kombat 1", existing) is True
+    assert is_new_title("Sniper Elite 3", existing) is True
+    assert is_new_title("Call of Duty: Black Ops II", existing) is True
+    assert is_new_title("Age of History 2: Definitive Edition", existing) is True
+    assert is_new_title("Mortal Kombat 11", existing) is False
+    print("is_new_title selftest OK")
+
+
 if __name__ == "__main__":
-    main()
+    if "--selftest" in sys.argv:
+        _selftest()
+    else:
+        main()

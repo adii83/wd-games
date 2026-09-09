@@ -101261,5 +101261,757 @@
     },
     "url": "https://steamrip.com/wanderburg-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Mortal Kombat 1",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1971870/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel® Core™ i5-6600 | AMD Ryzen™ 3 3100 or Ryzen™ 5 2600",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GeForce® GTX 1660 or AMD Radeon™ RX 590 or Intel® Arc™ A750",
+      "DirectX": "Version 12",
+      "Storage": "140 GB available space",
+      "Additional Notes": "SSD (Preferred for full online cross-play capabilities), HDD (Supported), 1080p/Low"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "NetherRealm Studios, QLOC",
+      "Platform": "PC",
+      "Game Size": "149 GB",
+      "Released By": "voices38",
+      "Version": "Build 17941244",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/mortal-kombat-1-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Age of History 2: Definitive Edition",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/603850/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows® 7/8/10/11 64-bit",
+      "Processor": "1.8 GHz Single Core",
+      "Memory": "2 GB RAM",
+      "Graphics": "Hardware Accelerated Graphics with dedicated memory",
+      "Storage": "850 MB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, Strategy",
+      "Developer": "Łukasz Jakowski",
+      "Platform": "PC",
+      "Game Size": "471 MB",
+      "Released By": "Mr_GOLDBERG emu",
+      "Version": "Build 22805565 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/age-of-history-2-definitive-edition-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Aliens: Fireteam Elite 2",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/467e2b770acfd44e128c0c9218584c48.png",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "AMD Ryzen 5 2600 / Intel Core i5-8400",
+      "Memory": "10 GB RAM",
+      "Graphics": "NVIDIA RTX 2060",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "35 GB available space",
+      "Sound Card": "Integrated or dedicated Direct X 12 compatible sound card",
+      "Additional Notes": "Target Performance: 1080p resolution / 30 frames per second (low graphics setting)"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Cold Iron Studios",
+      "Platform": "PC",
+      "Game Size": "29.3 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24828799",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/aliens-fireteam-elite-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Amazing Frog? 2",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1559680/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7+",
+      "Processor": "2.5 GHZ Dual Core",
+      "Memory": "8 GB RAM",
+      "Graphics": "4GB",
+      "DirectX": "Version 11",
+      "Storage": "21 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, Simulation, Early Access",
+      "Developer": "Fayju",
+      "Platform": "PC",
+      "Game Size": "7.2 GB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 17399771",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/amazing-frog-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Automobilista",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1066890/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows XP / Vista / 7 / 8 / 10",
+      "Processor": "1,8 GHz or 100% compatible CPU",
+      "Memory": "4 GB RAM",
+      "Graphics": "DX9 Compatible with minumum 1GB Video Memory",
+      "DirectX": "Version 9.0c",
+      "Storage": "25 GB available space"
+    },
+    "game_info": {
+      "Genre": "Racing, Simulation, Sports",
+      "Developer": "Reiza Studios",
+      "Platform": "PC",
+      "Game Size": "26.3 GB",
+      "Released By": "CODEX",
+      "Version": "Build 4311892",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/automobilista-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Call of Duty: Black Ops II (Multiplayer + DLCs)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/202970/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows Vista SP2 or Windows 7. Windows XP is not supported",
+      "Processor": "Intel Core2 Duo E8200 2.66 GHz or AMD Phenom X3 8750 2.4 GHz",
+      "Memory": "2 GB for 32-bit OS or 4 GB for 64-bit OS",
+      "Graphics": "Nvidia GeForce 8800GT 512 MB or ATI Radeon HD 3870 512 MB",
+      "DirectX": "Version 9.0c",
+      "Hard Drive": "16 GB"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Treyarch",
+      "Platform": "PC",
+      "Game Size": "36.17 GB",
+      "Released By": "PLAZA",
+      "Version": "Build 65428 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/call-of-duty-black-ops-ii-free-download-4e/",
+    "pending_review": true
+  },
+  {
+    "title": "CarX Drift Racing Online 2 (Build 23132110 + Online)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1826420/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 and Windows 11",
+      "Processor": "Intel® Core™ i5-8400 or AMD Ryzen 5 1600",
+      "Memory": "16 GB RAM",
+      "Graphics": "Nvidia GTX 1060 / Radeon RX 580 or similar at least 6 GB",
+      "DirectX": "Version 11",
+      "Network": "Broadband Internet connection",
+      "Storage": "14 GB available space"
+    },
+    "game_info": {
+      "Genre": "Massively Multiplayer, Racing, Simulation, Sports, Early Access",
+      "Developer": "CarX Technologies, LLC",
+      "Platform": "PC",
+      "Game Size": "13 GB",
+      "Multiplayer By": "unsteam | Ty flaywah (csrin)",
+      "Version": "Build 23132110 | Early Access",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/carx-drift-racing-online-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Castlevania: Lords of Shadow 2",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/1d120c86144523926d4f638bab708ca8.png",
+    "system_requirements": {
+      "OS": "Windows XP Service Pack 3",
+      "Processor": "2.4Ghz Intel Core 2 Duo or AMD equivalent",
+      "Memory": "2 GB RAM",
+      "Graphics": "Direct X9 compatible video card 512Mb RAM",
+      "DirectX": "Version 9.0c",
+      "Network": "Broadband Internet connection",
+      "Storage": "10 GB available space",
+      "Sound Card": "DirectSound supported with Direct X9.0c or better",
+      "Additional Notes": "Keyboard & Mouse"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "MercurySteam",
+      "Platform": "PC",
+      "Game Size": "7.5 GB",
+      "Released By": "Goldberg, Ty Cherise + lanternjoe CSF",
+      "Version": "Build 217405 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/castlevania-lords-of-shadow-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Disney Infinity 1.0: Gold Edition",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/605aef0bfcf4c561ad415e03c319f568.png",
+    "system_requirements": {
+      "OS": "Windows Vista / 7 / 8",
+      "Processor": "2.2 GHz Dual-Core CPU",
+      "Memory": "2 GB RAM",
+      "Graphics": "Nvidia GeForce 8600 GT 512 / ATI Radeon HD 4650 1 GB",
+      "DirectX": "Version 11",
+      "Storage": "12 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Avalanche Software",
+      "Platform": "PC",
+      "Game Size": "10.3 GB",
+      "Released By": "Plaza + CSF",
+      "Version": "Build 1523210",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/disney-infinity-1-0-gold-edition-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Disney Infinity 2.0: Gold Edition",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/e4a3edb2062cdbb4500d9026aabed7c5.png",
+    "system_requirements": {
+      "OS": "Windows Vista / 7 / 8.1",
+      "Processor": "2.2 GHz Dual-Core CPU",
+      "Memory": "2 GB RAM",
+      "Graphics": "Nvidia GeForce 8600 GT 512 / ATI Radeon HD 4650 1 GB",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Avalanche Software",
+      "Platform": "PC",
+      "Game Size": "7.9 GB",
+      "Released By": "PLAZA",
+      "Version": "Build 1525020",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/disney-infinity-2-0-gold-edition-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "DRAGON QUEST BUILDERS 2 (v1.7.3d)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1072420/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows® 7 SP1 / 8.1 / 10 64-bit",
+      "Processor": "AMD Ryzen™ 3 1300X or above | Intel® Core™ i3-3225 or above",
+      "Memory": "6 GB RAM",
+      "Graphics": "AMD Radeon™ HD 7750 (2GB) / NVIDIA® GeForce® GT 640 (2GB)",
+      "DirectX": "Version 11",
+      "Storage": "12 GB available space",
+      "Additional Notes": "Network: Broadband Internet Connection Expected Framerate: 30 FPS @ 1280×720 / Graphics preset: “Low”."
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Square Enix",
+      "Platform": "PC",
+      "Game Size": "4.1 GB",
+      "Released By": "Goldberg + atgx CSF, cs.rin.ru",
+      "Version": "v1.7.3d | Build 15274091",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dragon-quest-builders-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "DRAGON QUEST I & II HD-2D Remake",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2893570/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows® 11",
+      "Processor": "AMD Ryzen™ 3 2300X / Intel® Core™ i3-8100",
+      "Memory": "8 GB RAM",
+      "Graphics": "AMD Radeon™ RX 460 / Intel® Arc™ A380 / NVIDIA® GeForce® GTX 750 Ti",
+      "Storage": "20 GB available space"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "Square Enix, ARTDINK",
+      "Platform": "PC",
+      "Game Size": "14.9 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 21744054 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dragon-quest-i-ii-hd-2d-remake-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Draw a Stickman: EPIC 3",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/844500/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Microsoft® Windows® Vista / 7 / 8/10",
+      "Processor": "2.4 GHz Intel Core 2 Duo or better",
+      "Memory": "2000 MB RAM",
+      "Graphics": "OpenGL 3.2 compatible GPU with at least 256MB of VRAM",
+      "DirectX": "Version 9.0c",
+      "Storage": "400 MB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Casual, Indie",
+      "Developer": "Pocket Pinata",
+      "Platform": "PC",
+      "Game Size": "232.4 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 10442535",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/draw-a-stickman-epic-3-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Draw a Stickman: EPIC",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/042d5795f8a89756d19c4d5aff933e18.jpg",
+    "system_requirements": {
+      "OS": "XP/Vista/Windows 7/Windows 8",
+      "Processor": "Dual-core processor (Intel Dual Core 2.0 GHz or AMD Athlon X2 5200+ 2.6 GHz)",
+      "Memory": "1.5 GB RAM",
+      "Graphics": "DirectX 9.0c compatible",
+      "Storage": "300 MB available space",
+      "Sound Card": "DirectX 9.0c compatible sound cards"
+    },
+    "game_info": {
+      "Genre": "Adventure, Casual, Indie",
+      "Developer": "Hitcents",
+      "Platform": "PC",
+      "Game Size": "162 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 1047057",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/draw-a-stickman-epic-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "eFootball PES 2021 (v1.01.00)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/75a2f27519c5dd2390aa7cd6b4946e57.png",
+    "system_requirements": {
+      "OS": "Windows 8.1/10 – 64bit",
+      "Processor": "Intel Core i5-3470 / AMD FX 4350",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GTX 670 / AMD Radeon HD 7870",
+      "Network": "Broadband Internet connection",
+      "Storage": "40 GB available space"
+    },
+    "game_info": {
+      "Genre": "Sports",
+      "Developer": "Konami Digital Entertainment",
+      "Platform": "PC",
+      "Game Size": "24 GB",
+      "Repack By": "CPY",
+      "Version": "v1.01.00 Data Pack 1.00 | Updated Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/efootball-pes-2021-free-download-c1/",
+    "pending_review": true
+  },
+  {
+    "title": "Emergency Call 112 – The Fire Fighting Simulation 2",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/4c9b32c7662efa32eb87ceb58b756deb.png",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "AMD Ryzen 3 1500X / Intel i5-6600K",
+      "Memory": "8 GB RAM",
+      "Graphics": "GPU with 4 GB VRAM, Nvidia GeForce GTX 1060 (4 GB) or AMD Radeon RX 560 (6GB) (no support of OnBoard graphic card)",
+      "DirectX": "Version 11",
+      "Storage": "20 GB available space",
+      "Additional Notes": "Internet connection, mouse with mouse wheel required"
+    },
+    "game_info": {
+      "Genre": "Action, Casual, Simulation",
+      "Developer": "Crenetic",
+      "Platform": "PC",
+      "Game Size": "5.5 GB",
+      "Released By": "SKIDROW",
+      "Version": "Build 17866875",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/emergency-call-112-the-fire-fighting-simulation-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Endoparasitic 2",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2990640/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel i7 2.6 Ghz",
+      "Memory": "8 GB RAM",
+      "Graphics": "Geforce 1650 Ti",
+      "Storage": "200 MB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie",
+      "Developer": "Miziziziz",
+      "Platform": "PC",
+      "Game Size": "179 MB",
+      "Released By": "CSF",
+      "Version": "Build 21895784",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/endoparasitic-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Final Fantasy IV (3D Remake)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312750/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows Vista, 7, 8",
+      "Processor": "Pentium 4 2.4 GHz",
+      "Memory": "2 GB RAM",
+      "DirectX": "Version 10",
+      "Storage": "750 MB available space"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "Square Enix",
+      "Platform": "PC",
+      "Game Size": "675.2 MB",
+      "Released By": "Goldberg + Owla CSF",
+      "Version": "Build 21842713",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/final-fantasy-iv-3d-remake-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "FINAL FANTASY XIII-2",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/2fe0b49fd9d20a994acb11f1fa72ca6e.png",
+    "system_requirements": {
+      "OS": "Windows® XP SP2 or later",
+      "Processor": "2GHz Dual Core CPU",
+      "Memory": "1500 MB RAM",
+      "Graphics": "NVIDIA® Geforce® 8 Series/ ATI Radeon™ HD 4000 series VRAM 256MB or later",
+      "DirectX": "Version 9.0c",
+      "Storage": "30 GB available space",
+      "Sound Card": "Sound card compatible with DirectX® 9.0c"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "Square Enix",
+      "Platform": "PC",
+      "Game Size": "24.9 GB",
+      "Released By": "CODEX | Incl. Console Patch",
+      "Version": "Build 465626",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/final-fantasy-xiii-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Floor Plan VR",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/673060/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7",
+      "Processor": "Intel i5-4590 or greater",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GTX 970 or greater",
+      "Storage": "730 MB available space",
+      "VR Support": "SteamVR. Standing or Room Scale",
+      "Additional Notes": "Compatible VR headset required."
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie",
+      "Developer": "Turbo Button",
+      "Platform": "PC",
+      "Game Size": "287.3 MB",
+      "Released By": "ALI213 + CSF",
+      "Version": "Build 20246930",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/floor-plan-vr-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "OCTOPATH TRAVELER 0 (Build 22012444)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/08f95b09730ae981ff350b9a08b6a84e.jpg",
+    "system_requirements": {
+      "OS": "Windows® 11",
+      "Processor": "AMD Ryzen™ 3 2300X / Intel® Core™ i3-8100",
+      "Memory": "8 GB RAM",
+      "Graphics": "AMD Radeon™ RX 470 / NVIDIA® GeForce® GTX 960",
+      "DirectX": "Version 12",
+      "Storage": "10 GB available space",
+      "Additional Notes": "1920 × 1080, Graphics Preset “Low”, 30FPS"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "Square Enix",
+      "Platform": "PC",
+      "Game Size": "6.5 GB",
+      "Released By": "RUNE",
+      "Version": "Build 22012444",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/octopath-traveler-0-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Plants vs. Zombies: Garden Warfare (v1.0.3.0 + Multiplayer)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1922560/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7/8 64bit",
+      "Processor": "Intel Core 2 Duo @ 3.0 GHz",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA 8800GT, AMD/ATI Radeon HD 5750",
+      "Storage": "15 GB available space"
+    },
+    "game_info": {
+      "Genre": "Strategy",
+      "Developer": "Electronic Arts",
+      "Platform": "PC",
+      "Game Size": "6.6 GB",
+      "Multiplayer By": "0xdeadc0de (OFME)",
+      "Version": "v1.0.3.0 | Full Version + Online + Electronic Arts account",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/plants-vs-zombies-garden-warfare-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "PRO EVOLUTION SOCCER 2019",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/55c0db465d977bf26f6812c69de1a2ac.png",
+    "system_requirements": {
+      "OS": "Windows 7 SP1/8.1/10 – 64bit",
+      "Processor": "Intel Core i5-3470 / AMD FX 4350",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GTX 670 / AMD Radeon HD 7870",
+      "DirectX": "Version 11",
+      "Storage": "30 GB available space",
+      "Additional Notes": "Resolution 1280 x 720"
+    },
+    "game_info": {
+      "Genre": "Sports",
+      "Developer": "Konami Digital Entertainment",
+      "Platform": "PC",
+      "Game Size": "28.0 GB",
+      "Released By": "CPY + AIO DLC’s, ketubanjiwa + 1.07 Crack, JostikeGames",
+      "Version": "v1.02.00",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/pro-evolution-soccer-2019-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Railroad Corporation 2 (v1.0)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677970/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 (64 bit), Windows 11 (64 bit)",
+      "Processor": "Intel Core i5 6400",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GeForce GTX970 or RX580",
+      "DirectX": "Version 11",
+      "Storage": "8 GB available space"
+    },
+    "game_info": {
+      "Genre": "Simulation, Strategy",
+      "Developer": "Corbie Games",
+      "Platform": "PC",
+      "Game Size": "2.8 GB",
+      "Released By": "Mr_GOLDBERG emu | Ty Titeuf (csrin)",
+      "Version": "v1.0 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/railroad-corporation-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Slay the Spire 2 (v0.111.0 + Co-op)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit)",
+      "Processor": "Dual-core 2.0 GHz",
+      "Memory": "4 GB RAM",
+      "Graphics": "DirectX 12 or Vulkan compatible, 1 GB VRAM",
+      "Storage": "4 GB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, Strategy, Early Access",
+      "Developer": "Mega Crit",
+      "Platform": "PC",
+      "Game Size": "1.3 GB",
+      "Released By": "OFME + IceColdOldMan CSF",
+      "Version": "v0.111.0 | Early Access",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/slay-the-spire-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Sniper Elite 3",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/238090/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Microsoft® Windows® Vista (Service Pack 2) or Windows® 7 (Service Pack 1) or Windows® 8 or Windows 8.1. Windows® XP is NOT supported.",
+      "Processor": "Dual-core CPU with SSE3 (Intel® Pentium® D 3GHz / AMD Athlon™ 64 X2 4200) or better",
+      "Memory": "2 GB RAM",
+      "Graphics": "Microsoft® DirectX® 10.0 compatible graphics card with 256 MB of memory (NVIDIA® GeForce® 8800 series / ATI Radeon™ HD 3870) or better",
+      "DirectX": "Version 11",
+      "Network": "Broadband Internet connection",
+      "Storage": "18 GB available space",
+      "Sound Card": "Microsoft® DirectX® 10.0 compatible sound card or better",
+      "Additional Notes": "Windows® XP is NOT supported. Ensure graphics and audio drivers are up to date."
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Rebellion",
+      "Platform": "PC",
+      "Game Size": "20.3 GB",
+      "Released By": "SSE + GogoVan CSF",
+      "Version": "Build 4253449",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/sniper-elite-3-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Sniper: Ghost Warrior",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/368070/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows® XP (SP3) / Vista™ (SP1) / 7",
+      "Processor": "Intel Pentium 4 3,2 GHz, Intel Pentium D 2,66 GHz, AMD Athlon 64 3500+",
+      "Memory": "1GB for XP / 2GB for Vista and 7",
+      "Graphics": "256 MB RAM compatible with DX10.0 or DX9.0c, Shader Model 3.0",
+      "Cards": "GeForce ( 6800/7600-7950/8600-8800/9600-9800/GTX 260-280 ) or Radeon (X1650-1950/ HD2400-2900 / 3650",
+      "DirectX®": "DirectX® 9.0c",
+      "Hard Drive": "6.5GB",
+      "Sound": "Compatible with DirectX® 9.0c"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "City Interactive",
+      "Platform": "PC",
+      "Game Size": "6.3 GB",
+      "Released By": "Prophet + CSF",
+      "Version": "Build 48420",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/sniper-ghost-warrior-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "The House of Da Vinci",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/522470/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 or higher",
+      "Processor": "2.0 GHz Dual Core Processor",
+      "Memory": "2 GB RAM",
+      "Graphics": "Video card with 1024MB of VRAM",
+      "DirectX": "Version 9.0c",
+      "Storage": "3 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie",
+      "Developer": "Blue Brain Games",
+      "Platform": "PC",
+      "Game Size": "2.5 GB",
+      "Released By": "RUNE",
+      "Version": "Build 23502956 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-house-of-da-vinci-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Tour de France 2026",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/912f7d600f9197f9f0479497c217ef8d.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i5-3470 or AMD Ryzen 3 1200",
+      "Memory": "12 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 960, 4 GB or AMD Radeon RX 570, 4 GB or Intel Arc A310, 4 GB",
+      "DirectX": "Version 12",
+      "Storage": "32 GB available space",
+      "Additional Notes": "50% of 1080p Low @ 30 FPS"
+    },
+    "game_info": {
+      "Genre": "Racing, Simulation, Sports, Strategy",
+      "Developer": "Cyanide Studios",
+      "Platform": "PC",
+      "Game Size": "31.6 GB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 23546089",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/tour-de-france-2026-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Turbo Dismount 2 (v2.0.2420.16054)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2280350/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 or newer",
+      "Processor": "Dual-core 2.5GHz or better",
+      "Memory": "16 GB RAM",
+      "Graphics": "DX11 Integrated Graphics",
+      "DirectX": "Version 11",
+      "Storage": "4 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Indie, Racing, Simulation",
+      "Developer": "Secret Exit Ltd.",
+      "Platform": "PC",
+      "Game Size": "976 MB",
+      "Released By": "TENOKE emu",
+      "Version": "v2.0.2420.16054 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/turbo-dismount-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Way of the Hunter 2 (Build 22586685)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/23c0534977edc4c4226357ef79aa0132.png",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Ryzen 5 3600X / Core i5-9600K",
+      "Memory": "16 GB RAM",
+      "Graphics": "GeForce RTX 2060 / Radeon RX 5600 XT",
+      "DirectX": "Version 12",
+      "Storage": "30 GB available space",
+      "Additional Notes": "Requirements are subject to change during Early Access"
+    },
+    "game_info": {
+      "Genre": "Adventure, Simulation, Early Access",
+      "Developer": "Nine Rocks Games",
+      "Platform": "PC",
+      "Game Size": "16.3 GB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 22586685",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/way-of-the-hunter-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Welcome to the Game III",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/eff520e6f0c4b7cad73f24dc42ede7f3.png",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Core i7-6700 or Ryzen 5 1600",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GTX 1650 (4 GB) | AMD Radeon RX 570 (4 GB)",
+      "DirectX": "Version 11",
+      "Storage": "5 GB available space",
+      "Additional Notes": "Game is optimized for 16×9 aspect ratio"
+    },
+    "game_info": {
+      "Genre": "Indie, Simulation",
+      "Developer": "Reflect Studios",
+      "Platform": "PC",
+      "Game Size": "4.4 GB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 24359942",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/welcome-to-the-game-iii-free-download/",
+    "pending_review": true
   }
 ]
