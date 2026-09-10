@@ -58,131 +58,44 @@
         return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     }
 
-    // Countdown overlay shown right after a successful "Copy Teks", before
-    // handing off to Shopee — injected once into the DOM here rather than
-    // as static markup in index.html/game.html, since it's identical on
-    // both pages and has nothing page-specific to hook into.
-    const REDIRECT_COUNTDOWN_SECONDS = 5;
+    // Shown right after the game list is copied: explains what happens next
+    // and carries the actual link to Shopee. Injected once here rather than
+    // as static markup in index.html/game.html, since it's identical on both
+    // pages and has nothing page-specific to hook into.
+    //
+    // The call to action is a real <a target="_blank">, NOT window.open():
+    // a plain anchor the visitor taps is an ordinary user-initiated
+    // navigation, so there is no popup to prompt about on desktop and
+    // nothing for Android/iOS to block. Every earlier variant of this flow
+    // (auto-open after a countdown, or opening a blank tab up front and
+    // writing into it) tripped over exactly that, which is why it's gone.
     const redirectOverlay = document.createElement('div');
     redirectOverlay.className = 'shopee-redirect-overlay';
     redirectOverlay.innerHTML = `
         <div class="shopee-redirect-box">
             <button type="button" class="shopee-redirect-close" aria-label="Tutup">&times;</button>
             <div class="shopee-redirect-icon">&#10003;</div>
-            <p class="shopee-redirect-text">Teks daftar game berhasil disalin!</p>
-            <p class="shopee-redirect-note">Silakan paste list game ini ke admin WD Games.</p>
-            <p class="shopee-redirect-sub">Anda akan dibawa ke Shopee dalam <span class="shopee-redirect-count">${REDIRECT_COUNTDOWN_SECONDS}</span>...</p>
-            <button type="button" class="shopee-redirect-skip">Lanjut Sekarang</button>
+            <p class="shopee-redirect-text">Daftar game berhasil disalin!</p>
+            <p class="shopee-redirect-note">Tekan tombol di bawah untuk lanjut ke Shopee, lalu tinggal paste daftarnya di chat admin WD Games.</p>
+            <a class="shopee-redirect-skip" href="#" target="_blank" rel="noopener">Lanjut ke Shopee</a>
         </div>
     `;
     document.body.appendChild(redirectOverlay);
-    const redirectSubEl = redirectOverlay.querySelector('.shopee-redirect-sub');
-    const redirectSkipBtn = redirectOverlay.querySelector('.shopee-redirect-skip');
+    const redirectCtaLink = redirectOverlay.querySelector('.shopee-redirect-skip');
     const redirectCloseBtn = redirectOverlay.querySelector('.shopee-redirect-close');
-    let redirectTimer = null;
 
-    // Always available regardless of what the countdown/redirect below is
-    // doing — clicking it (or the backdrop) just dismisses the overlay,
-    // it never gets left stuck open with no way out.
     function closeRedirectOverlay() {
-        clearInterval(redirectTimer);
         redirectOverlay.classList.remove('open');
     }
     redirectCloseBtn.onclick = closeRedirectOverlay;
+    redirectCtaLink.addEventListener('click', closeRedirectOverlay);
     redirectOverlay.addEventListener('click', (e) => {
         if (e.target === redirectOverlay) closeRedirectOverlay();
     });
 
-    // The countdown page written into the just-opened tab. It runs its own
-    // timer and redirects ITSELF, which matters twice over: a same-tab
-    // navigation inside that window needs no user gesture (so nothing to
-    // block or prompt about), and it keeps ticking even when the phone
-    // backgrounds/freezes the original wdgames tab behind it.
-    function buildHandoffPage(url) {
-        const safeUrl = String(url).replace(/"/g, '&quot;');
-        return `<!doctype html><html lang="id"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Menuju Shopee...</title>
-<style>
-  html,body{height:100%;margin:0;background:#0d0e12;color:#f0f0f5;
-    font-family:"Outfit",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box;}
-  .brand{font-size:1.3rem;font-weight:800;letter-spacing:.5px;margin-bottom:22px;}
-  .brand span{background:linear-gradient(135deg,#00d2ff,#3a7bd5);-webkit-background-clip:text;
-    background-clip:text;-webkit-text-fill-color:transparent;}
-  .tick{width:60px;height:60px;margin:0 auto 18px;border-radius:50%;
-    background:linear-gradient(135deg,#00d2ff,#3a7bd5);color:#fff;font-size:1.8rem;
-    display:flex;align-items:center;justify-content:center;}
-  h1{font-size:1.05rem;margin:0 0 8px;}
-  p{margin:0 0 6px;font-size:.9rem;color:#9aa0a6;line-height:1.5;}
-  .count{color:#00d2ff;font-weight:800;}
-  a{display:inline-block;margin-top:20px;color:#00d2ff;font-size:.85rem;}
-</style></head><body><div>
-  <div class="brand"><span>WD Games</span></div>
-  <div class="tick">&#10003;</div>
-  <h1>Teks daftar game berhasil disalin!</h1>
-  <p>Silakan paste list game ini ke admin WD Games.</p>
-  <p>Membuka Shopee dalam <span class="count" id="c">${REDIRECT_COUNTDOWN_SECONDS}</span> detik...</p>
-  <a href="${safeUrl}">Buka Shopee sekarang &rarr;</a>
-</div>
-<script>
-  var n = ${REDIRECT_COUNTDOWN_SECONDS};
-  var el = document.getElementById('c');
-  setInterval(function () {
-    n -= 1;
-    if (n <= 0) { location.replace("${safeUrl}"); return; }
-    el.textContent = n;
-  }, 1000);
-<\/script></body></html>`;
-    }
-
-    // `handoffWin` is the tab opened synchronously back in the click handler
-    // (see handleCopyClick) — opening it there, while the tap is still the
-    // active user gesture, is the whole point: window.open() called later
-    // from a timer has no gesture behind it, which is what made desktop
-    // browsers show an "allow popup?" prompt and Android/iOS block it
-    // outright. When the browser refuses even that, handoffWin is null and
-    // this falls back to navigating the current tab instead.
-    function startShopeeHandoff(url, handoffWin) {
-        clearInterval(redirectTimer);
-
-        if (handoffWin && !handoffWin.closed) {
-            try {
-                handoffWin.document.write(buildHandoffPage(url));
-                handoffWin.document.close();
-            } catch (e) {
-                handoffWin.location.replace(url);
-            }
-            redirectSubEl.textContent = 'Tab Shopee sudah dibuka — lanjutkan di tab tersebut.';
-            redirectOverlay.classList.add('open');
-            redirectSkipBtn.onclick = closeRedirectOverlay;
-            redirectTimer = setTimeout(closeRedirectOverlay, 6000);
-            return;
-        }
-
-        let secondsLeft = REDIRECT_COUNTDOWN_SECONDS;
-        redirectSubEl.innerHTML = `Anda akan dibawa ke Shopee dalam <span class="shopee-redirect-count">${secondsLeft}</span>...`;
+    function openShopeeHandoff(url) {
+        redirectCtaLink.href = url;
         redirectOverlay.classList.add('open');
-
-        function go() {
-            clearInterval(redirectTimer);
-            window.location.href = url;
-        }
-
-        redirectTimer = setInterval(() => {
-            secondsLeft -= 1;
-            if (secondsLeft <= 0) {
-                go();
-                return;
-            }
-            const countEl = redirectOverlay.querySelector('.shopee-redirect-count');
-            if (countEl) countEl.textContent = secondsLeft;
-        }, 1000);
-
-        // Reassigning .onclick (not addEventListener) each call is enough
-        // since there's only ever one overlay/button pair — no listener
-        // pile-up to worry about across repeated copies.
-        redirectSkipBtn.onclick = go;
     }
 
     // Mirrors the storage bar already shown on the page itself, just scoped
@@ -353,6 +266,7 @@
 
         lines.push('');
         lines.push(`Total Size: ${totalSize.toFixed(1)} GB`);
+        lines.push('WD GAMES');
         return lines.join('\n');
     }
 
@@ -418,23 +332,18 @@
             return;
         }
 
-        // Opened HERE, synchronously, while this tap is still the active
-        // user gesture — everything below it is async (the clipboard write
-        // awaits), and once that await resolves the gesture is spent, which
-        // is exactly when window.open() starts getting popup-prompted on
-        // desktop and hard-blocked on Android/iOS. The tab starts on a
-        // countdown page (see buildHandoffPage) and redirects itself.
-        const shopeeUrl = SHOPEE_LINKS[state.storageType] || SHOPEE_LINKS.hdd;
-        const handoffWin = window.open('', '_blank');
-
+        // Copy here, on this tap, while the page is still focused — a
+        // clipboard write can be rejected outright once the tab loses focus,
+        // which is exactly what happens the moment the Shopee tab opens. So
+        // the copy lands first, and the overlay that follows only has to
+        // hold a link the visitor taps themselves.
         try {
             const ok = await copyTextToClipboard(buildExportText());
             if (!ok) throw new Error('Copy gagal');
-            startShopeeHandoff(shopeeUrl, handoffWin);
+            showToast('Daftar game berhasil disalin!', 'success');
+            openShopeeHandoff(SHOPEE_LINKS[state.storageType] || SHOPEE_LINKS.hdd);
         } catch (err) {
             console.error('Copy text error:', err);
-            // Don't strand a blank tab if the copy itself failed.
-            if (handoffWin && !handoffWin.closed) handoffWin.close();
             showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
         }
     }

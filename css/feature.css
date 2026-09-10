@@ -1347,15 +1347,19 @@ body.landing-active .search-fab {
   color: var(--accent);
 }
 
+/* Rendered as an <a target="_blank">, not a <button> — a real anchor tap is
+   an ordinary navigation browsers never popup-block, unlike window.open(). */
 .shopee-redirect-skip {
+  display: inline-block;
+  text-decoration: none;
   background: var(--accent-gradient);
   color: #fff;
   border: none;
   border-radius: var(--radius-pill);
-  padding: 10px 24px;
+  padding: 12px 28px;
   font-family: var(--font-main);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
 }
 
