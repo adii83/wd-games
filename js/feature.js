@@ -260,6 +260,14 @@
         return game.banner_url || 'assets/logo.png';
     }
 
+    // Steam serves a ~600px variant of every screenshot at the same path —
+    // swap it in for small card backgrounds (Featured side/main cards render
+    // well under 1080p, especially on mobile) so a potato phone isn't
+    // decoding three full 1920x1080 JPEGs for art it shows at 400px wide.
+    function smallShot(url) {
+        return typeof url === 'string' ? url.replace('.1920x1080.jpg', '.600x338.jpg') : url;
+    }
+
     // Genres used for the Kategori filter (dropdown options + matching) and
     // card tags. game_info.Genre already holds Steam's real genre list for
     // every PC title with a Steam match (update_pc_genres_from_steam.py
@@ -341,18 +349,23 @@
                 appLoadingScreen.remove();
             }, { once: true });
         }
-        if (landingScreen) landingScreen.classList.add('visible');
+        // Only show the picker on the very first visit. After that the saved
+        // pick is already restored (syncStoragePickerFromState + the lock
+        // sync at init), so there's nothing to ask — just reveal the gallery.
+        if (!window.FeatureCart.hasChosenStorage() && landingScreen) {
+            landingScreen.classList.add('visible');
+        }
     }
 
-    // The gallery itself stays behind body.landing-active (non-interactive,
-    // covered by the picker) until a storage type is actually chosen —
-    // required every visit, not just the first ever one.
+    // The gallery stays behind body.landing-active until a storage type is
+    // picked — but only on the first visit (see body class handling at init).
     if (landingActions) {
         landingActions.addEventListener('click', (e) => {
             const btn = e.target.closest('.landing-choice-card');
             if (!btn) return;
             const storageType = btn.getAttribute('data-storage');
             applyStorageType(storageType);
+            window.FeatureCart.markStorageChosen();
             document.body.classList.remove('landing-active');
             if (landingScreen) landingScreen.classList.remove('visible');
         });
@@ -428,10 +441,17 @@
             renderUpdateGamesRow();
             renderGenreFilterOptions();
 
-            // Update Games' titles are also shown here, badged "Baru" (see
-            // renderGrid) — not excluded, so the collection stays complete.
-            filteredGames = allGames;
-            renderGrid(true);
+            // A returning Flashdisk visitor skipped the landing screen, so the
+            // PS2-only lock was never applied — do it now that allGames is
+            // populated, and let applyFilters() render the filtered view.
+            // Otherwise show the full collection (Update Games titles included,
+            // badged "Baru" — see renderGrid).
+            if (window.FeatureCart.hasChosenStorage() && currentStoragePreset().lockCategory === 'ps2') {
+                syncCategoryLockFromState();
+            } else {
+                filteredGames = allGames;
+                renderGrid(true);
+            }
 
             // Hero + Featured This Week each need a bit of extra per-game
             // gameplay data (trailer/screenshot/rating) — fetched on demand
@@ -581,7 +601,7 @@
         const rating = mainGp && Number.isFinite(mainGp.metacritic_score) ? (mainGp.metacritic_score / 20).toFixed(1) : null;
 
         const mainHtml = `
-            <div class="featured-main-card" data-title="${main.title}" style="background-image: url('${mainBg}')">
+            <div class="featured-main-card" data-title="${main.title}" style="background-image: url('${smallShot(mainBg)}')">
                 <div class="featured-main-content">
                     <span class="featured-tag">${mainTag}</span>
                     <h3 class="featured-main-title">${cleanDisplayTitle(main.title)}</h3>
@@ -604,7 +624,7 @@
             const bg = randomBackgroundFor(game, gp);
             const sizeLabel = formatSizeGB(estimatedSizeGB(game.game_info ? game.game_info['Game Size'] : null));
             return `
-                <a class="featured-side-card" href="${gameHref(game)}" style="background-image: url('${bg}')">
+                <a class="featured-side-card" href="${gameHref(game)}" style="background-image: url('${smallShot(bg)}')">
                     <div class="featured-side-content">
                         <div class="featured-side-title">${cleanDisplayTitle(game.title)}</div>
                         <div class="featured-side-size">${sizeLabel}</div>
@@ -674,16 +694,44 @@
         container.addEventListener('touchstart', onInteract, { passive: true });
         container.addEventListener('wheel', onInteract, { passive: true });
 
+        // Don't burn cycles scrolling a strip nobody's looking at.
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) stopAuto();
+            else startAuto();
+        });
+
         startAuto();
     }
 
     // --- Trailer modal (hero "Tonton Trailer") ---
 
-    function openTrailerModal(hlsUrl) {
+    // hls.js (~120KB) is only ever needed if someone opens a hero trailer,
+    // which most visitors never do — load it on first use instead of on
+    // every page load. Kept off the critical path for low-end mobile.
+    let hlsLoaderPromise = null;
+    function ensureHls() {
+        if (window.Hls) return Promise.resolve();
+        if (!hlsLoaderPromise) {
+            hlsLoaderPromise = new Promise((resolve, reject) => {
+                const el = document.createElement('script');
+                el.src = 'https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js';
+                el.onload = resolve;
+                el.onerror = reject;
+                document.head.appendChild(el);
+            });
+        }
+        return hlsLoaderPromise;
+    }
+
+    async function openTrailerModal(hlsUrl) {
         trailerModalBackdrop.classList.add('open');
         if (trailerModalVideo.canPlayType('application/vnd.apple.mpegurl')) {
             trailerModalVideo.src = hlsUrl;
-        } else if (window.Hls && window.Hls.isSupported()) {
+            trailerModalVideo.play().catch(() => {});
+            return;
+        }
+        try { await ensureHls(); } catch (e) { /* fall through to native src */ }
+        if (window.Hls && window.Hls.isSupported()) {
             trailerHlsInstance = new window.Hls();
             trailerHlsInstance.loadSource(hlsUrl);
             trailerHlsInstance.attachMedia(trailerModalVideo);
@@ -859,6 +907,13 @@
         document.getElementById('hero-carousel').addEventListener('mouseenter', () => clearInterval(heroTimer));
         document.getElementById('hero-carousel').addEventListener('mouseleave', () => {
             if (!prefersReducedMotion) restartHeroTimer();
+        });
+
+        // Stop rotating (and cross-fading full-bleed backgrounds) while the
+        // tab is backgrounded.
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) clearInterval(heroTimer);
+            else if (!prefersReducedMotion) restartHeroTimer();
         });
 
         // Touch-swipe navigation — the mobile layout hides the nav arrows
@@ -1307,6 +1362,16 @@
         }
     }
 
+    // Re-applies just the Flashdisk category lock for the already-saved
+    // storage type — used when a returning visitor skips the landing screen,
+    // so the lock state matches their pick without applyStorageType()
+    // wiping their saved capacity back to the preset default.
+    function syncCategoryLockFromState() {
+        const locked = currentStoragePreset().lockCategory === 'ps2';
+        genreDropdown.setDisabled(locked);
+        if (locked) setActiveGenre(PS2_CATEGORY_VALUE);
+    }
+
     wireDropdownItems(storageTypeDropdownPanel, storageTypeDropdown, applyStorageType);
 
     // --- Floating cart widget (shared controller in js/feature-cart-widget.js) ---
@@ -1357,5 +1422,14 @@
     populateCapacityOptions();
     syncStoragePickerFromState();
     updateStorageUI();
+
+    // Returning visitor who already picked a storage type: drop the landing
+    // gate right away so the gallery is usable immediately. The Flashdisk
+    // PS2-lock (if that's their pick) is re-applied in loadGames() once the
+    // game data it filters against is actually loaded.
+    if (window.FeatureCart.hasChosenStorage()) {
+        document.body.classList.remove('landing-active');
+    }
+
     loadGames();
 })();

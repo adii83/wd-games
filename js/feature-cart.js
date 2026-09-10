@@ -46,6 +46,10 @@
         storageType: 'hdd',
         capacityGB: 455,
         selected: [],
+        // Set true the first time the visitor picks HDD/SSD/Flashdisk on the
+        // landing screen. Once set, index.html skips that screen on every
+        // later visit / back-navigation and just restores the saved pick.
+        storageChosen: false,
     };
 
     // Same "estimated size" buffer as the main site (size_config.json,
@@ -61,6 +65,7 @@
                 storageType: parsed.storageType || DEFAULT_STATE.storageType,
                 capacityGB: Number.isFinite(parsed.capacityGB) ? parsed.capacityGB : DEFAULT_STATE.capacityGB,
                 selected: Array.isArray(parsed.selected) ? parsed.selected : [],
+                storageChosen: parsed.storageChosen === true,
             };
         } catch (e) {
             return { ...DEFAULT_STATE };
@@ -115,6 +120,17 @@
             state.storageType = storageType;
             state.capacityGB = capacityGB;
             persist();
+        },
+
+        hasChosenStorage() {
+            return state.storageChosen === true;
+        },
+
+        markStorageChosen() {
+            if (!state.storageChosen) {
+                state.storageChosen = true;
+                persist();
+            }
         },
 
         isSelected(title) {
