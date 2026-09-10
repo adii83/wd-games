@@ -1510,6 +1510,10 @@ body.landing-active .search-fab {
 
 .catalog-section {
   margin-top: var(--spacing-lg);
+  /* Recently Added / PS2 / PS3 all sit well below the fold — skip their
+     layout & paint until scrolled near. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 .gallery-grid {
@@ -1543,7 +1547,6 @@ body.landing-active .search-fab {
   opacity: 0;
   animation: card-fade-in 0.4s var(--ease-standard) forwards;
   animation-delay: calc(var(--i, 0) * 40ms);
-  will-change: transform;
 }
 
 @keyframes card-fade-in {
@@ -1601,8 +1604,9 @@ body.landing-active .search-fab {
 }
 
 .gallery-card-tags span {
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
+  /* No backdrop-filter: this paints on every grid card (100+ nodes) and
+     per-element blur is the worst offender on low-end mobile GPUs. */
+  background: rgba(0, 0, 0, 0.82);
   color: var(--text-primary);
   font-size: 0.65rem;
   padding: 2px 8px;
@@ -1618,8 +1622,8 @@ body.landing-active .search-fab {
   height: 26px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  /* No backdrop-filter: one per card, same GPU cost as the tags above. */
+  background: rgba(0, 0, 0, 0.72);
   color: #fff;
   display: flex;
   align-items: center;
@@ -2490,6 +2494,35 @@ body.landing-active .search-fab {
   }
   .skeleton-shimmer::after {
     animation: none !important;
+  }
+}
+
+/* --- Low-end mobile performance --------------------------------------------
+   backdrop-filter: blur() is brutally expensive on cheap phone GPUs. On
+   narrow screens drop every remaining blur surface — the backgrounds under
+   them are already near-opaque, so visually it's a wash. Also cut the
+   per-card fade-in stagger (100+ animated nodes) and card hover transforms
+   (there's no hover on touch anyway). */
+@media (max-width: 768px) {
+  .landing-backdrop,
+  .gallery-header,
+  .hero-slide-tags span,
+  .hero-cta-secondary,
+  .featured-tag,
+  .storage-footer-bar,
+  .feature-cart-backdrop {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .gallery-header { background: rgba(15, 17, 21, 0.97); }
+  .storage-footer-bar { background: rgba(23, 25, 32, 0.98); }
+  .gallery-card {
+    animation: none;
+    opacity: 1;
+  }
+  .gallery-card:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
 
