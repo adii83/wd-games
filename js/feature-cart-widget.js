@@ -93,29 +93,80 @@
         if (e.target === redirectOverlay) closeRedirectOverlay();
     });
 
-    function openShopeeRedirectCountdown(url) {
-        // Nothing opens until the countdown actually reaches zero (or
-        // "Lanjut Sekarang" is clicked) — the tab is opened THEN, not up
-        // front. That means window.open() at that point has no user
-        // gesture backing it anymore (the original "Copy Teks" click is
-        // long gone after a 5-second timer), so a real browser's popup
-        // blocker can legitimately swallow it silently. Guard for that: if
-        // window.open() doesn't hand back a live window, swap the message
-        // for a plain link the visitor can click themselves — a real click
-        // on it is its own fresh gesture, so that one always works.
+    // The countdown page written into the just-opened tab. It runs its own
+    // timer and redirects ITSELF, which matters twice over: a same-tab
+    // navigation inside that window needs no user gesture (so nothing to
+    // block or prompt about), and it keeps ticking even when the phone
+    // backgrounds/freezes the original wdgames tab behind it.
+    function buildHandoffPage(url) {
+        const safeUrl = String(url).replace(/"/g, '&quot;');
+        return `<!doctype html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menuju Shopee...</title>
+<style>
+  html,body{height:100%;margin:0;background:#0d0e12;color:#f0f0f5;
+    font-family:"Outfit",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box;}
+  .brand{font-size:1.3rem;font-weight:800;letter-spacing:.5px;margin-bottom:22px;}
+  .brand span{background:linear-gradient(135deg,#00d2ff,#3a7bd5);-webkit-background-clip:text;
+    background-clip:text;-webkit-text-fill-color:transparent;}
+  .tick{width:60px;height:60px;margin:0 auto 18px;border-radius:50%;
+    background:linear-gradient(135deg,#00d2ff,#3a7bd5);color:#fff;font-size:1.8rem;
+    display:flex;align-items:center;justify-content:center;}
+  h1{font-size:1.05rem;margin:0 0 8px;}
+  p{margin:0 0 6px;font-size:.9rem;color:#9aa0a6;line-height:1.5;}
+  .count{color:#00d2ff;font-weight:800;}
+  a{display:inline-block;margin-top:20px;color:#00d2ff;font-size:.85rem;}
+</style></head><body><div>
+  <div class="brand"><span>WD Games</span></div>
+  <div class="tick">&#10003;</div>
+  <h1>Teks daftar game berhasil disalin!</h1>
+  <p>Silakan paste list game ini ke admin WD Games.</p>
+  <p>Membuka Shopee dalam <span class="count" id="c">${REDIRECT_COUNTDOWN_SECONDS}</span> detik...</p>
+  <a href="${safeUrl}">Buka Shopee sekarang &rarr;</a>
+</div>
+<script>
+  var n = ${REDIRECT_COUNTDOWN_SECONDS};
+  var el = document.getElementById('c');
+  setInterval(function () {
+    n -= 1;
+    if (n <= 0) { location.replace("${safeUrl}"); return; }
+    el.textContent = n;
+  }, 1000);
+<\/script></body></html>`;
+    }
+
+    // `handoffWin` is the tab opened synchronously back in the click handler
+    // (see handleCopyClick) — opening it there, while the tap is still the
+    // active user gesture, is the whole point: window.open() called later
+    // from a timer has no gesture behind it, which is what made desktop
+    // browsers show an "allow popup?" prompt and Android/iOS block it
+    // outright. When the browser refuses even that, handoffWin is null and
+    // this falls back to navigating the current tab instead.
+    function startShopeeHandoff(url, handoffWin) {
         clearInterval(redirectTimer);
+
+        if (handoffWin && !handoffWin.closed) {
+            try {
+                handoffWin.document.write(buildHandoffPage(url));
+                handoffWin.document.close();
+            } catch (e) {
+                handoffWin.location.replace(url);
+            }
+            redirectSubEl.textContent = 'Tab Shopee sudah dibuka — lanjutkan di tab tersebut.';
+            redirectOverlay.classList.add('open');
+            redirectSkipBtn.onclick = closeRedirectOverlay;
+            redirectTimer = setTimeout(closeRedirectOverlay, 6000);
+            return;
+        }
+
         let secondsLeft = REDIRECT_COUNTDOWN_SECONDS;
         redirectSubEl.innerHTML = `Anda akan dibawa ke Shopee dalam <span class="shopee-redirect-count">${secondsLeft}</span>...`;
         redirectOverlay.classList.add('open');
 
         function go() {
             clearInterval(redirectTimer);
-            const win = window.open(url, '_blank');
-            if (win) {
-                closeRedirectOverlay();
-            } else {
-                redirectSubEl.innerHTML = `Browser memblokir tab otomatis — <a href="${url}" target="_blank" rel="noopener">klik di sini untuk membuka Shopee</a>.`;
-            }
+            window.location.href = url;
         }
 
         redirectTimer = setInterval(() => {
@@ -367,13 +418,23 @@
             return;
         }
 
+        // Opened HERE, synchronously, while this tap is still the active
+        // user gesture — everything below it is async (the clipboard write
+        // awaits), and once that await resolves the gesture is spent, which
+        // is exactly when window.open() starts getting popup-prompted on
+        // desktop and hard-blocked on Android/iOS. The tab starts on a
+        // countdown page (see buildHandoffPage) and redirects itself.
+        const shopeeUrl = SHOPEE_LINKS[state.storageType] || SHOPEE_LINKS.hdd;
+        const handoffWin = window.open('', '_blank');
+
         try {
             const ok = await copyTextToClipboard(buildExportText());
             if (!ok) throw new Error('Copy gagal');
-            const shopeeUrl = SHOPEE_LINKS[state.storageType] || SHOPEE_LINKS.hdd;
-            openShopeeRedirectCountdown(shopeeUrl);
+            startShopeeHandoff(shopeeUrl, handoffWin);
         } catch (err) {
             console.error('Copy text error:', err);
+            // Don't strand a blank tab if the copy itself failed.
+            if (handoffWin && !handoffWin.closed) handoffWin.close();
             showToast('Gagal copy teks. Coba browser lain / pakai HTTPS.', 'error');
         }
     }
