@@ -73,6 +73,10 @@ def safe_print(*args, **kwargs):
 print = safe_print
 
 DATA_FILE = Path("steamrip_games_updated.json")
+# Titles an admin deleted via admin.html. Without this, a deleted game just
+# looks "not in the database" and gets scraped straight back in. Maintained
+# by track_deleted_titles.py (run by both GitHub Actions workflows).
+DELETED_TITLES_FILE = Path("deleted_titles.json")
 SOURCE_URL = "https://steamrip.com/"
 GAMES_LIST_URL = "https://steamrip.com/games-list/"
 RECENTLY_ADDED_BLOCK_ID = 'id="tie-block_557"'
@@ -389,6 +393,17 @@ def save_games(games) -> None:
     os.replace(tmp, DATA_FILE)
 
 
+def load_deleted_titles():
+    if not DELETED_TITLES_FILE.exists():
+        return []
+    try:
+        with DELETED_TITLES_FILE.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, ValueError):
+        return []
+    return [t for t in data if isinstance(t, str) and t.strip()]
+
+
 def build_existing_title_set(games):
     # Many existing entries still carry raw "(Build XXXXX)"/"(vX.X)" suffixes
     # baked into their stored title (added before/without this cleanup), so
@@ -446,6 +461,16 @@ def main():
 
     games = load_games()
     existing_lower = build_existing_title_set(games)
+
+    # Fold in admin-deleted titles (both raw and clean_title()-normalized,
+    # same as build_existing_title_set) so is_new_title() treats them as
+    # already-known and skips them instead of re-adding them.
+    deleted_titles = load_deleted_titles()
+    for t in deleted_titles:
+        existing_lower.add(t.lower())
+        existing_lower.add(clean_title(t).lower())
+    if deleted_titles:
+        print(f"Ignoring {len(deleted_titles)} admin-deleted title(s) (deleted_titles.json).")
 
     print("Fetching steamrip.com's 'Recently Added' widget...")
     try:

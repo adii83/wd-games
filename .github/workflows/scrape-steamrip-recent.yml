@@ -29,10 +29,18 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # track_deleted_titles.py walks the full history of steamrip_games_updated.json
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
+      # Rebuild deleted_titles.json first, in case an admin deleted a game
+      # and triggered this scrape before regenerate-derived-data.yml had
+      # refreshed the list. The scraper reads it and skips those titles.
+      - name: Refresh the admin-deleted-titles list
+        run: python track_deleted_titles.py
 
       - name: Run scraper
         run: |
@@ -46,7 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add steamrip_games_updated.json
+          git add steamrip_games_updated.json deleted_titles.json
           if git diff --staged --quiet; then
             echo "Nothing new found — steamrip_games_updated.json unchanged."
           else
