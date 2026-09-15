@@ -102776,5 +102776,350 @@
     },
     "url": "https://steamrip.com/shroom-and-gloom-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Walk of Life",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1910150/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Quad core 4Ghz+",
+      "Memory": "8 GB RAM",
+      "Graphics": "Intel UHD Graphics 630, Geforce GTX 750 Ti or Radeon RX 550",
+      "DirectX": "Version 11",
+      "Storage": "8 GB available space",
+      "Additional Notes": "SSD Drive"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Developer": "Porcelain Fortress",
+      "Platform": "PC",
+      "Game Size": "547.2 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25209901",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/walk-of-life-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "ChainStaff",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2976260/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Quad Core CPU",
+      "Memory": "4 GB RAM",
+      "Graphics": "GT 1030",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Mommy’s Best Games",
+      "Platform": "PC",
+      "Game Size": "2.7 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24785049",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/chainstaff-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "The Hong Kong Massacre",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/741510/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7/8.1/10 x64",
+      "Memory": "2 GB RAM",
+      "DirectX": "Version 11",
+      "Storage": "6 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Indie",
+      "Developer": "VRESKI",
+      "Platform": "PC",
+      "Game Size": "2.6 GB",
+      "Released By": "Goldberg + lanternjoe CSF",
+      "Version": "Build 19809217",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-hong-kong-massacre-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Carrier Command 2",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1489630/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 / 8 / 10",
+      "Processor": "Intel Core i5-4440 / AMD Ryzen 3 1200",
+      "Memory": "4 GB RAM",
+      "Graphics": "Intel HD 6000 / GeForce 550 / AMD R7 250 (AMD Radeon HD 7750)",
+      "Storage": "1 GB available space",
+      "VR Support": "SteamVR"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Simulation, Strategy",
+      "Developer": "Geometa",
+      "Platform": "PC",
+      "Game Size": "595.6 MB",
+      "Released By": "Goldberg + Skiminok CSF",
+      "Version": "Build 23836745",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/carrier-command-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Samurai Jack: Battle Through Time",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/311be2559119007abcccd19667e701e9.png",
+    "system_requirements": {
+      "OS": "Windows 7 64bit",
+      "Processor": "Intel Core i5 3rd Generation",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 750 Ti or AMD Radeon HD 7750",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space",
+      "Sound Card": "Windows-compatible sound card",
+      "Additional Notes": "PREFERRED: Xbox Wireless Controller (Xbox One, Windows 10) OR DUALSHOCK 4 wireless controller (PS4)"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Soleil Ltd.",
+      "Platform": "PC",
+      "Game Size": "3.8 GB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 5489031",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/samurai-jack-battle-through-time-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Layers of Fear",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1946700/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Win 10 with support for DirectX 12 Agility SDK",
+      "Processor": "Intel Core i5 4690/ AMD Ryzen 3 1200",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GTX 1060 3GB/ AMD RX 580 4GB",
+      "DirectX": "Version 12",
+      "Storage": "20 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure",
+      "Developer": "Anshar Studios",
+      "Platform": "PC",
+      "Game Size": "17.2 GB",
+      "Released By": "Rune + CSF",
+      "Version": "Build 16329825",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/layers-of-fear-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Stonewards (Build 25256319 + Co-op)",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows (64-bit) 10",
+      "Processor": "Intel Core i5 @ 2.5 GHz or equivalent",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GTX 1060 / AMD RX 480",
+      "DirectX": "Version 11",
+      "Storage": "5 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, Early Access",
+      "Developer": "Banana Tiger Studio",
+      "Platform": "PC",
+      "Game Size": "823.1 MB",
+      "Released By": "OFME + CSF",
+      "Version": "Build 25256319",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/stonewards-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Dumb Ways to Build (Build 25236478 + Co-op)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f0344ce77e6f09502cbccbfb28e6dad8.png",
+    "system_requirements": {
+      "OS": "Win 10 (64-bit)",
+      "Processor": "4-Core / 8-Thread (i3-10100 / Ryzen 3100)",
+      "Memory": "8 GB RAM",
+      "Graphics": "GTX 1060 (6GB) / RX 580 (8GB)",
+      "DirectX": "Version 11",
+      "Network": "Broadband Internet connection",
+      "Storage": "7 GB available space",
+      "Additional Notes": "VRAM: 4GB"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Casual",
+      "Developer": "Dumb Ways to Die",
+      "Platform": "PC",
+      "Game Size": "2.4 GB",
+      "Released By": "0xdeadc0de",
+      "Version": "Build 25236478",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dumb-ways-to-build-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Onimusha: Warlords",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/761600/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 64 bit",
+      "Processor": "Intel® Core™ i3 Dual Core Series or AMD equivalent or better",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 760 or AMD Radeon R7 260x",
+      "DirectX": "Version 10",
+      "Storage": "14 GB available space",
+      "Sound Card": "DirectSound (DirectX® 10.0c or better)"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "CAPCOM CO., LTD",
+      "Platform": "PC",
+      "Game Size": "10.1 GB",
+      "Released By": "Rune, Ty AR-81",
+      "Version": "Build 17777991",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/onimusha-warlords-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "States of Power",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit)",
+      "Processor": "Intel i3, AMD Ryzen 3",
+      "Memory": "4 GB RAM",
+      "Graphics": "Integrated Graphics Card",
+      "Network": "Broadband Internet connection",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Simulation, Strategy",
+      "Developer": "Sarunas",
+      "Platform": "PC",
+      "Game Size": "248.9 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 25166599",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/states-of-power-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Backrooms Cleanup Crew",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3140990/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit or higher",
+      "Processor": "Intel Core i5-4670K / AMD FX-8350 CPU or equivalent",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 970 / AMD Radeon R9 290 or equivalent",
+      "Storage": "5 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Casual, Indie, Simulation, Early Access",
+      "Developer": "On The Bridge Games",
+      "Platform": "PC",
+      "Game Size": "7.3 GB",
+      "Released By": "OFME + CSF",
+      "Version": "Build 23629295",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/backrooms-cleanup-crew-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Will You Wheel?",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2443770/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "windows 10",
+      "Processor": "i5 4th gen",
+      "Memory": "8 GB RAM",
+      "Graphics": "gtx 1050 ti",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Casual, Indie, Racing, Simulation, Early Access",
+      "Developer": "Noon Games",
+      "Platform": "PC",
+      "Game Size": "846.9 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 25284113",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/will-you-wheel-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "FTL: Faster Than Light",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/212680/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows XP / Vista / 7",
+      "Processor": "2 GHz",
+      "Memory": "1 GB RAM",
+      "Graphics": "1280×720 minimum resolution, OpenGL 2.0 Support, and recommended dedicated graphics card with 128 MB of RAM",
+      "Hard Drive": "175 MB HD space"
+    },
+    "game_info": {
+      "Genre": "Indie, Simulation, Strategy",
+      "Developer": "Subset Games",
+      "Platform": "PC",
+      "Game Size": "418.2 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 21700320",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/ftl-faster-than-light-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Manor Lords (v.0.8.104)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/dec8a61bde9cd5edf35b13dc9b4a1d33.png",
+    "system_requirements": {
+      "OS": "Windows® 10 (64-bit)",
+      "Processor": "Intel® Core™ i5-4670 (quad-core) / AMD® FX-Series™ FX-4350 (quad-core)",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA® GeForce® GTX 1050 (2 GB) / AMD® Radeon™ RX-460 (4 GB) / Intel® Arc™ A380 (6 GB)",
+      "DirectX": "Version 12",
+      "Storage": "15 GB available space"
+    },
+    "game_info": {
+      "Genre": "Simulation, Strategy, Early Access",
+      "Developer": "Slavic Magic",
+      "Platform": "PC",
+      "Game Size": "6.6 GB",
+      "Released By": "Rune, Ty AR-81",
+      "Version": "Build 24905706",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/manor-lords-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "The Roottrees are Dead",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2754380/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-Bit",
+      "Processor": "2.0Ghz Dual Core",
+      "Memory": "8 GB RAM",
+      "Graphics": "Intel HD Graphics 510",
+      "Storage": "1 GB available space",
+      "Additional Notes": "Your graphics card needs at least 2GB of VRAM"
+    },
+    "game_info": {
+      "Genre": "Adventure",
+      "Developer": "Evil Trout Inc.",
+      "Platform": "PC",
+      "Game Size": "642.8 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 25235501",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-roottrees-are-dead-free-download/",
+    "pending_review": true
   }
 ]
