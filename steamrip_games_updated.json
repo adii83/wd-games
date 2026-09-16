@@ -103121,5 +103121,210 @@
     },
     "url": "https://steamrip.com/the-roottrees-are-dead-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "The Legend of Heroes: Trails from Zero",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1668510/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 8.1",
+      "Processor": "Intel Core i3",
+      "Memory": "4 GB RAM",
+      "Graphics": "AMD Radeon HD 6570",
+      "DirectX": "Version 11",
+      "Storage": "4 GB available space"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "Nihon Falcom",
+      "Platform": "PC",
+      "Game Size": "3.6 GB",
+      "Released By": "Goldberg + Owla CSF",
+      "Version": "Build 24743052",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-legend-of-heroes-trails-from-zero-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Calm Down, Stalin",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/357a689f054e8c8b3ea30d0492c52932.jpg",
+    "system_requirements": {
+      "OS": "Windows Vista",
+      "Processor": "3 GHz 2 Core",
+      "Memory": "2 GB RAM",
+      "Graphics": "1GB dedicated",
+      "DirectX": "Version 10",
+      "Storage": "500 MB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie",
+      "Developer": "Cartboard Games",
+      "Platform": "PC",
+      "Game Size": "186.9 MB",
+      "Released By": "ALI213",
+      "Version": "Build 4177251",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/calm-down-stalin-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Tenebris: Terra Incognita",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2280060/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7/8/10/11",
+      "Processor": "Intel Core 2 Duo or equivalent",
+      "Memory": "4 GB RAM",
+      "Graphics": "GTX 260 or equivalent",
+      "DirectX": "Version 10",
+      "Storage": "2000 MB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie, RPG, Strategy",
+      "Developer": "Phantasmica Studios",
+      "Platform": "PC",
+      "Game Size": "3.1 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25296077",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/tenebris-terra-incognita-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Creator Chronicles",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Window 10",
+      "Processor": "Intel i5 6th generation or higher, AMD Ryzen 5 4th generation or higher",
+      "Memory": "8 GB RAM",
+      "Graphics": "GeForce GTX 1050 or higher, Radeon RX 5500 or higher",
+      "Storage": "16 GB available space",
+      "Sound Card": "Onboard audio"
+    },
+    "game_info": {
+      "Genre": "RPG, Simulation",
+      "Developer": "Origin Studio",
+      "Platform": "PC",
+      "Game Size": "1.3 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25310329",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/creator-chronicles-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Craftomation 101: Programming & Craft",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1724140/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows Vista / 7 / 8 / 10 / 11",
+      "Processor": "1.2 GHz",
+      "Memory": "1 GB RAM",
+      "Graphics": "Intel HD Graphics 3000, OpenGL 2.0+",
+      "DirectX": "Version 9.0",
+      "Storage": "100 MB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, Simulation, Strategy",
+      "Developer": "Luden.io",
+      "Platform": "PC",
+      "Game Size": "802.2 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25308475",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/craftomation-101-programming-craft-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Ragnar",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2322010/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Dual Core 2.4 GHz",
+      "Memory": "8 GB RAM",
+      "Graphics": "GeForce GTX 950, Radeon R7 360, or Intel HD Graphics 630",
+      "Storage": "20 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Indie, RPG",
+      "Developer": "Fimbulwinter Games",
+      "Platform": "PC",
+      "Game Size": "2.7 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25306995",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/ragnar-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Software Inc.",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/362620/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7+",
+      "Processor": "3 GHz, 4 cores",
+      "Memory": "2 GB RAM",
+      "Graphics": "512 MB dedicated video RAM, Shader Model 4.0",
+      "DirectX": "Version 11",
+      "Storage": "1 GB available space",
+      "Additional Notes": "Laptops with power saving graphic processors might need to be configured for Software Inc."
+    },
+    "game_info": {
+      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Developer": "Coredumping",
+      "Platform": "PC",
+      "Game Size": "301 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 24837201",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/software-inc-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "shapez",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2162800/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64bit",
+      "Processor": "2 Ghz or faster",
+      "Memory": "2048 MB RAM",
+      "Graphics": "Any",
+      "Storage": "300 MB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Developer": "Tobias Springer",
+      "Platform": "PC",
+      "Game Size": "269 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 25141266",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/shapez-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Asgard’s Fall — Viking Survivors",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/b2e802f8bdf81078559dd83f3107465c.png",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel i5-7200U @ 2.50GHz or equivalent",
+      "Memory": "8 GB RAM",
+      "Graphics": "GTX 770 / Radeon 8950 HD",
+      "Storage": "150 MB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Casual, Indie, RPG, Strategy",
+      "Developer": "Soulpotion",
+      "Platform": "PC",
+      "Game Size": "117.2 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 25250644",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/asgards-fall-viking-survivors-free-download/",
+    "pending_review": true
   }
 ]
