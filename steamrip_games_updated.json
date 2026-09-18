@@ -103615,5 +103615,345 @@
     },
     "url": "https://steamrip.com/brutal-legend-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Dungeon Settlers",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2798330/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 or newer",
+      "Processor": "Core 2 Duo",
+      "Memory": "4 GB RAM",
+      "Graphics": "Intel HD Graphics 4000 or other shader model 4.0",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Simulation, Strategy, Early Access",
+      "Developer": "CanOpener",
+      "Platform": "PC",
+      "Game Size": "511.8 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 25284551",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dungeon-settlers-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Trails in the Sky 2nd Chapter",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/44519406a3f5defa6dcf308d49beef43.png",
+    "system_requirements": {
+      "OS": "Windows 10/11",
+      "Processor": "AMD Ryzen 5 1600",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1050",
+      "Storage": "30 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Nihon Falcom",
+      "Platform": "PC",
+      "Game Size": "32.6 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25340742 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/trails-in-the-sky-2nd-chapter-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "FINAL FANTASY TACTICS – The Ivalice Chronicles",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f1cf1ecf003ece4d9f24eb3f4a2d2fce.png",
+    "system_requirements": {
+      "OS": "Windows® 11 64bit",
+      "Processor": "AMD Ryzen™ 3 2300X / Intel® Core™ i3-8100",
+      "Memory": "8 GB RAM",
+      "Graphics": "AMD Radeon™ RX 460 / Intel® Arc™ A380 / NVIDIA® GeForce® GTX 750 Ti",
+      "DirectX": "Version 12",
+      "Storage": "15 GB available space",
+      "Additional Notes": "* Screen Resolution: 1280 x 720 *Onboard GPUs (CPU-integrated graphics) are outside the scope of supported specifications. * The game may not run properly on systems using Intel Arc which do not meet the requirements for Resizable BAR. * The game has been tested on Windows 10 machines with the same specifications; however, as Microsoft support for the OS will end on October 14, 2025, this falls outside of the scope of supported specifications."
+    },
+    "game_info": {
+      "Genre": "RPG, Strategy",
+      "Developer": "Square Enix",
+      "Platform": "PC",
+      "Game Size": "9.7 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 24304444",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/final-fantasy-tactics-the-ivalice-chronicles-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Battle Brothers",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/365360/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows® 10 (64-bit)",
+      "Processor": "Intel® Core™ i3-2100 (dual-core) / AMD® Phenom™ II X2 565 (dual-core)",
+      "Memory": "2 GB RAM",
+      "Graphics": "NVIDIA® GeForce® GTX 460 (1 GB) / AMD® Radeon™ HD 5770 (1 GB) / Intel® HD Graphics 4000",
+      "Storage": "2 GB available space",
+      "Additional Notes": "GPU requires OpenGL 3.3 support"
+    },
+    "game_info": {
+      "Genre": "RPG, Simulation, Strategy",
+      "Developer": "Overhype Studios",
+      "Platform": "PC",
+      "Game Size": "1.8 GB",
+      "Released By": "Rune, Ty AR-81",
+      "Version": "Build 23856902",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/battle-brothers-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Magical Girl Witch Trials",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3101040/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Generic Dual Core Processor",
+      "Memory": "6 GB RAM",
+      "Graphics": "Recent DirectX 11-capable GPUs (incl. Integrated Graphics)",
+      "DirectX": "Version 11",
+      "Storage": "6 GB available space",
+      "Additional Notes": "Vulkan graphic API available via `-force-vulkan` argument for diagnosing purpose. All the information here may subject to change without prior notice."
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie, Simulation",
+      "Developer": "Acacia",
+      "Platform": "PC",
+      "Game Size": "6.3 GB",
+      "Released By": "Goldberg + gameclamp CSF, cs.rin.ru",
+      "Version": "Build 21793620",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/magical-girl-witch-trials-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Bloodwash",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1598160/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel i3 @ 3.2ghz",
+      "Memory": "8 GB RAM",
+      "Graphics": "A modern dedicated graphics card",
+      "Storage": "1700 MB available space"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Black Eyed Priest",
+      "Platform": "PC",
+      "Game Size": "748.7 MB",
+      "Released By": "ALI213",
+      "Version": "Build 7401875",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/bloodwash-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Another Eden Begins",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f7df4bd051a7facdd6018b29818d5b5c.jpg",
+    "system_requirements": {
+      "OS": "Windows® 11",
+      "Processor": "AMD Ryzen™ 3 2300X / Intel® Core™ i3-8100",
+      "Memory": "8 GB RAM",
+      "Graphics": "AMD Radeon™ RX 460 / Intel® Arc™ A380 / NVIDIA® GeForce® GTX 750",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space",
+      "Additional Notes": "30 FPS @ 1280×720, Preset “Low”"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "WRIGHT FLYER STUDIOS",
+      "Platform": "PC",
+      "Game Size": "10.1 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25296903",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/another-eden-begins-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Touhou: Scarlet Curiosity",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/845880/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7",
+      "Processor": "Intel Core i3 (2-core, 2.4GHz)",
+      "Memory": "2 GB RAM",
+      "Graphics": "Geforce GTS 450",
+      "DirectX": "Version 10",
+      "Storage": "4 GB available space",
+      "Sound Card": "Compatible with DirectX 10.0"
+    },
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "Ankake Spa",
+      "Platform": "PC",
+      "Game Size": "1.3 GB",
+      "Released By": "Goldberg + lanternjoe CSF",
+      "Version": "Build 3483481",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/touhou-scarlet-curiosity-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Worming from Home",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3547270/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Casual, Indie, Simulation",
+      "Developer": "Zach Northrop",
+      "Platform": "PC",
+      "Game Size": "844.6 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 25153916",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/worming-from-home-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Mixed Spirits: Bartender",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/b20f9de7cb12642a1b9d6cd84e8d579f.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 or later",
+      "Processor": "Intel Pentium CPU G860",
+      "Memory": "1 GB RAM",
+      "Graphics": "NVIDIA GeForce 840M",
+      "Storage": "1 GB available space",
+      "Additional Notes": "64 Bit Only"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Developer": "Rogue Duck Interactive",
+      "Platform": "PC",
+      "Game Size": "884.9 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25344133",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/mixed-spirits-bartender-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "WheelMates (Build 25208735 + Co-op)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f8c735469cf19fcec3d451e9b85b7ca0.jpg",
+    "system_requirements": {
+      "OS": "64 bit Windows 10/11",
+      "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GTX 1060 / AMD RX 580",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "15 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie, Racing",
+      "Developer": "Firevolt",
+      "Platform": "PC",
+      "Game Size": "6.3 GB",
+      "Released By": "CSF + OFME",
+      "Version": "Build 25208735",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/wheelmates-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "ENSLAVED™: Odyssey to the West™ Premium Edition",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/d6140c51d9f0507b9a747e63e335be7d.png",
+    "system_requirements": {
+      "OS": "Windows XP SP2, Vista or higher",
+      "Processor": "Intel Core 2 Duo @ 2.20GHz / AMD Athlon 64 X2 4600+",
+      "Memory": "2 GB RAM",
+      "Graphics": "Nvidia Geforce 9600/ ATI Radeon HD 4850",
+      "DirectX": "Version 9.0c",
+      "Storage": "12 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "Ninja Theory",
+      "Platform": "PC",
+      "Game Size": "10.2 GB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 159687",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/enslaved-odyssey-to-the-west-premium-edition-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Perfect Heist 2",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1521580/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 SP1",
+      "Processor": "1.5 GHz Dual-Core",
+      "Memory": "4 GB RAM",
+      "Graphics": "GeForce 500 Series",
+      "Storage": "1 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Casual, Indie, Strategy",
+      "Developer": "yeswecamp",
+      "Platform": "PC",
+      "Game Size": "1022.3 MB",
+      "Released By": "CSF + OFME",
+      "Version": "Build 25256009",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/perfect-heist-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Pony Island",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/405640/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows XP",
+      "Memory": "2 GB RAM",
+      "DirectX": "Version 9.0",
+      "Storage": "400 MB available space"
+    },
+    "game_info": {
+      "Genre": "Indie",
+      "Developer": "Daniel Mullins Games",
+      "Platform": "PC",
+      "Game Size": "155.5 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 15100157",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/pony-island-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Scavland",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3373500/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel 2.77GHz Quad-core",
+      "Memory": "8 GB RAM",
+      "Graphics": "Dedicated graphics card with 2 GB of RAM minimum, OpenGL 2.1 and GLSL 1.2 support (generally 2012 or newer)",
+      "DirectX": "Version 11",
+      "Storage": "2 GB available space",
+      "Sound Card": "FMOD compatible sound card"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, RPG, Early Access",
+      "Developer": "NoShadow",
+      "Platform": "PC",
+      "Game Size": "1007.4 MB",
+      "Released By": "CSF + RUNE",
+      "Version": "Build 25355838",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/scavland-free-download/",
+    "pending_review": true
   }
 ]
