@@ -104370,5 +104370,138 @@
     },
     "url": "https://steamrip.com/woodo-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "There Is mORE",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 / Windows 11",
+      "Processor": "Dual Core 2.4 GHz",
+      "Memory": "4 GB RAM",
+      "Graphics": "2 GB VRAM / DirectX 11+ support",
+      "DirectX": "Version 11",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie",
+      "Developer": "ByteBeyond",
+      "Platform": "PC",
+      "Game Size": "973.9 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25203837",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/there-is-more-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Paver: Tidy Up Together",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/1f5b519cde67ac0d0fcab419aa3048a4.png",
+    "system_requirements": {
+      "OS": "Windows 7 64-bit | Windows 8 64-bit | Windows 10 64-bit",
+      "Processor": "Intel Core i5-11400F | AMD Ryzen 5 5600x",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1060 | AMD Radeon R9-290X",
+      "Network": "Broadband Internet connection",
+      "Storage": "750 MB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation",
+      "Developer": "Games Together",
+      "Platform": "PC",
+      "Game Size": "791.5 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25385319",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/paver-tidy-up-together-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Nightwater",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 or later (64-Bit)",
+      "Processor": "i5-3570 3.4 GHz 4 Core",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GTX 1650/GTX 1050-ti, or AMD RX 470/RX 570, or equivalent performance & VRAM",
+      "Storage": "10 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Casual, Indie, Simulation, Strategy",
+      "Developer": "Studio Ashty",
+      "Platform": "PC",
+      "Game Size": "1.4 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25396168",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/nightwater-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Sunken Realms",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1897860/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7"
+    },
+    "game_info": {
+      "Genre": "Adventure",
+      "Developer": "Magic Puncher Games",
+      "Platform": "PC",
+      "Game Size": "9.8 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25394133",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/sunken-realms-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "The Walking Dead: Streets of Survival",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/99cc1170ddb810f704d3a308060e614a.png",
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit)",
+      "Processor": "Intel Core i3-2100",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GT 1000 Series",
+      "DirectX": "Version 11",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Odaclick Game Studio",
+      "Platform": "PC",
+      "Game Size": "2.2 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24739991",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-walking-dead-streets-of-survival-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "PATLABOR the Case Files",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit (or newer)",
+      "Processor": "Intel Core i5-8400 / AMD Ryzen 5 3500",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1060 6GB or AMD Radeon RX 580 8GB",
+      "DirectX": "Version 12",
+      "Storage": "15 GB available space",
+      "Additional Notes": "1080P, 30FPS, Graphics Settings: Textures [Medium], Foliage [Medium], Global Illumination SS GI (Medium), Reflections SS (Medium)"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Chime",
+      "Platform": "PC",
+      "Game Size": "8.4 GB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 25253389",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/patlabor-the-case-files-free-download/",
+    "pending_review": true
   }
 ]
