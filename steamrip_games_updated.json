@@ -105337,5 +105337,165 @@
     },
     "url": "https://steamrip.com/xenonauts-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Fallen Tear: The Ascension",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1446900/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i5-4460 or AMD Ryzen 3 1200",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 950 or AMD Radeon R7 370",
+      "DirectX": "Version 11",
+      "Storage": "30 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, RPG",
+      "Developer": "Winter Crew Studios",
+      "Platform": "PC",
+      "Game Size": "8.3 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25476640",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/fallen-tear-the-ascension-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "STUNTBOOST",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2999500/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core 2 Duo E6750, 2.66 GHz | AMD Phenom II X3 720, 2.8 GHz",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GeForce GTS 450, 1 GB | AMD Radeon HD 5750, 1 GB",
+      "Storage": "8 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, Racing",
+      "Developer": "Byting Games",
+      "Platform": "PC",
+      "Game Size": "3.1 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25479190",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/stuntboost-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Nocturne",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1374860/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10, 11",
+      "Processor": "2.0 Ghz",
+      "Memory": "8 GB RAM",
+      "Graphics": "2GB VRAM",
+      "Storage": "14 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie, RPG",
+      "Developer": "Pracy Studios",
+      "Platform": "PC",
+      "Game Size": "5.6 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25460029",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/nocturne-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Nighthawks",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1221950/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10, 64-bit versions only.",
+      "Processor": "2Ghz or better",
+      "Memory": "8 GB RAM",
+      "Graphics": "DX10, DX11, and DX12-capable GPUs",
+      "Storage": "10 GB available space",
+      "Sound Card": "All DirectX-compatible sound cards",
+      "Additional Notes": "Hardware vendor officially supported drivers"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie, RPG",
+      "Developer": "The Curiosity Engine",
+      "Platform": "PC",
+      "Game Size": "5.3 GB",
+      "Released By": "Razor1911",
+      "Version": "Build 25404926",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/nighthawks-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "False Hero",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2538870/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 970",
+      "DirectX": "Version 10",
+      "Storage": "12 GB available space",
+      "Sound Card": "Windows Compatible Audio Device"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, RPG",
+      "Developer": "Torchlight Games",
+      "Platform": "PC",
+      "Game Size": "7 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25418239",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/false-hero-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Rivage",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/a5b470a62bd3c02b2d103e2b8dc8d7fb.png",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i5-9400F / AMD Ryzen 5 3600",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GTX 1070 Ti / AMD RX Vega 56",
+      "DirectX": "Version 12",
+      "Storage": "12 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie",
+      "Developer": "Exnilo Studio",
+      "Platform": "PC",
+      "Game Size": "3.1 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25160349",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/rivage-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Well Dweller",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/8b84f356dab34f850d71452c2fc4b32b.png",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Pentium E2180 (2 * 2000), AMD Athlon Dual Core 4450e (2 * 2300), or equivalent",
+      "Memory": "4 GB RAM",
+      "Graphics": "GeForce GT 220 (1024 MB), Radeon HD 4650 (1024 VRAM), or equivalent",
+      "Storage": "1 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, RPG",
+      "Developer": "Kyle Thompson",
+      "Platform": "PC",
+      "Game Size": "756.9 MB",
+      "Released By": "RUNE",
+      "Version": "Build 25328504",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/well-dweller-free-download/",
+    "pending_review": true
   }
 ]
