@@ -1,5 +1,26 @@
 [
   {
+    "title": "CONTROL Resonant",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/d7d5d27ed9b44f4646def6eccd765991.png",
+    "system_requirements": {
+      "OS": "Windows 10 / 11 (64 bit)",
+      "Processor": "Intel i5-8500 / AMD Ryzen 5 3500",
+      "Memory": "16 GB RAM",
+      "Graphics": "Geforce GTX 1070 / Radeon RX 5600 XT / Intel Arc A580",
+      "Storage": "120 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Remedy Entertainment",
+      "Platform": "PC",
+      "Game Size": "86.3 GB",
+      "Released By": "RUNE emu",
+      "Version": "Build 25472515 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/control-resonant-free-download/"
+  },
+  {
     "title": "CAPTAIN TSUBASA 2: WORLD FIGHTERS",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2172910/9a956ea9b11a0666a0ce0fb62a9659c6dc07c353/library_capsule.jpg",
     "system_requirements": {
@@ -105766,28 +105787,6 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/bait-soul-free-download/",
-    "pending_review": true
-  },
-  {
-    "title": "CONTROL Resonant",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/d7d5d27ed9b44f4646def6eccd765991.png",
-    "system_requirements": {
-      "OS": "Windows 10 / 11 (64 bit)",
-      "Processor": "Intel i5-8500 / AMD Ryzen 5 3500",
-      "Memory": "16 GB RAM",
-      "Graphics": "Geforce GTX 1070 / Radeon RX 5600 XT / Intel Arc A580",
-      "Storage": "120 GB available space"
-    },
-    "game_info": {
-      "Genre": "Action, Adventure, RPG",
-      "Developer": "Remedy Entertainment",
-      "Platform": "PC",
-      "Game Size": "86.3 GB",
-      "Released By": "RUNE emu",
-      "Version": "Build 25472515 | Full Version",
-      "Pre-Installed Game": true
-    },
-    "url": "https://steamrip.com/control-resonant-free-download/",
     "pending_review": true
   },
   {
