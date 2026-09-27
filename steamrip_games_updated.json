@@ -105497,5 +105497,505 @@
     },
     "url": "https://steamrip.com/well-dweller-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Spellcaster University",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/895620/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 or better",
+      "Processor": "Intel i3-2100 / AMD A8-5600k",
+      "Memory": "4 GB RAM",
+      "Graphics": "GeForce GTX 630 / Radeon HD 6570",
+      "Storage": "5 GB available space"
+    },
+    "game_info": {
+      "Genre": "Simulation, Strategy",
+      "Developer": "Sneaky Yak Studio",
+      "Platform": "PC",
+      "Game Size": "3.2 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25539444",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/spellcaster-university-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Slow Roads",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3431300/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i5, 2.2Hz dual core",
+      "Memory": "8 GB RAM",
+      "Graphics": "Intel UHD 630, Vega 7",
+      "Storage": "600 MB available space",
+      "Additional Notes": "If in doubt, try the demo"
+    },
+    "game_info": {
+      "Genre": "Casual, Simulation",
+      "Developer": "Topograph Interactive",
+      "Platform": "PC",
+      "Game Size": "296 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 25517527",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/slow-roads-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Mars Attracts",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2760580/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Storage": "3 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Simulation, Strategy",
+      "Developer": "Outlier",
+      "Platform": "PC",
+      "Game Size": "3.4 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25529515",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/mars-attracts-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "The Magus Circle",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2796640/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 (SP1+), Windows 10 and Windows 11",
+      "Processor": "x86, x64 architecture",
+      "Memory": "4 GB RAM",
+      "Graphics": "DX10, DX11, DX12 capable",
+      "Storage": "500 MB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Indie",
+      "Developer": "By Witchlight",
+      "Platform": "PC",
+      "Game Size": "571 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25542856",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-magus-circle-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "DRAPLINE",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3103780/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core2 Duo or higher",
+      "Memory": "2 GB RAM",
+      "Graphics": "Open GL compliant video card",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, RPG, Simulation, Sports",
+      "Developer": "KANAWO",
+      "Platform": "PC",
+      "Game Size": "546 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25520645",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/drapline-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Tasty Chef",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/08f65eb6b06b5fed01c38316bd957b7e.png",
+    "system_requirements": {
+      "OS": "Requires a 64-bit processor and operating system",
+      "Processor": "Intel i5-9500T / AMD Ryzen 5 2600H",
+      "Memory": "4 GB RAM",
+      "Graphics": "GeForce GTX 660 / Radeon RX 460",
+      "Storage": "6 GB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation",
+      "Developer": "Xpercent Games",
+      "Platform": "PC",
+      "Game Size": "1.7 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25539917",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/tasty-chef-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "SiN Reloaded",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/632950/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit required)",
+      "Processor": "Intel or AMD Dual-Core at 2.0 GHz",
+      "Memory": "1 GB RAM",
+      "Graphics": "GPU with DirectX 11 or Vulkan 1.1 support",
+      "Storage": "4 GB available space",
+      "Sound Card": "100% DirectX compatible sound card or onboard sound"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Nightdive Studios",
+      "Platform": "PC",
+      "Game Size": "3.3 GB",
+      "Released By": "Razor1911",
+      "Version": "Build 25373820",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/sin-reloaded-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Dragon Shelter",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2712590/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i7-6700 / AMD Ryzen 3200",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1050 Ti / AMD Radeon RX 560 (4 GB VRAM)",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space",
+      "Additional Notes": "1080p @ 30 FPS on Low settings. SSD recommended"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation",
+      "Developer": "Wild Forest Studio",
+      "Platform": "PC",
+      "Game Size": "1.1 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25437399",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dragon-shelter-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Alien Breed 35th Anniversary Collection",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/b3c1677e19deb7116168e9704c566d5c.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i3-4100, AMD A8-6600K",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GTX 960, AMD Radeon R9 380",
+      "DirectX": "Version 12",
+      "Storage": "9 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Antstream",
+      "Platform": "PC",
+      "Game Size": "5.5 GB",
+      "Released By": "Razor1911",
+      "Version": "Build 25486240",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/alien-breed-35th-anniversary-collection-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Mineral Mining Simulator",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 64bit",
+      "Processor": "AMD Ryzen 5 1600 / Intel Core i5-8400",
+      "Memory": "8 GB RAM",
+      "Graphics": "GeForce GTX 970",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space",
+      "Sound Card": "DirectX compatible"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation",
+      "Developer": "Bewolba Studios",
+      "Platform": "PC",
+      "Game Size": "1.6 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25519603",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/mineral-mining-simulator-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "CODEX MORTIS",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Intel Core i3-2100 / AMD FX-4300",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 650 / AMD Radeon HD 7750 / Intel HD Graphics 4000 / 1 GB VRAM",
+      "Storage": "140 MB available space",
+      "Sound Card": "Any"
+    },
+    "game_info": {
+      "Genre": "Action, Indie, RPG",
+      "Developer": "GROLAF",
+      "Platform": "PC",
+      "Game Size": "1.7 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25513399",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/codex-mortis-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Bait Soul",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3484100/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i3-6100 / AMD FX-6300",
+      "Memory": "2 GB RAM",
+      "Graphics": "DirectX 11 compatible graphics card",
+      "DirectX": "Version 11",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Casual, Indie",
+      "Developer": "Bold Fish",
+      "Platform": "PC",
+      "Game Size": "625.7 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25493888",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/bait-soul-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "CONTROL Resonant",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/d7d5d27ed9b44f4646def6eccd765991.png",
+    "system_requirements": {
+      "OS": "Windows 10 / 11 (64 bit)",
+      "Processor": "Intel i5-8500 / AMD Ryzen 5 3500",
+      "Memory": "16 GB RAM",
+      "Graphics": "Geforce GTX 1070 / Radeon RX 5600 XT / Intel Arc A580",
+      "Storage": "120 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Remedy Entertainment",
+      "Platform": "PC",
+      "Game Size": "86.3 GB",
+      "Released By": "RUNE emu",
+      "Version": "Build 25472515 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/control-resonant-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Eastern Era",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3446240/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 64 bit",
+      "Processor": "AMD A10 7850K, Intel i3-2000",
+      "Memory": "8 GB RAM",
+      "Graphics": "Geforce RTX 2060 , Radeon RX 5600 XT"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie, RPG, Simulation, Strategy",
+      "Developer": "FunYoo Games",
+      "Platform": "PC",
+      "Game Size": "15.7 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25500661",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/eastern-era-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "ENTITY: THE BLACK DAY",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2517220/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows® 10 64-bit (v.1803 or higher)",
+      "Processor": "Requires a 64-bit processor and operating system",
+      "Memory": "16 GB RAM",
+      "Graphics": "GeForce® GTX 1070 | AMD Radeon™ RX 590",
+      "DirectX": "Version 12",
+      "Storage": "40 GB available space",
+      "Sound Card": "Surround sound headphones are recommended",
+      "Additional Notes": "SSD Recommended + FSR 3 must be enabled | Ultrawide not currently supported."
+    },
+    "game_info": {
+      "Genre": "Action, Adventure",
+      "Developer": "ASD Games Studio",
+      "Platform": "PC",
+      "Game Size": "37.5 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25456161",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/entity-the-black-day-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Garfield – Escape from Monday",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/cd60c2792de7f8aeccc00628968bb8eb.png",
+    "system_requirements": {
+      "OS": "Windows 10 or later",
+      "Processor": "Intel Core i7 – 7700K",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GTX 1060",
+      "DirectX": "Version 11"
+    },
+    "game_info": {
+      "Genre": "Adventure",
+      "Developer": "OSome Studio",
+      "Platform": "PC",
+      "Game Size": "7.7 GB",
+      "Released By": "RUNE",
+      "Version": "Build 24823981",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/garfield-escape-from-monday-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Heroes’ Vow: Three Kingdoms",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3020510/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows10",
+      "Processor": "Intel Core i5",
+      "Memory": "12 GB RAM",
+      "Graphics": "NVIDIA GTX960 4G",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Developer": "Free Wing",
+      "Platform": "PC",
+      "Game Size": "5.1 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25506126",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/heroes-vow-three-kingdoms-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Kingdom Rush 6: Genesis TD",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/296c07177ab632163b9ebedbaf0e789d.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Quad Core CPU",
+      "Memory": "8 GB RAM",
+      "Graphics": "Intel UHD 600",
+      "Storage": "3 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Indie, Strategy",
+      "Developer": "Ironhide Game Studio",
+      "Platform": "PC",
+      "Game Size": "1.19 GB",
+      "Released By": "Mr_GOLDBERG emu | Ty q95604014 (csrin)",
+      "Version": "v1.00.038 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/kingdom-rush-6-genesis-td-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Lawn Mowing Simulator 2",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/2b0ce49ee751ab49280c3b0e45748fa6.png",
+    "system_requirements": {
+      "OS": "Windows 10/11 64bit",
+      "Processor": "Intel Core i5-6400, AMD Ryzen 5 1400, or better",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GeForce GTX 1050Ti, AMD Radeon RX 470 graphics card or better (min 3GB VRAM, DX12 support)",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "45 GB available space",
+      "Sound Card": "Sound card",
+      "VR Support": "–",
+      "Additional Notes": "Actual performance may vary based on overall system configuration, but should run at 30 FPS+ @ Low 1080p"
+    },
+    "game_info": {
+      "Genre": "Casual, Simulation",
+      "Developer": "Skyhook Games",
+      "Platform": "PC",
+      "Game Size": "8 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25480459",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/lawn-mowing-simulator-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Mini Airways – ATC simulator",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/1fd53300f2634e872ae56b4e1f3bd028.png",
+    "system_requirements": {
+      "OS": "Window 10 or newer",
+      "Processor": "2GHz or better",
+      "Memory": "1 GB RAM",
+      "Graphics": "1366×768 minimum resolution, post-2012 graphics hardware",
+      "DirectX": "Version 11",
+      "Network": "Broadband Internet connection",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Developer": "CCC Games",
+      "Platform": "PC",
+      "Game Size": "1.2 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25500659",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/mini-airways-atc-simulator-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Qliphah in Providence’s Shadow",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Intel Core i5-2300 / AMD Ryzen 3 1200",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 750 Ti/ AMD Radeon R7 360",
+      "DirectX": "Version 12",
+      "Storage": "8 GB available space"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "Arc System Works",
+      "Platform": "PC",
+      "Game Size": "1.6 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25081152",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/qliphah-in-providences-shadow-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "The Piper of Dawn",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel i5 Quad-Core",
+      "Graphics": "NVIDIA GeForce GTX 750 Ti",
+      "Storage": "4 GB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, RPG, Simulation, Strategy",
+      "Developer": "Bone Nail",
+      "Platform": "PC",
+      "Game Size": "1 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25499299",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-piper-of-dawn-free-download/",
+    "pending_review": true
   }
 ]
