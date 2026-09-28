@@ -7,10 +7,10 @@ name: Scrape steamrip.com Recently Added
 # reimplemented — and commits whatever it finds straight to main, same as
 # the local run does.
 #
-# Deliberately does NOT use [skip ci] in the commit message: pushing a
-# changed steamrip_games_updated.json is exactly what should make
-# regenerate-derived-data.yml fire next, so newly-scraped titles get their
-# lite/catalog files and Steam enrichment without a second manual step.
+# A push made with the workflow's GITHUB_TOKEN does not start another
+# workflow run. Therefore enrichment and split generation happen in this job
+# too; relying on regenerate-derived-data.yml here leaves freshly scraped
+# titles without gameplay/*.json files.
 
 on:
   workflow_dispatch:
@@ -50,13 +50,19 @@ jobs:
             python scrape_steamrip_recent.py
           fi
 
+      - name: Enrich new games and regenerate derived data
+        run: |
+          python enrich_steam_data.py
+          python split_catalog_data.py
+          python split_gameplay_data.py
+
       - name: Commit and push, if anything new was found
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add steamrip_games_updated.json deleted_titles.json
+          git add steamrip_games_updated.json deleted_titles.json steamrip_games_gameplay.json steam_enrich_progress.json steamrip_games_updated.lite.json ps2.lite.json ps3.lite.json catalog/ gameplay/
           if git diff --staged --quiet; then
-            echo "Nothing new found — steamrip_games_updated.json unchanged."
+            echo "Nothing changed."
           else
             git commit -m "Add steamrip.com Recently Added scrape ($(date -u +%F))"
             git push

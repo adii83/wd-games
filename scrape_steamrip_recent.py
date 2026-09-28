@@ -23,8 +23,10 @@ Version, Pre-Installed Game), so this is far more accurate than guessing.
 banner_url is the one field NOT taken from steamrip: it's looked up on
 Steam instead (store search -> Steam CDN library_600x900 art, falling back
 to SteamGridDB), matching what admin.html's "Cari dari Steam" button does.
-If no Steam match is found, banner_url is left blank rather than falling
-back to steamrip's own thumbnail.
+If Steam and SteamGridDB cannot provide portrait art, SteamDB is queried as
+the final source for a Steam app id, then the app's portrait library asset is
+used. If every source fails, banner_url is left blank rather than falling back
+to steamrip's own thumbnail.
 
 New entries are appended to the END of the array (not unshifted to the
 front) and flagged with a top-level "pending_review": true, so they do NOT
@@ -182,6 +184,10 @@ def strip_free_download(title: str) -> str:
 
 def clean_title(raw_title: str) -> str:
     value = html.unescape(raw_title or "")
+    # Steamrip occasionally emits malformed UTF-8 as U+FFFD (�).  Leaving
+    # that character in a query makes Steam's search return no result for an
+    # otherwise valid title such as "Mini Airways – ATC simulator".
+    value = value.replace("\ufffd", " ")
     value = strip_version_suffix(value)
     if not value:
         return ""
@@ -337,6 +343,33 @@ def steamgriddb_autocomplete(title: str):
         return []
 
 
+def steamdb_cover_by_name(title: str):
+    """Return Steam portrait art after resolving a title through SteamDB.
+
+    SteamDB is deliberately the last fallback: it is only needed when the
+    Steam store search and SteamGridDB both fail. SteamDB may rate-limit or
+    block automated requests, so every error is treated as a normal miss and
+    never prevents a scrape from completing.
+    """
+    try:
+        search_url = f"https://steamdb.info/search/?a=app&q={quote(title)}"
+        page = fetch(search_url)
+    except Exception:
+        return ""
+
+    # Search results link to /app/<id>/. Keep insertion order and avoid
+    # retrying duplicate ids that can occur in the page navigation.
+    seen = set()
+    for appid in re.findall(r'href=["\']/?app/(\d+)/', page):
+        if appid in seen:
+            continue
+        seen.add(appid)
+        cdn_url = f"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/{appid}/library_600x900.jpg"
+        if url_exists(cdn_url):
+            return cdn_url
+    return ""
+
+
 def get_steam_banner(title: str):
     # Every fallback here is verified/selected to be portrait (2:3-ish) art
     # to match the site's card layout. Steam storesearch's own "tiny_image"
@@ -356,7 +389,7 @@ def get_steam_banner(title: str):
             return cover
 
     # No Steam appid match, or that appid had no usable art on either CDN -
-    # try SteamGridDB's own name search as a last resort before giving up.
+    # try SteamGridDB's own name search before the final SteamDB fallback.
     for candidate in steamgriddb_autocomplete(title)[:3]:
         try:
             grids_payload = fetch_json(
@@ -370,7 +403,7 @@ def get_steam_banner(title: str):
         if cover:
             return cover
 
-    return ""
+    return steamdb_cover_by_name(title)
 
 
 # --- Database I/O ---

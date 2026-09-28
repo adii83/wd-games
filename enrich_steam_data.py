@@ -14,6 +14,9 @@ re-running this script skips titles already processed (matched or not).
 Usage:
     python enrich_steam_data.py            # process everything remaining
     python enrich_steam_data.py --limit 20 # process only the next 20 (spot-check)
+    python enrich_steam_data.py --repair-covers # retry the existing cover backlog
+    python enrich_steam_data.py --retry-failed  # retry transient/invalid old matches
+    python enrich_steam_data.py --title "Game Title" # repair one title
 """
 import json
 import re
@@ -39,6 +42,7 @@ OUTPUT_FILE = "steamrip_games_gameplay.json"
 
 REQUEST_DELAY = 0.25
 MIN_SIMILARITY = 0.55
+RETRYABLE_FAILURE_REASONS = {"appdetails_failed_or_not_game"}
 
 # scrape_steamrip_recent.py's own Steam banner search (unconditional first
 # search result, no fuzzy scoring) sometimes comes up empty for a title
@@ -55,6 +59,7 @@ BANNER_CDN_TEMPLATE = "https://shared.fastly.steamstatic.com/store_item_assets/s
 # in the site's portrait card layout - see get_steam_banner()'s own comment
 # about why Steam's landscape tiny_image was dropped as a fallback).
 from scrape_steamrip_recent import (
+    get_steam_banner,
     steamgriddb_grids_for_steam_appid,
     steamgriddb_autocomplete,
     select_best_grid,
@@ -118,7 +123,11 @@ DASH_MAP = str.maketrans({"-": " ", "–": " ", "—": " ", ":": " "})
 
 
 def clean_title(title):
-    t = title.translate(QUOTE_MAP)
+    # U+FFFD is what survives when a source title contains malformed UTF-8.
+    # It must not be sent to Steam search: a space preserves the words on
+    # either side and lets titles such as "Mini Airways – ATC simulator"
+    # resolve normally.
+    t = title.replace("\ufffd", " ").translate(QUOTE_MAP)
     for _ in range(4):
         new_t = TRAILING_TAG_RE.sub("", t)
         if new_t == t:
@@ -209,6 +218,13 @@ def fetch_appdetails(appid):
     if not entry or not entry.get("success"):
         return None
     return entry["data"]
+
+
+def appid_from_banner(game):
+    """Reuse the app id proven by the card art when retrying an old failure."""
+    banner = game.get("banner_url") or ""
+    match = re.search(r"/steam/apps/(\d+)/", banner)
+    return int(match.group(1)) if match else None
 
 
 def extract_fields(appdata):
@@ -303,33 +319,64 @@ def main():
     limit = None
     if "--limit" in sys.argv:
         limit = int(sys.argv[sys.argv.index("--limit") + 1])
+    repair_covers = "--repair-covers" in sys.argv
+    retry_failed = "--retry-failed" in sys.argv
+    requested_title = None
+    if "--title" in sys.argv:
+        requested_title = sys.argv[sys.argv.index("--title") + 1]
 
     with open(DATA_FILE, encoding="utf-8") as f:
         games = json.load(f)
     titles = [g["title"] for g in games if g.get("title")]
     valid_titles = set(titles)
+    games_by_title = {g["title"]: g for g in games if g.get("title")}
 
     state = load_state()
     remaining = [t for t in titles if t not in state]
+    if requested_title:
+        if requested_title not in valid_titles:
+            raise ValueError(f"Title not found in catalog: {requested_title!r}")
+        remaining = [requested_title]
+    elif retry_failed:
+        remaining.extend(
+            t for t in titles
+            if state.get(t, {}).get("reason") in RETRYABLE_FAILURE_REASONS
+        )
     if limit:
         remaining = remaining[:limit]
+    processed_titles = set(remaining)
 
     total = len(titles)
-    print(f"Total titles: {total}. Already processed: {len(state)}. To do this run: {len(remaining)}")
+    retry_note = " (including retryable failures)" if retry_failed else ""
+    print(f"Total titles: {total}. Already processed: {len(state)}. To do this run: {len(remaining)}{retry_note}")
 
     processed_this_run = 0
     matched_this_run = 0
     for i, title in enumerate(remaining):
         cleaned = clean_title(title)
-        result = search_appid(cleaned)
-        time.sleep(REQUEST_DELAY)
+        # A scraper-provided Steam CDN banner already contains the app id.
+        # It is a more reliable retry key than an abbreviated title: otherwise
+        # "Mini Airways" can be redirected to a different game or its demo.
+        previous = state.get(title, {})
+        hinted_appid = appid_from_banner(games_by_title[title]) if (
+            requested_title or previous.get("reason") in RETRYABLE_FAILURE_REASONS
+        ) else None
+        result = None
+        appdata = None
+        if hinted_appid:
+            result = (hinted_appid, "banner app id", 1.0)
+            appdata = fetch_appdetails(hinted_appid)
+        else:
+            result = search_appid(cleaned)
+            time.sleep(REQUEST_DELAY)
 
         if not result:
             state[title] = {"matched": False, "reason": "no_search_match"}
         else:
             appid, matched_name, score = result
-            appdata = fetch_appdetails(appid)
-            time.sleep(REQUEST_DELAY)
+            if appdata is None:
+                appdata = fetch_appdetails(appid)
+                time.sleep(REQUEST_DELAY)
             fields = extract_fields(appdata) if appdata else None
             if fields:
                 state[title] = {"matched": True, "appid": appid, "score": round(score, 3), "data": fields}
@@ -350,31 +397,30 @@ def main():
     total_matched = sum(1 for v in state.values() if v.get("matched"))
     print(f"\nDone. {len(state)}/{total} titles processed, {total_matched} matched with gameplay data.")
 
-    # Backfill banner_url for any title (this run's or an older run's) that
-    # has a confirmed Steam match but never got a card image - covers both
-    # the existing backlog and every future title in the same pass, so
-    # there's nothing extra to run later.
-    games_by_title = {g["title"]: g for g in games if g.get("title")}
+    # Retry missing banners for titles handled in this run. The full existing
+    # backlog is intentionally opt-in: a few cover providers can be slow or
+    # rate-limited, and making every routine scrape retry every old miss would
+    # delay its derived gameplay files. Use --repair-covers to backfill every
+    # blank card explicitly. The shared lookup uses Steam -> SteamGridDB ->
+    # SteamDB and is safe to retry.
     banners_fixed = []
-    for title, v in state.items():
-        if not v.get("matched"):
+    for title, game in games_by_title.items():
+        if not repair_covers and title not in processed_titles:
             continue
-        game = games_by_title.get(title)
-        if not game or game.get("banner_url"):
+        if game.get("banner_url"):
             continue
-        appid = v.get("data", {}).get("steam_appid")
-        if not appid:
-            continue
-        cdn_url = BANNER_CDN_TEMPLATE.format(appid=appid)
-        if url_exists(cdn_url):
-            game["banner_url"] = cdn_url
-            banners_fixed.append(title)
+        v = state.get(title, {})
+        appid = v.get("data", {}).get("steam_appid") if v.get("matched") else None
+        cover = ""
+        if appid:
+            cdn_url = BANNER_CDN_TEMPLATE.format(appid=appid)
+            if url_exists(cdn_url):
+                cover = cdn_url
+            else:
+                cover = select_best_grid(steamgriddb_grids_for_steam_appid(appid)) or ""
             time.sleep(REQUEST_DELAY)
-            continue
-        time.sleep(REQUEST_DELAY)
-        cover = select_best_grid(steamgriddb_grids_for_steam_appid(appid))
         if not cover:
-            cover = steamgriddb_cover_by_name(title)
+            cover = get_steam_banner(clean_title(title))
         if cover:
             game["banner_url"] = cover
             banners_fixed.append(title)
