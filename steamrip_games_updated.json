@@ -105996,5 +105996,146 @@
     },
     "url": "https://steamrip.com/the-piper-of-dawn-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "The Witness",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/210970/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7",
+      "Processor": "1.8GHz",
+      "Memory": "4 GB RAM",
+      "Graphics": "Intel HD 4000 series",
+      "DirectX": "Version 10",
+      "Storage": "5 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie",
+      "Developer": "Thekla, Inc.",
+      "Platform": "PC",
+      "Game Size": "3.6 GB",
+      "Released By": "3DM + Owla CSF",
+      "Version": "Build 11370412",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-witness-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Vector",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2686900/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows Vista, 7, 8",
+      "Processor": "1.6 GHz",
+      "Memory": "1000 MB RAM",
+      "Storage": "300 MB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Indie",
+      "Developer": "N/A",
+      "Platform": "PC",
+      "Game Size": "135.1 MB",
+      "Released By": "ALI213",
+      "Version": "Build 378087",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/vector-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Sam & Max Save the World",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1440440/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 64Bit Service Pack 1",
+      "Processor": "Intel Core 2 Duo 2.4GHz",
+      "Memory": "2 GB RAM",
+      "Graphics": "Nvidia GTS 450+ with 1024MB+ VRAM (excluding GT)",
+      "DirectX": "Version 11",
+      "Storage": "2 GB available space",
+      "Sound Card": "DirectX 11 sound device",
+      "Additional Notes": "Intel integrated graphics not supported"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie",
+      "Developer": "Skunkape Games",
+      "Platform": "PC",
+      "Game Size": "944.1 MB",
+      "Released By": "R. G. GOGFAN",
+      "Version": "Build 19787419",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/sam-max-save-the-world-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Minibus Simulator",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i5-8400 or AMD Ryzen 5 2600",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1060 6 GB or AMD Radeon RX 580 8 GB",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space",
+      "Sound Card": "DirectX compatible",
+      "VR Support": "N/A",
+      "Additional Notes": "SSD recommended."
+    },
+    "game_info": {
+      "Genre": "Indie, Simulation, Early Access",
+      "Developer": "RSG Interactive",
+      "Platform": "PC",
+      "Game Size": "2.6 GB",
+      "Released By": "CSF, No DRM",
+      "Version": "Build 25459017",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/minibus-simulator-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "I Was a Teenage Exocolonist",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1148760/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7 (SP1+), Windows 10 and Windows 11",
+      "Processor": "x86, x64 architecture with SSE2 instruction set support.",
+      "Memory": "4 GB RAM",
+      "Graphics": "DX10, DX11, DX12 capable.",
+      "DirectX": "Version 10",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, RPG, Simulation",
+      "Developer": "Northway Games",
+      "Platform": "PC",
+      "Game Size": "1.4 GB",
+      "Released By": "Goldberg + Owla CSF",
+      "Version": "Build 24666716",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/i-was-a-teenage-exocolonist-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Mai Trang",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i3-4130 / AMD FX-6300",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GTX 750 Ti / AMD R7 260X (2 GB VRAM)",
+      "DirectX": "Version 11",
+      "Storage": "4 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie",
+      "Developer": "Chuongcc",
+      "Platform": "PC",
+      "Game Size": "2.2 GB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 25361045",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/mai-trang-free-download/",
+    "pending_review": true
   }
 ]
