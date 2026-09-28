@@ -1,5 +1,26 @@
 [
   {
+    "title": "CONTROL Resonant",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/d7d5d27ed9b44f4646def6eccd765991.png",
+    "system_requirements": {
+      "OS": "Windows 10 / 11 (64 bit)",
+      "Processor": "Intel i5-8500 / AMD Ryzen 5 3500",
+      "Memory": "16 GB RAM",
+      "Graphics": "Geforce GTX 1070 / Radeon RX 5600 XT / Intel Arc A580",
+      "Storage": "120 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Remedy Entertainment",
+      "Platform": "PC",
+      "Game Size": "86.3 GB",
+      "Released By": "RUNE emu",
+      "Version": "Build 25472515 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/control-resonant-free-download/"
+  },
+  {
     "title": "CAPTAIN TSUBASA 2: WORLD FIGHTERS",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2172910/9a956ea9b11a0666a0ce0fb62a9659c6dc07c353/library_capsule.jpg",
     "system_requirements": {
@@ -105700,7 +105721,7 @@
   },
   {
     "title": "Mineral Mining Simulator",
-    "banner_url": "",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3972190/16722142e70d506127bd2877a0c833864d4c5539/library_capsule.jpg",
     "system_requirements": {
       "OS": "Windows 10 64bit",
       "Processor": "AMD Ryzen 5 1600 / Intel Core i5-8400",
@@ -105715,8 +105736,8 @@
       "Developer": "Bewolba Studios",
       "Platform": "PC",
       "Game Size": "1.6 GB",
-      "Released By": "TENOKE",
-      "Version": "Build 25519603",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/mineral-mining-simulator-free-download/",
@@ -105724,7 +105745,7 @@
   },
   {
     "title": "CODEX MORTIS",
-    "banner_url": "",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4084120/b939d9411f8cd1226db2e2d9a232c319833f9839/library_capsule.jpg",
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "Intel Core i3-2100 / AMD FX-4300",
@@ -105738,8 +105759,8 @@
       "Developer": "GROLAF",
       "Platform": "PC",
       "Game Size": "1.7 GB",
-      "Released By": "TENOKE",
-      "Version": "Build 25513399",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/codex-mortis-free-download/",
@@ -105766,28 +105787,6 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/bait-soul-free-download/",
-    "pending_review": true
-  },
-  {
-    "title": "CONTROL Resonant",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/d7d5d27ed9b44f4646def6eccd765991.png",
-    "system_requirements": {
-      "OS": "Windows 10 / 11 (64 bit)",
-      "Processor": "Intel i5-8500 / AMD Ryzen 5 3500",
-      "Memory": "16 GB RAM",
-      "Graphics": "Geforce GTX 1070 / Radeon RX 5600 XT / Intel Arc A580",
-      "Storage": "120 GB available space"
-    },
-    "game_info": {
-      "Genre": "Action, Adventure, RPG",
-      "Developer": "Remedy Entertainment",
-      "Platform": "PC",
-      "Game Size": "86.3 GB",
-      "Released By": "RUNE emu",
-      "Version": "Build 25472515 | Full Version",
-      "Pre-Installed Game": true
-    },
-    "url": "https://steamrip.com/control-resonant-free-download/",
     "pending_review": true
   },
   {
@@ -105955,8 +105954,8 @@
     "pending_review": true
   },
   {
-    "title": "Qliphah in Providence’s Shadow",
-    "banner_url": "",
+    "title": "Qliphah in Providence's Shadow",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3882410/c7edc2bed5ca0c0939fae0cf369b903b9818929c/library_capsule.jpg",
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "Intel Core i5-2300 / AMD Ryzen 3 1200",
@@ -105967,11 +105966,11 @@
     },
     "game_info": {
       "Genre": "RPG",
-      "Developer": "Arc System Works",
+      "Developer": "Arc System Works, UnitePlus",
       "Platform": "PC",
       "Game Size": "1.6 GB",
-      "Released By": "RUNE",
-      "Version": "Build 25081152",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/qliphah-in-providences-shadow-free-download/",
@@ -105979,7 +105978,7 @@
   },
   {
     "title": "The Piper of Dawn",
-    "banner_url": "",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3804370/f99e813b331575ef74324842a344fa7c52c3cd89/library_capsule.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel i5 Quad-Core",
@@ -105991,8 +105990,8 @@
       "Developer": "Bone Nail",
       "Platform": "PC",
       "Game Size": "1 GB",
-      "Released By": "TENOKE",
-      "Version": "Build 25499299",
+      "Released By": "Steam",
+      "Version": "",
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/the-piper-of-dawn-free-download/",
