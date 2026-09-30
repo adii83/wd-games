@@ -106137,5 +106137,232 @@
     },
     "url": "https://steamrip.com/mai-trang-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "The Bell Echoes",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2873060/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7/8/10",
+      "Processor": "Intel Core i5",
+      "Memory": "4 GB RAM",
+      "Graphics": "Nvidia GeForce GTX 750",
+      "DirectX": "Version 10",
+      "Storage": "8 GB available space",
+      "Sound Card": "100% DirectX 9.0c compatible sound card"
+    },
+    "game_info": {
+      "Genre": "RPG, Strategy",
+      "Developer": "七颗枚",
+      "Platform": "PC",
+      "Game Size": "3.6 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25601994",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-bell-echoes-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "XenoHaven",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3461270/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Win10 & Win11",
+      "Processor": "Intel Core i5",
+      "Memory": "2 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 650 or AMD Radeon HD 7750",
+      "Storage": "1 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Casual, Indie, Simulation",
+      "Developer": "Miniverse Game",
+      "Platform": "PC",
+      "Game Size": "694.3 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25316055",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/xenohaven-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Strangeland",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1369520/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 7,8,10, XP SP2",
+      "Processor": "2.7 GHz Dual Core (and above, can run on single core)",
+      "Memory": "2 GB RAM",
+      "Graphics": "Direct3D, OpenGL, DirectX 5",
+      "Storage": "2 GB available space",
+      "Sound Card": "Any"
+    },
+    "game_info": {
+      "Genre": "Adventure",
+      "Developer": "Wormwood Studios",
+      "Platform": "PC",
+      "Game Size": "1.4 GB",
+      "Released By": "Razor1911",
+      "Version": "Build 24350307",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/strangeland-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Transport Fever 3",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/33369204b5828166575eec6a005e3630.png",
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit) or Windows 11",
+      "Processor": "Intel Core i5-8400 or AMD Ryzen 5 2600X (AVX2 support required)",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1060 or AMD Radeon RX 480 or Intel Arc A380, 4 GB VRAM",
+      "Storage": "90 GB available space",
+      "Additional Notes": "SSD required"
+    },
+    "game_info": {
+      "Genre": "Casual, Simulation, Strategy",
+      "Developer": "Urban Games",
+      "Platform": "PC",
+      "Game Size": "31.6 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25533170",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/transport-fever-3-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "The Witcher 3: Wild Hunt Remastered (v5.00b)",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "64-bit Windows 11",
+      "Processor": "Core i5-8400 / Ryzen 5 2600",
+      "Memory": "12 GB RAM",
+      "Graphics": "GeForce GTX 1660 / Radeon RX 5500 XT 8GB / Arc A580",
+      "Storage": "60 SSD GB available space"
+    },
+    "game_info": {
+      "Genre": "RPG",
+      "Developer": "CD PROJEKT RED",
+      "Platform": "PC",
+      "Game Size": "69.3 GB",
+      "Released By": "RUNE emu | Ty XATAB",
+      "Version": "v5.00b (Remastered) | full version (Latest) + all DLCs",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/the-witcher-3-wild-hunt-r-free-download-v8a/",
+    "pending_review": true
+  },
+  {
+    "title": "Deskrawl: Idle ARPG",
+    "banner_url": "",
+    "system_requirements": {
+      "OS": "Windows 10 64 bit",
+      "Processor": "Intel Core i3",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GeForce GT 730 or AMD Radeon R7 240",
+      "Storage": "5 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Casual, Indie, RPG",
+      "Developer": "First Day Games",
+      "Platform": "PC",
+      "Game Size": "1.3 GB",
+      "Released By": "TENOKE emu",
+      "Version": "Build 25586360 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/deskrawl-idle-arpg-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Warplanes: Battles over Pacific",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1930920/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i5-4590 / AMD FX 8350",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 970, AMD Radeon R9 290 equivalent or better",
+      "Storage": "600 MB available space",
+      "VR Support": "SteamVR or Oculus PC"
+    },
+    "game_info": {
+      "Genre": "Action, Simulation",
+      "Developer": "Home Net Games",
+      "Platform": "PC",
+      "Game Size": "541.6 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 20390619",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/warplanes-battles-over-pacific-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Nivalis Nights",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1488490/library_600x900.jpg",
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i5-11600K / AMD Ryzen 5 3600",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1660 SUPER or RTX 3050 / AMD Radeon RX 6600 / Intel Arc A750 (6 GB VRAM)",
+      "DirectX": "Version 11",
+      "Storage": "42 GB available space",
+      "Additional Notes": "1080p at 30 FPS with the “very low” Graphics Quality preset. Native resolution, no upscaling utilised. SSD required. Laptop equivalent: RTX 4050 Laptop with 6 GB VRAM. Mobile GPUs perform below their desktop equivalents."
+    },
+    "game_info": {
+      "Genre": "Adventure, RPG, Simulation",
+      "Developer": "ION LANDS",
+      "Platform": "PC",
+      "Game Size": "16.2 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25603526",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/nivalis-nights-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Raw Egg Peeling",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/748bb207c094a110c09b2586c7981a93.jpg",
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Intel Core Ultra 5 250K Plus",
+      "Graphics": "GeForce GTX 1050 Ti",
+      "Storage": "1 GB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Simulation",
+      "Developer": "StationOfThoughts",
+      "Platform": "PC",
+      "Game Size": "241.9 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 25573134",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/raw-egg-peeling-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Minecraft Dungeons II (v1.1.1.0 + Co-op)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/83e727ba74a653775d25a777ab709211.png",
+    "system_requirements": {
+      "OS": "Windows 10 64‑bit (1703 or newer)",
+      "Processor": "Intel Core i3‑8100, AMD Ryzen 3 2200G or equivalent",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1050, AMD Radeon RX 560",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "Mojang Studios, Double Eleven",
+      "Platform": "PC",
+      "Game Size": "8.9 GB",
+      "Co-op By": "0xdeadc0de (OFME)",
+      "Version": "v1.1.1.0 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/minecraft-dungeons-ii-free-download/",
+    "pending_review": true
   }
 ]
