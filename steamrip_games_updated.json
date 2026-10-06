@@ -1683,7 +1683,7 @@
   },
   {
     "title": "Minecraft (v1.20.4)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1672970/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/a73027901f88055aaa0fd1a9e25d36c7.png",
     "url": "https://steamrip.com/minecraft-1d/",
     "system_requirements": {
       "OS": "Windows XP Service Pack 3",
@@ -1701,7 +1701,10 @@
       "By": "SKLauncher/cs.rin.ru",
       "Version": "v1.20.4/v1.17.1 | Full version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Minecraft"
   },
   {
     "title": "Demon Slayer: Kimetsu no Yaiba – The Hinokami Chronicles (v1.10 + Switch Emu)",
@@ -1987,7 +1990,7 @@
   },
   {
     "title": "The Witcher 3: Wild Hunt (v4.04)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/4904f82c12cecf6ec070fe77d7e913ce.png",
     "url": "https://steamrip.com/the-witcher-3-wild-hunt-free-download-v7/",
     "system_requirements": {
       "OS": "64-bit Windows 7, 64-bit Windows 8 (8.1) or 64-bit Windows 10",
@@ -2004,7 +2007,10 @@
       "Released By": "CODEX Emu",
       "Version": "v4.04 (Complete Edition) | full version (Latest) + all DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "The Witcher 3: Wild Hunt"
   },
   {
     "title": "MiniGolf Maker (Build 8270527)",
@@ -3849,7 +3855,7 @@
   },
   {
     "title": "Hades (Build 10929685)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145350/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1145360/library_600x900.jpg",
     "url": "https://steamrip.com/hades-free-download-a2/",
     "system_requirements": {
       "OS": "Windows 7 SP1",
@@ -3866,7 +3872,10 @@
       "Repack By": "Mr_GOLDBERG emu",
       "Version": "Build 10929685 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Hades"
   },
   {
     "title": "NARUTO X BORUTO Ultimate Ninja STORM CONNECTIONS (v1.60 + Multiplayer)",
@@ -4004,7 +4013,7 @@
   },
   {
     "title": "The Elder Scrolls V: Skyrim SE (v1.5.97.0.8)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/d17f1582a4c9ae2078ae91ca7b5645ea.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2021/07/the-elder-scrolls-V-skyrim-special-edition-free-download-torrent-steamrip.jpg",
     "url": "https://steamrip.com/the-elder-scrolls-v-skyrim-se-free-download-t3/",
     "system_requirements": {
       "OS": "Windows 7/8.1/10 (64-bit Version)",
@@ -4021,7 +4030,10 @@
       "Repack By": "GOG",
       "Version": "v1.5.97.0.8 | Updated Version + all add-ons",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The Elder Scrolls V: Skyrim SE"
   },
   {
     "title": "Call of Duty: Black Ops Cold War (v1.34.1.15931218)",
@@ -4161,7 +4173,7 @@
   },
   {
     "title": "Assassin’s Creed III (Build 2174530)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/f0ce59b6bf8e03499c788c348919a196.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/6671bdaf5fb27173b2e89edfc25bfd65.png",
     "url": "https://steamrip.com/assassins-creed-iii-free-download-w2/",
     "system_requirements": {
       "OS": "Windows Vista (SP2) / Windows 7 (SP1) / Windows 8",
@@ -4179,7 +4191,10 @@
       "Released By": "ALI213",
       "Version": "Build 2174530 | Deluxe Edition + All DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Assassin's Creed III"
   },
   {
     "title": "NieR:Automata (v1.0.1787043)",
@@ -4557,7 +4572,7 @@
   },
   {
     "title": "HITMAN 2 (v2.72.0 & ALL DLC)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/6850/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/4d516fbc2b9e8863f443f3a58b9da44f.png",
     "url": "https://steamrip.com/hitman-2-free-download-1i/",
     "system_requirements": {
       "OS": "OS 64-bit Windows 7",
@@ -4575,7 +4590,10 @@
       "Released By": "CODEX | CS",
       "Version": "v2.72.0 Hotfix 5 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "HITMAN 2"
   },
   {
     "title": "TCG Card Shop Simulator (v0.66.8)",
@@ -4647,7 +4665,7 @@
   },
   {
     "title": "Tomb Raider Definitive Edition (v1.01.0.0)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/750920/library_600x900.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2024/09/tomb-raider-definitive-edition-portrait-steamrip.jpg",
     "url": "https://steamrip.com/tomb-raider-definitive-edition-free-download/",
     "system_requirements": {
       "OS": "Windows XP Service Pack 3, Windows Vista,7,8 (32bit/64bit)",
@@ -4664,7 +4682,10 @@
       "Released By": "TENOKE",
       "Version": "v1.01.0.0 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Tomb Raider"
   },
   {
     "title": "Little Nightmares III (v1.0.0 + Co-op)",
@@ -5065,7 +5086,7 @@
   },
   {
     "title": "Grounded (v1.4.7.4807 + Co-op)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/078a402ab61a00270f09ca3fa92f31d3.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/962130/library_600x900.jpg",
     "url": "https://steamrip.com/grounded-free-download-m2/",
     "system_requirements": {
       "OS": "Windows 7 (SP1) 64bit",
@@ -5082,7 +5103,10 @@
       "Multiplayer By": "0xdeadc0de",
       "Version": "v1.4.7.4807 | Full Version + Co-op",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Grounded"
   },
   {
     "title": "Pokémon Legends: Arceus (v1.1.1 + Ryujinx/YUZU)",
@@ -5974,7 +5998,7 @@
   },
   {
     "title": "Prototype (Build 252009)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/ce6b01e4cd4166124283f11b1a09fe8a.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/b22f88e3aaffe96b7f562526237db167.png",
     "url": "https://steamrip.com/prototype-free-download-2o/",
     "system_requirements": {
       "OS": "Windows® XP (with Service Pack 3) or Windows Vista®",
@@ -5992,7 +6016,10 @@
       "Repack By": "CHRISTSNATCHER (cs.rin.ru)",
       "Version": "Build 252009 | Full Version + Fixes",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Prototype™"
   },
   {
     "title": "Five Nights at Freddy’s 4 (v1.1)",
@@ -6626,7 +6653,7 @@
   },
   {
     "title": "DOOM (v6.66_Update 9)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3017860/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/379720/library_600x900.jpg",
     "url": "https://steamrip.com/doom-free-download-y2/",
     "system_requirements": {
       "OS": "Windows 7/8.1/10 (64-bit versions)",
@@ -6643,7 +6670,10 @@
       "Released By": "CODEX",
       "Version": "v6.66/Update 9",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "DOOM"
   },
   {
     "title": "NARUTO SHIPPUDEN: Ultimate Ninja STORM 3 Full Burst",
@@ -7524,7 +7554,7 @@
   },
   {
     "title": "The Crew (v1.2.0.0)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/646910/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/a5b5b61d900efa161c7e5b4fc4cec285.png",
     "url": "https://steamrip.com/the-crew-free-download/",
     "system_requirements": {
       "OS *": "Originally released for Windows 7, the game can be played on Windows 10 and Windows 11 OS",
@@ -7544,7 +7574,10 @@
       "Released By": "TCU Offline Server",
       "Version": "v1.2.0.0",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "The Crew"
   },
   {
     "title": "Fast Food Simulator (v0.5.2 + Co-op)",
@@ -8118,7 +8151,7 @@
   },
   {
     "title": "Need For Speed Hot Pursuit (v1.0.5.0s)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1328660/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/5835919ffe314c3277b98f9a996c736f.png",
     "url": "https://steamrip.com/need-for-speed-hot-pursuit-free-download-2i/",
     "system_requirements": {
       "OS": "Windows 7 (32- or 64-bit). +",
@@ -8134,7 +8167,10 @@
       "Released By": "PROPHET",
       "Version": "v1.0.5.0s | Full Version + All DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Need for Speed: Hot Pursuit"
   },
   {
     "title": "Incursion Red River (v1.0.14.0 + Co-op)",
@@ -8599,7 +8635,7 @@
   },
   {
     "title": "City Car Driving (v1.5.9.2)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2327720/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/493490/library_600x900.jpg",
     "url": "https://steamrip.com/city-car-driving-free-download-1f/",
     "system_requirements": {
       "OS": "Windows 7 SP1 / 8 / 8.1 / 10 (64 Bit)",
@@ -8617,7 +8653,10 @@
       "Repack By": "CODEX",
       "Version": "v1.5.9.2 build 27506 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "City Car Driving"
   },
   {
     "title": "MISERY (Build 21591010 + Co-op)",
@@ -9399,7 +9438,7 @@
   },
   {
     "title": "MONSTER HUNTER RISE: SUNBREAK (v16.0.2.0 + Co-op)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/e734a339258d7d261e6581825ed5ac2f.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2023/02/monster-hunter-rise-portrait-steamrip.jpg",
     "url": "https://steamrip.com/monster-hunter-rise-sunbreak-free-download-3o/",
     "system_requirements": {
       "OS": "Windows 10 (64-bit）",
@@ -9418,7 +9457,10 @@
       "Co-op by": "Online-fix.me",
       "Version": "v16.0.2.0 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "MONSTER HUNTER RISE: SUNBREAK"
   },
   {
     "title": "NARUTO: Ultimate Ninja STORM",
@@ -9512,7 +9554,7 @@
   },
   {
     "title": "Yakuza 0 (v1.015a)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/01430ed8ef15ef59611ff5d1d6b3e196.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/c9d5550cc5ee1be86bea08e3ffc43926.png",
     "url": "https://steamrip.com/yakuza-0-free-download-y8/",
     "system_requirements": {
       "OS": "Windows 7 and above (64-bit)",
@@ -9529,7 +9571,10 @@
       "Released By": "GOG",
       "Version": "v1.015a | Full Version (Latest)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Yakuza 0"
   },
   {
     "title": "Middle-earth: Shadow of Mordor GOTY",
@@ -9906,7 +9951,7 @@
   },
   {
     "title": "The Elder Scrolls V: Skyrim Legendary Edition",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/d17f1582a4c9ae2078ae91ca7b5645ea.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/09/The-Elder-Scrolls-V-Skyrim_thumbnail_final.jpg",
     "url": "https://steamrip.com/the-elder-scrolls-v-skyrim-legendary-edition-free-download/",
     "system_requirements": {
       "OS *": "Windows 7/Vista/XP PC (32 or 64 bit)",
@@ -9924,11 +9969,14 @@
       "Released By": "PROPHET/RELOADED (Ty fitgirl)",
       "Version": "v1.9.32.0.8",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The Elder Scrolls V: Skyrim Legendary Edition"
   },
   {
     "title": "High On Life (B_12321732)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/fd80d8ce22afa6421879f27e78a66f75.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1583230/library_600x900.jpg",
     "url": "https://steamrip.com/high-on-life-free-download-1o/",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
@@ -9946,7 +9994,10 @@
       "Released By": "Mr_GOLDBERG/CODEX",
       "Version": "Build 12321732 | Full Version + High On Life: High On Knife",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "High On Life"
   },
   {
     "title": "Mouthwashing (Build 20077705)",
@@ -10040,7 +10091,7 @@
   },
   {
     "title": "The NOexistenceN of you AND me (v2.333 1.9)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/c6db50278ae02f0e7bef6157aa2abbb7.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2873080/library_600x900.jpg",
     "url": "https://steamrip.com/the-noexistencen-of-you-and-me-free-download/",
     "system_requirements": {
       "OS": "Works on almost any Windows version",
@@ -10058,11 +10109,14 @@
       "Released By": "Goldberg | Ty emoris, cs.rin.ru",
       "Version": "v2.333 1.9 | Build 17863725",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "The NOexistenceN of you AND me"
   },
   {
     "title": "Manhunt 2",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2421410/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/220615ab910bfe2e6c6571ce2dfc8847.png",
     "url": "https://steamrip.com/manhunt-2-free-download/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -10079,11 +10133,14 @@
       "Released By": "Thanks to Elamigos/onetimer23/hal210 (csrin)",
       "Version": "v1.0 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Manhunt 2"
   },
   {
     "title": "CarX Drift Racing Online (Build 17224854)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1826420/library_600x900.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2021/07/carx-drift-racing-online-free-download-preinstalled-steamrip.jpg",
     "url": "https://steamrip.com/carx-drift-racing-online-free-download-2e/",
     "system_requirements": {
       "OS": "Windows 7, 8, 10",
@@ -10102,7 +10159,10 @@
       "Released By": "Mr_Goldberg",
       "Version": "Build 17224854 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "CarX Drift Racing"
   },
   {
     "title": "Assetto Corsa Competizione (v1.10.3)",
@@ -10388,7 +10448,7 @@
   },
   {
     "title": "SpaceEngine (v0.990.48.2034)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/244850/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/314650/library_600x900.jpg",
     "url": "https://steamrip.com/spaceengine-free-download-1x/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -10405,7 +10465,10 @@
       "Released By": "GOG",
       "Version": "v0.990.48.2034 | Early Access",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "SpaceEngine"
   },
   {
     "title": "The Headliners (v1.2.1 + Co-op)",
@@ -10807,7 +10870,7 @@
   },
   {
     "title": "METAL GEAR SOLID – Master Collection (v1.5.0)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/be9c9692971c6207d224c8df4983e8cd.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/62975fad37dcec15b3002ee3f41aff5d.jpg",
     "url": "https://steamrip.com/metal-gear-solid-master-collection-free-download/",
     "system_requirements": {
       "OS": "Windows 10(64-bit OS required)",
@@ -10825,7 +10888,10 @@
       "Released By": "Mr_GOLDBERG emu | Ty Owla (csrin)",
       "Version": "v1.5.0 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Metal Gear Solid: Master Collection Version"
   },
   {
     "title": "Prison Escape Simulator: Dig Out",
@@ -11554,7 +11620,7 @@
   },
   {
     "title": "Blasphemous (v4.0.6.7)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2114740/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/774361/library_600x900.jpg",
     "url": "https://steamrip.com/blasphemous-free-download-1h/",
     "system_requirements": {
       "OS": "Windows 7 64-bit",
@@ -11571,11 +11637,14 @@
       "Released By": "GOG",
       "Version": "v4.0.6.7 | Full Version + Digital Deluxe Edition",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Blasphemous"
   },
   {
     "title": "Slime Rancher (v1.4.4)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1657630/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/433340/library_600x900.jpg",
     "url": "https://steamrip.com/slime-rancher-free-download-o1/",
     "system_requirements": {
       "OS": "Windows 7+",
@@ -11593,7 +11662,10 @@
       "Repack By": "GOG",
       "Version": "v1.4.4 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Slime Rancher"
   },
   {
     "title": "Shave & Stuff (v1.10.6.2)",
@@ -12170,7 +12242,7 @@
   },
   {
     "title": "Dragon Ball XenoVerse (v1.08.00 + Multiplayer)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/454650/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/59867335179a10a3007e594ec8de5dea.jpg",
     "url": "https://steamrip.com/dragon-ball-xenoverse-free-download/",
     "system_requirements": {
       "OS*": "Windows Vista (x64) / Windows 7 (x64)",
@@ -12189,7 +12261,10 @@
       "Multiplayer By": "0xdeadc0de",
       "Version": "v1.08.00 | Full Version + Multiplayer + Co-op",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "DRAGON BALL XENOVERSE"
   },
   {
     "title": "LOCKDOWN Protocol (v0.15.3 + Multiplayer)",
@@ -12366,7 +12441,7 @@
   },
   {
     "title": "Portal (Build 18647097)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/620/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/400/library_600x900.jpg",
     "url": "https://steamrip.com/portal-free-download-q1/",
     "system_requirements": {
       "OS": "Windows 7 (SP1+) or Windows 10",
@@ -12384,7 +12459,10 @@
       "Released By": "Mr_Goldberg (cs.rin.ru)",
       "Version": "Build 18647097 | 05/24/2025",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Portal"
   },
   {
     "title": "Shadows of Doubt (v41.04)",
@@ -13635,7 +13713,7 @@
   },
   {
     "title": "House Flipper (v1.25213)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1190970/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/613100/library_600x900.jpg",
     "url": "https://steamrip.com/house-flipper-1b/",
     "system_requirements": {
       "OS": "Windows 7 (64-bit) or newer",
@@ -13653,7 +13731,10 @@
       "Released By": "RUNE emu",
       "Version": "v1.25213 | Full Version + All DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "House Flipper"
   },
   {
     "title": "One Piece Pirate Warriors 3",
@@ -15343,7 +15424,7 @@
   },
   {
     "title": "Marvel’s Avengers (v2.0.3.0)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/405310/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/e032cf98bf49f9572e0d7dcdaa74da6f.jpg",
     "url": "https://steamrip.com/marvels-avengers-free-download-k2/",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
@@ -15361,7 +15442,10 @@
       "Repack By": "CODEX",
       "Version": "v2.0.3.0 (Endgame Edition) – Updated version (Latest) + all add-ons",
       "Preinstalled": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Marvel's Avengers"
   },
   {
     "title": "BioShock Infinite",
@@ -16271,7 +16355,7 @@
   },
   {
     "title": "Deep Rock Galactic (v1.40.134249.0 + Co-op)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2605790/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/548430/library_600x900.jpg",
     "url": "https://steamrip.com/deep-rock-galactic-free-download-1w/",
     "system_requirements": {
       "OS": "Windows 7 64 Bit",
@@ -16290,7 +16374,10 @@
       "Co-op By": "0xdeadc0de",
       "Version": "v1.40.134249.0 | full version (Latest) + All DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Deep Rock Galactic"
   },
   {
     "title": "Spec Ops: The Line (Build 765818 + LAN/Co-op)",
@@ -16762,7 +16849,7 @@
   },
   {
     "title": "Slay the Spire (v2.3.4)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2868840/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/646570/library_600x900.jpg",
     "url": "https://steamrip.com/slay-the-spire-free-download-1f/",
     "system_requirements": {
       "OS": "Windows XP, Vista, 7, 8/8.1, 10",
@@ -16779,7 +16866,10 @@
       "Repack By": "N/A",
       "Version": "v2.3.4 | Full Version (Latest)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Slay the Spire"
   },
   {
     "title": "Burnout Paradise Remastered (v1.0.0)",
@@ -17138,7 +17228,7 @@
   },
   {
     "title": "Gears of War (v1.3)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/bab769665921dc6c49f36adc6da1d88e.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/def3135d5a2340a672eaa0528ff2a119.png",
     "url": "https://steamrip.com/gears-of-war-free-download-1x/",
     "system_requirements": {
       "OS": "Windows 7 / Windows 8.1 / Windows 10 64-bit (latest Service Pack)",
@@ -17156,7 +17246,10 @@
       "Released By": "ViTALiTY (Dodi)",
       "Version": "v1.3 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Gears of War"
   },
   {
     "title": "Mortal Kombat: Legacy Kollection (Build 20717843 + Online)",
@@ -17181,7 +17274,7 @@
   },
   {
     "title": "Silent Still 2 (Build 19238022)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/01/Silent-Still-2_thumbnail_steamrip.jpg",
     "url": "https://steamrip.com/silent-still-2-free-download/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -17199,7 +17292,10 @@
       "Released By": "No DRM | Ty wallreddesu, cs.rinru",
       "Version": "Build 19238022",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Silent Still 2"
   },
   {
     "title": "OMSI 2: Steam Edition (v2.3.004)",
@@ -17380,7 +17476,7 @@
   },
   {
     "title": "Card Shop Simulator Multiplayer (v0.040 + Multiplayer)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3070070/library_600x900.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/06/card-shop-simulator-multiplayer-portrait-steamrip.jpg",
     "url": "https://steamrip.com/card-shop-simulator-multiplayer-free-download/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -17398,7 +17494,10 @@
       "Multiplayer By": "0xdeadc0de",
       "Version": "v0.040 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Card Shop Simulator"
   },
   {
     "title": "Military Conflict: Vietnam (Build 19753672)",
@@ -17490,7 +17589,7 @@
   },
   {
     "title": "Ghostrunner (v42441_444)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2144740/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1139900/library_600x900.jpg",
     "url": "https://steamrip.com/ghostrunner-free-download-w1/",
     "system_requirements": {
       "OS": "Windows 7, 8.1, 10 x64",
@@ -17507,7 +17606,10 @@
       "Released By": "FLT",
       "Version": "v42441_444 | Full Version (Latest) + All DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Ghostrunner"
   },
   {
     "title": "Stranded Deep (v1.0.38.0.29)",
@@ -17775,7 +17877,7 @@
   },
   {
     "title": "Foundation (v1.11.0.12)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/392160/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/690830/library_600x900.jpg",
     "url": "https://steamrip.com/foundation-free-download/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -17792,7 +17894,10 @@
       "Released By": "RUNE emu",
       "Version": "v1.11.0.12 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Foundation"
   },
   {
     "title": "Street Fighter 30th Anniversary Collection",
@@ -19427,7 +19532,7 @@
   },
   {
     "title": "OCTOPATH TRAVELER",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/08f95b09730ae981ff350b9a08b6a84e.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/921570/library_600x900.jpg",
     "url": "https://steamrip.com/octopath-traveler-free-download-1v/",
     "system_requirements": {
       "OS": "Windows® 7 SP1 / 8.1 / 10 64-bit",
@@ -19445,7 +19550,10 @@
       "Released By": "PLAZA",
       "Version": "Build 5272616 (22 July 2020) | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "OCTOPATH TRAVELER™"
   },
   {
     "title": "Tom Clancy’s Splinter Cell Conviction",
@@ -19841,7 +19949,7 @@
   },
   {
     "title": "Far Cry",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/552520/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/37a05c2bc9e34c4228911a726d0da702.png",
     "url": "https://steamrip.com/far-cry-free-download-5l/",
     "system_requirements": {
       "Processor": "AMD Athlon™ 1 GHz or Pentium® III 1 GHz",
@@ -19859,7 +19967,10 @@
       "Repack By": "GOG",
       "Version": "Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Far Cry®"
   },
   {
     "title": "Green Hell (v2.9.5)",
@@ -20298,7 +20409,7 @@
   },
   {
     "title": "Car Dealership Simulator 2 (v0.1.7)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/12/Car_Dealership_Simulator_2_thumbnail_final.jpg",
     "url": "https://steamrip.com/car-dealership-simulator-2-free-download/",
     "system_requirements": {
       "OS": "Windows(64-bit)",
@@ -20316,7 +20427,10 @@
       "Released By": "Goldberg (Ty DicDale, cs.rin.ru)",
       "Version": "v0.1.7 | Build 21089765",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Car Dealership Simulator 2"
   },
   {
     "title": "No Rest for the Wicked (v26973)",
@@ -21879,7 +21993,7 @@
   },
   {
     "title": "PICO PARK",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2644470/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1509960/library_600x900.jpg",
     "url": "https://steamrip.com/pico-park-free-download-1m/",
     "system_requirements": {
       "OS": "Windows 7 or later 64bit",
@@ -21896,7 +22010,10 @@
       "Repack By": "SEWN",
       "Version": "Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "PICO PARK"
   },
   {
     "title": "Crash Bandicoot N. Sane Triology (Build 2964270)",
@@ -22712,7 +22829,7 @@
   },
   {
     "title": "Europa",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/236850/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2214880/library_600x900.jpg",
     "url": "https://steamrip.com/europa-free-download/",
     "system_requirements": {
       "OS*": "Windows 7, Windows 8 or Windows 10",
@@ -22729,7 +22846,10 @@
       "Released By": "RUNE",
       "Version": "Build 16011797 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Europa"
   },
   {
     "title": "WWE 2K20 (v1.08 & ALL DLCs)",
@@ -23185,7 +23305,7 @@
   },
   {
     "title": "Just Cause (v1.0)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/225540/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/6880/library_600x900.jpg",
     "url": "https://steamrip.com/just-cause-free-download/",
     "system_requirements": {
       "OS": "Windows xp",
@@ -23202,7 +23322,10 @@
       "Released By": "GOG",
       "Version": "v1.0 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Just Cause"
   },
   {
     "title": "The LEGO NINJAGO Movie Video Game",
@@ -23620,7 +23743,7 @@
   },
   {
     "title": "Streamer Life Simulator (v1.2.5)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2890830/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1261040/library_600x900.jpg",
     "url": "https://steamrip.com/streamer-life-simulator-free-download-s2/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -23637,7 +23760,10 @@
       "Repack By": "SEWN",
       "Version": "v1.2.5 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Streamer Life Simulator"
   },
   {
     "title": "Vampire: The Masquerade – Bloodlines (v1.2)",
@@ -23684,7 +23810,7 @@
   },
   {
     "title": "Escape Simulator (v36237r)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2879840/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1435790/library_600x900.jpg",
     "url": "https://steamrip.com/escape-simulator-free-download-q1/",
     "system_requirements": {
       "OS": "Windows 7 (SP1+)",
@@ -23701,7 +23827,10 @@
       "Released By": "RUNE emu",
       "Version": "v36237r | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Escape Simulator"
   },
   {
     "title": "Travellers Rest (v0.7.4.10)",
@@ -24078,7 +24207,7 @@
   },
   {
     "title": "Gears of War: Reloaded (v1.0.1.3689997)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/bab769665921dc6c49f36adc6da1d88e.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/e2b907fb2773ac248492eb933d4b746d.png",
     "url": "https://steamrip.com/gears-of-war-reloaded-free-download/",
     "system_requirements": {
       "OS": "Windows10 – 19H2",
@@ -24098,7 +24227,10 @@
       "Released By": "RUNE",
       "Version": "v1.0.1.3689997",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Gears of War: Reloaded"
   },
   {
     "title": "HumanitZ (v1.0Z)",
@@ -24302,7 +24434,7 @@
   },
   {
     "title": "Drug Dealer Simulator (v1.2.19)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1708850/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/682990/library_600x900.jpg",
     "url": "https://steamrip.com/v1-drug-dealer-simulator-free-download-n1/",
     "system_requirements": {
       "OS": "Windows 7 64-bit or later",
@@ -24319,7 +24451,10 @@
       "Released By": "CODEX",
       "Version": "v1.2.19 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Drug Dealer Simulator"
   },
   {
     "title": "Alien: Rogue Incursion Evolved Edition (v1.0.2)",
@@ -24540,7 +24675,7 @@
   },
   {
     "title": "Wreckfest (v1.0o)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1203190/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/228380/library_600x900.jpg",
     "url": "https://steamrip.com/wreckfest-free-download-1g/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -24558,7 +24693,10 @@
       "Repack By": "GOG",
       "Version": "v1.0o + Season Pass 1&2",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Wreckfest"
   },
   {
     "title": "KEEP GAMBLING (Build 21259637 + Online)",
@@ -24759,7 +24897,7 @@
   },
   {
     "title": "Euro Truck Simulator (v1.3)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/227300/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/4fa426340102a837882eb4a230898b3e.png",
     "url": "https://steamrip.com/euro-truck-simulator-free-download/",
     "system_requirements": {
       "OS *": "Windows XP",
@@ -24779,7 +24917,10 @@
       "Released By": "oshkosh, cs.rin.ru",
       "Version": "v1.3 + UK DLC",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Euro Truck Simulator"
   },
   {
     "title": "Project Castaway (v0.1.48)",
@@ -25513,7 +25654,7 @@
   },
   {
     "title": "Bioshock (Build 11242)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/8870/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/7670/library_600x900.jpg",
     "url": "https://steamrip.com/bioshock-free-download/",
     "system_requirements": {
       "Operating System": "Windows XP (with Service Pack 2) or Windows Vista",
@@ -25531,7 +25672,10 @@
       "Released By": "Steamless + lanternjoe CSF, cs.rin.ru",
       "Version": "Build 11242",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "BioShock™"
   },
   {
     "title": "Rhythm Doctor (v1.0.1)",
@@ -25732,7 +25876,7 @@
   },
   {
     "title": "SUPERHOT (v1.0.21)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/617830/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/322500/library_600x900.jpg",
     "url": "https://steamrip.com/superhot-free-download-1m/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -25749,7 +25893,10 @@
       "Released By": "GOG",
       "Version": "v1.0.21 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "SUPERHOT"
   },
   {
     "title": "Slots & Daggers (v1.0.17)",
@@ -26750,7 +26897,7 @@
   },
   {
     "title": "Wolfenstein (v1.2 + 2009)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/201810/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/3b89c2f364807ea9a3ec95465ac8bffa.png",
     "url": "https://steamrip.com/wolfenstein-2009-free-download-f4/",
     "system_requirements": {
       "OS": "Windows XP, Vista, or newer",
@@ -26767,7 +26914,10 @@
       "Repack By": "RG Mechanics",
       "Version": "v1.2 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Wolfenstein"
   },
   {
     "title": "The Alters (v1.4.2.7)",
@@ -27557,7 +27707,7 @@
   },
   {
     "title": "Isekai Adventurer Guild (v0.4.5)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/01/isekai-adventurer-portrait-steamrip.jpg",
     "url": "https://steamrip.com/isekai-adventurer-guild-free-download/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -27575,7 +27725,10 @@
       "Released By": "Goldberg Emu",
       "Version": "v0.4.5 | Early Access",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Isekai Adventurer Guild"
   },
   {
     "title": "Granblue Fantasy Versus: Rising (v2.01 + Co-op)",
@@ -28745,7 +28898,7 @@
   },
   {
     "title": "DEAD RISING (Build 1378690)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/45740/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/427190/library_600x900.jpg",
     "url": "https://steamrip.com/dead-rising-free-download/",
     "system_requirements": {
       "OS": "Windows 10 64-bit versions",
@@ -28763,7 +28916,10 @@
       "Released By": "Goldberg (Ty qzack) + Owla CSF, cs.rin.ru",
       "Version": "Build 1378690",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "DEAD RISING®"
   },
   {
     "title": "Unmourned (v1.0)",
@@ -29231,7 +29387,7 @@
   },
   {
     "title": "Max Payne (Build 252034)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/204100/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/12140/library_600x900.jpg",
     "url": "https://steamrip.com/max-payne-free-download-build-252034/",
     "system_requirements": {
       "OS *": "Microsoft® Windows® 2000/XP (only)",
@@ -29249,7 +29405,10 @@
       "Released By": "Goldberg + lanternjoe CSF, cs.rin.ru",
       "Version": "Build 252034 | Patch-Fix, PCGW",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Max Payne"
   },
   {
     "title": "STAR WARS: Squadrons (v1.0.10.39591)",
@@ -30044,7 +30203,7 @@
   },
   {
     "title": "MineMogul (v0.2.0.22)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/01/MineMogul_thumbnail_final_steamrip.jpg",
     "url": "https://steamrip.com/minemogul-free-download/",
     "system_requirements": {
       "OS": "Windows 10 or newer",
@@ -30062,7 +30221,10 @@
       "Released By": "DRM-Free (Titeuf csf)",
       "Version": "v0.2.0.22 (Build 21625427) | Early Access",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "MineMogul"
   },
   {
     "title": "No Plan B (v1.2)",
@@ -30444,7 +30606,7 @@
   },
   {
     "title": "Way of the Hunter (v1.26)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/23c0534977edc4c4226357ef79aa0132.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1288320/library_600x900.jpg",
     "url": "https://steamrip.com/way-of-the-hunter-free-download-1h/",
     "system_requirements": {
       "OS": "64bit OS – Windows 10",
@@ -30462,7 +30624,10 @@
       "Released By": "RUNE",
       "Version": "v1.26 | Full Version + DLCs + win7 fix",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Way of the Hunter"
   },
   {
     "title": "Nioh: Complete Edition (v1.24.08)",
@@ -31040,7 +31205,7 @@
   },
   {
     "title": "Super Meat Boy (v1.2.5)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/bc30df64945af0ad6839b8df3988a368.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/40800/library_600x900.jpg",
     "url": "https://steamrip.com/super-meat-boy-free-download-s2/",
     "system_requirements": {
       "OS": "Microsoft® Windows® XP / Vista / 7 (Windows 8 is not officially supported)",
@@ -31058,7 +31223,10 @@
       "Repack By": "GOG",
       "Version": "v1.2.5 | Updated version + all DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Super Meat Boy"
   },
   {
     "title": "Monster Hunter Stories (v1.1.0)",
@@ -32336,7 +32504,7 @@
   },
   {
     "title": "Killing Floor (Build 1074376)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/232090/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1250/library_600x900.jpg",
     "url": "https://steamrip.com/killing-floor-free-download/",
     "system_requirements": {
       "OS *": "Windows XP/Vista",
@@ -32354,7 +32522,10 @@
       "Released By": "Rune + AR-81, cs.rin.ru",
       "Version": "Build 1074376",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Killing Floor"
   },
   {
     "title": "The Dark Queen of Mortholme (Build 19146038)",
@@ -32487,7 +32658,7 @@
   },
   {
     "title": "Climb The Backrooms (Build 19712652 + Online)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/09/Climb-The-Backrooms_thumbnail_final.jpg",
     "url": "https://steamrip.com/climb-the-backrooms-free-download/",
     "system_requirements": {
       "OS": "Windows 10 64-bit version 1909 revision .1350",
@@ -32505,7 +32676,10 @@
       "Released By": "tuctor1234, cs.rin.ru",
       "Version": "Build 19712652",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Climb The Backrooms"
   },
   {
     "title": "SOULCALIBUR VI Deluxe Edition",
@@ -32897,7 +33071,7 @@
   },
   {
     "title": "Kindergarten (v2.04)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2695570/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/589590/library_600x900.jpg",
     "url": "https://steamrip.com/kindergarten-free-download-1q/",
     "system_requirements": {
       "OS": "Windows XP",
@@ -32915,7 +33089,10 @@
       "Released By": "Mr_GOLDBERG",
       "Version": "v2.04 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Kindergarten"
   },
   {
     "title": "TRANSFORMERS: Devastation (Build 730962)",
@@ -34262,7 +34439,7 @@
   },
   {
     "title": "The NOexistenceN of Morphean Paradox: The Forest of Silver Shallots",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/c6db50278ae02f0e7bef6157aa2abbb7.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/159c793566a69e264271fec084e83fa2.jpg",
     "url": "https://steamrip.com/the-noexistencen-of-morphean-paradox/",
     "system_requirements": {
       "OS": "TBA",
@@ -34279,7 +34456,10 @@
       "Released By": "Goldberg Emu",
       "Version": "Build 21550720",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "The NOexistenceN of Morphean Paradox : The Forest of Silver Shallots"
   },
   {
     "title": "Tomb Raider IV-VI Remastered",
@@ -34980,7 +35160,7 @@
   },
   {
     "title": "A Game About Feeding A Black Hole",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/cfc1ae47e61156b77e953c605a428eb0.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/bad972ff7c83554f30333029ea585fa2.png",
     "url": "https://steamrip.com/a-game-about-feeding-a-black-hole-free-download/",
     "system_requirements": {
       "OS*": "Windows 7 or newer",
@@ -34996,7 +35176,10 @@
       "Released By": "Mr_GOLDBERG emu | Ty AstralGames (csrin)",
       "Version": "Build 21247381 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "A Game About Feeding A Black Hole"
   },
   {
     "title": "Gun Club VR (v1.0.17)",
@@ -35111,7 +35294,7 @@
   },
   {
     "title": "Backrooms Bodycam",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/06/Backrooms-Bodycam_portrait_steamrip.jpg",
     "url": "https://steamrip.com/backrooms-bodycam-free-download/",
     "system_requirements": {
       "OS *": "Windows 7 64-bit or higher",
@@ -35128,7 +35311,10 @@
       "Released By": "TENOKE",
       "Version": "Build 18464126",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Backrooms Bodycam"
   },
   {
     "title": "Tavern Keeper",
@@ -35369,7 +35555,7 @@
   },
   {
     "title": "FAIRY TAIL (v1.06)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3002850/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1233260/library_600x900.jpg",
     "url": "https://steamrip.com/fairy-tail-free-download-1h/",
     "system_requirements": {
       "OS": "Windows 8.1 / 10 (64bit)",
@@ -35388,7 +35574,10 @@
       "Repack By": "CODEX",
       "Version": "v1.06 (Digital Deluxe Edition) | Updated Version + All DLC",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "FAIRY TAIL"
   },
   {
     "title": "Baldi’s Basics Plus (v0.9)",
@@ -37237,7 +37426,7 @@
   },
   {
     "title": "CRUEL (v0.6.3)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1388770/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2689470/library_600x900.jpg",
     "url": "https://steamrip.com/cruel-free-download/",
     "system_requirements": {
       "OS*": "Windows 7",
@@ -37253,7 +37442,10 @@
       "Released By": "Mr_GOLDBERG emu",
       "Version": "v0.6.3 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "CRUEL"
   },
   {
     "title": "WILD HEARTS (v1.0.1.1)",
@@ -37564,7 +37756,7 @@
   },
   {
     "title": "shapez 2 (v0.1.0-pre8-rc1)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2162800/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/53eb309b664985fa34284248a12d3ee8.png",
     "url": "https://steamrip.com/shapez-2-free-download/",
     "system_requirements": {
       "OS": "Windows 10 64bit",
@@ -37581,7 +37773,10 @@
       "Released By": "GOLDBERG + gorre9090 CSF, cs.rin.ru",
       "Version": "v0.1.0-pre8-rc1 | Build 18656921",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "shapez 2"
   },
   {
     "title": "Fate/Samurai Remnant (v1.3.1)",
@@ -38982,7 +39177,7 @@
   },
   {
     "title": "System Shock Remake (v1.1)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/2fc3f594ec96e430d2f36f848cb8e0c9.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2023/05/system-shock-portrait-steamrip.jpg",
     "url": "https://steamrip.com/system-shock-remake-free-download-1m/",
     "system_requirements": {
       "OS": "Windows 7/8.1/10 (64-bit only)",
@@ -39000,7 +39195,10 @@
       "Released By": "RUNE emu",
       "Version": "v1.1.17082 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "System Shock Remake"
   },
   {
     "title": "The Berlin Apartment",
@@ -39071,7 +39269,7 @@
   },
   {
     "title": "GORN (v4043783)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3391450/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578620/library_600x900.jpg",
     "url": "https://steamrip.com/gorn-free-download-x1/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -39089,7 +39287,10 @@
       "Released By": "SKIDROW | ALI123",
       "Version": "v4043783 – VR Only – full version (Latest)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "GORN"
   },
   {
     "title": "Farmer’s Life (v1.0.43)",
@@ -39768,7 +39969,7 @@
   },
   {
     "title": "Borderlands GOTY Enhanced (Build 9171464)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/e18f2157e946d2e640161f31f30364f3.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/06/borderlands_goty_enhanced_thumbnail_final.jpg",
     "url": "https://steamrip.com/borderlands-goty-enhanced-free-download/",
     "system_requirements": {
       "OS *": "Windows 7 64-Bit",
@@ -39786,7 +39987,10 @@
       "Released By": "Goldberg + lanternjoe CSF, cs.rin.ru",
       "Version": "Build 9171464",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Borderlands GOTY Enhanced"
   },
   {
     "title": "Egging On (v0.1.8671)",
@@ -41111,7 +41315,7 @@
   },
   {
     "title": "Unrailed! (v2.0 + Co-op)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2211170/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1016920/library_600x900.jpg",
     "url": "https://steamrip.com/unrailed-free-download-1h/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -41129,7 +41333,10 @@
       "Co-op By": "Online-fix.me",
       "Version": "v2.0 (Build 23122021) | Full Version (Latest) + Co-op",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Unrailed!"
   },
   {
     "title": "VOID/BREAKER Free Downoad (v0.10.10)",
@@ -41458,7 +41665,7 @@
   },
   {
     "title": "The Escapists (v1.37)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/641990/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/298630/library_600x900.jpg",
     "url": "https://steamrip.com/the-escapists-free-download-1p/",
     "system_requirements": {
       "OS": "Windows XP",
@@ -41475,7 +41682,10 @@
       "Released By": "GOG",
       "Version": "v1.37 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "The Escapists"
   },
   {
     "title": "Orcs Must Die! Deathtrap (v1.1.4 + Co-op)",
@@ -41522,7 +41732,7 @@
   },
   {
     "title": "Poly Plaza ULTIMATE (v1.0.13)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/09/poly-plaza-ultimate-portrait-steamrip.jpg",
     "url": "https://steamrip.com/poly-plaza-ultimate-free-download/",
     "system_requirements": {
       "OS": "64-bit Windows 10",
@@ -41540,7 +41750,10 @@
       "Released By": "TENOKE",
       "Version": "v1.0.13 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Poly Plaza ULTIMATE"
   },
   {
     "title": "Doll Impostor (Build 20259462)",
@@ -41871,7 +42084,7 @@
   },
   {
     "title": "TerraTech (v1.6.7.1)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/ddec2ed01afdddb0a6bd6497fb841a67.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/285920/library_600x900.jpg",
     "url": "https://steamrip.com/terratech-free-download-t2/",
     "system_requirements": {
       "OS": "Windows 7 64-bit",
@@ -41889,7 +42102,10 @@
       "Released By": "RUNE emu",
       "Version": "v1.6.7.1 (Build 20494094) | Full Version + All Addons",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "TerraTech"
   },
   {
     "title": "Sonic Colors: Ultimate",
@@ -41981,7 +42197,7 @@
   },
   {
     "title": "Quarantine (v1.0.0.2)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3419520/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/ec71955b745c56d747d89749da113a16.png",
     "url": "https://steamrip.com/quarantine-free-download-r1/",
     "system_requirements": {
       "OS": "Windows 7 or newer, 32-bit",
@@ -42000,7 +42216,10 @@
       "Repack By": "CODEX",
       "Version": "v1.0.0.2 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Quarantine"
   },
   {
     "title": "UBOAT (2025.1 Patch 3)",
@@ -42551,7 +42770,7 @@
   },
   {
     "title": "HUMANKIND (v1.0.28.4623)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/536270/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1124300/library_600x900.jpg",
     "url": "https://steamrip.com/humankind-l2/",
     "system_requirements": {
       "OS": "Windows 7, 64-bit",
@@ -42569,7 +42788,10 @@
       "Repack By": "RUNE",
       "Version": "v1.0.28.4623 | Full version + all DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "HUMANKIND™"
   },
   {
     "title": "Incredicer",
@@ -43613,7 +43835,7 @@
   },
   {
     "title": "Moonlighter (v1.15.2)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2350790/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/606150/library_600x900.jpg",
     "url": "https://steamrip.com/moonlighter-free-download/",
     "system_requirements": {
       "OS*": "Windows 7",
@@ -43630,7 +43852,10 @@
       "Released By": "Mr_GOLDBERG",
       "Version": "v1.15.2 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Moonlighter"
   },
   {
     "title": "WARRIORS OROCHI 3 Ultimate Definitive Edition",
@@ -44328,7 +44553,7 @@
   },
   {
     "title": "Intravenous (v1.2.16)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2608270/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1486630/library_600x900.jpg",
     "url": "https://steamrip.com/intravenous-free-download-1j/",
     "system_requirements": {
       "OS": "Windows XP SP3",
@@ -44346,7 +44571,10 @@
       "Repack By": "Darks!ders",
       "Version": "v1.2.16 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Intravenous"
   },
   {
     "title": "Volcano Princess (v2.02.01)",
@@ -44481,7 +44709,7 @@
   },
   {
     "title": "The Jackbox Party Pack (Build 7667348)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/aa11c61c967bc3f8dedc99b943d83a42.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/331670/library_600x900.jpg",
     "url": "https://steamrip.com/the-jackbox-party-pack-free-download-t1/",
     "system_requirements": {
       "OS*": "Windows 7+",
@@ -44498,7 +44726,10 @@
       "Released By": "Mr_GOLDBERG",
       "Version": "Build 7667348 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "The Jackbox Party Pack"
   },
   {
     "title": "Two Point Hospital (v1.29.36)",
@@ -44962,7 +45193,7 @@
   },
   {
     "title": "OFF",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/997010/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3339880/library_600x900.jpg",
     "url": "https://steamrip.com/off-free-download/",
     "system_requirements": {
       "OS": "Windows 10 21H1",
@@ -44980,7 +45211,10 @@
       "Released By": "Mr_GOLDBERG emu",
       "Version": "Build 19607051 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "OFF"
   },
   {
     "title": "Amnesia: Rebirth (Build 7398003)",
@@ -45555,7 +45789,7 @@
   },
   {
     "title": "DUSK: Intruder Edition (Build 13575647)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/a297b230c0f9d1354283c802648f6c58.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2023/01/dusk-portrait-steamrip.jpg",
     "url": "https://steamrip.com/dusk-intruder-edition-free-download-1x/",
     "system_requirements": {
       "OS": "Windows 7 Or Later",
@@ -45573,7 +45807,10 @@
       "Released By": "CODEX",
       "Version": "Build 13575647 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "DUSK: Intruder Edition"
   },
   {
     "title": "Hyper Light Drifter (Build 10236942)",
@@ -45988,7 +46225,7 @@
   },
   {
     "title": "Food Processing Simulator (v0.5.2)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/01/Food-Processing-Simulator_thumbnail_steamrip.jpg",
     "url": "https://steamrip.com/food-processing-simulator-free-download/",
     "system_requirements": {
       "OS": "Windows 10 64bit",
@@ -46007,7 +46244,10 @@
       "Released By": "Goldberg Emu",
       "Version": "v0.5.2",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Food Processing Simulator"
   },
   {
     "title": "Dungeons & Dragons Neverwinter Nights 2: Enhanced Edition (v1.110)",
@@ -46055,7 +46295,7 @@
   },
   {
     "title": "Shredders (Build 16463769)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1361510/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1874170/library_600x900.jpg",
     "url": "https://steamrip.com/shredders-free-download-i1/",
     "system_requirements": {
       "OS": "Windows 7, Windows 10",
@@ -46073,7 +46313,10 @@
       "Released By": "RUNE emu",
       "Version": "Build 16463769 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Shredders"
   },
   {
     "title": "Vampire Hunters (v1.2.0)",
@@ -46165,7 +46408,7 @@
   },
   {
     "title": "Escape the Ayuwoki: Horror Night (v0.7.7a)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/2284784c80b209b4e7b88b194edfe2e2.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2022/04/escape-the-ayuwoki-horror-night-portrait-steamrip.jpg",
     "url": "https://steamrip.com/escape-the-ayuwoki-horror-night-free-download-1k/",
     "system_requirements": {
       "OS": "Windows 7 x64",
@@ -46182,7 +46425,10 @@
       "Multiplayer By": "Online-fix.me",
       "Version": "v0.7.7a | Early access",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Escape the Ayuwoki: Horror Night"
   },
   {
     "title": "Oceanhorn 2: Knights of the Lost Realm",
@@ -46295,7 +46541,7 @@
   },
   {
     "title": "ICBM (v1.02.03)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2647680/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1178220/library_600x900.jpg",
     "url": "https://steamrip.com/icbm-free-download-1r/",
     "system_requirements": {
       "OS": "Windows 8/10",
@@ -46314,7 +46560,10 @@
       "Released By": "GOG",
       "Version": "v1.02.03 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "ICBM"
   },
   {
     "title": "Anno 2070 Complete Edition (v3.0.8045)",
@@ -46510,7 +46759,7 @@
   },
   {
     "title": "Cyber Manhunt 2: New World – The Hacking Simulator (v1.0.8)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2421410/library_600x900.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/01/cyber-manhunt-2-new-world-hacking-simulator-portrait-steamrip.jpg",
     "url": "https://steamrip.com/cyber-manhunt-2-new-world-the-hacking-simulator-1c/",
     "system_requirements": {
       "OS*": "Windows 7/8/10",
@@ -46528,7 +46777,10 @@
       "Released By": "TENOKE",
       "Version": "v1.0.8 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Cyber Manhunt 2: New World – The Hacking Simulator"
   },
   {
     "title": "SUPER BOMBERMAN R 2 (v1.2.0)",
@@ -46859,7 +47111,7 @@
   },
   {
     "title": "DUSK HD: Intruder Edition",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/a297b230c0f9d1354283c802648f6c58.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2023/12/dusk-hd-portrait-steamrip.jpg",
     "url": "https://steamrip.com/dusk-hd-intruder-edition-free-download-d1/",
     "system_requirements": {
       "OS*": "Windows 7 (64-bit required)",
@@ -46875,7 +47127,10 @@
       "Released By": "SKIDROW",
       "Version": "Build 12928392 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "DUSK HD: Intruder Edition"
   },
   {
     "title": "Roboquest (v1.5.0)",
@@ -47183,7 +47438,7 @@
   },
   {
     "title": "Coffee Talk (v1.61)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3161220/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/914800/library_600x900.jpg",
     "url": "https://steamrip.com/coffee-talk-free-download-1l/",
     "system_requirements": {
       "OS": "Windows 7 SP1+",
@@ -47201,7 +47456,10 @@
       "Released By": "Mr_GOLDBERG",
       "Version": "v1.61 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Coffee Talk"
   },
   {
     "title": "Horizon Chase 2",
@@ -47897,7 +48155,7 @@
   },
   {
     "title": "Surviving Mars (v1011166)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/d8ac40b7f8a4f23088d43a290c25b537.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/bc3c734d9a4d51a7cac2b4cdef607659.png",
     "url": "https://steamrip.com/surviving-mars-free-download-l1/",
     "system_requirements": {
       "OS": "Windows 7 64-bit or newer",
@@ -47914,7 +48172,10 @@
       "Released By": "GOG",
       "Version": "v1011166 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Surviving Mars"
   },
   {
     "title": "Keylocker | Turn Based Cyberpunk Action",
@@ -48502,7 +48763,7 @@
   },
   {
     "title": "DRAGON QUEST BUILDERS (v1.0.1)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1072420/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2436570/library_600x900.jpg",
     "url": "https://steamrip.com/dragon-quest-builders-free-download-d1/",
     "system_requirements": {
       "OS": "Windows® 10 / 11 64-bit",
@@ -48520,7 +48781,10 @@
       "Released By": "TENOKE emu",
       "Version": "v1.0.1 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "DRAGON QUEST BUILDERS"
   },
   {
     "title": "Throne of Bone (v1.0)",
@@ -49283,7 +49547,7 @@
   },
   {
     "title": "Aragami (v1.09)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1158370/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/280160/library_600x900.jpg",
     "url": "https://steamrip.com/aragami-free-download-x1/",
     "system_requirements": {
       "OS": "Windows 7/8.1/10",
@@ -49301,7 +49565,10 @@
       "Repack By": "FITGIRL/CODEX",
       "Version": "v1.09 | Full Version (Latest) + 2 DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Aragami"
   },
   {
     "title": "Who Must Die",
@@ -49757,7 +50024,7 @@
   },
   {
     "title": "Ultimate Epic Battle Simulator (v1.9_HF2)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1468720/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f619cf7d4bbc91d3600210f110d0d88d.png",
     "url": "https://steamrip.com/ultimate-epic-battle-simulator-free-download-1l/",
     "system_requirements": {
       "OS": "Windows Vista Or Later",
@@ -49775,7 +50042,10 @@
       "Released By": "GOLDBERG",
       "Version": "v1.9 Hotfix 2 | Full Version (Latest)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Ultimate Epic Battle Simulator"
   },
   {
     "title": "Fun with Ragdolls: The Game (v2.0.3)",
@@ -49929,7 +50199,7 @@
   },
   {
     "title": "Little Corners (v1.1.1)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/11/little-corners-portrait-steamrip.jpg",
     "url": "https://steamrip.com/little-corners-free-download/",
     "system_requirements": {
       "OS": "Windows 11",
@@ -49946,7 +50216,10 @@
       "Released By": "TENOKE emu | ty Fitgirl Repacks",
       "Version": "v1.1.1 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Little Corners"
   },
   {
     "title": "Bits & Bops",
@@ -50724,7 +50997,7 @@
   },
   {
     "title": "Aliens: Fireteam Elite (v1.0.5)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/467e2b770acfd44e128c0c9218584c48.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1549970/library_600x900.jpg",
     "url": "https://steamrip.com/aliens-fireteam-elite-free-download-1m/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -50743,7 +51016,10 @@
       "Released By": "FLT",
       "Version": "v1.0.5.101570 (Pathogen Update) | Full Version + 7 DLCs + Win7 Fix",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Aliens: Fireteam Elite"
   },
   {
     "title": "HunterX (v1.0.6)",
@@ -50791,7 +51067,7 @@
   },
   {
     "title": "Capcom Fighting Collection (Build 8776857)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2400430/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1685750/library_600x900.jpg",
     "url": "https://steamrip.com/capcom-fighting-collection-free-download-u1/",
     "system_requirements": {
       "OS": "Windows 10 (64-BIT)",
@@ -50810,7 +51086,10 @@
       "Released By": "Mr_GOLDBERG",
       "Version": "Build 8776857 | Full Version + DLC + Multiplayer",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Capcom Fighting Collection"
   },
   {
     "title": "Steven Universe: Save the Light (v180)",
@@ -52438,7 +52717,7 @@
   },
   {
     "title": "Neon Abyss (v1.5.3.2)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2235200/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/788100/library_600x900.jpg",
     "url": "https://steamrip.com/neon-abyss-free-download-2h/",
     "system_requirements": {
       "OS": "Windows 7 64-bit",
@@ -52456,7 +52735,10 @@
       "Released By": "RUNE emu",
       "Version": "v1.5.3.2 | Full Version + All DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Neon Abyss"
   },
   {
     "title": "Moving Out 2 (v1.2.274)",
@@ -52655,7 +52937,7 @@
   },
   {
     "title": "Feed the Reactor (v1.01)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/01/Feed-the-Reactor_thumbnail_final_steamrip.jpg",
     "url": "https://steamrip.com/feed-the-reactor-free-download/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -52672,7 +52954,10 @@
       "Released By": "TENOKE",
       "Version": "v1.01",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Feed the Reactor"
   },
   {
     "title": "Sol Cesto (v0.48.08)",
@@ -53115,7 +53400,7 @@
   },
   {
     "title": "Forgive Me Father (v1.4)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2272250/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1590910/library_600x900.jpg",
     "url": "https://steamrip.com/forgive-me-father-free-download-l1/",
     "system_requirements": {
       "OS": "Windows 7/8/8.1/10",
@@ -53133,7 +53418,10 @@
       "Released By": "CODEX",
       "Version": "v1.4 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Forgive Me Father"
   },
   {
     "title": "Carmageddon: Rogue Shift",
@@ -53245,7 +53533,7 @@
   },
   {
     "title": "River City Girls (v1.1)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1920480/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1049320/library_600x900.jpg",
     "url": "https://steamrip.com/river-city-girls-free-download-o1/",
     "system_requirements": {
       "OS": "Windows 7 (64-bit OS required)",
@@ -53263,7 +53551,10 @@
       "Released By": "N/A",
       "Version": "v1.1 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "River City Girls"
   },
   {
     "title": "ReSetna (v1.0.0)",
@@ -55189,7 +55480,7 @@
   },
   {
     "title": "Poly Bridge (v1.0.7)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1850160/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/367450/library_600x900.jpg",
     "url": "https://steamrip.com/poly-bridge-free-download-1k/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -55207,7 +55498,10 @@
       "Repack By": "Pirates",
       "Version": "v1.0.7 Hotfix 3 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Poly Bridge"
   },
   {
     "title": "Diluvian Ultra",
@@ -56700,7 +56994,7 @@
   },
   {
     "title": "HOLE (v1.0.6)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/cfc1ae47e61156b77e953c605a428eb0.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f52d80680dd528b951438a527662d306.png",
     "url": "https://steamrip.com/hole-free-download/",
     "system_requirements": {
       "OS": "Windows10",
@@ -56718,7 +57012,10 @@
       "Released By": "TENOKE emu",
       "Version": "v1.0.6 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "HOLE"
   },
   {
     "title": "Hero Siege (v6.7.1.0)",
@@ -56830,7 +57127,7 @@
   },
   {
     "title": "Tetris Effect (v1.0.6)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1003590/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/bcd864bb117c205e244dfe3ec1d75a4f.jpg",
     "url": "https://steamrip.com/tetris-effect-free-download-t6/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -56848,7 +57145,10 @@
       "Repack By": "GOG",
       "Version": "v1.0.6 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Tetris Effect"
   },
   {
     "title": "Halcyon Days at Taoyuan (v1.0.7)",
@@ -58460,7 +58760,7 @@
   },
   {
     "title": "Haven (v1.1.302)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/979110/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/983970/library_600x900.jpg",
     "url": "https://steamrip.com/haven-free-download-v1/",
     "system_requirements": {
       "OS": "Windows 7, 8, 10",
@@ -58478,11 +58778,14 @@
       "Repack By": "GOG",
       "Version": "v1.1.302 | full version (Latest)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Haven"
   },
   {
     "title": "System Shock (v1.2.18887)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/2fc3f594ec96e430d2f36f848cb8e0c9.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/482400/library_600x900.jpg",
     "url": "https://steamrip.com/system-shock-free-download/",
     "system_requirements": {
       "OS*": "Windows 7/8.1/10 (64-bit only)",
@@ -58500,7 +58803,10 @@
       "Released By": "RUNE Emu",
       "Version": "v1.2.18887  | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "System Shock"
   },
   {
     "title": "Jagged Alliance 3 (v1.03)",
@@ -59176,7 +59482,7 @@
   },
   {
     "title": "Coastal Kitchen Simulator (v1.0)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/01/coastal-kitchen-simulator-portrait-steamrip.jpg",
     "url": "https://steamrip.com/coastal-kitchen-simulator-free-download/",
     "system_requirements": {
       "OS": "Windows 10 64bit",
@@ -59194,7 +59500,10 @@
       "Released By": "Goldberg Emu",
       "Version": "v1.0",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Coastal Kitchen Simulator"
   },
   {
     "title": "Goodnight Universe (v1.0.1)",
@@ -59460,7 +59769,7 @@
   },
   {
     "title": "EmoteLab (v0.1.1)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/02/emotelab-portrait-steamrip.jpg",
     "url": "https://steamrip.com/emotelab-free-download/",
     "system_requirements": {
       "OS": "Windows 10 (64-bit) or later",
@@ -59478,7 +59787,10 @@
       "Released By": "Mr_GOLDBERG emu",
       "Version": "v0.1.1 | Early Access",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "EmoteLab"
   },
   {
     "title": "Super Loco World – Cozy Train Automation (v1.0.1)",
@@ -60222,7 +60534,7 @@
   },
   {
     "title": "UMIGARI | ウミガリ (Build 21934145)",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/0935ef6e7764033ec95cf8b939901f15.png",
     "url": "https://steamrip.com/umigari-free-download/",
     "system_requirements": {
       "OS": "Windows 10 x64 or Above",
@@ -60242,7 +60554,10 @@
       "Released By": "Goldberg, Ty wallreddesu, cs.rin.ru",
       "Version": "Build 21934145",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "UMIGARI | ウミガリ"
   },
   {
     "title": "Hand Simulator (v1.50.1)",
@@ -60726,7 +61041,7 @@
   },
   {
     "title": "Kill It With Fire (v1.4.45)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357000/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1179210/library_600x900.jpg",
     "url": "https://steamrip.com/kill-it-with-fire-free-download-n1/",
     "system_requirements": {
       "OS": "Windows 7 64 Bit",
@@ -60743,7 +61058,10 @@
       "Repack By": "SEWN",
       "Version": "v1.4.45 | Updated Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Kill It With Fire"
   },
   {
     "title": "Weird West (v1.05B)",
@@ -60768,7 +61086,7 @@
   },
   {
     "title": "Space Rock Breaker",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/a129b2fc3c93f1b542de5d5cafa2a118.png",
     "url": "https://steamrip.com/space-rock-breaker-free-download/",
     "system_requirements": {
       "OS": "Windows 10+",
@@ -60784,7 +61102,10 @@
       "Released By": "Goldberg Emu",
       "Version": "Build 21315276",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Space Rock Breaker"
   },
   {
     "title": "Open Roads",
@@ -63401,7 +63722,7 @@
   },
   {
     "title": "Turbo Dismount (v1.33)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2280350/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/263760/library_600x900.jpg",
     "url": "https://steamrip.com/turbo-dismount-free-download-1u/",
     "system_requirements": {
       "OS": "Windows XP",
@@ -63419,7 +63740,10 @@
       "Released By": "ALI213 emu",
       "Version": "v1.33 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Turbo Dismount™"
   },
   {
     "title": "Handball 17 (Build 1464816)",
@@ -64369,7 +64693,7 @@
   },
   {
     "title": "Supraland (v1.23.7)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1522870/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/813630/library_600x900.jpg",
     "url": "https://steamrip.com/supraland-free-download-s2/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -64386,7 +64710,10 @@
       "Released By": "PLAZA",
       "Version": "v1.23.7 | Full Version (Latest)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Supraland"
   },
   {
     "title": "Coromon (v1.3.6)",
@@ -64475,7 +64802,7 @@
   },
   {
     "title": "Starsand (v1.0.1)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2966320/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1380220/library_600x900.jpg",
     "url": "https://steamrip.com/starsand-free-download-w1/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -64493,7 +64820,10 @@
       "Released By": "GOG",
       "Version": "v1.0.1 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Starsand"
   },
   {
     "title": "PewDiePie: Legend of the Brofist (v1.4.0)",
@@ -64968,7 +65298,7 @@
   },
   {
     "title": "GRIME (v1.3.2)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2529790/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1123050/library_600x900.jpg",
     "url": "https://steamrip.com/grime-free-download-2k/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -64986,7 +65316,10 @@
       "Repack By": "CODEX emu",
       "Version": "v1.3.2 | Full Version (Tinge of Terror DLC)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "GRIME"
   },
   {
     "title": "Park Beyond: Visioneer Edition (v4.0.0.179303)",
@@ -65119,7 +65452,7 @@
   },
   {
     "title": "Curiosity (v1.0.1)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/845880/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/74d5504a01ea8dd78ea911af6a40b2c9.jpg",
     "url": "https://steamrip.com/curiosity-free-download/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -65137,7 +65470,10 @@
       "Released By": "TENOKE emu",
       "Version": "v1.0.1 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Curiosity"
   },
   {
     "title": "My Gaming Club (v2.0)",
@@ -65551,7 +65887,7 @@
   },
   {
     "title": "Animal Shelter (v1.3.6)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2658510/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1239320/library_600x900.jpg",
     "url": "https://steamrip.com/animal-shelter-free-download-1u/",
     "system_requirements": {
       "OS": "Windows 7 64 Bit / Windows 8 64 Bit / Windows 10 64 Bit",
@@ -65569,7 +65905,10 @@
       "Released By": "TENOKE emu",
       "Version": "v1.3.6 | Full Version + All DLCs + OST",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Animal Shelter"
   },
   {
     "title": "Vertical Kingdom",
@@ -65727,7 +66066,7 @@
   },
   {
     "title": "Ship Graveyard Simulator (v1.0.6)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2201940/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1286880/library_600x900.jpg",
     "url": "https://steamrip.com/ship-graveyard-simulator-free-download-1s/",
     "system_requirements": {
       "OS": "Windows 7 64 Bit / Windows 8 64 Bit / Windows 10 64 Bit",
@@ -65745,7 +66084,10 @@
       "Released By": "DOGE",
       "Version": "v1.0.6 | Full Version + Submarines DLC",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Ship Graveyard Simulator"
   },
   {
     "title": "Xenonauts 2 (v1.17)",
@@ -68501,7 +68843,7 @@
   },
   {
     "title": "For The King (v1.1.00.11378)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1676840/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/527230/library_600x900.jpg",
     "url": "https://steamrip.com/for-the-king-free-download-1v/",
     "system_requirements": {
       "OS": "Windows 7 / 8 / 8.1 / 10 x64",
@@ -68519,7 +68861,10 @@
       "Released By": "CODEX",
       "Version": "v1.1.00.11378 | Full Version + All addons",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "For The King"
   },
   {
     "title": "Unrooted",
@@ -68718,7 +69063,7 @@
   },
   {
     "title": "Kin and Quarry (v1.0.2b)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/01/kin-and-quarry-portrait-steamrip.jpg",
     "url": "https://steamrip.com/kin-and-quarry-free-download/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -68733,7 +69078,10 @@
       "Released By": "Goldberg Emu",
       "Version": "v1.0.2b",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Kin and Quarry"
   },
   {
     "title": "Rayman: 30th Anniversary Edition",
@@ -70127,7 +70475,7 @@
   },
   {
     "title": "Spelunky (Build 7446143)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/418530/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/239350/library_600x900.jpg",
     "url": "https://steamrip.com/spelunky-free-download-1g/",
     "system_requirements": {
       "OS": "Microsoft® Windows® XP / Vista / 7 / 8",
@@ -70145,7 +70493,10 @@
       "Released By": "SSE (cs.rin.ru)",
       "Version": "Build 7446143 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Spelunky"
   },
   {
     "title": "Blue Fire (v6.3.1)",
@@ -70515,7 +70866,7 @@
   },
   {
     "title": "Farm Together (v11.03.2022)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2418520/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/673950/library_600x900.jpg",
     "url": "https://steamrip.com/farm-together-free-download-1x/",
     "system_requirements": {
       "OS": "Windows Vista or newer",
@@ -70532,7 +70883,10 @@
       "Released By": "SKIDROW",
       "Version": "v11.03.2022 | Full Version (Latest) + 13 DLC’s",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Farm Together"
   },
   {
     "title": "Death or Treat (v1.0.4)",
@@ -70644,7 +70998,7 @@
   },
   {
     "title": "WE ARE FOOTBALL (v1.21)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1951410/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1196470/library_600x900.jpg",
     "url": "https://steamrip.com/we-are-football-free-download-3a/",
     "system_requirements": {
       "OS": "64-bit Windows 7 / 8 / 10",
@@ -70662,7 +71016,10 @@
       "Repack By": "SKIDROW",
       "Version": "v1.21 | Full Version + 2 DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "WE ARE FOOTBALL"
   },
   {
     "title": "Star Trek: Infinite (v1.0.0.256)",
@@ -71161,7 +71518,7 @@
   },
   {
     "title": "Railroad Corporation (v1.1.13418)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1677970/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/797400/library_600x900.jpg",
     "url": "https://steamrip.com/railroad-corporation-free-download-1t/",
     "system_requirements": {
       "OS": "Windows 7 (64 bit)",
@@ -71179,7 +71536,10 @@
       "Released By": "RUNE",
       "Version": "v1.1.13418 | Full Version Complete Collection + 10 DLCs",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Railroad Corporation"
   },
   {
     "title": "Universe For Sale",
@@ -71248,7 +71608,7 @@
   },
   {
     "title": "Capes (v1.2.0.0)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2488540/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2081080/library_600x900.jpg",
     "url": "https://steamrip.com/capes-free-download/",
     "system_requirements": {
       "OS": "Windows 64-bit",
@@ -71266,7 +71626,10 @@
       "Repack By": "GOG",
       "Version": "v1.2.0.0 + DLCs + Bonus Content",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Capes"
   },
   {
     "title": "DC’s Justice League: Cosmic Chaos",
@@ -76599,7 +76962,7 @@
   },
   {
     "title": "Riftbound (Build 11366241)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2022/05/riftbound-portrait-steamrip.jpg",
     "url": "https://steamrip.com/riftbound-free-download-x1/",
     "system_requirements": {
       "OS": "Windows 7 or later",
@@ -76617,7 +76980,10 @@
       "Released By": "Mr_GOLDBERG",
       "Version": "Build 11366241 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Riftbound"
   },
   {
     "title": "Pine Hearts",
@@ -77529,7 +77895,7 @@
   },
   {
     "title": "Necrosmith (v1.3.0.279)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2277320/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1949190/library_600x900.jpg",
     "url": "https://steamrip.com/necrosmith-free-download-s1/",
     "system_requirements": {
       "OS": "Windows XP or higher",
@@ -77546,7 +77912,10 @@
       "Released By": "GOG",
       "Version": "v1.3.0.279 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Necrosmith"
   },
   {
     "title": "Rebuild 3: Gangs of Deadsville (v1.6.41)",
@@ -79493,7 +79862,7 @@
   },
   {
     "title": "Arto",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/550320/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1906510/library_600x900.jpg",
     "url": "https://steamrip.com/arto-free-download-1g/",
     "system_requirements": {
       "OS": "Windows 7 (64-Bit)",
@@ -79509,7 +79878,10 @@
       "Released By": "TENOKE emu",
       "Version": "Build 11126835 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Arto"
   },
   {
     "title": "Wonder Boy: Asha in Monster World",
@@ -79960,7 +80332,7 @@
   },
   {
     "title": "The Kraken Wakes",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/b8825b40a91b6a77ccccd6a7b102611f.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2023/04/the-kraken-wakes-portrait-steamrip.jpg",
     "url": "https://steamrip.com/the-kraken-wakes-free-download-y1/",
     "system_requirements": {
       "OS": "Windows 10",
@@ -79979,7 +80351,10 @@
       "Released By": "SKIDROW",
       "Version": "Build 10894431 | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The Kraken Wakes"
   },
   {
     "title": "Tinkertown (v1.0)",
@@ -81403,7 +81778,7 @@
   },
   {
     "title": "Beacon (v3.0)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1269640/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3448060/library_600x900.jpg",
     "url": "https://steamrip.com/beacon-free-download-u1/",
     "system_requirements": {
       "OS": "Windows 7",
@@ -81421,7 +81796,10 @@
       "Release By": "PLAZA",
       "Version": "v3.0 | Full Version (Latest)",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "The Beacon"
   },
   {
     "title": "Mr. Sun’s Hatbox (v1.01)",
@@ -81576,7 +81954,7 @@
   },
   {
     "title": "Figment (v1.6.0)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1085220/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/493540/library_600x900.jpg",
     "url": "https://steamrip.com/figment-free-download-1t/",
     "system_requirements": {
       "OS": "Windows 7/8/10",
@@ -81594,7 +81972,10 @@
       "Released By": "Mr_GOLDBERG",
       "Version": "v1.6.0 (Build 10647206) | Full Version",
       "Pre-Installed Game": true
-    }
+    },
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Figment"
   },
   {
     "title": "Born Punk (Build 8965389)",
@@ -83129,7 +83510,7 @@
   },
   {
     "title": "7 Nights with Vroombi",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/7_Nights_with_Vroombi_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Quad-core Intel, AMD 2.5GHZ or superior",
@@ -83147,7 +83528,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/7-nights-with-vroombi-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "7 Nights with Vroombi"
   },
   {
     "title": "A Game About Chopping Trees (Build 24275114 + Co-op)",
@@ -83592,7 +83976,7 @@
   },
   {
     "title": "Angry Birds Space",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/224c601e17d149b673465c4853d76f7c.png",
     "system_requirements": {
       "OS": "XP SP2",
       "Processor": "1 GHz",
@@ -83612,7 +83996,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/angry-birds-space-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Angry Birds Space"
   },
   {
     "title": "Aquapark Tycoon",
@@ -84319,7 +84706,7 @@
   },
   {
     "title": "Birdwatching Notebook",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/05/birdwatching-notebook-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 7",
       "Processor": "Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz",
@@ -84337,7 +84724,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/birdwatching-notebook-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Birdwatching Notebook"
   },
   {
     "title": "Black Hole Fishing",
@@ -84479,7 +84869,7 @@
   },
   {
     "title": "Boba Cafe Simulator",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/boba-cafe-simulator-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel i5 9600K",
@@ -84498,7 +84888,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/boba-cafe-simulator-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Boba Cafe Simulator"
   },
   {
     "title": "Bookshop Simulator",
@@ -84823,7 +85216,7 @@
   },
   {
     "title": "Call of Duty: Modern Warfare 2 Remastered",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/a3116fcb0ff78581d441a3de68287e73.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/call_of_duty_modern_warfare_2_remastered_thumbnail_steamrip.jpg",
     "system_requirements": null,
     "game_info": {
       "Genre": "Action, Shooters, First-person Shooter",
@@ -84835,7 +85228,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/call-of-duty-modern-warfare-2-remastered-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Call of Duty: Modern Warfare 2 Remastered"
   },
   {
     "title": "Call of Duty: Modern Warfare Remastered (2017)",
@@ -84957,7 +85353,7 @@
   },
   {
     "title": "Carpet Cleaning Simulator",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Carpet_Cleaning_Simulator_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 11 64-bit",
       "Processor": "Intel Core i7-11800H",
@@ -84976,7 +85372,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/carpet-cleaning-simulator-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Carpet Cleaning Simulator"
   },
   {
     "title": "Castle of Illusion",
@@ -85004,7 +85403,7 @@
   },
   {
     "title": "Castlevania: Lords of Shadow",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/1d120c86144523926d4f638bab708ca8.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/0b352414e83c92b3d5fa2ecdf5895e40.png",
     "system_requirements": {
       "OS": "Windows XP – Service Pack 3",
       "Processor": "2.4Ghz Intel Core 2 Duo",
@@ -85025,7 +85424,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/castlevania-lords-of-shadow-ultimate-edition-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Castlevania: Lords of Shadow – Ultimate Edition"
   },
   {
     "title": "Cat Mail Co. (Build 24152930 + Online)",
@@ -85302,7 +85704,7 @@
   },
   {
     "title": "Conan Exiles Enhanced",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/440900/library_600x900.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/10/conan-exiles-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64bit",
       "Processor": "AMD Ryzen 5 3600 or Intel Core i5-10400F",
@@ -85322,7 +85724,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/conan-exiles-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Conan Exiles Enhanced"
   },
   {
     "title": "Content King",
@@ -85606,7 +86011,7 @@
   },
   {
     "title": "Crusaders Quest : Hero Town",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/14005cce8172db694d48e66864e95a6d.png",
     "system_requirements": {
       "OS": "Windows® 10 / 11 64-bit",
       "Processor": "AMD Ryzen™ 3 1200 / Intel® Core™ i3-6100",
@@ -85626,7 +86031,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/crusaders-quest-hero-town-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Crusaders Quest : Hero Town"
   },
   {
     "title": "Crushed In Time",
@@ -85769,7 +86177,7 @@
   },
   {
     "title": "DARK",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3017860/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/e16b7c6134db5e15a521ec10fd405ddf.png",
     "system_requirements": {
       "OS": "Windows XP SP2",
       "Processor": "2.0 GHz Dual Core",
@@ -85788,7 +86196,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/dark-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Dark"
   },
   {
     "title": "Dark Pals: The 1st Floor",
@@ -86048,7 +86459,7 @@
   },
   {
     "title": "Deadly Delivery (v1.0.14 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/03/deadly-delivery-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel i5-9600 / AMD Ryzen 5 3600",
@@ -86067,7 +86478,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/deadly-delivery-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Deadly Delivery"
   },
   {
     "title": "Deep Rock Galactic: Rogue Core (v0.4.142792.0 + Co-op)",
@@ -86118,7 +86532,7 @@
   },
   {
     "title": "Demon Lord: Just a Block",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/05/demon-lord-just-a-block-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 7 SP1+",
       "Processor": "Dual Core CPU",
@@ -86136,7 +86550,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/demon-lord-just-a-block-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Demon Lord: Just a Block"
   },
   {
     "title": "Demon Tides",
@@ -86392,7 +86809,7 @@
   },
   {
     "title": "Dirty Business (Build 24343215 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Dirty_Business_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "3GHz 4-Core or Similar",
@@ -86412,7 +86829,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/dirty-business-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Dirty Business"
   },
   {
     "title": "Disgaea Mayhem",
@@ -86553,7 +86973,7 @@
   },
   {
     "title": "Don’t Panic! It is Just Turbulence (Build 23252247 + Online)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/Dont-Panic-It-is-Just-Turbulence_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i5-2500 @ 3,3 GHz (4 CPUs)",
@@ -86571,7 +86991,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/dont-panic-it-is-just-turbulence-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Don’t Panic! It is Just Turbulence"
   },
   {
     "title": "Don’t Play This",
@@ -86914,7 +87337,7 @@
   },
   {
     "title": "Dying Light: The Beast Restored Land (v1.6.0c + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/09/dying-light-the-beast-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 or newer",
       "Processor": "Intel i5-13400F / AMD Ryzen 7 5800X",
@@ -86932,7 +87355,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/dying-light-the-beast-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Dying Light: The Beast Restored Land"
   },
   {
     "title": "Dynasty Protocol",
@@ -87103,7 +87529,7 @@
   },
   {
     "title": "Emergency Call – The Firefighting Simulation 3",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/08/Emergency_Call_-_The_Firefighting_Simulation_3_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 oder Windows 11 (64-Bit)",
       "Processor": "Intel Core i5-8400 or AMD Ryzen 5 2600",
@@ -87123,7 +87549,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/emergency-call-the-firefighting-simulation-3-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Emergency Call – The Firefighting Simulation 3"
   },
   {
     "title": "EMUUROM",
@@ -87284,7 +87713,7 @@
   },
   {
     "title": "Europa Universalis V (v.1.3.11 + Multiplayer)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/c5399bf20250c9d74403fc38fe68e236.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/11/europa-universalis-v-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 Home 64 Bit",
       "Processor": "Intel Core i7-8700K | AMD Ryzen 5 3600",
@@ -87302,7 +87731,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/europa-universalis-v-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Europa Universalis V (v.1.3.11 + )"
   },
   {
     "title": "EverSiege: Untold Ages",
@@ -87699,7 +88131,7 @@
   },
   {
     "title": "FIFA 19",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/ad747448f85763e13f1b5080e211f3d5.png",
     "system_requirements": {
       "OS": "Windows 7/8.1/10 – 64-Bit",
       "Processor": "Intel Core i3-2100 @ 3.1GHz or AMD Phenom II X4 965 @ 3.4 GHz",
@@ -87717,7 +88149,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/fifa-19-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "FIFA 19"
   },
   {
     "title": "Final Fantasy III (3D Remake)",
@@ -88252,7 +88687,7 @@
   },
   {
     "title": "Game of Thrones – A Telltale Games Series",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f0a546375c2be84f83f3d1e3405ad9d2.png",
     "system_requirements": {
       "OS": "Windows XP Service Pack 3",
       "Processor": "Core 2 Duo 2GHz or equivalent",
@@ -88273,7 +88708,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/game-of-thrones-a-telltale-games-series-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Game of Thrones - A Telltale Games Series"
   },
   {
     "title": "Gastova: The Witches of Arkana",
@@ -88507,7 +88945,7 @@
   },
   {
     "title": "Goblin Company (Build 23853060 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Goblin_Company_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Win 10",
       "Processor": "Intel Core i5 @ 2.5 GHz or equivalent",
@@ -88527,7 +88965,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/goblin-company-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Goblin Company"
   },
   {
     "title": "Goblin Vyke: The Thief Tycoon",
@@ -88968,7 +89409,7 @@
   },
   {
     "title": "Herb Tea Man",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Herb_Tea_Man_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows10",
       "Processor": "Intel Core 2 Duo E5200",
@@ -88986,7 +89427,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/herb-tea-man-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Herb Tea Man"
   },
   {
     "title": "Heroes of Might and Magic: Olden Era (v0.80.07 + Multiplayer)",
@@ -89013,7 +89457,7 @@
   },
   {
     "title": "HITMAN",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1659040/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/94b4f1c7033b10801cd7696329c5d15d.png",
     "system_requirements": {
       "OS": "OS 64-bit Windows 7",
       "Processor": "Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940",
@@ -89032,7 +89476,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/hitman-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "HITMAN"
   },
   {
     "title": "HITMAN World of Assassination",
@@ -89218,7 +89665,7 @@
   },
   {
     "title": "How to Make an Atomic Bomb in Your Garden",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/How_to_Make_an_Atomic_Bomb_in_Your_Garden_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i3-4170 – AMD FX-8120",
@@ -89236,7 +89683,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/how-to-make-an-atomic-bomb-in-your-garden-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "How to Make an Atomic Bomb in Your Garden"
   },
   {
     "title": "Hozy",
@@ -89285,7 +89735,7 @@
   },
   {
     "title": "Hylics",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1286710/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/dd4719a433e583c8e9e9a0e0722e4e51.png",
     "system_requirements": {
       "OS": "Windows XP, Vista, 7, 8",
       "Processor": "2.0 GHz or faster",
@@ -89302,7 +89752,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/hylics-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Hylics"
   },
   {
     "title": "I am Coin",
@@ -89443,7 +89896,7 @@
   },
   {
     "title": "IDM Internet Download Manager",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2021/06/idm-internet-download-manager-free-download-pc-steamrip.jpg",
     "system_requirements": {
       "Operating System": "Windows Vista/7/8/8.1/10",
       "Memory (RAM)": "1 GB of RAM required.",
@@ -89460,7 +89913,10 @@
       "Pre-Installed Game": false
     },
     "url": "https://steamrip.com/idm-internet-download-manager-free-download-1a/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "IDM Internet Download Manager"
   },
   {
     "title": "Idols of Ash",
@@ -89601,7 +90057,7 @@
   },
   {
     "title": "Insurgency",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/581320/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/222880/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows® 7",
       "Processor": "Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better",
@@ -89620,7 +90076,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/insurgency-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Insurgency"
   },
   {
     "title": "Invincible VS",
@@ -89835,7 +90294,7 @@
   },
   {
     "title": "Junkster",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/Junkster_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "64-bit Windows 10",
       "Processor": "Intel Core i5-8400, AMD Ryzen 5 2600",
@@ -89854,11 +90313,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/junkster-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Junkster"
   },
   {
     "title": "Jurassic Park: The Game",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/06d51ce32ccfc3f27c53c96c7cc67734.png",
     "system_requirements": {
       "OS": "XP Service Pack 3 / Vista / Windows 7",
       "Processor": "1.8 GHz Pentium 4 or equivalent",
@@ -89878,7 +90340,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/jurassic-park-the-game-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Jurassic Park: The Game"
   },
   {
     "title": "K-pop Idol Stories: Road to Debut",
@@ -90021,7 +90486,7 @@
   },
   {
     "title": "Kinetype",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/Kinetype_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64-bit) or later",
       "Processor": "Intel Core i3-6100 / AMD Ryzen 3 1200 (Dual-core, 3.0 GHz)",
@@ -90040,7 +90505,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/kinetype-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Kinetype"
   },
   {
     "title": "King of Retail",
@@ -90206,7 +90674,7 @@
   },
   {
     "title": "Lawn Care Simulator",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/2b0ce49ee751ab49280c3b0e45748fa6.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/Lawn_Care_Simulator_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "x86 Processor",
@@ -90225,7 +90693,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/lawn-care-simulator-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Lawn Care Simulator"
   },
   {
     "title": "Lay of the Land",
@@ -90801,7 +91272,7 @@
   },
   {
     "title": "Mad Merchant",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Mad_Merchant_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -90820,7 +91291,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/mad-merchant-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Mad Merchant"
   },
   {
     "title": "Mahou Arms",
@@ -90892,7 +91366,7 @@
   },
   {
     "title": "Marvel’s Guardians of the Galaxy: The Telltale Series",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/0efba65afbc3190818818fc662c7d873.png",
     "system_requirements": {
       "OS": "Windows 7 64Bit Service Pack 1 or higher",
       "Processor": "Intel Core 2 Duo 2.4GHz",
@@ -90913,7 +91387,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/marvels-guardians-of-the-galaxy-the-telltale-series-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Marvel's Guardians of the Galaxy: The Telltale Series"
   },
   {
     "title": "Maseylia : Echoes of the Past",
@@ -90940,7 +91417,7 @@
   },
   {
     "title": "MAZEBOUND: Hunt, Gather, Run! (Build 23552956 + Online)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/MAZEBOUND-Hunt-Gather-Run_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel i5-4590 / AMD FX-8350",
@@ -90961,7 +91438,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/mazebound-hunt-gather-run-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "MAZEBOUND: Hunt, Gather, Run!"
   },
   {
     "title": "MECCHA CHAMELEON (v4.1.0 + Multiplayer)",
@@ -91380,7 +91860,7 @@
   },
   {
     "title": "Mortal Shell",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/269fbbf79a58d66e7291ee5694ea2076.png",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1110910/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows 7 SP1 or newer",
       "Processor": "Intel Core i5-4590 or AMD FX 8350",
@@ -91398,7 +91878,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/mortal-shell-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Mortal Shell"
   },
   {
     "title": "Moss: The Forgotten Relic",
@@ -91424,7 +91907,7 @@
   },
   {
     "title": "Mothkeep",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Mothkeep_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 / 11",
       "Processor": "x86 / x64",
@@ -91443,7 +91926,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/mothkeep-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Mothkeep"
   },
   {
     "title": "Motion Soccer PRO",
@@ -91678,7 +92164,7 @@
   },
   {
     "title": "NBA 2K17",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/2e9c2ccfb88118f795ec1bff5d1a9ee1.png",
     "system_requirements": {
       "OS": "Windows 7 64-bit, Windows 8.1 64-bit or Windows 10 64-bit",
       "Processor": "Intel® Core™ i3-530 @ 2.93 GHz / AMD Phenom™ II X4 805 @ 2.50 GHz or better",
@@ -91699,11 +92185,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/nba-2k17-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "NBA 2K17"
   },
   {
     "title": "NBA 2K18",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f5c69b3fa7fdcca6aeed80d7970f309f.png",
     "system_requirements": {
       "OS": "Windows 7×64 / Windows 8.1×64 / Windows 10×64",
       "Processor": "Intel® Core™ i3-530 @ 2.93 GHz / AMD Phenom™ II X4 805 @ 2.50 GHz or better",
@@ -91724,11 +92213,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/nba-2k18-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "NBA 2K18"
   },
   {
     "title": "NBA 2K19",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/f50417d34472ec3f620079a972c7b857.png",
     "system_requirements": {
       "OS": "Windows 7 64-bit, Windows 8.1 64-bit or Windows 10 64-bit",
       "Processor": "Intel® Core™ i3-530 @ 2.93 GHz / AMD FX-4100 @ 3.60 GHz or better",
@@ -91749,11 +92241,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/nba-2k19-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "NBA 2K19"
   },
   {
     "title": "NBA 2K20",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/2ecca07835ecd87a37b12c60fdfff9a0.png",
     "system_requirements": {
       "OS": "Windows 7 64-bit, Windows 8.1 64-bit or Windows 10 64-bit",
       "Processor": "Intel® Core™ i3-530 @ 2.93 GHz / AMD FX-4100 @ 3.60 GHz or better",
@@ -91774,7 +92269,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/nba-2k20-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "NBA 2K20"
   },
   {
     "title": "NEEDY STREAMER OVERLOAD: Typing of The Net",
@@ -92098,7 +92596,7 @@
   },
   {
     "title": "OFFBEAT",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/08/OFFBEAT_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Core i5 2.2 GHz or equivalent",
@@ -92118,7 +92616,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/offbeat-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "OFFBEAT"
   },
   {
     "title": "Okami HD",
@@ -92236,7 +92737,7 @@
   },
   {
     "title": "Ore Factory Squad ⛏️ (Build 24304783 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/6599d411e20e0cfc3f2c53e762990b5c.png",
     "system_requirements": {
       "OS": "Windows 10 or later (64-Bit)",
       "Processor": "i7-6700 or Ryzen 3 1200X",
@@ -92256,7 +92757,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/ore-factory-squad-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Ore Factory Squad"
   },
   {
     "title": "Osta",
@@ -92445,7 +92949,7 @@
   },
   {
     "title": "Painting PC",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Painting_PC_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel Core i3-2100 or equivalent",
@@ -92464,7 +92968,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/painting-pc-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Painting PC"
   },
   {
     "title": "Panzer Corps 2",
@@ -92739,7 +93246,7 @@
   },
   {
     "title": "Pih",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/8af4b7341f432aabdb93d28d51c1d9a7.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2870710/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i5-4590 / AMD FX 8350",
@@ -92758,7 +93265,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/pih-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Pih"
   },
   {
     "title": "Pit Panic",
@@ -93179,7 +93689,7 @@
   },
   {
     "title": "Qianli: The Vastscape Scroll",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Qianli_The_Vastscape_Scroll_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "2 GHz Dual Core (Intel / AMD)",
@@ -93197,7 +93707,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/qianli-the-vastscape-scroll-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Qianli: The Vastscape Scroll"
   },
   {
     "title": "Quake",
@@ -93217,7 +93730,7 @@
   },
   {
     "title": "R-Type Tactics I • II Cosmos",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/9380c58dd45ca641fed0e6d4a8e9a39f.png",
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Intel(R) Core(TM) i3 3rd Generation",
@@ -93235,7 +93748,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/r-type-tactics-i-ii-cosmos-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "R-Type Tactics I • II Cosmos"
   },
   {
     "title": "RACCOIN: Coin Pusher Roguelike",
@@ -93489,7 +94005,7 @@
   },
   {
     "title": "Resident Evil 4 Remake",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2023/05/resident-evil-4-remake-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64 bit)",
       "Processor": "AMD Ryzen 3 1200 / Intel Core i5-7500",
@@ -93508,7 +94024,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/resident-evil-iv-r-i2/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Resident Evil 4 Remake"
   },
   {
     "title": "RESONANCE OF FATE/END OF ETERNITY 4K/HD EDITION",
@@ -93604,7 +94123,7 @@
   },
   {
     "title": "Retail Hell",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/05/retail-hell-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel Core i5-8400 or AMD Ryzen 5 2600",
@@ -93623,7 +94142,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/retail-hell-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Retail Hell"
   },
   {
     "title": "Retro Rewind – Video Store Simulator",
@@ -93833,7 +94355,7 @@
   },
   {
     "title": "Rogue Realm: Guardian Grids",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Rogue_Realm_Guardian_Grids_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i3-6100 / AMD FX-6300",
@@ -93853,7 +94375,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/rogue-realm-guardian-grids-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Rogue Realm: Guardian Grids"
   },
   {
     "title": "RollerCoaster Tycoon 2: Triple Thrill Pack",
@@ -93969,7 +94494,7 @@
   },
   {
     "title": "RUNNING TRAIN | 走ル列車！",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/a39f3d6dc4680627a7ebc9945e4fb7bc.jpg",
     "system_requirements": {
       "OS": "Windows 10, 11 (64-bit)",
       "Processor": "Intel Core i7-7700HQ or AMD Ryzen 5 1500X",
@@ -93989,11 +94514,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/running-train-%e8%b5%b0%e3%83%ab%e5%88%97%e8%bb%8a%ef%bc%81-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "RUNNING TRAIN"
   },
   {
     "title": "RUSH: A Disney • PIXAR Adventure",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/adc8e5d4a3ad165b4a4322fe43889e07.png",
     "system_requirements": {
       "OS": "Windows 7 or higher",
       "Processor": "Intel Core i3-3210 @ 3.2 GHz || AMD FX-4150 @ 4 GHz",
@@ -94012,7 +94540,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/rush-a-disney-pixar-adventure-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "RUSH: A Disney • PIXAR Adventure"
   },
   {
     "title": "Rustil: Eternal Labyrinth Castle",
@@ -94065,7 +94596,7 @@
   },
   {
     "title": "s&box (Build 23018202 + Online)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/230290/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/590830/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Core i5-9600K / Ryzen 5 3600",
@@ -94085,7 +94616,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/sbox-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "s&box"
   },
   {
     "title": "Samson",
@@ -94639,7 +95173,7 @@
   },
   {
     "title": "Sineus Arena Survivors",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/Sineus_Arena_Survivors_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64-bit) or newer",
       "Processor": "Intel i5-4590 or better",
@@ -94659,7 +95193,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/sineus-arena-survivors-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Sineus Arena Survivors"
   },
   {
     "title": "Sinheritance",
@@ -94748,7 +95285,7 @@
   },
   {
     "title": "Skills & Raids",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Skills___Raids_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 or more",
       "Processor": "Intel i3 4th generation or equivalent",
@@ -94766,7 +95303,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/skills-raids-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Skills & Raids"
   },
   {
     "title": "Skull Horde",
@@ -94955,7 +95495,7 @@
   },
   {
     "title": "Sonic CD",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/016ae4594cf80e0df1ec5acddc4b4b62.png",
     "system_requirements": {
       "OS": "Windows® XP or higher",
       "Graphics": "32MB or greater graphics card",
@@ -94972,7 +95512,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/sonic-cd-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Sonic CD"
   },
   {
     "title": "Sonic the Hedgehog 4 – Episode II",
@@ -95001,7 +95544,7 @@
   },
   {
     "title": "Sovereign Tower",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/9cfec96e54a5d12fd4a8ed72b8a49ded.png",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i5-4670K",
@@ -95020,7 +95563,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/sovereign-tower-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Sovereign Tower"
   },
   {
     "title": "Space Haven",
@@ -95449,7 +95995,7 @@
   },
   {
     "title": "Sunbreak War",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/e734a339258d7d261e6581825ed5ac2f.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/03/sunbreak-war-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Intel® Core™ i5",
@@ -95467,7 +96013,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/sunbreak-war-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Sunbreak War"
   },
   {
     "title": "SUPER BOMBERMAN COLLECTION",
@@ -96090,7 +96639,7 @@
   },
   {
     "title": "The Brewline",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/b8825b40a91b6a77ccccd6a7b102611f.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/The_Brewline_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i5-7400 / AMD Ryzen 3 1200",
@@ -96110,11 +96659,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/the-brewline-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The Brewline"
   },
   {
     "title": "The Caribou Trail",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/b8825b40a91b6a77ccccd6a7b102611f.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/05/The-Caribou-Trail_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel i5-8600K / Ryzen 2700 or higher with 6 cores+",
@@ -96135,7 +96687,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/the-caribou-trail-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The Caribou Trail"
   },
   {
     "title": "The Citadel",
@@ -96259,7 +96814,7 @@
   },
   {
     "title": "The Darkness II Limited Edition",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/the-darkness-2-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows XP/Vista/7",
       "Processor": "Intel Core 2 @ 2GHz / AMD Athlon 64 X2 4200+",
@@ -96276,7 +96831,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/the-darkness-ii-limited-edition-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The Darkness II Limited Edition"
   },
   {
     "title": "The Expanse: A Telltale Series",
@@ -96371,7 +96929,7 @@
   },
   {
     "title": "The House Always Wins",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/05/The-House-Always-Wins_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Intel Core i5-10400F or AMD Ryzen 5 3600",
@@ -96391,7 +96949,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/the-house-always-wins-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The House Always Wins"
   },
   {
     "title": "The House in Fata Morgana",
@@ -96463,7 +97024,7 @@
   },
   {
     "title": "The Last Caretaker (v.0.8.0.612251)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1783560/library_600x900.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2025/11/the-last-caretaker-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit or later",
       "Processor": "Quad-core Intel or AMD, 3.2 GHz or faster",
@@ -96482,11 +97043,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/the-last-caretaker-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "The Last Caretaker (v.0.8.0.612251)"
   },
   {
     "title": "The Last Remnant",
-    "banner_url": "",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/e71fc4c35a684450f5eff49d2046f880.png",
     "system_requirements": {
       "Operating System": "Microsoft® Windows® XP SP2/Vista® SP1 *1 *2",
       "Processor": "Intel® Core™2 Duo (2GHz) / AMD Athlon™ X2 (2GHz)",
@@ -96506,7 +97070,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/the-last-remnant-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "The Last Remnant"
   },
   {
     "title": "The Legend of Heroes: Trails of Cold Steel",
@@ -96904,7 +97471,7 @@
   },
   {
     "title": "Thief",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1332720/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/239160/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows Vista with Platform Update for Windows Vista",
       "Processor": "High-Performance Dual Core CPU or Quad Core CPU",
@@ -96923,7 +97490,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/thief-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Thief"
   },
   {
     "title": "Thomas & Friends: Wonders of Sodor",
@@ -97344,7 +97914,7 @@
   },
   {
     "title": "Trail & Error (Build 24117819 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/07/Trail___Error_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Core i7-3820 or equivalent",
@@ -97365,7 +97935,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/trail-error-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Trail & Error"
   },
   {
     "title": "Trailmakers (v.244.513.575.0)",
@@ -97416,7 +97989,7 @@
   },
   {
     "title": "Truck Driver: The American Dream",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/06/truck-driver-the-american-dream-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 11 or Higher",
       "Processor": "Ryzen 5 3600X / Intel Equivalent (Core i5-9600K)",
@@ -97435,7 +98008,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/truck-driver-the-american-dream-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Truck Driver: The American Dream"
   },
   {
     "title": "Truck Mechanic: Dangerous Paths",
@@ -97748,7 +98324,7 @@
   },
   {
     "title": "Unravel",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1225570/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1225560/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows 7, Windows 8.1, Windows 10 64-bit",
       "Processor": "Intel Core 2 Duo @ 2.4GHz or AMD Athlon Phenom X2 @ 2.8Ghz AMD",
@@ -97766,7 +98342,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/unravel-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Unravel"
   },
   {
     "title": "Urban Strife",
@@ -97794,7 +98373,7 @@
   },
   {
     "title": "Valley",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/41c6fd75530da76805a27dc0de3cd5b1.png",
     "system_requirements": {
       "OS": "Windows 7 or newer",
       "Processor": "3.0+ GHZ dual core",
@@ -97813,7 +98392,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/valley-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Valley"
   },
   {
     "title": "Vampire Crawlers",
@@ -98815,7 +99397,7 @@
   },
   {
     "title": "GRAIN ROT (Build 24694725 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/08/GRAIN_ROT_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64Bit",
       "Processor": "Inter Core i5-4590 / AMD Ryzen 5 2600",
@@ -98835,7 +99417,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/grain-rot-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "GRAIN ROT"
   },
   {
     "title": "Approximately Up (Build 24732738 + Co-op)",
@@ -99501,7 +100086,7 @@
   },
   {
     "title": "Mortal Shell II",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/269fbbf79a58d66e7291ee5694ea2076.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/de51c41f2ede1364ca77c2818c875cf5.png",
     "system_requirements": {
       "OS": "Windows 10 / 11",
       "Processor": "Intel Core i7-10700K @ 3.8 GHz or better or AMD Ryzen 5 3600 @ 3.6 GHz or better",
@@ -99521,7 +100106,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/mortal-shell-ii-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Mortal Shell II"
   },
   {
     "title": "Medal of Honor",
@@ -99617,7 +100205,7 @@
   },
   {
     "title": "WE ARE SO DEAD (Build 24859746 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/08/WE_ARE_SO_DEAD_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10+",
       "Processor": "Intel Core i5-7400 @ 3.3 GHz or AMD Ryzen 3 3300X",
@@ -99637,7 +100225,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/we-are-so-dead-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "WE ARE SO DEAD"
   },
   {
     "title": "Mexican Ninja",
@@ -100369,7 +100960,7 @@
   },
   {
     "title": "1666: Amsterdam",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/08/1666_Amsterdam_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "64-bit Windows 10",
       "Processor": "Intel core [email protected] or AMD Ryzen 5 3600 @ 3.6GHz",
@@ -100389,7 +100980,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/1666-amsterdam-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "1666: Amsterdam"
   },
   {
     "title": "Pizza House Simulator🍕 (Build 24899055 + Co-op)",
@@ -101307,7 +101901,7 @@
   },
   {
     "title": "Aliens: Fireteam Elite 2",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/467e2b770acfd44e128c0c9218584c48.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/08/Aliens_Fireteam_Elite_2_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "AMD Ryzen 5 2600 / Intel Core i5-8400",
@@ -101329,7 +101923,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/aliens-fireteam-elite-2-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Aliens: Fireteam Elite 2"
   },
   {
     "title": "Amazing Frog? 2",
@@ -101356,7 +101953,7 @@
   },
   {
     "title": "Automobilista",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1066890/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/7096498a3a7a729dd5ef0aaf59582a5c.png",
     "system_requirements": {
       "OS": "Windows XP / Vista / 7 / 8 / 10",
       "Processor": "1,8 GHz or 100% compatible CPU",
@@ -101375,7 +101972,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/automobilista-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Automobilista"
   },
   {
     "title": "Call of Duty: Black Ops II (Multiplayer + DLCs)",
@@ -101402,7 +102002,7 @@
   },
   {
     "title": "CarX Drift Racing Online 2 (Build 23132110 + Online)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1826420/library_600x900.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/05/carx-drift-racing-online-2-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 and Windows 11",
       "Processor": "Intel® Core™ i5-8400 or AMD Ryzen 5 1600",
@@ -101422,7 +102022,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/carx-drift-racing-online-2-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "CarX Drift Racing 2"
   },
   {
     "title": "Castlevania: Lords of Shadow 2",
@@ -101706,7 +102309,7 @@
   },
   {
     "title": "OCTOPATH TRAVELER 0 (Build 22012444)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/08f95b09730ae981ff350b9a08b6a84e.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/a914b36aa38749b6738c19f2d197be93.png",
     "system_requirements": {
       "OS": "Windows® 11",
       "Processor": "AMD Ryzen™ 3 2300X / Intel® Core™ i3-8100",
@@ -101726,11 +102329,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/octopath-traveler-0-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "OCTOPATH TRAVELER 0"
   },
   {
     "title": "Plants vs. Zombies: Garden Warfare (v1.0.3.0 + Multiplayer)",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1922560/library_600x900.jpg",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/fc355f56d5e523cd32025f4756b88eda.png",
     "system_requirements": {
       "OS": "Windows 7/8 64bit",
       "Processor": "Intel Core 2 Duo @ 3.0 GHz",
@@ -101748,7 +102354,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/plants-vs-zombies-garden-warfare-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Plants vs. Zombies: Garden Warfare"
   },
   {
     "title": "PRO EVOLUTION SOCCER 2019",
@@ -101942,7 +102551,7 @@
   },
   {
     "title": "Way of the Hunter 2 (Build 22586685)",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/23c0534977edc4c4226357ef79aa0132.png",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/3ee9292a075f20e3a7453c01a95f15ba.jpg",
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "Ryzen 5 3600X / Core i5-9600K",
@@ -101962,7 +102571,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/way-of-the-hunter-2-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Way of the Hunter 2"
   },
   {
     "title": "Welcome to the Game III",
@@ -102058,7 +102670,7 @@
   },
   {
     "title": "Soul Chained",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Soul_Chained_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 and above",
       "Processor": "Intel Core i5 4690",
@@ -102079,7 +102691,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/soul-chained-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Soul Chained"
   },
   {
     "title": "Port of Jumanah",
@@ -102454,7 +103069,7 @@
   },
   {
     "title": "Dig For Riches",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Dig_For_Riches_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i7",
@@ -102473,11 +103088,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/dig-for-riches-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Dig For Riches"
   },
   {
     "title": "Project Cobalt",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Project_Cobalt_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i7",
@@ -102496,11 +103114,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/project-cobalt-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Project Cobalt"
   },
   {
     "title": "Focus Grove",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Focus_Grove_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 x64",
       "Processor": "Intel Core i5-2500 / AMD FX-6300 or similar",
@@ -102518,7 +103139,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/focus-grove-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Focus Grove"
   },
   {
     "title": "Dreamed Away",
@@ -102939,7 +103563,7 @@
   },
   {
     "title": "Stonewards (Build 25256319 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Stonewards_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows (64-bit) 10",
       "Processor": "Intel Core i5 @ 2.5 GHz or equivalent",
@@ -102958,7 +103582,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/stonewards-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Stonewards"
   },
   {
     "title": "Dumb Ways to Build (Build 25236478 + Co-op)",
@@ -103011,7 +103638,7 @@
   },
   {
     "title": "States of Power",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/States_of_Power_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel i3, AMD Ryzen 3",
@@ -103030,7 +103657,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/states-of-power-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "States of Power"
   },
   {
     "title": "Backrooms Cleanup Crew",
@@ -103215,7 +103845,7 @@
   },
   {
     "title": "Creator Chronicles",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Creator_Chronicles_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Window 10",
       "Processor": "Intel i5 6th generation or higher, AMD Ryzen 5 4th generation or higher",
@@ -103234,7 +103864,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/creator-chronicles-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Creator Chronicles"
   },
   {
     "title": "Craftomation 101: Programming & Craft",
@@ -103261,7 +103894,7 @@
   },
   {
     "title": "Ragnar",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2322010/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3309140/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Dual Core 2.4 GHz",
@@ -103279,7 +103912,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/ragnar-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Ragnar"
   },
   {
     "title": "Software Inc.",
@@ -103307,7 +103943,7 @@
   },
   {
     "title": "shapez",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2162800/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1318690/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows 10 64bit",
       "Processor": "2 Ghz or faster",
@@ -103325,7 +103961,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/shapez-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "shapez"
   },
   {
     "title": "Asgard’s Fall — Viking Survivors",
@@ -103375,7 +104014,7 @@
   },
   {
     "title": "Friendly Steps",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Friendly_Steps_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel Core i5-4460 or AMD FX-8320 / Ryzen 3 1200",
@@ -103396,7 +104035,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/friendly-steps-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Friendly Steps"
   },
   {
     "title": "Guns and Nuns: Storming Hell",
@@ -104100,7 +104742,7 @@
   },
   {
     "title": "Combolands: Roguelike Citybuilder",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Combolands_Roguelike_Citybuilder_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Intel Core i5-7500, AMD Ryzen 5 3600",
@@ -104118,7 +104760,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/combolands-roguelike-citybuilder-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Combolands: Roguelike Citybuilder"
   },
   {
     "title": "Guacamelee! Super Turbo Championship Edition",
@@ -104146,7 +104791,7 @@
   },
   {
     "title": "Police Chief Simulator",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/police-chief-simulator-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows (64-bit) 10",
       "Processor": "Intel Core i5-3550",
@@ -104164,7 +104809,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/police-chief-simulator-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Police Chief Simulator"
   },
   {
     "title": "lily’s world XD",
@@ -104395,7 +105043,7 @@
   },
   {
     "title": "There Is mORE",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/There_Is_mORE_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 / Windows 11",
       "Processor": "Dual Core 2.4 GHz",
@@ -104414,7 +105062,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/there-is-more-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "There Is mORE"
   },
   {
     "title": "Paver: Tidy Up Together",
@@ -104441,7 +105092,7 @@
   },
   {
     "title": "Nightwater",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Nightwater_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 or later (64-Bit)",
       "Processor": "i5-3570 3.4 GHz 4 Core",
@@ -104459,7 +105110,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/nightwater-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Nightwater"
   },
   {
     "title": "Sunken Realms",
@@ -104504,7 +105158,7 @@
   },
   {
     "title": "PATLABOR the Case Files",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/PATLABOR_the_Case_Files_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit (or newer)",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 3500",
@@ -104524,7 +105178,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/patlabor-the-case-files-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "PATLABOR the Case Files"
   },
   {
     "title": "Boomerang Fu",
@@ -104803,7 +105460,7 @@
   },
   {
     "title": "Everhood",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1984020/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1229380/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows XP, Vista, 7, 8, or 10",
       "Memory": "2 GB RAM",
@@ -104820,7 +105477,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/everhood-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Everhood"
   },
   {
     "title": "Firefight",
@@ -105028,7 +105688,7 @@
   },
   {
     "title": "Lootborne",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/3be2b157af407b0d229a741b5833b02d.jpg",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/lootborne-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "intel i3",
@@ -105047,7 +105707,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/lootborne-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Lootborne"
   },
   {
     "title": "Brave New Wonders",
@@ -105337,7 +106000,7 @@
   },
   {
     "title": "Xenonauts",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/538030/library_600x900.jpg",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/223830/library_600x900.jpg",
     "system_requirements": {
       "OS": "Windows 8 / 7 SP1 / Vista SP2",
       "Processor": "Intel 2 GHz",
@@ -105357,7 +106020,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/xenonauts-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Xenonauts"
   },
   {
     "title": "Fallen Tear: The Ascension",
@@ -105904,7 +106570,7 @@
   },
   {
     "title": "Lawn Mowing Simulator 2",
-    "banner_url": "https://cdn2.steamgriddb.com/grid/2b0ce49ee751ab49280c3b0e45748fa6.png",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Lawn_Mowing_Simulator_2_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10/11 64bit",
       "Processor": "Intel Core i5-6400, AMD Ryzen 5 1400, or better",
@@ -105927,7 +106593,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/lawn-mowing-simulator-2-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Lawn Mowing Simulator 2"
   },
   {
     "title": "Mini Airways – ATC simulator",
@@ -106068,7 +106737,7 @@
   },
   {
     "title": "Minibus Simulator",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Minibus_Simulator_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i5-8400 or AMD Ryzen 5 2600",
@@ -106090,7 +106759,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/minibus-simulator-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Minibus Simulator"
   },
   {
     "title": "I Was a Teenage Exocolonist",
@@ -106117,7 +106789,7 @@
   },
   {
     "title": "Mai Trang",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Mai_Trang_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i3-4130 / AMD FX-6300",
@@ -106136,7 +106808,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/mai-trang-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Mai Trang"
   },
   {
     "title": "The Bell Echoes",
@@ -106254,7 +106929,7 @@
   },
   {
     "title": "Deskrawl: Idle ARPG",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/deskrawl-dle-arpg-portrait-steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 64 bit",
       "Processor": "Intel Core i3",
@@ -106272,7 +106947,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/deskrawl-idle-arpg-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Deskrawl: Idle ARPG"
   },
   {
     "title": "Warplanes: Battles over Pacific",
@@ -106411,7 +107089,7 @@
   },
   {
     "title": "Shelves and Sorcery: Tidy Up the Enchanted Shop",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Shelves_and_Sorcery_Tidy_Up_the_Enchanted_Shop_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10 or Higher",
       "Processor": "Processor: Quad-core Intel or AMD, 2.5 GHz or faster",
@@ -106429,11 +107107,14 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/shelves-and-sorcery-tidy-up-the-enchanted-shop-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Shelves and Sorcery: Tidy Up the Enchanted Shop"
   },
   {
     "title": "Backrooms: Code Yellow (Build 25593644 + Co-op)",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Backrooms_Code_Yellow_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 7 or higher (64-bit)",
       "Processor": "2.4 Ghz Dual Core CPU",
@@ -106452,7 +107133,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/backrooms-code-yellow-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Backrooms: Code Yellow"
   },
   {
     "title": "Halo Wars: Definitive Edition (Build 1858145 + Online)",
@@ -106480,7 +107164,7 @@
   },
   {
     "title": "Needle In A Haystack",
-    "banner_url": "",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/09/Needle_In_A_Haystack_thumbnail_steamrip.jpg",
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Intel Core i5-3570 or equivalent",
@@ -106499,7 +107183,10 @@
       "Pre-Installed Game": true
     },
     "url": "https://steamrip.com/needle-in-a-haystack-free-download/",
-    "pending_review": true
+    "pending_review": true,
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Needle In A Haystack"
   },
   {
     "title": "Prince of Persia: The Two Thrones",

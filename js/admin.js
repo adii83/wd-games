@@ -755,6 +755,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return; 
         }
 
+        // Two different games sharing one cover means one of them is showing
+        // the wrong art (the scraper enforces the same rule — see
+        // resolve_cover() in scrape_steamrip_recent.py). Warn, don't block:
+        // re-releases of the same game legitimately share art.
+        const bannerTwin = gamesData.find((g, i) => g && i !== idx && g.banner_url === banner && g.title !== title);
+        if (bannerTwin && !confirm(`Banner ini sudah dipakai game lain: "${bannerTwin.title}".\n\nYakin cover ini benar untuk "${title}"?`)) {
+            return;
+        }
+
         const existingGame = idx >= 0 ? gamesData[idx] : null;
         const newGameObject = {
             ...(existingGame && typeof existingGame === 'object' ? existingGame : {}),

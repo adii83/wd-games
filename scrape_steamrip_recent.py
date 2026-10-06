@@ -20,13 +20,15 @@ sections directly — steamrip's own post pages use the exact same field
 names our schema does (Genre, Developer, Platform, Game Size, Released By,
 Version, Pre-Installed Game), so this is far more accurate than guessing.
 
-banner_url is the one field NOT taken from steamrip: it's looked up on
-Steam instead (store search -> Steam CDN library_600x900 art, falling back
-to SteamGridDB), matching what admin.html's "Cari dari Steam" button does.
-If Steam and SteamGridDB cannot provide portrait art, SteamDB is queried as
-the final source for a Steam app id, then the app's portrait library asset is
-used. If every source fails, banner_url is left blank rather than falling back
-to steamrip's own thumbnail.
+banner_url is looked up on Steam first (store search -> Steam CDN
+library_600x900 art, falling back to SteamGridDB), matching what admin.html's
+"Cari dari Steam" button does - but a provider's art is only accepted when
+the provider's own name for the game passes titles_match() AND that image
+isn't already another title's cover (see resolve_cover()). Taking the first
+search hit unchecked is how "Minecraft" (not on Steam) ended up wearing
+Minecraft Dungeons' cover. When no provider passes, steamrip's own portrait
+thumbnail for that exact post is used; banner_url is left blank only if that
+fails too.
 
 New entries are appended to the END of the array (not unshifted to the
 front) and flagged with a top-level "pending_review": true, so they do NOT
@@ -92,6 +94,7 @@ STEAM_API_BASE = "https://www.steamgriddb.com/api/v2"
 REQUEST_DELAY = 0.35  # politeness delay between steamrip.com requests
 MAX_NEW_PER_RUN = 150
 NEAR_DUPLICATE_CUTOFF = 0.92
+MIN_BANNER_TITLE_SIMILARITY = 0.78
 SAVE_EVERY = 5  # persist progress periodically so a crash mid-run doesn't lose work
 
 EDITION_TERMS = [
@@ -299,8 +302,18 @@ def search_steam_store(query: str):
     url = f"https://store.steampowered.com/api/storesearch/?term={quote(query)}&l=english&cc=US"
     try:
         payload = fetch_json(url)
-        items = payload.get("items") or []
-        return items[0] if items else None
+        items = [item for item in (payload.get("items") or []) if item.get("type") == "app"]
+        ranked = sorted(
+            ((title_similarity(query, item.get("name", "")), item) for item in items),
+            key=lambda pair: pair[0],
+            reverse=True,
+        )
+        for _, item in ranked:
+            if titles_match(query, item.get("name", "")):
+                return item
+        if ranked:
+            print(f"    [Steam cover rejected] {query!r} -> {ranked[0][1].get('name', '')!r} ({ranked[0][0]:.2f})")
+        return None
     except Exception as e:
         print(f"    [Steam search failed] {query!r}: {e}")
         return None
@@ -343,67 +356,146 @@ def steamgriddb_autocomplete(title: str):
         return []
 
 
-def steamdb_cover_by_name(title: str):
-    """Return Steam portrait art after resolving a title through SteamDB.
+def cover_title_key(title: str) -> str:
+    value = html.unescape(str(title or "")).lower()
+    value = value.replace("™", "").replace("®", "").replace("©", "")
+    value = re.sub(r"\bfree\s+download\b", " ", value)
+    value = re.sub(r"\s*\([^)]*(?:build|v\d|patch|update|online|multiplayer|co-?op)[^)]*\)$", "", value)
+    value = re.sub(r"[^a-z0-9]+", " ", value)
+    return re.sub(r"\s+", " ", value).strip()
 
-    SteamDB is deliberately the last fallback: it is only needed when the
-    Steam store search and SteamGridDB both fail. SteamDB may rate-limit or
-    block automated requests, so every error is treated as a normal miss and
-    never prevents a scrape from completing.
+
+def title_similarity(left: str, right: str) -> float:
+    left_key = cover_title_key(left)
+    right_key = cover_title_key(right)
+    left_numbers = _number_signature(left_key)
+    right_numbers = _number_signature(right_key)
+    if left_numbers != right_numbers and (left_numbers or right_numbers):
+        return 0.0
+    return difflib.SequenceMatcher(None, left_key, right_key).ratio()
+
+
+# Words that don't change which game a title refers to. Everything else does:
+# "Need for Speed Hot Pursuit" vs "... Remastered", "Hitman 2" vs "Hitman 2
+# Silent Assassin", "Minecraft" vs "Minecraft Dungeons" are different games.
+_EDITION_NOISE = {
+    "the", "a", "an", "and", "game", "version", "anniversary", "edition", "deluxe", "digital", "definitive", "goty",
+    "complete", "ultimate", "gold", "standard", "premium", "enhanced", "special",
+}
+
+
+def _game_words(title: str) -> list:
+    words = (_ROMAN_MAP.get(w, w) for w in cover_title_key(title).split())
+    return [str(w) for w in words if w not in _EDITION_NOISE]
+
+
+def titles_match(left: str, right: str) -> bool:
+    """Strict "is this the same game" check for accepting a provider's art.
+
+    Same words once punctuation, edition noise and roman-vs-arabic numerals
+    are normalized away - no fuzzy ratio. A ratio happily accepts a single
+    swapped word ("Skyrim SE" vs "Skyrim VR", "Resident Evil 4 Remake" vs
+    "Resident Evil 4: Otome Edition"), and a wrongly accepted match puts
+    another game's cover on the card, while a wrongly rejected one just
+    falls through to steamrip's own thumbnail (always the right game).
     """
-    try:
-        search_url = f"https://steamdb.info/search/?a=app&q={quote(title)}"
-        page = fetch(search_url)
-    except Exception:
-        return ""
-
-    # Search results link to /app/<id>/. Keep insertion order and avoid
-    # retrying duplicate ids that can occur in the page navigation.
-    seen = set()
-    for appid in re.findall(r'href=["\']/?app/(\d+)/', page):
-        if appid in seen:
-            continue
-        seen.add(appid)
-        cdn_url = f"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/{appid}/library_600x900.jpg"
-        if url_exists(cdn_url):
-            return cdn_url
-    return ""
+    a, b = _game_words(left), _game_words(right)
+    if not a or not b:
+        return cover_title_key(left) == cover_title_key(right)
+    # Second test catches pure spacing differences ("MotoGP 14" vs "MotoGP™14").
+    return set(a) == set(b) or "".join(a) == "".join(b)
 
 
-def get_steam_banner(title: str):
-    # Every fallback here is verified/selected to be portrait (2:3-ish) art
-    # to match the site's card layout. Steam storesearch's own "tiny_image"
-    # field (231x87 landscape) used to be the last resort here, but a wrong
-    # aspect ratio is worse than no banner at all, so it's not used anymore
-    # (see admin.html's "Recently Added" review flow for filling these in
-    # by hand instead).
+def get_verified_banner(title: str):
+    """Return cover metadata only when the provider title matches the query."""
     item = search_steam_store(title)
     if item:
         appid = item["id"]
+        match_title = item.get("name", "")
         cdn_url = f"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/{appid}/library_600x900.jpg"
         if url_exists(cdn_url):
-            return cdn_url
-        grids = steamgriddb_grids_for_steam_appid(appid)
-        cover = select_best_grid(grids)
+            return {"url": cdn_url, "source": "Steam", "match_title": match_title, "confidence": title_similarity(title, match_title)}
+        cover = select_best_grid(steamgriddb_grids_for_steam_appid(appid))
         if cover:
-            return cover
+            return {"url": cover, "source": "SteamGridDB", "match_title": match_title, "confidence": title_similarity(title, match_title)}
 
-    # No Steam appid match, or that appid had no usable art on either CDN -
-    # try SteamGridDB's own name search before the final SteamDB fallback.
-    for candidate in steamgriddb_autocomplete(title)[:3]:
+    for candidate in steamgriddb_autocomplete(title)[:5]:
+        match_title = candidate.get("name", "")
+        confidence = title_similarity(title, match_title)
+        if not titles_match(title, match_title):
+            continue
         try:
             grids_payload = fetch_json(
                 f"{STEAM_API_BASE}/grids/game/{candidate['id']}",
                 headers={"Authorization": f"Bearer {STEAMGRIDDB_API_KEY}"},
             )
-            grids = grids_payload.get("data") or []
+            cover = select_best_grid(grids_payload.get("data") or [])
         except Exception:
-            grids = []
-        cover = select_best_grid(grids)
+            cover = None
         if cover:
-            return cover
+            return {"url": cover, "source": "SteamGridDB", "match_title": match_title, "confidence": confidence}
+    return None
 
-    return steamdb_cover_by_name(title)
+
+# One search result on steamrip.com/?s=...: thumbnail, its size, post link,
+# post title. Post pages themselves only carry landscape art for their own
+# game (the portrait <img>s on a post page belong to OTHER games in the
+# sidebar), so the search listing is where a post's own portrait lives.
+_STEAMRIP_RESULT_RE = re.compile(
+    r'<div class="slide[^"]*" data-back="([^"]+)" data-eio-rwidth="(\d+)" data-eio-rheight="(\d+)"[^>]*>\s*'
+    r'<a href="([^"]+)" class="all-over-thumb-link"><span class="screen-reader-text">([^<]*)</span>'
+)
+
+
+def _slug(url: str) -> str:
+    return (url or "").rstrip("/").rsplit("/", 1)[-1]
+
+
+def parse_steamrip_cover(page_html: str, title: str, post_url: str = ""):
+    key = cover_title_key(clean_title(title))
+    for image, width, height, href, raw_name in _STEAMRIP_RESULT_RE.findall(page_html):
+        name = clean_title(raw_name)
+        same_post = bool(post_url) and _slug(href) == _slug(post_url)
+        if not same_post and cover_title_key(name) != key:
+            continue
+        if int(height) <= int(width):
+            continue  # landscape art looks cropped/wrong in the portrait card layout
+        return {"url": absolutize(html.unescape(image)), "source": "steamrip", "match_title": name, "confidence": 1.0}
+    return None
+
+
+def steamrip_cover(title: str, post_url: str = ""):
+    try:
+        page = fetch(f"{SOURCE_URL}?s={quote(clean_title(title))}")
+    except Exception as e:
+        print(f"    [steamrip cover search failed] {title!r}: {e}")
+        return None
+    return parse_steamrip_cover(page, title, post_url)
+
+
+def used_by_other_title(url: str, title: str, banner_owners: dict) -> bool:
+    key = cover_title_key(clean_title(title))
+    return any(cover_title_key(clean_title(owner)) != key for owner in banner_owners.get(url, ()))
+
+
+def resolve_cover(title: str, banner_owners: dict, post_url: str = ""):
+    """The one cover lookup every script shares.
+
+    Steam/SteamGridDB (name-verified) first, steamrip's own thumbnail for
+    this post second. Either is dropped if that exact image is already
+    another title's cover. Returns {url, source, match_title, confidence}
+    or None.
+    """
+    search_title = clean_title(title)
+    for lookup in (get_verified_banner, lambda t: steamrip_cover(t, post_url)):
+        found = lookup(search_title)
+        if not found:
+            continue
+        if used_by_other_title(found["url"], search_title, banner_owners):
+            print(f"    [cover rejected, already used by another title] {title!r} -> {found['url']}")
+            continue
+        return found
+    return None
 
 
 # --- Database I/O ---
@@ -452,6 +544,16 @@ def build_existing_title_set(games):
     return existing
 
 
+def build_banner_owner_map(games):
+    owners = {}
+    for game in games:
+        banner = str(game.get("banner_url") or "").strip()
+        title = str(game.get("title") or "").strip()
+        if banner and title:
+            owners.setdefault(banner, set()).add(title)
+    return owners
+
+
 _ROMAN_MAP = {
     "i": 1, "ii": 2, "iii": 3, "iv": 4, "v": 5, "vi": 6, "vii": 7, "viii": 8,
     "ix": 9, "x": 10, "xi": 11, "xii": 12, "xiii": 13, "xiv": 14, "xv": 15,
@@ -494,6 +596,7 @@ def main():
 
     games = load_games()
     existing_lower = build_existing_title_set(games)
+    banner_owners = build_banner_owner_map(games)
 
     # Fold in admin-deleted titles (both raw and clean_title()-normalized,
     # same as build_existing_title_set) so is_new_title() treats them as
@@ -576,23 +679,31 @@ def main():
             continue
 
         game_info.setdefault("Game Size", "")
-        banner = get_steam_banner(search_title)
+        banner_details = resolve_cover(search_title, banner_owners, url)
+        banner = banner_details["url"] if banner_details else ""
+        cover_status = "verified" if banner else "missing"
 
         entry = {
             "title": stored_title,
             "banner_url": banner,
+            "banner_status": cover_status,
+            "banner_source": banner_details.get("source", "") if banner_details and banner else "",
+            "banner_match_title": banner_details.get("match_title", "") if banner_details and banner else "",
+            "banner_confidence": round(float(banner_details.get("confidence", 0)), 3) if banner_details and banner else 0,
             "system_requirements": system_requirements,
             "game_info": game_info,
             "url": url,
             "pending_review": True,
         }
         games.append(entry)
+        if banner:
+            banner_owners.setdefault(banner, set()).add(stored_title)
         existing_lower.add(stored_title.lower())
         existing_lower.add(search_title.lower())
         added.append(stored_title)
 
         size_note = game_info.get("Game Size") or "size unknown"
-        banner_note = "Steam art found" if banner else "no Steam match — banner left blank"
+        banner_note = f"cover from {banner_details['source']}" if banner else "no verified cover — banner left blank"
         print(f"  [{i}/{len(to_process)}] ADD: {stored_title!r} ({size_note}, {banner_note})")
 
         if len(added) % SAVE_EVERY == 0:
@@ -618,7 +729,44 @@ def _selftest():
     assert is_new_title("Call of Duty: Black Ops II", existing) is True
     assert is_new_title("Age of History 2: Definitive Edition", existing) is True
     assert is_new_title("Mortal Kombat 11", existing) is False
+    assert title_similarity("Minecraft", "Minecraft Dungeons") < MIN_BANNER_TITLE_SIMILARITY
+    assert title_similarity("Minecraft Dungeons", "Minecraft Dungeons") == 1.0
+    for ours, theirs in [
+        ("Minecraft", "Minecraft Dungeons"),
+        ("Ragnar", "God of War Ragnarök"),
+        ("Hades", "Hades II"),
+        ("DOOM", "DOOM: The Dark Ages"),
+        ("The Witcher 3: Wild Hunt", "The Witcher 3: Wild Hunt Remastered"),
+        ("Hitman 2", "Hitman 2: Silent Assassin"),
+        ("Euro Truck Simulator", "Euro Truck Simulator 2"),
+    ]:
+        assert not titles_match(ours, theirs), (ours, theirs)
+    assert not titles_match("The Elder Scrolls V: Skyrim SE", "The Elder Scrolls V: Skyrim VR")
+    assert not titles_match("Resident Evil 4 Remake", "Resident Evil 4: Otome Edition")
+    for ours, theirs in [
+        ("Minecraft Dungeons", "Minecraft Dungeons"),
+        ("Far Cry 5: Gold Edition", "Far Cry® 5"),
+        ("Hades 2", "Hades II"),
+        ("Assassin’s Creed III", "Assassin's Creed® III"),
+        ("The Elder Scrolls V: Skyrim", "Elder Scrolls V: Skyrim Special Edition"),
+    ]:
+        assert titles_match(ours, theirs), (ours, theirs)
+    listing = (
+        '<div class="slide lazyload" data-back="https://steamrip.com/wp-content/uploads/a/dungeons.jpg" '
+        'data-eio-rwidth="584" data-eio-rheight="800"> <a href="minecraft-dungeons-free-download-3j/" '
+        'class="all-over-thumb-link"><span class="screen-reader-text">Minecraft Dungeons Free Download (v1 + Co-op)</span></a>'
+        '<div class="slide lazyload" data-back="https://steamrip.com/wp-content/uploads/a/minecraft.jpg" '
+        'data-eio-rwidth="584" data-eio-rheight="800"> <a href="minecraft-2d/" '
+        'class="all-over-thumb-link"><span class="screen-reader-text">Minecraft Free Download (v1.20.4)</span></a>'
+    )
+    assert parse_steamrip_cover(listing, "Minecraft")["url"].endswith("/minecraft.jpg")
+    assert parse_steamrip_cover(listing, "Minecraft Dungeons")["url"].endswith("/dungeons.jpg")
+    assert parse_steamrip_cover(listing, "Minecraft Legends") is None
+    owners = {"x.jpg": {"Minecraft Dungeons (v1.17.0.0 + Co-op)"}}
+    assert used_by_other_title("x.jpg", "Minecraft", owners)
+    assert not used_by_other_title("x.jpg", "Minecraft Dungeons", owners)
     print("is_new_title selftest OK")
+    print("cover title matching selftest OK")
 
 
 if __name__ == "__main__":

@@ -17,6 +17,7 @@ Usage:
     python enrich_steam_data.py --repair-covers # retry the existing cover backlog
     python enrich_steam_data.py --retry-failed  # retry transient/invalid old matches
     python enrich_steam_data.py --title "Game Title" # repair one title
+    python enrich_steam_data.py --recheck-matches # drop + redo matches that fail titles_match()
 """
 import json
 import re
@@ -41,51 +42,14 @@ STATE_FILE = "steam_enrich_progress.json"
 OUTPUT_FILE = "steamrip_games_gameplay.json"
 
 REQUEST_DELAY = 0.25
-MIN_SIMILARITY = 0.55
 RETRYABLE_FAILURE_REASONS = {"appdetails_failed_or_not_game"}
 
-# scrape_steamrip_recent.py's own Steam banner search (unconditional first
-# search result, no fuzzy scoring) sometimes comes up empty for a title
-# that THIS script's fuzzier match (MIN_SIMILARITY-scored, cutoff 0.55)
-# still finds fine. Rather than leave the card with no cover art forever,
-# backfill banner_url straight from the appid this script already
-# confirmed - same CDN path scrape_steamrip_recent.py's own get_steam_banner()
-# uses, so it stays the exact same shape of URL everywhere in the catalog.
-BANNER_CDN_TEMPLATE = "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/{appid}/library_600x900.jpg"
-# Reused as-is (not reimplemented) for the same reason scrape_steamrip_recent.py
-# itself falls back to these when the flat CDN path 404s (common for very
-# recently released titles) - SteamGridDB actually has portrait/grid art,
-# unlike this title's own screenshots (landscape, would look cropped/wrong
-# in the site's portrait card layout - see get_steam_banner()'s own comment
-# about why Steam's landscape tiny_image was dropped as a fallback).
-from scrape_steamrip_recent import (
-    get_steam_banner,
-    steamgriddb_grids_for_steam_appid,
-    steamgriddb_autocomplete,
-    select_best_grid,
-    fetch_json,
-    STEAM_API_BASE,
-    STEAMGRIDDB_API_KEY,
-)
-
-
-def steamgriddb_cover_by_name(title):
-    # Last-resort tier, same as get_steam_banner()'s own: search SteamGridDB
-    # by title instead of the (already-confirmed) Steam appid - only reached
-    # once both appid-based lookups above have already come up empty.
-    for candidate in steamgriddb_autocomplete(title)[:3]:
-        try:
-            grids_payload = fetch_json(
-                f"{STEAM_API_BASE}/grids/game/{candidate['id']}",
-                headers={"Authorization": f"Bearer {STEAMGRIDDB_API_KEY}"},
-            )
-            grids = grids_payload.get("data") or []
-        except Exception:
-            grids = []
-        cover = select_best_grid(grids)
-        if cover:
-            return cover
-    return None
+# Shared with the scraper on purpose: one strict "same game?" rule
+# (titles_match) for both cover art and gameplay data, and one cover lookup
+# (resolve_cover). This script used to accept any Steam result scoring 0.55,
+# which gave "Minecraft" Minecraft Legends' trailer and Minecraft Dungeons'
+# cover.
+from scrape_steamrip_recent import build_banner_owner_map, resolve_cover, titles_match
 
 TRAILING_TAG_RE = re.compile(
     r"""\s*(?:
@@ -158,15 +122,6 @@ def http_get_json(url, retries=4):
     return None
 
 
-def url_exists(url):
-    try:
-        req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return resp.status == 200
-    except Exception:
-        return False
-
-
 def _storesearch(term):
     q = urllib.parse.quote(term)
     url = f"https://store.steampowered.com/api/storesearch/?term={q}&l=english&cc=us"
@@ -199,12 +154,14 @@ def search_appid(cleaned_title):
         if item.get("type") != "app":
             continue
         name = item.get("name", "")
+        if not titles_match(target, name):
+            continue
         score = SequenceMatcher(None, target, name.lower()).ratio()
         if score > best_score:
             best_score = score
             best = item
 
-    if best and best_score >= MIN_SIMILARITY:
+    if best:
         return best["id"], best["name"], best_score
     return None
 
@@ -332,6 +289,14 @@ def main():
     games_by_title = {g["title"]: g for g in games if g.get("title")}
 
     state = load_state()
+    if "--recheck-matches" in sys.argv:
+        stale = [
+            t for t, v in state.items()
+            if v.get("matched") and not titles_match(clean_title(t), v.get("data", {}).get("steam_name") or "")
+        ]
+        for t in stale:
+            del state[t]
+        print(f"--recheck-matches: dropped {len(stale)} match(es) that fail titles_match(); re-processing them.")
     remaining = [t for t in titles if t not in state]
     if requested_title:
         if requested_title not in valid_titles:
@@ -398,40 +363,34 @@ def main():
     print(f"\nDone. {len(state)}/{total} titles processed, {total_matched} matched with gameplay data.")
 
     # Retry missing banners for titles handled in this run. The full existing
-    # backlog is intentionally opt-in: a few cover providers can be slow or
-    # rate-limited, and making every routine scrape retry every old miss would
-    # delay its derived gameplay files. Use --repair-covers to backfill every
-    # blank card explicitly. The shared lookup uses Steam -> SteamGridDB ->
-    # SteamDB and is safe to retry.
+    # backlog is intentionally opt-in (--repair-covers): cover providers can
+    # be slow or rate-limited, and retrying every old miss on every routine
+    # run would delay the derived gameplay files.
+    banner_owners = build_banner_owner_map(games)
     banners_fixed = []
     for title, game in games_by_title.items():
         if not repair_covers and title not in processed_titles:
             continue
         if game.get("banner_url"):
             continue
-        v = state.get(title, {})
-        appid = v.get("data", {}).get("steam_appid") if v.get("matched") else None
-        cover = ""
-        if appid:
-            cdn_url = BANNER_CDN_TEMPLATE.format(appid=appid)
-            if url_exists(cdn_url):
-                cover = cdn_url
-            else:
-                cover = select_best_grid(steamgriddb_grids_for_steam_appid(appid)) or ""
-            time.sleep(REQUEST_DELAY)
-        if not cover:
-            cover = get_steam_banner(clean_title(title))
-        if cover:
-            game["banner_url"] = cover
-            banners_fixed.append(title)
+        found = resolve_cover(title, banner_owners, game.get("url") or "")
         time.sleep(REQUEST_DELAY)
+        if not found:
+            continue
+        game["banner_url"] = found["url"]
+        game["banner_status"] = "verified"
+        game["banner_source"] = found["source"]
+        game["banner_match_title"] = found["match_title"]
+        game["banner_confidence"] = round(float(found["confidence"]), 3)
+        banner_owners.setdefault(found["url"], set()).add(title)
+        banners_fixed.append(title)
 
     if banners_fixed:
         tmp = DATA_FILE + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
             json.dump(games, f, ensure_ascii=False, indent=2)
         _atomic_replace(tmp, DATA_FILE)
-        print(f"Backfilled banner_url for {len(banners_fixed)} title(s) that had a Steam match but no cover art:")
+        print(f"Backfilled banner_url for {len(banners_fixed)} title(s) that had no cover art:")
         for title in banners_fixed:
             print(f"  {title}")
 
