@@ -259,7 +259,10 @@
         selectedArr.forEach((game, i) => {
             const sizeStr = game.game_info ? game.game_info['Game Size'] : null;
             totalSize += estimatedSizeGB(sizeStr);
-            const title = game.title || 'Untitled';
+            let title = game.title || 'Untitled';
+            // PS2 titles are Redump names ("Foo (USA) (En,Fr) (Disc 1) (v1.01)") — drop
+            // the region/language/disc/version tags, keep edition names.
+            if (game._category === 'ps2') title = title.replace(/\s*\((?:USA|Europe|Japan|World|Asia|[A-Z][a-z](?:,[A-Z][a-z])*|Disc \d+|Rev \d+|v\d[^)]*)\)/g, '');
             const labeled = addPlatformSuffixIfNeeded(stripVersionSuffix(title), game);
             lines.push(`${i + 1}. ${labeled}`);
         });
