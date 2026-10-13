@@ -109493,5 +109493,169 @@
     },
     "url": "https://steamrip.com/towerfolk-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Car Park Capital",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3031880/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Car Park Capital",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Memory": "8 GB RAM",
+      "Graphics": "OpenGL 4.2+",
+      "Storage": "1 GB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, Simulation, Strategy, Early Access",
+      "Developer": "Hilkojj Interactive",
+      "Platform": "PC",
+      "Game Size": "672.2 MB",
+      "Released By": "Goldberg + bullwinkle CSF",
+      "Version": "Build 25801659",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/car-park-capital-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Okko The Exiled",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3479420/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Okko The Exiled",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 or 11",
+      "Processor": "Intel Core2 Duo E8400, 3.0GHz or AMD",
+      "Memory": "2 GB RAM",
+      "Graphics": "Geforce 9600 GT or AMD HD 3870 512MB",
+      "DirectX": "Version 11",
+      "Storage": "4 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie",
+      "Developer": "Frozen Flame Interactive",
+      "Platform": "PC",
+      "Game Size": "310.8 MB",
+      "Released By": "DINOByTES",
+      "Version": "Build 25871758",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/okko-the-exiled-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Wild West Supermarket Simulator",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/10/Wild_West_Supermarket_Simulator_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Wild West Supermarket Simulator",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 x64",
+      "Processor": "Intel Core i5-6400 or AMD Ryzen 5 1600",
+      "Memory": "16 GB RAM",
+      "Graphics": "Nvidia GeForce RTX 2070, 8 GB or AMD Radeon RX 5700 XT, 8 GB",
+      "DirectX": "Version 11",
+      "Storage": "10 GB available space",
+      "Additional Notes": "Low 1080p @ 60 FPS"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Developer": "SunDust",
+      "Platform": "PC",
+      "Game Size": "3.1 GB",
+      "Released By": "Razor1911",
+      "Version": "Build 24951273",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/wild-west-supermarket-simulator-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Schrodinger’s Cat Burglar",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2111550/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Schrodinger's Cat Burglar",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10, 64-bit / Windows 11, 64-bit",
+      "Processor": "Intel Core i5 / AMD equivalent",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GTX 750-Ti / AMD RX 550, 2GB VRam",
+      "DirectX": "Version 11",
+      "Storage": "8 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie",
+      "Developer": "Abandoned Sheep",
+      "Platform": "PC",
+      "Game Size": "5.7 GB",
+      "Released By": "DINOByTES",
+      "Version": "Build 25592678",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/schrodingers-cat-burglar-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Warhammer 40,000: Space Marine – Anniversary Edition",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/36d84e693751820e0ebbc2cf3f1178b9.png",
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Warhammer 40,000: Space Marine - Anniversary Edition",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows XP SP3, Windows Vista SP1, Windows 7",
+      "Processor": "2.0Ghz Dual core CPU (any Core 2 Duo or AMD X2 or better)",
+      "Memory": "1GB (XP), 2GB (Vista), 2GB (Windows 7)",
+      "Graphics": "256MB Video Card using Shader Model 3 (Nvidia GeForce 8800GT, AMD Radeon 3850 and above)",
+      "DirectX®": "9.0c",
+      "Hard Drive": "20 GB space free (10 GB free after install)",
+      "Sound": "Laptop and Notebook users will need to download the newest Nvidia 280.26 or AMD Catalyst 11.8 drivers."
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Relic Entertainment",
+      "Platform": "PC",
+      "Game Size": "10.5 GB",
+      "Released By": "LumaCEG, Ty CS + lanternjoe CSF",
+      "Version": "Build 7412325",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/warhammer-40000-space-marine-anniversary-edition-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Battleplan",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/10/Battleplan_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Battleplan",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "64-bit Windows 11 / 10",
+      "Processor": "Intel Celeron G4920 (Legacy: i3-2100) , AMD Athlon 200GE",
+      "Memory": "4 GB RAM",
+      "Graphics": "Nvidia GeForce GT 1030 (Legacy: Nvidia GeForce GTS 450), AMD Radeon RX 460 (Legacy: ATI Radeon HD 5570)",
+      "DirectX": "Version 11",
+      "Network": "Broadband Internet connection",
+      "Storage": "8 GB available space",
+      "Sound Card": "DirectX Compatible Sound Card"
+    },
+    "game_info": {
+      "Genre": "Strategy",
+      "Developer": "Foolish Mortals Games Inc.",
+      "Platform": "PC",
+      "Game Size": "2.7 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25825223",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/battleplan-free-download/",
+    "pending_review": true
   }
 ]
