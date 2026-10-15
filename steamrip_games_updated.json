@@ -109684,5 +109684,299 @@
     },
     "url": "https://steamrip.com/valor-mortis-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Hubert",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/764930/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Hubert",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i5-6600K",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GTX 1060",
+      "DirectX": "Version 11",
+      "Additional Notes": "SSD"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Casual, Indie",
+      "Developer": "Brocap Studio s.r.o.",
+      "Platform": "PC",
+      "Game Size": "12 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25934126",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/hubert-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Allogloom",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2644100/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Allogloom",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 or latest.",
+      "Processor": "Intel Core i5",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GT 640",
+      "DirectX": "Version 10"
+    },
+    "game_info": {
+      "Genre": "Adventure, Casual",
+      "Developer": "Galactic Ghosty",
+      "Platform": "PC",
+      "Game Size": "6.1 GB",
+      "Released By": "Razor1911",
+      "Version": "Build 25901410",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/allogloom-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "over the hill",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2929250/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "over the hill",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i5-7400 / AMD Ryzen 5 2600",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GTX 1070 / AMD Radeon RX 5600",
+      "DirectX": "Version 11",
+      "Network": "Broadband Internet connection",
+      "Storage": "4 GB available space",
+      "Additional Notes": "Specs tested on FullHD resolution"
+    },
+    "game_info": {
+      "Genre": "Adventure, Casual, Indie, Racing, Simulation, Sports",
+      "Developer": "Funselektor Labs Inc.",
+      "Platform": "PC",
+      "Game Size": "2.3 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25931885",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/over-the-hill-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Vellum",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/917950/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Vellum",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core i5-6400 / AMD FX-8320",
+      "Memory": "4 GB RAM",
+      "Graphics": "GTX 960 / R9 280",
+      "DirectX": "Version 11",
+      "Network": "Broadband Internet connection",
+      "Storage": "4 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie",
+      "Developer": "Alvios Games",
+      "Platform": "PC",
+      "Game Size": "2.5 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25583164",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/vellum-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Burn With Me",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2954010/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Burn With Me",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10+",
+      "Processor": "2.5Ghz or better",
+      "Memory": "4 GB RAM",
+      "Graphics": "2GB Video Memory",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Strategy",
+      "Developer": "Nozomu Games",
+      "Platform": "PC",
+      "Game Size": "786.2 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25912223",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/burn-with-me-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Life, the Universe, and Restaurants",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/10/Life__the_Universe__and_Restaurants_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Life, the Universe, and Restaurants",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 or 11 64bit",
+      "Processor": "Intel® Core™ i5-6xxx, AMD FX™-6300",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA® GeForce® GTX 750 or AMD Radeon™ R7 265",
+      "Storage": "1 GB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Developer": "GARRY",
+      "Platform": "PC",
+      "Game Size": "1 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25926002",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/life-the-universe-and-restaurants-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Genome Guardian 2",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/10/Genome_Guardian_2_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Genome Guardian 2",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Memory": "4096 MB RAM",
+      "Storage": "1000 MB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Casual, Indie, RPG",
+      "Developer": "Alpherior",
+      "Platform": "PC",
+      "Game Size": "876.1 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25938646",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/genome-guardian-2-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Alpha Nomos",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2529960/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Alpha Nomos",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Microsoft Windows 10 / 11 64-bit",
+      "Processor": "Intel Core i5-6500 or AMD Ryzen 3 1200",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1050 or AMD Radeon RX 560",
+      "DirectX": "Version 12",
+      "Storage": "15 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie",
+      "Developer": "RibCage Games",
+      "Platform": "PC",
+      "Game Size": "734.3 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 25881977",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/alpha-nomos-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Witch Cabin Cleanup",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/5e6dc2899353ccd01136a69b30c8a9d8.jpg",
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Witch Cabin Cleanup",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10+",
+      "Processor": "2.5 GHz Quad-core Intel or AMD processor",
+      "Memory": "4 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1050 | AMD Radeon RX-580",
+      "Storage": "500 MB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Simulation",
+      "Developer": "Cleanup Crew!",
+      "Platform": "PC",
+      "Game Size": "3.4 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25938542",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/witch-cabin-cleanup-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Felvidek",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2299900/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Felvidek",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows XP, Vista, 7, 8, 10",
+      "Processor": "2.0 GHz or faster",
+      "Memory": "512 MB RAM",
+      "Graphics": "1024 x 768 or higher resolution",
+      "Storage": "700 MB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, RPG",
+      "Developer": "Jozef Pavelka",
+      "Platform": "PC",
+      "Game Size": "580.9 MB",
+      "Released By": "Goldberg + CSF",
+      "Version": "Build 18709219",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/felvidek-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Hood Warfare 2 (Build 25921858 + Online)",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/10/Hood_Warfare_2_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Hood Warfare 2",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 64-bit (version 1909 or newer)",
+      "Processor": "Intel Core i5-9600K or AMD Ryzen 5 3600 (6 cores)",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1660, AMD Radeon RX 5600 XT 6 GB",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "25 GB available space",
+      "Sound Card": "DirectX compatible"
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "Trapstar Games",
+      "Platform": "PC",
+      "Game Size": "12.9 GB",
+      "Released By": "Unsteam + CSF",
+      "Version": "Build 25921858",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/hood-warfare-2-free-download/",
+    "pending_review": true
   }
 ]
