@@ -112440,5 +112440,89 @@
     },
     "url": "https://steamrip.com/the-wolf-among-us-remastered-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Godzilla: Destroy All Monsters Melee Remastered",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/7dd4ec1b9ec4ee97d0179cce68213eae.jpg",
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Godzilla: Destroy All Monsters Melee Remastered",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 64-bit",
+      "Processor": "Intel Core i7-9700 or AMD Ryzen 5 3600",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GTX 1650 (4 GB VRAM)",
+      "DirectX": "Version 12",
+      "Storage": "8 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Casual",
+      "Developer": "Pipeworks Studios",
+      "Platform": "PC",
+      "Game Size": "4.2 GB",
+      "Released By": "RUNE",
+      "Version": "Build 26412327",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/godzilla-destroy-all-monsters-melee-remastered-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Dreadful River",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1807360/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Dreadful River",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10, 11",
+      "Processor": "Quad-core Intel or AMD, 2.5 GHz",
+      "Memory": "8 GB RAM",
+      "Graphics": "DirectX 11, 12 compatible graphics card, NVIDIA GeForce GTX 1060",
+      "DirectX": "Version 11",
+      "Storage": "14 GB available space",
+      "Sound Card": "DirectX compatible Sound card",
+      "Additional Notes": "Latest drivers Vulkan: AMD (21.11.3+) and NVIDIA (496.76+)"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG, Strategy",
+      "Developer": "SureAI",
+      "Platform": "PC",
+      "Game Size": "11 GB",
+      "Released By": "RUNE",
+      "Version": "Build 25420425",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dreadful-river-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Curse of Resthaven",
+    "banner_url": "",
+    "banner_status": "missing",
+    "banner_source": "",
+    "banner_match_title": "",
+    "banner_confidence": 0,
+    "system_requirements": {
+      "OS": "64-bit Windows 10, 11",
+      "Processor": "3.0 GHz Quad Core CPU",
+      "Memory": "8 GB RAM",
+      "Graphics": "GeForce GTX 750 Ti or Radeon RX 460",
+      "DirectX": "Version 11",
+      "Storage": "4 GB available space",
+      "Additional Notes": "Requires a 64-bit processor and operating system"
+    },
+    "game_info": {
+      "Genre": "Adventure, RPG",
+      "Developer": "Hilltop Studios",
+      "Platform": "PC",
+      "Game Size": "2.1 GB",
+      "Released By": "RUNE",
+      "Version": "Build 26332206",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/curse-of-resthaven-free-download/",
+    "pending_review": true
   }
 ]
