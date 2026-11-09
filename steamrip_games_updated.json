@@ -1,5 +1,32 @@
 [
   {
+    "title": "Onimusha: Way of the Sword",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2638890/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Onimusha: Way of the Sword",
+    "banner_confidence": 1,
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "Intel Core i5-8400 / AMD Ryzen 3 3100",
+      "Memory": "16 GB RAM",
+      "Graphics": "GeForce GTX 1660(6GB) / Radeon RX 5500 XT(8GB)",
+      "DirectX": "Version 12",
+      "Storage": "50 GB available space",
+      "Additional Notes": "30 FPS gameplay can be achieved on the ‘Low’ Graphics Preset at 1080p resolution (using upscaling). Note: The frame rate may drop during periods of excessive load. Note: An SSD is required. – The specifications are subject to change without prior notice. – Super Resolution is enabled via NVIDIA DLSS 4.5 and AMD FSR 3.1. – Upscaling performance estimations were made based on DLSS 4.0 and FSR 3.1 usage. – Depending on your specifications, it is advised to increase the memory available in your system if you wish to run other programs (such as for recording footage, or streaming) while playing the game."
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, RPG",
+      "Developer": "CAPCOM Co., Ltd.",
+      "Platform": "PC",
+      "Game Size": "55 GB",
+      "Released By": "voices38",
+      "Version": "Build 24769601",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/onimusha-way-of-the-sword-free-download/"
+  },
+  {
     "title": "Bloodborne: GOTY (Recompiled)",
     "banner_url": "https://steamrip.com/wp-content/uploads/2026/10/Bloodborne_thumbnail.jpg",
     "banner_status": "verified",
@@ -110749,7 +110776,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "We Were Here Tomorrow",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "AMD Ryzen 5 3600 or equivalent",
@@ -110777,7 +110804,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Scam With Your Friends",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 / 11 (64-bit)",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -110805,7 +110832,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "ARK: Survival Evolved",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7/8.1/10 (64-bit versions)",
       "Processor": "Intel Core i5-2400/AMD FX-8320 or better",
@@ -110833,7 +110860,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Moon Sweepers",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -110861,7 +110888,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Groundwork Simulator",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -110889,7 +110916,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "ONE PIECE: Grand Gourmet",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "Intel Core i3-8100 / AMD Ryzen 3 3100",
@@ -110917,7 +110944,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Devices Tycoon",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows® 7 Home 32 Bit",
       "Processor": "2.0 GHz Single Core",
@@ -110943,7 +110970,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Thank You Bus Driver",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i3-3225 / AMD Phenom II X6 1100T",
@@ -110970,7 +110997,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Ship Explorer",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 version 21H1 (10.0.19043)",
       "Processor": "AMD Ryzen 5 2600X, Intel Core i7-6800K",
@@ -110998,7 +111025,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "F-Drones Simulator",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 8/10",
       "Processor": "Intel Core i3-4340 / AMD FX-6300",
@@ -111026,7 +111053,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "ASPIS",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "AMD Ryzen 5 2600 / Intel Core i5-10400F",
@@ -111053,7 +111080,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Every Day We Fight",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows® 10 (64-bit)",
       "Processor": "Intel® Core™ i5-4590 (quad-core) / AMD® FX-Series™ FX-8350 (quad-core)",
@@ -111080,7 +111107,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Ticket to Ride®",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 or above",
       "Processor": "2 GHz single core processor",
@@ -111107,7 +111134,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Borderlands 4",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 / Windows 11",
       "Processor": "Intel Core i7-9700 / AMD Ryzen 7 2700X",
@@ -111134,7 +111161,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Dementium II",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 (or later)",
       "Processor": "Intel or AMD Dual Core at 2 GHz or better",
@@ -111189,7 +111216,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Stupid Never Dies",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "Intel corei5-8500 / AMD Ryzen 5 3500",
@@ -111216,7 +111243,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Warrior Cats: Clans of the Forest",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10/11 64-bit",
       "Processor": "Quad-core Intel or AMD, 2.8 GHz or higher",
@@ -111243,7 +111270,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "You Are Empty: Absolute Edition",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel or AMD with at least 2 cores",
@@ -111270,7 +111297,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "BrokenLore: DON’T LIE",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64 bits",
       "Processor": "Intel Core i5",
@@ -111296,7 +111323,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Golden Swirl",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "10 (64-bit)",
       "Processor": "Intel Core i3-2100 or equivalent",
@@ -111323,7 +111350,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Parasite",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7",
       "Processor": "2.0Ghz or higher",
@@ -111375,7 +111402,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Mutant Football League 2",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i3-6100 3.7GHz",
@@ -111401,7 +111428,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Village in the Shade",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Intel Core i5-6400",
@@ -111428,7 +111455,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Do No Harm",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Dual Core CPU",
@@ -111454,7 +111481,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Rogue AI Simulator",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7 or newer",
       "Processor": "Processor 2 GHz (Dual Core)",
@@ -111482,7 +111509,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Deep Dish Dungeon",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10, 11 or superior",
       "Processor": "Intel® Core™ i3 or superior",
@@ -111510,7 +111537,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Dub Together",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-Bit",
       "Processor": "4 Kerne, 2,5 GHz",
@@ -111536,7 +111563,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Stygian: Outer Gods",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel i5-10600 / AMD Ryzen 5 3600",
@@ -111563,7 +111590,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "CRACK",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel i5-6600 / Ryzen 5 1600",
@@ -111590,7 +111617,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "REKA",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit version or newer",
       "Processor": "Intel Core i5 6400 Or AMD Ryzen 5 1400",
@@ -111617,7 +111644,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "ShredDead",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7 or later",
       "Processor": "Intel Core 2 Duo 2.40 GHz / AMD Athlon 2.40 GHz",
@@ -111644,7 +111671,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "ANOMALITH",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "Intel Core i5-6600 / AMD Ryzen 5 2600",
@@ -111671,7 +111698,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "EVERSPACE™ 2",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core [email protected] or AMD FX [email protected]",
@@ -111698,7 +111725,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Virtue and a Sledgehammer",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 x64 Bit",
       "Processor": "Intel Core i5-6600K / AMD Ryzen 5 3550H",
@@ -111726,7 +111753,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "The Boss Gangster: Criminal Empire",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows® 10 Home 64 Bit",
       "Processor": "Intel i5 AMD Ryzen 5",
@@ -111753,7 +111780,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Dog Man: Bark in Action",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7+",
       "Processor": "Intel Core i5-5257U, AMD Ryzen 3 1200 or equivalent",
@@ -111780,7 +111807,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Probably Stolen – Cyberpunk Shopkeeper Sim",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Win 10, x64",
       "Processor": "Intel Core i3 or equivalent",
@@ -111861,7 +111888,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "COP BASTARD",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "with a clock frequency of 2.6 GHz",
@@ -111939,7 +111966,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Heir of the Dog",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows XP",
       "Processor": "2 GHz Dual Core CPU",
@@ -111992,7 +112019,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Croc 2 Kingdom of the Gobbos",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Memory": "16 GB RAM",
@@ -112011,40 +112038,12 @@
     "pending_review": true
   },
   {
-    "title": "Onimusha: Way of the Sword",
-    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2638890/library_600x900.jpg",
-    "banner_status": "verified",
-    "banner_source": "Steam",
-    "banner_match_title": "Onimusha: Way of the Sword",
-    "banner_confidence": 1.0,
-    "system_requirements": {
-      "OS": "Windows 11",
-      "Processor": "Intel Core i5-8400 / AMD Ryzen 3 3100",
-      "Memory": "16 GB RAM",
-      "Graphics": "GeForce GTX 1660(6GB) / Radeon RX 5500 XT(8GB)",
-      "DirectX": "Version 12",
-      "Storage": "50 GB available space",
-      "Additional Notes": "30 FPS gameplay can be achieved on the ‘Low’ Graphics Preset at 1080p resolution (using upscaling). Note: The frame rate may drop during periods of excessive load. Note: An SSD is required. – The specifications are subject to change without prior notice. – Super Resolution is enabled via NVIDIA DLSS 4.5 and AMD FSR 3.1. – Upscaling performance estimations were made based on DLSS 4.0 and FSR 3.1 usage. – Depending on your specifications, it is advised to increase the memory available in your system if you wish to run other programs (such as for recording footage, or streaming) while playing the game."
-    },
-    "game_info": {
-      "Genre": "Action, Adventure, RPG",
-      "Developer": "CAPCOM Co., Ltd.",
-      "Platform": "PC",
-      "Game Size": "55 GB",
-      "Released By": "voices38",
-      "Version": "Build 24769601",
-      "Pre-Installed Game": true
-    },
-    "url": "https://steamrip.com/onimusha-way-of-the-sword-free-download/",
-    "pending_review": true
-  },
-  {
     "title": "Lacey’s Flash Games",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3459340/library_600x900.jpg",
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Lacey's Flash Games",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Memory": "8 GB RAM",
@@ -112098,7 +112097,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Giggleland",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 or higher 64bit",
       "Processor": "Intel Core i3 2.00 GHz or AMD equivalent",
@@ -112124,7 +112123,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Airport Contraband",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i3 3.0 GHz or Ryzen 3xxx",
@@ -112204,7 +112203,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Ecstatica II",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "1.8 GHz",
@@ -112231,7 +112230,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Egypt: Old Kingdom",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 (version 21H1) or newer, 64-bit",
       "Processor": "64-bit dual-core 1.8 GHz (Intel Core 2 Duo / AMD Athlon X2 or better)",
@@ -112286,7 +112285,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Hunting Simulator 3",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 11 (64-bit)",
       "Processor": "Intel Core i5-9400F or AMD Ryzen 5 3600",
@@ -112366,7 +112365,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Terrible Lizards",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel® Core™ i5-6400 / AMD Ryzen™ 3 1200",
@@ -112394,7 +112393,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "The Jackbox Party Pack 12",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10+",
       "Processor": "2.66 Ghz Core 2 Duo or Greater",
@@ -112447,7 +112446,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Godzilla: Destroy All Monsters Melee Remastered",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i7-9700 or AMD Ryzen 5 3600",
@@ -112474,7 +112473,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Dreadful River",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10, 11",
       "Processor": "Quad-core Intel or AMD, 2.5 GHz",
@@ -112557,7 +112556,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Nomad Drive",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 / 11 (64-bit)",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600 (6 cores)",
@@ -112584,7 +112583,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Hull Rupture",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 version 21H1 or newer",
       "Processor": "Intel i7-8700, Ryzen 1600",
@@ -112611,7 +112610,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Can 'Em All",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "AMD Ryzen 3 1200 / Intel Core i3-7100",
@@ -112693,7 +112692,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Saloon Simulator",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10/11",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -112747,7 +112746,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Frontier Paladin",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel 2.3 Ghz CPU or equivalent",
@@ -112801,7 +112800,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Lost Host",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Ryzen 5 3600",
@@ -112827,7 +112826,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Worship",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7",
       "Processor": "Quad Core Processor",
@@ -112851,7 +112850,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "ATMOSFAR",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel Core i5-7500 (3.4 GHz 4 Core) or AMD Ryzen 5 1500X (3.5 GHz 4 Core)",
@@ -112880,7 +112879,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Find The Needle",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "4 cores / 8 threads, Intel i5-8400 or Ryzen 5 2600",
@@ -112935,7 +112934,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Queen's Domain",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i5 quad core, 2.5ghz",
