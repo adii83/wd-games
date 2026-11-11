@@ -112978,5 +112978,58 @@
     },
     "url": "https://steamrip.com/casualties-unknown-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "DREADMOOR (v0.4.39)",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/90f840f5e0afcf2b34138b18d0ec189b.png",
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "DREADMOOR",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 or higher",
+      "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
+      "Memory": "8 GB RAM",
+      "Graphics": "Nvidia GTX 1060 (6 GB) / AMD Radeon RX 580 (8 GB)",
+      "DirectX": "Version 12",
+      "Storage": "7 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie, RPG, Simulation, Early Access",
+      "Developer": "Dream Dock",
+      "Platform": "PC",
+      "Game Size": "5.8 GB",
+      "Released By": "RUNE emu",
+      "Version": "v0.4.39 | Early Access",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dreadmoor-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Warhammer Survivors",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/48512a0e8e3f3e78c4bfbbc08f2175bf.png",
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "Warhammer Survivors",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 Home 64-Bit",
+      "Processor": "Dual Core 2.4 Ghz x86-64",
+      "Memory": "4 GB RAM",
+      "Graphics": "GTX 750 or equivalent graphics card",
+      "Storage": "5 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Casual, Indie, RPG",
+      "Developer": "Auroch Digital",
+      "Platform": "PC",
+      "Game Size": "470 MB",
+      "Released By": "Mr_GOLDBERG emu",
+      "Version": "Build 26544303 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/warhammer-survivors-free-download/",
+    "pending_review": true
   }
 ]
