@@ -113031,5 +113031,228 @@
     },
     "url": "https://steamrip.com/warhammer-survivors-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Terralysia",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2540670/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Terralysia",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 64bit",
+      "Processor": "Intel Core i5-8400",
+      "Memory": "8 GB RAM",
+      "Graphics": "GeForce GTX 1060 6GB / Radeon RX 580",
+      "DirectX": "Version 12",
+      "Storage": "5 GB available space",
+      "Sound Card": "DirectX Compatible"
+    },
+    "game_info": {
+      "Genre": "Action, Adventure, Indie",
+      "Developer": "Tiny Game Dev",
+      "Platform": "PC",
+      "Game Size": "2.1 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 25872443",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/terralysia-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Cinema Theater Tycoon",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3433110/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Cinema Theater Tycoon",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "Intel Core2 Quad Q8400 or AMD Phenom II X2 550",
+      "Memory": "6 GB RAM",
+      "Graphics": "NVIDIA GeForce GT 520, 1 GB or AMD Radeon HD 5570, 1 GB",
+      "DirectX": "Version 11",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, Simulation, Strategy",
+      "Developer": "SouthWest Games",
+      "Platform": "PC",
+      "Game Size": "625.4 MB",
+      "Released By": "TENOKE",
+      "Version": "Build 26570323",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/cinema-theater-tycoon-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Annihilated",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2638080/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Annihilated",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 11",
+      "Processor": "AMD Ryzen 5 5625U or equivalent",
+      "Memory": "8 GB RAM",
+      "Graphics": "AMD Radeon Graphics (integrated) or equivalent",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Indie, RPG",
+      "Developer": "Death Kumiai",
+      "Platform": "PC",
+      "Game Size": "1.7 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 26587004",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/annihilated-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "BOXROOM",
+    "banner_url": "https://cdn2.steamgriddb.com/grid/652ab39a33654f47469ebc0e3ca85ea9.png",
+    "banner_status": "verified",
+    "banner_source": "SteamGridDB",
+    "banner_match_title": "BOXROOM",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 7 SP1+ (64-bit recommended)",
+      "Processor": "Intel Core i3-2100 / AMD FX-6300 or better",
+      "Memory": "2 GB RAM",
+      "Graphics": "Integrated Graphics (Intel HD 4000 or equivalent)",
+      "DirectX": "Version 10",
+      "Network": "Broadband Internet connection",
+      "Storage": "1 GB available space",
+      "Sound Card": "DirectX-compatible sound card"
+    },
+    "game_info": {
+      "Genre": "Indie, Simulation, Strategy",
+      "Developer": "Nested Loop Studios",
+      "Platform": "PC",
+      "Game Size": "2.3 GB",
+      "Released By": "TENOKE",
+      "Version": "Build 26564418",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/boxroom-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "DreamWorks Shrek 2 Remastered",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/DreamWorks_Shrek_2_Remastered_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "DreamWorks Shrek 2 Remastered",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 11 (64-bit)",
+      "Processor": "Intel i5-10400 / Ryzen 5 3600",
+      "Memory": "8 GB RAM",
+      "Graphics": "NVIDIA 1060 / AMD RX 570",
+      "DirectX": "Version 12",
+      "Storage": "15 GB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure",
+      "Developer": "Aspyr Media",
+      "Platform": "PC",
+      "Game Size": "7.3 GB",
+      "Released By": "RUNE",
+      "Version": "Build 26575938",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dreamworks-shrek-2-remastered-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Ashes of the Singularity II",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/Ashes_of_the_Singularity_II_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Ashes of the Singularity II",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 / 11 64-bit",
+      "Processor": "AMD Ryzen 5 2400G / Intel i5-8500",
+      "Memory": "8 GB RAM",
+      "Graphics": "AMD RX 580 8GB or better / NVIDIA GTX 1660 (6GB) or better",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "50 GB available space",
+      "Additional Notes": "SSD is recommended"
+    },
+    "game_info": {
+      "Genre": "Simulation, Strategy",
+      "Developer": "Oxide Games",
+      "Platform": "PC",
+      "Game Size": "6.4 GB",
+      "Released By": "RUNE",
+      "Version": "Build 26568700",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/ashes-of-the-singularity-ii-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Wing Commander III: Heart of the Tiger: 30th Anniversary Edition",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/Wing_Commander_III_Heart_of_the_Tiger_30th_Anniversary_Edition_thumbnail_steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Wing Commander III: Heart of the Tiger: 30th Anniversary Edition",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10",
+      "Processor": "1.8 GHz",
+      "Memory": "2 GB RAM",
+      "Graphics": "3D graphics card compatible with DirectX 9.0c",
+      "DirectX": "Version 9.0c",
+      "Storage": "16 GB available space"
+    },
+    "game_info": {
+      "Genre": "Action, Simulation",
+      "Developer": "Origin Systems",
+      "Platform": "PC",
+      "Game Size": "15.8 GB",
+      "Released By": "DiNOByTES",
+      "Version": "Build 25789347",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/wing-commander-iii-heart-of-the-tiger-30th-anniversary-edition-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "DOOM 3",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/208200/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "DOOM 3",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Microsoft® Windows® 2000/XP (Does not support Windows Vista/7)",
+      "Processor": "Pentium®IV 1.5 GHz or Athlon® XP 1500+ processor or higher",
+      "Memory": "384 MB RAM",
+      "Graphics": "100% DirectX® 9.0b compatible 64MB Hardware Accelerated video card and the lateset drivers",
+      "DirectX®": "DirectX® 9.0b (included)",
+      "Hard Drive": "2.2GB of uncompressed free hard disk space (plus 400MB for Windows® swap file)",
+      "Sound": "100% DirectX® 9.0b compatible 16-bit sound card and the latest drivers",
+      "Multiplayer Requirements": "Internet (TCP/IP) and LAN (TCP/IP) play supported, Internet play requires broadband connection and latest drivers, LAN play requires network interface card and latest drivers",
+      "Supported Chipsets": "ATI® RadeonTM 8500, ATI® RadeonTM 9000, ATI® RadeonTM 9200, ATI® RadeonTM 9500, ATI® RadeonTM 9600, ATI® RadeonTM 9700, ATI® RadeonTM 9800, all nVidia® GeForceTM 3/Ti series, all nVidia® GeForceTM 4MX series, all nVidia® GeForceTM 4/Ti series, all nVidia® GeForceTM FX series, nVidia® GeForceTM 6800*Important Note: Some 3D accelerator cards with the chipset listed here may not be compatible with the 3D accelerator features utilized by Doom 3. Please refer to your hardware manufacturer for 100% DirectX 9.0b compatibility. This product does not support Microsoft® Windows® 95/98/ME or NT."
+    },
+    "game_info": {
+      "Genre": "Action",
+      "Developer": "id Software",
+      "Platform": "PC",
+      "Game Size": "2 GB",
+      "Released By": "CS + lanternjoe CSF, cs.rin.ru",
+      "Version": "Build 251953",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/doom-3-free-download/",
+    "pending_review": true
   }
 ]
