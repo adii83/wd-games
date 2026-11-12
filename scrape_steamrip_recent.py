@@ -442,7 +442,7 @@ def get_verified_banner(title: str):
 # game (the portrait <img>s on a post page belong to OTHER games in the
 # sidebar), so the search listing is where a post's own portrait lives.
 _STEAMRIP_RESULT_RE = re.compile(
-    r'<div class="slide[^"]*" data-back="([^"]+)" data-eio-rwidth="(\d+)" data-eio-rheight="(\d+)"[^>]*>\s*'
+    r'<div [^>]*?class="slide[^"]*" data-back="([^"]+)" data-eio-rwidth="(\d+)" data-eio-rheight="(\d+)"[^>]*>\s*'
     r'<a href="([^"]+)" class="all-over-thumb-link"><span class="screen-reader-text">([^<]*)</span>'
 )
 
