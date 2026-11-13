@@ -1,5 +1,32 @@
 [
   {
+    "title": "EA SPORTS FC 27 (v1.2.0)",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/ea-sports-fc-27-portrait-steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "EA SPORTS FC 27",
+    "banner_confidence": 1,
+    "system_requirements": {
+      "OS": "Windows 10/11 – 64-Bit (Latest Update).",
+      "Processor": "AMD Ryzen 5 1600 or Intel Core i5 6600k",
+      "Memory": "DDR4 Dual Channel 8 GB RAM",
+      "Graphics": "AMD RX 570 or Nvidia GTX 1050 Ti",
+      "DirectX": "Version 12",
+      "Network": "Broadband Internet connection",
+      "Storage": "100 GB available space"
+    },
+    "game_info": {
+      "Genre": "Simulation, Sports",
+      "Developer": "EA CANADA, EA Romania",
+      "Platform": "PC",
+      "Game Size": "64.6 GB",
+      "Released By": "RUNE | Ty Elemigos",
+      "Version": "v1.2.0 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/ea-sports-fc-27-free-download/"
+  },
+  {
     "title": "Onimusha: Way of the Sword",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2638890/library_600x900.jpg",
     "banner_status": "verified",
@@ -112961,7 +112988,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Casualties: Unknown",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i3-8130U 2.20 GHz",
@@ -112985,7 +113012,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "DREADMOOR",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 or higher",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -113012,7 +113039,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Warhammer Survivors",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 Home 64-Bit",
       "Processor": "Dual Core 2.4 Ghz x86-64",
@@ -113038,7 +113065,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Terralysia",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64bit",
       "Processor": "Intel Core i5-8400",
@@ -113066,7 +113093,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Cinema Theater Tycoon",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core2 Quad Q8400 or AMD Phenom II X2 550",
@@ -113093,7 +113120,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Annihilated",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 11",
       "Processor": "AMD Ryzen 5 5625U or equivalent",
@@ -113119,7 +113146,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "BOXROOM",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7 SP1+ (64-bit recommended)",
       "Processor": "Intel Core i3-2100 / AMD FX-6300 or better",
@@ -113148,7 +113175,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "DreamWorks Shrek 2 Remastered",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 11 (64-bit)",
       "Processor": "Intel i5-10400 / Ryzen 5 3600",
@@ -113175,7 +113202,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Ashes of the Singularity II",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 / 11 64-bit",
       "Processor": "AMD Ryzen 5 2400G / Intel i5-8500",
@@ -113204,7 +113231,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Wing Commander III: Heart of the Tiger: 30th Anniversary Edition",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "1.8 GHz",
@@ -113231,7 +113258,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "DOOM 3",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Microsoft® Windows® 2000/XP (Does not support Windows Vista/7)",
       "Processor": "Pentium®IV 1.5 GHz or Athlon® XP 1500+ processor or higher",
@@ -113256,40 +113283,12 @@
     "pending_review": true
   },
   {
-    "title": "EA SPORTS FC 27 (v1.2.0)",
-    "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/ea-sports-fc-27-portrait-steamrip.jpg",
-    "banner_status": "verified",
-    "banner_source": "steamrip",
-    "banner_match_title": "EA SPORTS FC 27",
-    "banner_confidence": 1.0,
-    "system_requirements": {
-      "OS": "Windows 10/11 – 64-Bit (Latest Update).",
-      "Processor": "AMD Ryzen 5 1600 or Intel Core i5 6600k",
-      "Memory": "DDR4 Dual Channel 8 GB RAM",
-      "Graphics": "AMD RX 570 or Nvidia GTX 1050 Ti",
-      "DirectX": "Version 12",
-      "Network": "Broadband Internet connection",
-      "Storage": "100 GB available space"
-    },
-    "game_info": {
-      "Genre": "Simulation, Sports",
-      "Developer": "EA CANADA, EA Romania",
-      "Platform": "PC",
-      "Game Size": "64.6 GB",
-      "Released By": "RUNE | Ty Elemigos",
-      "Version": "v1.2.0 | Full Version",
-      "Pre-Installed Game": true
-    },
-    "url": "https://steamrip.com/ea-sports-fc-27-free-download/",
-    "pending_review": true
-  },
-  {
     "title": "Strategic Command WWII: War in the Pacific",
     "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2740080/library_600x900.jpg",
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Strategic Command WWII: War in the Pacific",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "64-bit Windows 10",
       "Processor": "1.5GHZ Processor or Equivalent",
