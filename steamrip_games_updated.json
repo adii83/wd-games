@@ -113987,5 +113987,31 @@
     },
     "url": "https://steamrip.com/memeticbox-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Melvor Idle 2: A RuneScape Adventure",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3218350/library_600x900.jpg",
+    "banner_status": "verified",
+    "banner_source": "Steam",
+    "banner_match_title": "Melvor Idle 2: A RuneScape Adventure",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 7 and later",
+      "Processor": "An Intel Pentium 4 processor or later that’s SSE2 capable",
+      "Memory": "1 GB RAM",
+      "Graphics": "Integrated Graphics",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Casual, Indie, RPG, Early Access",
+      "Developer": "Games by Malcs",
+      "Platform": "PC",
+      "Game Size": "576 MB",
+      "Released By": "RUNE emu",
+      "Version": "Build 26724394 | Early Access",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/melvor-idle-2-a-runescape-adventure-free-download/",
+    "pending_review": true
   }
 ]
