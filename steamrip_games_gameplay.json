@@ -132130,5 +132130,36 @@
       "Jagex"
     ],
     "release_date": "17 Nov, 2026"
+  },
+  "Safari-TV (Build 26728877 + Co-op)": {
+    "steam_appid": 5118500,
+    "steam_name": "Safari-TV",
+    "trailer_hls": "https://video.akamai.steamstatic.com/store_trailers/5118500/785241131/1315ef47b0b976662141d964f897ef72f9ffc0ef/1793986094/hls_264_master.m3u8?t=1794193316",
+    "trailer_thumb": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257405585/998d549da940a5ff5e8b1bc7ac52353d7701a0f0/movie_600x337.jpg?t=1794193316",
+    "screenshots": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/b27f47dd052a394c221ace4b85732f14ab8adf8b/ss_b27f47dd052a394c221ace4b85732f14ab8adf8b.1920x1080.jpg?t=1794872557",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/30e4f4bbe9251369ad60de341a8149c13c27bbf1/ss_30e4f4bbe9251369ad60de341a8149c13c27bbf1.1920x1080.jpg?t=1794872557",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/ed417d2b9e27d9b2d029c4f2ea6572811ed7ae1f/ss_ed417d2b9e27d9b2d029c4f2ea6572811ed7ae1f.1920x1080.jpg?t=1794872557",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/102b6f6fde62dcb60fc4c745b50ae09ea8ce5efb/ss_102b6f6fde62dcb60fc4c745b50ae09ea8ce5efb.1920x1080.jpg?t=1794872557",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/f6e7d846d5c7e12eb4f31590a5f420086af8bed9/ss_f6e7d846d5c7e12eb4f31590a5f420086af8bed9.1920x1080.jpg?t=1794872557"
+    ],
+    "about_the_game": "<h2 class=\"bb_tag\" >Run your own safari agency with friends in 2–4 player co-op.</h2><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/fb0e241fb0ac944d99722041a3198a9c.poster.avif?t=1794872557\" width=1170 height=374 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/fb0e241fb0ac944d99722041a3198a9c.webm?t=1794872557\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/fb0e241fb0ac944d99722041a3198a9c.mp4?t=1794872557\" type=\"video/mp4\"></video></span></p><h2 class=\"bb_tag\" >Drive a physics-based safari truck.</h2><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/f04357f3a08b1295e108434007acf37a.poster.avif?t=1794872557\" width=1170 height=374 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/f04357f3a08b1295e108434007acf37a.webm?t=1794872557\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/f04357f3a08b1295e108434007acf37a.mp4?t=1794872557\" type=\"video/mp4\"></video></span></p><h2 class=\"bb_tag\" >Take care of your tourists and survive unexpected wildlife encounters.</h2><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/a5b69887d11c25d18cf958f4f70c3e89.poster.avif?t=1794872557\" width=1170 height=374 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/a5b69887d11c25d18cf958f4f70c3e89.webm?t=1794872557\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/a5b69887d11c25d18cf958f4f70c3e89.mp4?t=1794872557\" type=\"video/mp4\"></video></span></p><h2 class=\"bb_tag\" >Film your adventures and post videos to gain in-game views and subscribers.</h2><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/72fb448f23d8d724eda35865aa31e48c.poster.avif?t=1794872557\" width=1170 height=374 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/72fb448f23d8d724eda35865aa31e48c.webm?t=1794872557\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/72fb448f23d8d724eda35865aa31e48c.mp4?t=1794872557\" type=\"video/mp4\"></video></span></p><h2 class=\"bb_tag\" >Watch your videos with friends.</h2><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/ec6d86b78564a904896e9fa658404f95.poster.avif?t=1794872557\" width=1170 height=374 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/ec6d86b78564a904896e9fa658404f95.webm?t=1794872557\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/ec6d86b78564a904896e9fa658404f95.mp4?t=1794872557\" type=\"video/mp4\"></video></span></p><h2 class=\"bb_tag\" >Enjoy the chaos and share your funniest moments!</h2><p class=\"bb_paragraph\" ><span class=\"bb_img_ctn\"><video class=\"bb_img\" autoplay muted loop playsinline poster=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/7694431e7dd728e9cd9136bc9dd1dff2.poster.avif?t=1794872557\" width=1170 height=374 ><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/7694431e7dd728e9cd9136bc9dd1dff2.webm?t=1794872557\" type=\"video/webm; codecs=vp9\"><source src=\"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5118500/extras/7694431e7dd728e9cd9136bc9dd1dff2.mp4?t=1794872557\" type=\"video/mp4\"></video></span></p>",
+    "requirements_minimum": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> Win 10<br></li><li><strong>Processor:</strong>  Intel Core i5 @ 2.5 GHz or equivalent<br></li><li><strong>Memory:</strong> 1 MB RAM<br></li><li><strong>Graphics:</strong> GTX 1060 or RX 6600 XT<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 5 GB available space</li></ul>",
+    "requirements_recommended": "<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> Win 11<br></li><li><strong>Processor:</strong> Intel Core i5 @ 3.0 GHz or AMD Ryzen 5 or equivalent<br></li><li><strong>Graphics:</strong> RTX 2060 or RX 7600xt or equivalent<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 5 GB available space</li></ul>",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Indie",
+      "Early Access"
+    ],
+    "developers": [
+      "Mercy Games",
+      "stre1itzia"
+    ],
+    "publishers": [
+      "Mercy Games",
+      "Blue Ocean Games"
+    ],
+    "release_date": "Nov 9, 2026"
   }
 }
