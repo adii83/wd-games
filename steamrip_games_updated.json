@@ -1,5 +1,27 @@
 [
   {
+    "title": "Phantom Blade Zero",
+    "banner_url": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4115450/471e77854910665c03eb9a53ad06f2ac12903acd/library_capsule.jpg",
+    "system_requirements": {
+      "OS": "Windows 10/11 (64bit required)",
+      "Processor": "Intel Core i7-8700K / AMD Ryzen 5 3600",
+      "Memory": "16 GB RAM",
+      "Graphics": "NVIDIA GeForce GTX 1660 6GB / AMD Radeon RX 5500 XT 8GB",
+      "DirectX": "Version 12",
+      "Storage": "145 GB available space",
+      "Additional Notes": "1080p / 30 FPS with upscaling enabled. SSD installation required."
+    },
+    "game_info": {
+      "Genre": "Action, RPG",
+      "Developer": "S-GAME Studio",
+      "Platform": "PC",
+      "Game Size": "151 GB",
+      "Released By": "Steam",
+      "Version": "",
+      "Pre-Installed Game": true
+    }
+  },
+  {
     "title": "EA SPORTS FC 27 (v1.2.0)",
     "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/ea-sports-fc-27-portrait-steamrip.jpg",
     "banner_status": "verified",
@@ -113315,7 +113337,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Slotbound",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel Core i3-6100 / AMD Ryzen 3 1200",
@@ -113343,7 +113365,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Trakonius",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i3-8100 / AMD Ryzen 3 1200",
@@ -113372,7 +113394,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Novus Orbis",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7, 8/8.1, 10, 11",
       "Processor": "2.0 Ghz",
@@ -113398,7 +113420,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Revenge of the Mage",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "64-bit Windows 7, Windows 8.1, Windows 10",
       "Processor": "Intel Core i5-6600K",
@@ -113428,7 +113450,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "After the Wane",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7 Service Pack 1 or later (64bits only)",
       "Processor": "2.0 Ghz (with SSE2 instruction set support)",
@@ -113454,7 +113476,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "The Rusted",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i3-2100 / AMD equivalent",
@@ -113480,7 +113502,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Frontier Tale",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10+",
       "Processor": "Intel(R) Core(TM) i3-3220",
@@ -113506,7 +113528,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "The Strange City",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Window 10",
       "Processor": "Intel CPU Core i5",
@@ -113533,7 +113555,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Hope in the City",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7 (64 bit)",
       "Processor": "i7 2600k",
@@ -113560,7 +113582,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Hazard Levels",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7, 8.1, 10 (64-bit required)",
       "Processor": "Intel Core i5-4460 / AMD FX-6300",
@@ -113587,7 +113609,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Fall of an Empire",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Core i3 2.4GHz",
@@ -113614,7 +113636,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Cozy Game Restoration",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 and Windows 11",
       "Processor": "X64 architecture",
@@ -113643,7 +113665,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Incremental Traffic",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Dual-core 2.5 GHz with SSE4.2 (Intel Core i3-4130 / AMD FX-4300)",
@@ -113669,7 +113691,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Invokyr",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "64-bit Windows 10",
       "Processor": "Inter Core i5-7500 Or AMD Ryzen 5 1600",
@@ -113697,7 +113719,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "STAR WARS: Galactic Racer™",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -113751,7 +113773,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Dice Hoarder",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Intel Core i5-8400",
@@ -113778,7 +113800,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "MATE, This Place is a MESS!",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit, version 21H1 or later",
       "Processor": "Intel Core i5-8400 / AMD Ryzen 5 2600",
@@ -113807,7 +113829,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Setter: Volleyball Manager 27",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Intel Core i3 / AMD Ryzen 3 (dual-core)",
@@ -113834,7 +113856,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "BOOM! Buster",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10",
       "Processor": "Intel or AMD Dual Core CPU",
@@ -113859,7 +113881,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Valiant Hearts: The Great War / Soldats Inconnus : Mémoires de la Grande Guerre",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Originally released for Windows 7, the game can be played on Windows 10 and Windows 11 OS",
       "Processor": "Intel Pentium IV 630 @ 3.0 GHz or AMD Athlon64 3000 + @ 1.8 GHz",
@@ -113888,7 +113910,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Bruisers 2D Boxing",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 (64-bit)",
       "Processor": "Dual-core 2.0 GHz",
@@ -113916,7 +113938,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Horses of Hoofprint Bay",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 version 21H1 (build 19043) or newer",
       "Processor": "x86, x64 architecture with SSE2 instruction set support, Arm64"
@@ -113939,7 +113961,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "Geoplanetical",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64 bits",
       "Processor": "i5-8400 / Ryzen 5 2600",
@@ -113967,7 +113989,7 @@
     "banner_status": "verified",
     "banner_source": "steamrip",
     "banner_match_title": "MemeticBox",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 10 64-bit",
       "Processor": "Dual-core 2.5 GHz (Intel Core i3 / AMD equivalent)",
@@ -113994,7 +114016,7 @@
     "banner_status": "verified",
     "banner_source": "Steam",
     "banner_match_title": "Melvor Idle 2: A RuneScape Adventure",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Windows 7 and later",
       "Processor": "An Intel Pentium 4 processor or later that’s SSE2 capable",
@@ -114020,7 +114042,7 @@
     "banner_status": "verified",
     "banner_source": "SteamGridDB",
     "banner_match_title": "Safari-TV",
-    "banner_confidence": 1.0,
+    "banner_confidence": 1,
     "system_requirements": {
       "OS": "Win 10",
       "Processor": "Intel Core i5 @ 2.5 GHz or equivalent",
