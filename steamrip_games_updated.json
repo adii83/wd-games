@@ -114063,5 +114063,59 @@
     },
     "url": "https://steamrip.com/safari-tv-free-download/",
     "pending_review": true
+  },
+  {
+    "title": "Dungeonbound (v1.0.15)",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/dungeonbound-portrait-steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Dungeonbound",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10 (64-bit)",
+      "Processor": "Dual-core 2.0 GHz or higher",
+      "Memory": "2 GB RAM",
+      "Graphics": "Integrated graphics (e.g., Intel HD Graphics) or equivalent; dedicated GPU not necessary",
+      "DirectX": "Version 10",
+      "Storage": "300 MB available space"
+    },
+    "game_info": {
+      "Genre": "Adventure, Indie, RPG, Strategy",
+      "Developer": "louidev",
+      "Platform": "PC",
+      "Game Size": "282 MB",
+      "Released By": "Mr_GOLDBERG emu",
+      "Version": "v1.0.15 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/dungeonbound-free-download/",
+    "pending_review": true
+  },
+  {
+    "title": "Zombies Aren’t Real (v0.43.1)",
+    "banner_url": "https://steamrip.com/wp-content/uploads/2026/11/zombies-arent-real-portrait-steamrip.jpg",
+    "banner_status": "verified",
+    "banner_source": "steamrip",
+    "banner_match_title": "Zombies Aren’t Real",
+    "banner_confidence": 1.0,
+    "system_requirements": {
+      "OS": "Windows 10/11 64-bit",
+      "Processor": "4-core CPU at 3.0 GHz with SSE4.2 (Intel Core i5-6500 / AMD Ryzen 3 1200)",
+      "Memory": "8 GB RAM",
+      "Graphics": "DirectX 11 GPU with 2 GB VRAM (Intel UHD 620 / GeForce GTX 750 Ti / Radeon R7 260X)",
+      "DirectX": "Version 11",
+      "Storage": "2 GB available space"
+    },
+    "game_info": {
+      "Genre": "Strategy, Early Access",
+      "Developer": "Jogamedev",
+      "Platform": "PC",
+      "Game Size": "302 MB",
+      "Released By": "Mr_GOLDBERG emu",
+      "Version": "Build 26692741 | Full Version",
+      "Pre-Installed Game": true
+    },
+    "url": "https://steamrip.com/zombies-arent-real-free-download/",
+    "pending_review": true
   }
 ]
